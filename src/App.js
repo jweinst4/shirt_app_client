@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import First from './components/First.js'
+import ToolBar from './components/ToolBar.js'
 import './App.css';
 
 class App extends Component {
@@ -12,8 +13,13 @@ class App extends Component {
   
     .catch(err => console.log(err))
     return (
-      <div className="App">
+      <div className="app row">
+      <div className = 'first col'>
         <First />
+        </div>
+        <div className = 'toolbar col'>
+        <ToolBar />
+        </div>
       </div>
     );
   }
