@@ -4,6 +4,11 @@
   flex-direction: column;
   width: 40%;
 }
+
+.test-icon > .material-icons {
+  font-size: 100px;
+}
+
 .toolbarContent {
   margin-left: 20px;
 }
