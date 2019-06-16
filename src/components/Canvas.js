@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Konva from 'konva';
-import { render } from 'react-dom';
-import { Stage, Layer, Shape, Line, Circle, Text} from 'react-konva';
+import { Stage, Layer, Shape, Circle, Text} from 'react-konva';
 
 
 class Canvas extends Component {
@@ -36,11 +34,11 @@ class Canvas extends Component {
 
 </Shape>
         
-<Circle x={450} y={200} radius={30} fill={this.props.logo1FillColor} />
-<Text x={430} y={200} text='logo1' fontSize={16} />
+<Circle x={450} y={200} radius={30} fill={this.props.logo1FillColor} draggable />
+<Text x={430} y={200} text='logo1' fontSize={34} draggable />
 
-<Circle x={350} y={200} radius={30} fill={this.props.logo2FillColor}/>
-<Text x={330} y={200} text='logo2   ' fontSize={16} />
+<Circle x={350} y={200} radius={30} fill={this.props.logo2FillColor}draggable />
+<Text x={330} y={200} text='logo2' fontSize={34} draggable />
 
 
         </Layer>
