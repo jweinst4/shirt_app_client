@@ -8,9 +8,9 @@ import './App.css';
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3001'
+  baseURL = 'http://localhost:3000'
 } else {
-  baseURL = 'https://awesome-app-client.herokuapp.com/'
+  baseURL = 'https://shirt-api.herokuapp.com'
 }
 
 console.log('current base URL:', baseURL)
@@ -42,7 +42,7 @@ class App extends Component {
     }
   
     deleteItem(id) {
-    fetch(baseURL + 'users/' + id, {
+    fetch(baseURL + '/users/' + id, {
       method: 'DELETE'
     })
       .then(response => {

@@ -3,9 +3,9 @@ import React from 'react'
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3001'
+  baseURL = 'http://localhost:3000'
 } else {
-  baseURL = 'https://awesome-app-client.herokuapp.com/'
+  baseURL = 'https://shirt-api.herokuapp.com'
 }
 
 
@@ -29,7 +29,7 @@ class NewForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault()
     
-        fetch(baseURL + 'users', {
+        fetch(baseURL + '/users', {
             method: 'POST',
             body: JSON.stringify({
                 name: this.state.name,
