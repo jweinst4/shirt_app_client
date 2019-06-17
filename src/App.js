@@ -5,7 +5,15 @@ import NewForm from './components/NewForm.js'
 // import UpdateForm from './components/UpdateForm.js'
 import './App.css';
 
-let baseURL = 'https://shirt-api.herokuapp.com'
+let baseURL = process.env.REACT_APP_BASEURL
+
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:3001'
+} else {
+  baseURL = 'https://awesome-app-client.herokuapp.com/'
+}
+
+console.log('current base URL:', baseURL)
 
 class App extends Component {
 
@@ -89,7 +97,7 @@ handleEditItem(resJSON) {
     return (
       <div className="app row">
       <div className = 'first col'>
-      <NewForm handleAddItem={this.state.handleAddItem} />
+      <NewForm handleAddItem={this.handleAddItem} />
         <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} logo1TextColor={this.state.logo1TextColor} logo2TextColor={this.state.logo2TextColor} shirtStrokeColor={this.state.shirtStrokeColor}/>
         </div>
         <div className = 'toolbar col'>

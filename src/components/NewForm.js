@@ -1,6 +1,12 @@
 import React from 'react'
 
-let baseURL = 'https://shirt-api.herokuapp.com'
+let baseURL = process.env.REACT_APP_BASEURL
+
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:3001'
+} else {
+  baseURL = 'https://awesome-app-client.herokuapp.com/'
+}
 
 
 
