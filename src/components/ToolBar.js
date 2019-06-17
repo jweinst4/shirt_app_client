@@ -8,6 +8,11 @@ class ToolBar extends Component {
       <div className = 'test-icon'>
       <i className="large material-icons">insert_chart</i>
       </div>
+
+      <div className = 'new-form'>
+      
+      
+      </div>
       </div>
     )
   }
