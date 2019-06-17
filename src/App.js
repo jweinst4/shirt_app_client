@@ -5,7 +5,7 @@ import NewForm from './components/NewForm.js'
 // import UpdateForm from './components/UpdateForm.js'
 import './App.css';
 
-let baseURL = 'http://localhost:3000'
+let baseURL = 'https://shirt-api.herokuapp.com'
 
 class App extends Component {
 
@@ -81,7 +81,7 @@ handleEditItem(resJSON) {
 }
    
   render() {
-    fetch('/users/')                                        
+    fetch(baseURL + '/users/')                                        
     .then(response => response.json())                                            
     .then(json => console.log(json))   
   
