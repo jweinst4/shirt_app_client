@@ -1,8 +1,12 @@
 {
   "name": "awesome_app_client",
   "version": "0.1.0",
-  "proxy": "https://shirt-api.herokuapp.com/",
+  "proxy": "https://shirt-api.herokuapp.com",
   "private": true,
+  "engines": {
+    "node": "11.12.0",
+    "npm": "6.7.0"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "konva": "^3.3.3",
