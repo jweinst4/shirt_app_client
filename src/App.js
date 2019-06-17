@@ -42,7 +42,7 @@ class App extends Component {
     }
   
     deleteItem(id) {
-    fetch(baseURL + '/users/' + id, {
+    fetch(baseURL + 'users/' + id, {
       method: 'DELETE'
     })
       .then(response => {

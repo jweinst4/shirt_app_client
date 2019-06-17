@@ -29,7 +29,7 @@ class NewForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault()
     
-        fetch(baseURL + '/users', {
+        fetch(baseURL + 'users', {
             method: 'POST',
             body: JSON.stringify({
                 name: this.state.name,
