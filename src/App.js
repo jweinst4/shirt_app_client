@@ -27,7 +27,7 @@ class App extends Component {
    this.getItem = this.getItem.bind(this)
    this.getItems = this.getItems.bind(this)
    this.handleAddItem = this.handleAddItem.bind(this)
-   this.handleEditItem = this.handleAddItem.bind(this)
+   this.handleEditItem = this.handleEditItem.bind(this)
   }
   componentDidMount(){
     this.getItems()
@@ -89,13 +89,14 @@ handleEditItem(resJSON) {
     return (
       <div className="app row">
       <div className = 'first col'>
+      <NewForm handleAddItem={this.state.handleAddItem} />
         <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} logo1TextColor={this.state.logo1TextColor} logo2TextColor={this.state.logo2TextColor} shirtStrokeColor={this.state.shirtStrokeColor}/>
         </div>
         <div className = 'toolbar col'>
         <ToolBar />
        
         </div>
-        <NewForm handleAddItem={this.state.handleAddItem} />
+       
         
       </div>
     );
