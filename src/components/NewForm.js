@@ -18,12 +18,9 @@ class NewForm extends React.Component {
            name: '',
            age: '',
            size: '',
-           colorname: '',
         }
         this.handleChange = this.handleChange.bind(this)
-        this.handleColorChange = this.handleColorChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleColorSubmit = this.handleColorSubmit.bind(this)
     }
     handleChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value })
@@ -93,16 +90,10 @@ class NewForm extends React.Component {
 
                 <input type="text" id="size" name="size" onChange={this.handleChange} value={this.state.size} />
 
-                <input type="submit" value="Add a Case" />
+                <input type="submit" value="Add a User" />
             </form>
 
-            <div className = 'colorform'>
-            <form className = 'newColor' onSubmit={this.handleColorSubmit}>
-            
-                <input type="text" id="colorname" name="colorname" onChange={this.handleColorChange} value={this.state.colorname}  />
-                <input type="submit" value="Add a Color" />
-            </form>
-            </div>
+           
             </div>
          
         )

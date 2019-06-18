@@ -13,7 +13,9 @@ class First extends Component {
   }
 
   changeShirtColorHere(item) {
+    console.log(item)
     this.props.changeShirtColor(item);
+    
 
   }
 
