@@ -1,8 +1,28 @@
 import React, { Component } from 'react';
 import { Stage, Layer, Shape, Circle, Text} from 'react-konva';
 
-
+// https://github.com/konvajs/react-konva/issues/256
 class Canvas extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      x: 450,
+      y: 200,
+      circle1X: 450,
+      circle1Y: 200,
+      logo1X: 430,
+      logo1Y: 200,
+      circle2X: 350,
+      circle2Y: 200,
+      logo2X: 330,
+      logo2Y:  200
+    }
+  
+  }
+
+
+
   render() {
     return (
       <Stage width={window.innerWidth} height={window.innerHeight}>
@@ -34,11 +54,11 @@ class Canvas extends Component {
 
 </Shape>
         
-<Circle x={450} y={200} radius={30} fill={this.props.logo1FillColor} draggable />
-<Text x={430} y={200} text='logo1' fontSize={34} draggable />
+<Circle x={this.state.x} y={this.state.y} radius={30} fill={this.props.logo1FillColor} draggable/>
+<Text x={this.state.logo1X} y={this.state.logo1Y} text='logo1' fontSize={34} draggable/>
 
-<Circle x={350} y={200} radius={30} fill={this.props.logo2FillColor}draggable />
-<Text x={330} y={200} text='logo2' fontSize={34} draggable />
+<Circle x={this.state.circle2X} y={this.state.circle2Y} radius={30} fill={this.props.logo2FillColor} draggable/>
+<Text x={this.state.logo2X} y={this.state.logo2Y} text='logo1' fontSize={34} draggable/>
 
 
         </Layer>

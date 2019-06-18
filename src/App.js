@@ -20,15 +20,18 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      shirtFillColor: 'pink',
-      shirtStrokeColor: 'purple',
-      logo1FillColor: 'yellow',
-      logo2FillColor: 'red',
-      logo1TextColor: 'white',
-      logo2TextColor: 'green',
+      shirtFillColor: 'black',
+      shirtStrokeColor: '',
+      logo1FillColor: '',
+      logo2FillColor: '',
+      logo1TextColor: '',
+      logo2TextColor: '',
       items: [],
       item: {},
-      currentItem: []
+      currentItem: [],
+      colors: ['pink','yellow','blue','red','white','black'],
+      logoFillColors: ['pink','yellow','blue','red','white','black'],
+      textColors: ['pink','yellow','blue','red','white','black']
     }
 
   this.deleteItem = this.deleteItem.bind(this)
@@ -36,9 +39,15 @@ class App extends Component {
    this.getItems = this.getItems.bind(this)
    this.handleAddItem = this.handleAddItem.bind(this)
    this.handleEditItem = this.handleEditItem.bind(this)
+   this.changeShirtColor= this.changeShirtColor.bind(this)
   }
   componentDidMount(){
     this.getItems()
+    }
+
+    changeShirtColor(item) {
+      console.log(item)
+      this.setState ({shirtFillColor: item})
     }
   
     deleteItem(id) {
@@ -98,10 +107,10 @@ handleEditItem(resJSON) {
       <div className="app row">
       <div className = 'first col'>
       <NewForm handleAddItem={this.handleAddItem} />
-        <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} logo1TextColor={this.state.logo1TextColor} logo2TextColor={this.state.logo2TextColor} shirtStrokeColor={this.state.shirtStrokeColor}/>
+        <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} logo1TextColor={this.state.logo1TextColor} logo2TextColor={this.state.logo2TextColor} shirtStrokeColor={this.state.shirtStrokeColor} changeShirtColor={this.changeShirtColor} colors={this.state.colors}/>
         </div>
         <div className = 'toolbar col'>
-        <ToolBar />
+        <ToolBar textColors={this.state.textColors} />
        
         </div>
        
