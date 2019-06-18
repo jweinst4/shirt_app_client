@@ -29,6 +29,7 @@ height: 60px;
 width: 60px;
 border-radius: 10px;
 margin: 0px 10px 10px 0px;
+border: 1px solid black;
 }
 
 .logo1-color {
@@ -36,6 +37,7 @@ margin: 0px 10px 10px 0px;
   width: 60px;
   border-radius: 10px;
   margin: 0px 10px 10px 0px;
+  border: 1px solid black;
   }
 
   .logo2-color {
