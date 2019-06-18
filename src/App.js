@@ -20,12 +20,12 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      shirtFillColor: 'black',
-      shirtStrokeColor: '',
-      logo1FillColor: '',
-      logo2FillColor: '',
-      logo1TextColor: '',
-      logo2TextColor: '',
+      shirtFillColor: 'pink',
+      shirtStrokeColor: 'black',
+      logo1FillColor: 'blue',
+      logo2FillColor: 'yellow',
+      logo1TextColor: 'blue',
+      logo2TextColor: 'white',
       items: [],
       item: {},
       currentItem: [],
@@ -40,6 +40,8 @@ class App extends Component {
    this.handleAddItem = this.handleAddItem.bind(this)
    this.handleEditItem = this.handleEditItem.bind(this)
    this.changeShirtColor= this.changeShirtColor.bind(this)
+   this.changeLogo1Color= this.changeLogo1Color.bind(this)
+   this.changeLogo2Color= this.changeLogo2Color.bind(this)
   }
   componentDidMount(){
     this.getItems()
@@ -48,6 +50,16 @@ class App extends Component {
     changeShirtColor(item) {
       console.log(item)
       this.setState ({shirtFillColor: item})
+    }
+
+    changeLogo1Color(item) {
+      console.log(item)
+      this.setState ({logo1FillColor: item})
+    }
+
+    changeLogo2Color(item) {
+      console.log(item)
+      this.setState ({logo2FillColor: item})
     }
   
     deleteItem(id) {
@@ -107,10 +119,10 @@ handleEditItem(resJSON) {
       <div className="app row">
       <div className = 'first col'>
       <NewForm handleAddItem={this.handleAddItem} />
-        <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} logo1TextColor={this.state.logo1TextColor} logo2TextColor={this.state.logo2TextColor} shirtStrokeColor={this.state.shirtStrokeColor} changeShirtColor={this.changeShirtColor} colors={this.state.colors}/>
+        <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} logo1TextColor={this.state.logo1TextColor} logo2TextColor={this.state.logo2TextColor} shirtStrokeColor={this.state.shirtStrokeColor} changeShirtColor={this.changeShirtColor} colors={this.state.colors}  logoFillColors= {this.state.logoFillColors}  textColors= {this.state.textColors}/>
         </div>
         <div className = 'toolbar col'>
-        <ToolBar textColors={this.state.textColors} />
+        <ToolBar  shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} logo1TextColor={this.state.logo1TextColor} logo2TextColor={this.state.logo2TextColor} shirtStrokeColor={this.state.shirtStrokeColor} changeShirtColor={this.changeShirtColor} changeLogo1Color={this.changeLogo1Color} changeLogo2Color={this.changeLogo2Color} colors={this.state.colors}  logoFillColors= {this.state.logoFillColors}  textColors= {this.state.textColors}/>
        
         </div>
        

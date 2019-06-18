@@ -26,28 +26,14 @@ class First extends Component {
 
 
 
-        <h1>First</h1>
-        <Canvas shirtFillColor={this.props.shirtFillColor} logo1FillColor={this.props.logo1FillColor} logo2FillColor={this.props.logo2FillColor} logo1TextColor={this.props.logo1TextColor} logo2TextColor={this.props.logo2TextColor} shirtStrokeColor={this.props.shirtStrokeColor}/>
+      
+       
 
 
-        <div className = 'hello' onClick={() => { 
-                                this.changeShirtColorHere('red') }}><h1>Hello</h1>
-                                </div>
-
-{this.props.colors.map((item, index) => {
-  return (
-  
-    <div className = 'choice' key = {item._id} index = {index} onClick={() => { 
-      this.changeShirtColorHere(item) }} >
-    {item}</div>
- 
-
-    
-     
-        )
-  
-})}
-                            
+        
+                              
+ <Canvas shirtFillColor={this.props.shirtFillColor} logo1FillColor={this.props.logo1FillColor} logo2FillColor={this.props.logo2FillColor} logo1TextColor={this.props.logo1TextColor} logo2TextColor={this.props.logo2TextColor} shirtStrokeColor={this.props.shirtStrokeColor}/>
+                           
         </div>
 
 

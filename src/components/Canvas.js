@@ -25,7 +25,9 @@ class Canvas extends Component {
 
   render() {
     return (
-      <Stage width={window.innerWidth} height={window.innerHeight}>
+
+      <div className = 'canvas-border'>
+      <Stage width={700} height={600}>
         <Layer>
 
             <Shape 
@@ -55,14 +57,15 @@ class Canvas extends Component {
 </Shape>
         
 <Circle x={this.state.x} y={this.state.y} radius={30} fill={this.props.logo1FillColor} draggable/>
-<Text x={this.state.logo1X} y={this.state.logo1Y} text='logo1' fontSize={34} draggable/>
+<Text x={this.state.logo1X} y={this.state.logo1Y} fontSize={16} draggable/>
 
 <Circle x={this.state.circle2X} y={this.state.circle2Y} radius={30} fill={this.props.logo2FillColor} draggable/>
-<Text x={this.state.logo2X} y={this.state.logo2Y} text='logo1' fontSize={34} draggable/>
+<Text x={this.state.logo2X} y={this.state.logo2Y}  fontSize={16} draggable/>
 
 
         </Layer>
       </Stage>
+      </div>
     );
   }
 }

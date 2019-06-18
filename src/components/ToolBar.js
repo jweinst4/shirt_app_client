@@ -9,26 +9,80 @@ class ToolBar extends Component {
      }
 
  this.changeShirtColorHere = this.changeShirtColorHere.bind(this)
+ this.changeLogo1ColorHere = this.changeLogo1ColorHere.bind(this)
+ this.changeLogo2ColorHere = this.changeLogo2ColorHere.bind(this)
   }
 
-changeShirtColorHere() {
-    console.log("hola")
+changeShirtColorHere(item) {
+  this.props.changeShirtColor(item);
   }
+
+  changeLogo1ColorHere(item) {
+    this.props.changeLogo1Color(item);
+    }
+
+    changeLogo2ColorHere(item) {
+      this.props.changeLogo2Color(item);
+      }
+  
 
   render () {
     return (
-      <div className = 'toolbarContent'>
-      <h1>Toolbar</h1>
-      <div className = 'test-icon'>
-      <i className='large material-icons'>insert_chart</i>
+      <div className = 'toolbar-content'>
+ 
+
+ <h4>Shirt Color</h4>
+<div className='row choice-row'>
+
+      {this.props.colors.map((item, index) => {
+  return (
+    
+    <div className = 'shirt-choice col' key = {item._id} index = {index} onClick={() => { 
+      this.changeShirtColorHere(item) }} ><div className = 'col shirt-color' style={{backgroundColor: item}}>
+    &nbsp;</div> </div>
+ 
+
+    
+     
+        )
+  
+})}
+</div>
+
+<h4>Logo1 Color</h4>
+<div className='row choice-row'>
+      {this.props.logoFillColors.map((item, index) => {
+  return (
+  
+    <div className = 'logo1-choice' key = {item._id} index = {index} onClick={() => { 
+      this.changeLogo1ColorHere(item) }} ><div className = 'col logo1-color' style={{backgroundColor: item}}>
+      &nbsp;</div> </div>
+ 
+
+    
+     
+        )
+  
+})}
+</div>
+
+<h4>Logo2 Color</h4>
+<div className='row choice-row'>
+      {this.props.logoFillColors.map((item, index) => {
+  return (
+  
+    <div className = 'logo2-choice' key = {item._id} index = {index} onClick={() => { 
+      this.changeLogo2ColorHere(item) }} ><div className = 'col logo2-color' style={{backgroundColor: item}}>
+    &nbsp;</div> </div>
+     
+        )
+  
+})}
+</div>
+      
       </div>
 
-      <div className = 'new-form'>
-      
-      
-      </div>
-    
-      </div>
+ 
 
      
       
