@@ -38,6 +38,7 @@ class App extends Component {
    this.getItem = this.getItem.bind(this)
    this.getItems = this.getItems.bind(this)
    this.handleAddItem = this.handleAddItem.bind(this)
+   this.handleAddColor = this.handleAddColor.bind(this)
    this.handleEditItem = this.handleEditItem.bind(this)
    this.changeShirtColor= this.changeShirtColor.bind(this)
    this.changeLogo1Color= this.changeLogo1Color.bind(this)
@@ -84,6 +85,17 @@ class App extends Component {
     })
   
   }
+
+  handleAddColor(item) {
+  
+    const copyItems = [...this.state.items]
+    copyItems.unshift(item)
+    this.setState({
+      items: copyItems,
+      name: ''
+    })
+  
+  }
     getItem(item) {
       this.setState({item: item})
     }
@@ -118,7 +130,7 @@ handleEditItem(resJSON) {
     return (
       <div className="app row">
       <div className = 'first col'>
-      <NewForm handleAddItem={this.handleAddItem} />
+      <NewForm handleAddItem={this.handleAddItem} handleAddColor={this.handleAddColor}/>
         <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} logo1TextColor={this.state.logo1TextColor} logo2TextColor={this.state.logo2TextColor} shirtStrokeColor={this.state.shirtStrokeColor} changeShirtColor={this.changeShirtColor} colors={this.state.colors}  logoFillColors= {this.state.logoFillColors}  textColors= {this.state.textColors}/>
         </div>
         <div className = 'toolbar col'>

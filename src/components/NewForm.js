@@ -17,13 +17,21 @@ class NewForm extends React.Component {
             items: [],
            name: '',
            age: '',
-           size: ''
+           size: '',
+           colorname: '',
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleColorChange = this.handleColorChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleColorSubmit = this.handleColorSubmit.bind(this)
     }
     handleChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value })
+    }
+
+    handleColorChange(event) {
+        this.setState({ [event.currentTarget.id]: event.currentTarget.value })
+        console.log(event)
     }
 
     handleSubmit(event) {
@@ -44,12 +52,33 @@ class NewForm extends React.Component {
             this.setState({
                 name: '',
                age: '',
-               size: ''    
+               size: '',  
             })
            
         }).catch(error => console.error({ 'Error': error }))
         
     }
+
+    handleColorSubmit(event) {
+        event.preventDefault()
+    
+        fetch(baseURL + '/colors', {
+            method: 'POST',
+            body: JSON.stringify({
+                colorname: this.state.colorname,
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json()).then(resJSON => {
+            this.props.handleAddColor(resJSON)
+           
+           
+        }).catch(error => console.error({ 'Error': error }))
+        
+    }
+
+
     render() {
         return (
             <div className = "valign-wrapper">
@@ -66,7 +95,16 @@ class NewForm extends React.Component {
 
                 <input type="submit" value="Add a Case" />
             </form>
+
+            <div className = 'colorform'>
+            <form className = 'newColor' onSubmit={this.handleColorSubmit}>
+            
+                <input type="text" id="colorname" name="colorname" onChange={this.handleColorChange} value={this.state.colorname}  />
+                <input type="submit" value="Add a Color" />
+            </form>
             </div>
+            </div>
+         
         )
     }
 }
