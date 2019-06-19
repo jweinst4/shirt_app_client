@@ -17,6 +17,7 @@ class ToolBar extends Component {
      }
 
  this.changeShirtColorHere = this.changeShirtColorHere.bind(this)
+ this.changeLogoURLHere = this.changeLogoURLHere.bind(this)
  this.changeLogo1ColorHere = this.changeLogo1ColorHere.bind(this)
  this.changeLogo2ColorHere = this.changeLogo2ColorHere.bind(this)
 
@@ -42,6 +43,10 @@ changeShirtColorHere(item) {
       this.props.changeLogo2Color(item);
       }
 
+      changeLogoURLHere(item) {
+        this.props.changeLogoURL(item);
+        }
+
   render () {
     return (
       <div className = 'toolbar-content'>
@@ -64,6 +69,7 @@ changeShirtColorHere(item) {
         )
   
 })}
+
 </div>
 
 <h4>Logo1 Color</h4>
@@ -96,6 +102,20 @@ changeShirtColorHere(item) {
   
 })}
 </div>
+
+{this.props.logos.map((item, index) => {
+  return (
+    
+    <div key = {item._id} index = {index} >
+   
+    <p>{item.name}</p></div>
+ 
+
+    
+     
+        )
+  
+})}
       
       </div>
 

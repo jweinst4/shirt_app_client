@@ -10,34 +10,42 @@ if (process.env.NODE_ENV === 'development') {
 
 
 
-class NewColor extends React.Component {
+class NewLogo extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            colors: [],
+            logos: [],
            name: '',
         }
-        this.handleColorChange = this.handleColorChange.bind(this)
-        this.handleColorSubmit = this.handleColorSubmit.bind(this)
+        this.handleLogoChange = this.handleLogoChange.bind(this)
+        this.handleLogoSubmit = this.handleLogoSubmit.bind(this)
     }
-    handleColorChange(event) {
+
+    componentDidMount(){
+        this.props.getLogos()
+        }
+
+    handleLogoChange(event) {
+
         this.setState({ [event.currentTarget.id]: event.currentTarget.value })
         console.log(event.currentTarget.value)
     }
 
-    handleColorSubmit(event) {
+    handleLogoSubmit(event) {
         event.preventDefault()
-    
-        fetch(baseURL + '/colors', {
+        console.log('submitted')
+
+        fetch(baseURL + '/logos', {
             method: 'POST',
             body: JSON.stringify({
                 name: this.state.name,
+                user_id: this.state.user_id,
             }),
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json()).then(resJSON => {
-            this.props.handleAddColor(resJSON)
+            this.props.handleAddLogo(resJSON)
         }).catch(error => console.error({ 'Error': error }))
         
     }
@@ -45,11 +53,14 @@ class NewColor extends React.Component {
     render() {
         return (
             <div className = "valign-wrapper">
-            <form className = 'newColor' onSubmit={this.handleColorSubmit}>
-            
-                <input type="text" id="name" name="name" onChange={this.handleColorChange} value={this.state.name}  />                            
+            <form className = 'newLogo' onSubmit={this.handleLogoSubmit}>
+                
+                <input type="text" id="name" name="name" onChange={this.handleLogoChange} value={this.state.name}  />     
 
-                <input type="submit" value="Add a Shirt Color" />
+               
+                <input type="number" id="user_id" name="user_id" onChange={this.handleLogoChange} defaultValue={2}  />                        
+
+                <input type="submit" value="Add a Logo URL" />
             </form>
 
            
@@ -59,4 +70,4 @@ class NewColor extends React.Component {
     }
 }
 
-export default NewColor
+export default NewLogo
