@@ -26,7 +26,7 @@ class First extends Component {
     
       <div className = 'firstContent'>
        
- <Canvas shirtFillColor={this.props.shirtFillColor} logo1FillColor={this.props.logo1FillColor} logo2FillColor={this.props.logo2FillColor}/>
+ <Canvas shirtFillColor={this.props.shirtFillColor} shirtStrokeColor={this.props.shirtStrokeColor} logo1FillColor={this.props.logo1FillColor} logo2FillColor={this.props.logo2FillColor}/>
                            
         </div>
 
