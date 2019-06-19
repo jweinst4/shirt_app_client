@@ -17,7 +17,6 @@ class ToolBar extends Component {
      }
 
  this.changeShirtColorHere = this.changeShirtColorHere.bind(this)
- this.changeLogoURLHere = this.changeLogoURLHere.bind(this)
  this.changeLogo1ColorHere = this.changeLogo1ColorHere.bind(this)
  this.changeLogo2ColorHere = this.changeLogo2ColorHere.bind(this)
 
@@ -43,10 +42,6 @@ changeShirtColorHere(item) {
       this.props.changeLogo2Color(item);
       }
 
-      changeLogoURLHere(item) {
-        this.props.changeLogoURL(item);
-        }
-
   render () {
     return (
       <div className = 'toolbar-content'>
@@ -69,7 +64,6 @@ changeShirtColorHere(item) {
         )
   
 })}
-
 </div>
 
 <h4>Logo1 Color</h4>
@@ -103,19 +97,35 @@ changeShirtColorHere(item) {
 })}
 </div>
 
-{this.props.logos.map((item, index) => {
+<h4>Users</h4>
+<div className='row choice-row'>
+      {this.props.users.map((item, index) => {
   return (
-    
-    <div key = {item._id} index = {index} >
-   
-    <p>{item.name}</p></div>
- 
+  
+    <div className = 'user-choice' key = {item._id} index = {index} ><div>
+    {item.name}</div> <div className='deleteUser' onClick={() => { this.props.deleteUser(item.id) }}><div className = "valign-wrapper"> <i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i></div>
+                                </div> </div>
 
-    
      
         )
   
 })}
+</div>
+
+<h4>Logos</h4>
+<div className='row choice-row'>
+      {this.props.logos.map((item, index) => {
+  return (
+  
+    <div className = 'logo-choice' key = {item._id} index = {index} ><div>
+    {item.user_id}</div> <div className='deleteLogo' onClick={() => { this.props.deleteLogo(item.id) }}><div className = "valign-wrapper"> <i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i></div>
+                                </div> </div>
+
+     
+        )
+  
+})}
+</div>
       
       </div>
 

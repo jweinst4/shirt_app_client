@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react';
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -14,83 +14,74 @@ class NewForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            items: [],
+            users: [],
            name: '',
-           age: '',
+            age: '',
            size: '',
         }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
-    handleChange(event) {
-        this.setState({ [event.currentTarget.id]: event.currentTarget.value })
+        this.handleUserChange = this.handleUserChange.bind(this)
+        this.handleUserSubmit = this.handleUserSubmit.bind(this)
     }
 
-    handleColorChange(event) {
-        this.setState({ [event.currentTarget.id]: event.currentTarget.value })
-        console.log(event)
+    componentDidMount() {
+        this.props.getUsers()
     }
 
-    handleSubmit(event) {
+    handleUserChange(event) {
+        this.setState({ [event.currentTarget.id]: event.currentTarget.value })
+        console.log(event.currentTarget.value)
+    }
+
+    handleUserSubmit(event) {
         event.preventDefault()
-    
         fetch(baseURL + '/users', {
             method: 'POST',
             body: JSON.stringify({
                 name: this.state.name,
-                age:this.state.age,
-                size:this.state.size,
+                age: this.state.age,
+                size: this.state.size,
             }),
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json()).then(resJSON => {
-            this.props.handleAddItem(resJSON)
+            this.props.handleAddUser(resJSON)
             this.setState({
                 name: '',
                age: '',
                size: '',  
             })
-           
         }).catch(error => console.error({ 'Error': error }))
         
     }
-
-    handleColorSubmit(event) {
-        event.preventDefault()
-    
-        fetch(baseURL + '/colors', {
-            method: 'POST',
-            body: JSON.stringify({
-                colorname: this.state.colorname,
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json()).then(resJSON => {
-            this.props.handleAddColor(resJSON)
-           
-           
-        }).catch(error => console.error({ 'Error': error }))
-        
-    }
-
 
     render() {
         return (
             <div className = "valign-wrapper">
-            <form className = 'newForm' onSubmit={this.handleSubmit}>
-               <label htmlFor="name"><span className = "newFormText">Name: </span></label>
-                <input type="text" id="name" name="name" onChange={this.handleChange} value={this.state.name}  />
+            <form className = 'newUser' onSubmit={this.handleUserSubmit}>
 
-                <label htmlFor="age"><span className = "newFormText">Age: </span></label>
-                <input type="text" id="age" name="age" onChange={this.handleChange} value={this.state.age}  />
+            <div className = 'newFormItem'>
+            <label htmlFor="name"><div className = "newFormText">Name: </div></label>
+                <input type="text" id="name" name="name" onChange={this.handleUserChange} value={this.state.name}  /> 
+                </div>
+       
+            
+                    
 
-                <label htmlFor="size"><span className = "newFormText">Size: </span></label>
-
-                <input type="text" id="size" name="size" onChange={this.handleChange} value={this.state.size} />
-
+                <div className = 'newFormItem'>
+<label htmlFor="age"><div className = "newFormText">Age: </div></label>
+                <input type="number" id="age" name="age" onChange={this.handleUserChange} value={this.state.age}  />
+                </div>
+                
+                <div className = 'newFormItem'>
+                <label htmlFor="size"><div className = "newFormText">Size: </div></label>
+                <input type="text" id="size" name="size" onChange={this.handleUserChange} value={this.state.size}  />
+              
+                </div>
+                                       
+                <div className = 'newFormItem'>
                 <input type="submit" value="Add a User" />
+                </div>
             </form>
 
            

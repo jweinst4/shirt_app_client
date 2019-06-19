@@ -10,31 +10,30 @@ if (process.env.NODE_ENV === 'development') {
 
 
 
-class NewLogo extends React.Component {
+class NewForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             logos: [],
            name: '',
+        user_id: '',
         }
         this.handleLogoChange = this.handleLogoChange.bind(this)
         this.handleLogoSubmit = this.handleLogoSubmit.bind(this)
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.getLogos()
-        }
+    }
 
     handleLogoChange(event) {
-
         this.setState({ [event.currentTarget.id]: event.currentTarget.value })
         console.log(event.currentTarget.value)
     }
 
     handleLogoSubmit(event) {
+        console.log(event)
         event.preventDefault()
-        console.log('submitted')
-
         fetch(baseURL + '/logos', {
             method: 'POST',
             body: JSON.stringify({
@@ -45,7 +44,12 @@ class NewLogo extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json()).then(resJSON => {
+            console.log(resJSON)
             this.props.handleAddLogo(resJSON)
+            this.setState({
+                name: '',
+               user_id: '',
+            })
         }).catch(error => console.error({ 'Error': error }))
         
     }
@@ -54,13 +58,20 @@ class NewLogo extends React.Component {
         return (
             <div className = "valign-wrapper">
             <form className = 'newLogo' onSubmit={this.handleLogoSubmit}>
-                
-                <input type="text" id="name" name="name" onChange={this.handleLogoChange} value={this.state.name}  />     
 
-               
-                <input type="number" id="user_id" name="user_id" onChange={this.handleLogoChange} defaultValue={2}  />                        
+            <div className = 'newFormItem'>
+            <label htmlFor="name"><div className = "newLogoText">Logo URL: </div></label>
+                <input type="text" id="name" name="name" onChange={this.handleLogoChange} value={this.state.name}  />  
+                </div>   
 
-                <input type="submit" value="Add a Logo URL" />
+                <div className = 'newFormItem'>
+                <label htmlFor="user_id"><div className = "newLogoText">user_id: </div></label>
+                <input type="number" id="user_id" name="user_id" onChange={this.handleLogoChange} value={this.state.user_id}  />     
+                </div>
+
+                <div className = 'newFormItem'>
+                <input type="submit" value="Add a Logo" />
+                </div>
             </form>
 
            
@@ -70,4 +81,4 @@ class NewLogo extends React.Component {
     }
 }
 
-export default NewLogo
+export default NewForm

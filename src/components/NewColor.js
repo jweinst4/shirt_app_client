@@ -20,6 +20,10 @@ class NewColor extends React.Component {
         this.handleColorChange = this.handleColorChange.bind(this)
         this.handleColorSubmit = this.handleColorSubmit.bind(this)
     }
+
+    componentDidMount() {
+        this.props.getColors()
+    }
     handleColorChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value })
         console.log(event.currentTarget.value)
@@ -46,7 +50,7 @@ class NewColor extends React.Component {
         return (
             <div className = "valign-wrapper">
             <form className = 'newColor' onSubmit={this.handleColorSubmit}>
-            
+            <label htmlFor="name"><span className = "newColorText">Color: </span></label>
                 <input type="text" id="name" name="name" onChange={this.handleColorChange} value={this.state.name}  />                            
 
                 <input type="submit" value="Add a Shirt Color" />

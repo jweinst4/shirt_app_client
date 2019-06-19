@@ -8,8 +8,9 @@ class First extends Component {
     this.state = {
       currentShirtColor: this.props.shirtFillColor
      }
+     this.changeShirtColorHere = this.changeShirtColorHere.bind(this)
 
- this.changeShirtColorHere = this.changeShirtColorHere.bind(this)
+ 
   }
 
   changeShirtColorHere(item) {
@@ -24,17 +25,8 @@ class First extends Component {
     return (
     
       <div className = 'firstContent'>
-
-
-
-
-      
        
-
-
-        
-                              
- <Canvas shirtFillColor={this.props.shirtFillColor} logo1FillColor={this.props.logo1FillColor} logo2FillColor={this.props.logo2FillColor} logo1TextColor={this.props.logo1TextColor} logo2TextColor={this.props.logo2TextColor} shirtStrokeColor={this.props.shirtStrokeColor}/>
+ <Canvas shirtFillColor={this.props.shirtFillColor} logo1FillColor={this.props.logo1FillColor} logo2FillColor={this.props.logo2FillColor}/>
                            
         </div>
 

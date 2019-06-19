@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import First from './components/First.js'
-import ToolBar from './components/ToolBar.js'
-import NewForm from './components/NewForm.js'
 import NewColor from './components/NewColor.js'
+import NewForm from './components/NewForm.js'
 import NewLogo from './components/NewLogo.js'
-// import UpdateForm from './components/UpdateForm.js'
+import ToolBar from './components/ToolBar.js'
+
 import './App.css';
 
 let baseURL = process.env.REACT_APP_BASEURL
@@ -22,48 +22,42 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      shirtFillColor: 'white',
       shirtStrokeColor: 'black',
       logo1FillColor: 'blue',
       logo2FillColor: 'yellow',
       logo1TextColor: 'blue',
       logo2TextColor: 'white',
+      shirtFillColor: 'pink',
+      logoFillColors: ['pink','yellow','blue','red','white','black'],
+      textColors: ['pink','yellow','blue','red','white','black'],
       items: [],
       item: {},
-      newColors: [],
-      newColor: {},
-      currentItem: [],
       colors: [],
       color: {},
       logos: [],
       logo: {},
-      logoFillColors: ['pink','yellow','blue','red','white','black'],
-      textColors: ['pink','yellow','blue','red','white','black']
+      users: [],
+      user: {},
     }
 
-  this.deleteItem = this.deleteItem.bind(this)
   this.deleteColor = this.deleteColor.bind(this)
-  this.deleteLogo = this.deleteLogo.bind(this)
-   this.getItem = this.getItem.bind(this)
-   this.getItems = this.getItems.bind(this)
-   this.getColor = this.getColor.bind(this)
-   this.getColors = this.getColors.bind(this)
-   this.getLogo = this.getLogo.bind(this)
-   this.getLogos = this.getLogos.bind(this)
-   this.handleAddItem = this.handleAddItem.bind(this)
-   this.handleAddColor = this.handleAddColor.bind(this)
-   this.handleAddLogo = this.handleAddLogo.bind(this)
-   this.handleEditItem = this.handleEditItem.bind(this)
-   this.changeShirtColor= this.changeShirtColor.bind(this)
-   this.changeLogo1Color= this.changeLogo1Color.bind(this)
-   this.changeLogo2Color= this.changeLogo2Color.bind(this)
-   this.changeLogoURL= this.changeLogoURL.bind(this)
-  }
-  componentDidMount(){
-    this.getItems()
-    }
+  this.getColors = this.getColors.bind(this)
+  this.handleAddColor = this.handleAddColor.bind(this)
 
-    changeShirtColor(item) {
+  this.deleteUser = this.deleteUser.bind(this)
+  this.getUsers = this.getUsers.bind(this)
+  this.handleAddUser = this.handleAddUser.bind(this)
+
+  this.deleteLogo = this.deleteLogo.bind(this)
+  this.getLogos = this.getLogos.bind(this)
+  this.handleAddLogo = this.handleAddLogo.bind(this)
+
+  this.changeShirtColor= this.changeShirtColor.bind(this)
+  this.changeLogo1Color= this.changeLogo1Color.bind(this)
+  this.changeLogo2Color= this.changeLogo2Color.bind(this)
+
+  }
+ changeShirtColor(item) {
       this.setState ({shirtFillColor: item.name})
     }
 
@@ -74,33 +68,8 @@ class App extends Component {
     changeLogo2Color(item) {
       this.setState ({logo2FillColor: item})
     }
-  
-    changeLogoURL() {
-      console.log('placeholder')
-    }
-    deleteItem(id) {
-    fetch(baseURL + '/users/' + id, {
-      method: 'DELETE'
-    })
 
-      .then(response => {
-        const findIndex = this.state.items.findIndex(item => item._id === id)
-        const copyItems = [...this.state.items]
-        copyItems.splice(findIndex, 1)
-        this.setState({items: copyItems})
-      })
-  }
-  
-    handleAddItem(item) {
-  
-    const copyItems = [...this.state.items]
-    copyItems.unshift(item)
-    this.setState({
-      items: copyItems,
-      name: ''
-    })
-  
-  }
+
 
   handleAddColor(color) {
     console.log(color)
@@ -113,6 +82,19 @@ class App extends Component {
     })
   }
 
+  handleAddUser(user) {
+    console.log(user)
+    this.getUsers()
+    const copyUsers = [...this.state.users]
+    copyUsers.unshift(user.name)
+    this.setState({
+      users: copyUsers,
+      name: '',
+      age: '',
+      size: '',
+    })
+  }
+
   handleAddLogo(logo) {
     console.log(logo)
     this.getLogos()
@@ -120,9 +102,13 @@ class App extends Component {
     copyLogos.unshift(logo.name)
     this.setState({
       logos: copyLogos,
-      name: ''
+      name: '',
+      user_id: '',
     })
   }
+
+
+
 
   deleteColor(id) {
 
@@ -138,6 +124,18 @@ class App extends Component {
     
 }
 
+deleteUser(id) {
+
+  fetch(baseURL + '/users/' + id, { method: 'DELETE' }).then(response => {
+      const findIndex = this.state.users.findIndex(user => user.id === id)
+      const copyUsers = [...this.state.users]
+      copyUsers.splice(findIndex, 1)
+      this.setState({ users: copyUsers })
+      console.log(this.state.users)
+  })
+  
+}
+
 deleteLogo(id) {
 
   fetch(baseURL + '/logos/' + id, { method: 'DELETE' }).then(response => {
@@ -145,22 +143,9 @@ deleteLogo(id) {
       const copyLogos = [...this.state.logos]
       copyLogos.splice(findIndex, 1)
       this.setState({ logos: copyLogos })
-      console.log(this.state.logos)    
   })
   
 }
-    getItem(item) {
-      this.setState({item: item})
-    }
-    
-    getItems() {
-     fetch(baseURL+ '/users')
-       .then(data => {
-         return data.json()},
-         err => console.log(err))
-       .then(parsedData => this.setState({items: parsedData}),
-        err=> console.log(err))
-   }
 
    getColors() {
     fetch(baseURL+ '/colors')
@@ -170,11 +155,18 @@ deleteLogo(id) {
       .then(parsedData => this.setState({colors: parsedData}),
       
        err=> console.log(err))
-
+    
   }
 
-   getColor(color) {
-    this.setState({color: color})
+  getUsers() {
+    fetch(baseURL+ '/users')
+      .then(data => {
+        return data.json()},
+        err => console.log(err))
+      .then(parsedData => this.setState({users: parsedData}),
+      
+       err=> console.log(err))
+    
   }
 
   getLogos() {
@@ -185,52 +177,36 @@ deleteLogo(id) {
       .then(parsedData => this.setState({logos: parsedData}),
       
        err=> console.log(err))
-
-  }
-
-   getLogo(logo) {
-    this.setState({logo: logo})
-  }
-   
-handleEditItem(resJSON) {
-  const copyEditItems = [...this.state.items]
-
-  const findIndex = this.state.items.findIndex(item =>item._id === resJSON._id)
-  copyEditItems[findIndex] = resJSON
-  this.setState({
-     items: copyEditItems
-  })
-  this.setState({ edit: false })
-}
-   
-  render() {
-    fetch(baseURL + '/users/')                                        
-    .then(response => response.json())                                            
-      .catch(err => console.log(err))
-
-    fetch(baseURL + '/colors/')                                        
-    .then(response => response.json()) 
     
-    fetch(baseURL + '/logos/')                                        
-    .then(response => response.json())
-  
-    .catch(err => console.log(err))
+  }
+
+  render() {
+
     return (
       <div className="app row">
       <div className = 'first col'>
-      <NewForm handleAddItem={this.handleAddItem}/>
-      <NewColor handleAddColor={this.handleAddColor}/>
-      <NewLogo handleAddLogo={this.handleAddLogo}  getLogos = {this.getLogos}/>
+      <div className = 'row new-item-row'>
+    <div className = 'col new-item-col'>
+      <NewColor handleAddColor={this.handleAddColor} getColors={this.getColors}/>
+      </div>
+      <div className = 'col new-item-col'>
+      <NewForm handleAddUser={this.handleAddUser} getUsers={this.getUsers}/>
+      </div>
+      <div className = 'col new-item-col'>
+      <NewLogo handleAddLogo={this.handleAddLogo} getLogos={this.getLogos}/>
+      </div>
+      </div>
+
+      <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} changeShirtColor={this.changeShirtColor} colors={this.state.colors} />
+
 
      
-
-
-        <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} logo1TextColor={this.state.logo1TextColor} logo2TextColor={this.state.logo2TextColor} shirtStrokeColor={this.state.shirtStrokeColor} changeShirtColor={this.changeShirtColor} colors={this.state.colors} logos={this.state.logos}  logoFillColors= {this.state.logoFillColors}  textColors= {this.state.textColors}/>
 
         
         </div>
         <div className = 'toolbar col'>
-        <ToolBar  shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} logo1TextColor={this.state.logo1TextColor} logo2TextColor={this.state.logo2TextColor} shirtStrokeColor={this.state.shirtStrokeColor} changeShirtColor={this.changeShirtColor} changeLogo1Color={this.changeLogo1Color} changeLogo2Color={this.changeLogo2Color} colors={this.state.colors}  logos={this.state.logos}  logoFillColors= {this.state.logoFillColors}  textColors= {this.state.textColors} deleteColor = {this.deleteColor}  getColors = {this.getColors}  deleteLogo = {this.deleteLogo}  getLogos = {this.getLogos}/>
+        <ToolBar  shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor}changeShirtColor={this.changeShirtColor} changeLogo1Color={this.changeLogo1Color} changeLogo2Color={this.changeLogo2Color} colors={this.state.colors}  logoFillColors= {this.state.logoFillColors} deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} users = {this.state.users} logos = {this.state.logos}/>
+  
        
         </div>
        
