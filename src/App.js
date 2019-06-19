@@ -197,7 +197,7 @@ deleteLogo(id) {
       </div>
       </div>
 
-      <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} changeShirtColor={this.changeShirtColor} colors={this.state.colors} />
+      <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} changeShirtColor={this.changeShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor}/>
 
 
      
