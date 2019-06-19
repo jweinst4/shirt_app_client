@@ -38,6 +38,7 @@ class App extends Component {
       logo: {},
       users: [],
       user: {},
+      currentLogo: '',
     }
 
   this.deleteColor = this.deleteColor.bind(this)
@@ -56,9 +57,16 @@ class App extends Component {
   this.changeLogo1Color= this.changeLogo1Color.bind(this)
   this.changeLogo2Color= this.changeLogo2Color.bind(this)
 
+  this.changeCurrentLogo= this.changeCurrentLogo.bind(this)
+
   }
  changeShirtColor(item) {
       this.setState ({shirtFillColor: item.name})
+    }
+
+
+    changeCurrentLogo(item) {
+      this.setState ({currentLogo: item.name})
     }
 
     changeLogo1Color(item) {
@@ -197,15 +205,14 @@ deleteLogo(id) {
       </div>
       </div>
 
-      <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} changeShirtColor={this.changeShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor}/>
+      <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} changeShirtColor={this.changeShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} currentLogo={this.state.currentLogo}/>
 
 
-     
-
-        
         </div>
         <div className = 'toolbar col'>
-        <ToolBar  shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor}changeShirtColor={this.changeShirtColor} changeLogo1Color={this.changeLogo1Color} changeLogo2Color={this.changeLogo2Color} colors={this.state.colors}  logoFillColors= {this.state.logoFillColors} deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} users = {this.state.users} logos = {this.state.logos}/>
+        <ToolBar  shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor}changeShirtColor={this.changeShirtColor} changeLogo1Color={this.changeLogo1Color} changeLogo2Color={this.changeLogo2Color} colors={this.state.colors}  logoFillColors= {this.state.logoFillColors} deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} users = {this.state.users} logos = {this.state.logos} changeCurrentLogo={this.changeCurrentLogo}/>
+
+      
   
        
         </div>

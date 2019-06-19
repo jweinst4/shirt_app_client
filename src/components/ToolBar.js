@@ -118,7 +118,7 @@ changeShirtColorHere(item) {
   return (
   
     <div className = 'logo-choice' key = {item._id} index = {index} ><div>
-    {item.user_id}</div> <div className='deleteLogo' onClick={() => { this.props.deleteLogo(item.id) }}><div className = "valign-wrapper"> <i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i></div>
+    <div className = 'logo-image'><img className = 'logo-final' src = {item.name} onClick={() => { this.props.changeCurrentLogo(item) }}></img></div></div> <div className='deleteLogo' onClick={() => { this.props.deleteLogo(item.id) }}><div className = "valign-wrapper"> <i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i></div>
                                 </div> </div>
 
      

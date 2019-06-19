@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Stage, Layer, Shape, Circle, Text} from 'react-konva';
+import { Stage, Layer, Shape, Circle, Text, Rect} from 'react-konva';
 
 // https://github.com/konvajs/react-konva/issues/256
 class Canvas extends Component {
@@ -18,10 +18,8 @@ class Canvas extends Component {
       logo2X: 330,
       logo2Y:  200
     }
-  
+
   }
-
-
 
   render() {
     return (
@@ -51,9 +49,6 @@ class Canvas extends Component {
             stroke={this.props.shirtStrokeColor}  
             >
 
-
-            
-
 </Shape>
         
 <Circle x={this.state.x} y={this.state.y} radius={30} fill={this.props.logo1FillColor} draggable/>
@@ -61,7 +56,7 @@ class Canvas extends Component {
 
 <Circle x={this.state.circle2X} y={this.state.circle2Y} radius={30} fill={this.props.logo2FillColor} draggable/>
 <Text x={this.state.logo2X} y={this.state.logo2Y}  fontSize={16} draggable/>
-
+       
 
         </Layer>
       </Stage>
