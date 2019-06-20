@@ -1,5 +1,56 @@
 import React, { Component } from 'react';
-import { Stage, Layer, Shape, Circle, Text, Rect} from 'react-konva';
+import { Stage, Layer, Shape, Image} from 'react-konva';
+import useImage from 'use-image';
+// https://codesandbox.io/s/github/konvajs/site/tree/master/react-demos/images?from-embed
+
+class URLImage extends React.Component {
+  state = {
+    image: null
+  };
+  componentDidMount() {
+    this.loadImage();
+  }
+  componentDidUpdate(oldProps) {
+    if (oldProps.src !== this.props.src) {
+      this.loadImage();
+    }
+  }
+  componentWillUnmount() {
+    this.image.removeEventListener('load', this.handleLoad);
+  }
+  loadImage() {
+    // save to "this" to remove "load" handler on unmount
+    this.image = new window.Image();
+    this.image.src = this.props.src;
+    this.image.addEventListener('load', this.handleLoad);
+  }
+  handleLoad = () => {
+    // after setState react-konva will update canvas and redraw the layer
+    // because "image" property is changed
+    this.setState({
+      image: this.image
+    });
+    // if you keep same image object during source updates
+    // you will have to update layer manually:
+    // this.imageNode.getLayer().batchDraw();
+  };
+  render() {
+    return (
+      <Image
+        x={280}
+        y={150}
+        width={100}
+        height={100}
+        image={this.state.image}
+        ref={node => {
+          this.imageNode = node;
+        }}
+      />
+    );
+  }
+}
+
+
 
 // https://github.com/konvajs/react-konva/issues/256
 class Canvas extends Component {
@@ -19,7 +70,10 @@ class Canvas extends Component {
       logo2Y:  200
     }
 
+    
   }
+
+ 
 
   render() {
     return (
@@ -48,15 +102,11 @@ class Canvas extends Component {
             fill={this.props.shirtFillColor}
             stroke={this.props.shirtStrokeColor}  
             >
-
+ 
 </Shape>
-        
-{/* <Circle x={this.state.x} y={this.state.y} radius={30} fill={this.props.logo1FillColor} draggable/>
-<Text x={this.state.logo1X} y={this.state.logo1Y} fontSize={16} draggable/>
 
-<Circle x={this.state.circle2X} y={this.state.circle2Y} radius={30} fill={this.props.logo2FillColor} draggable/>
-<Text x={this.state.logo2X} y={this.state.logo2Y}  fontSize={16} draggable/> */}
-       
+
+<URLImage src={this.props.currentLogo} />
 
         </Layer>
       </Stage>

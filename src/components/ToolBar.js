@@ -55,7 +55,7 @@ changeShirtColorHere(item) {
     
     <div className = 'shirt-choice col' key = {item._id} index = {index} onClick={() => { 
       this.changeShirtColorHere(item) }} ><div className = 'col shirt-color' style={{backgroundColor: item.name}}>
-    &nbsp;</div><div className='deleteColor' onClick={() => { this.props.deleteColor(item.id) }}><div className = "valign-wrapper"> <i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i></div>
+    &nbsp;</div><div className='deleteColor' onClick={() => { this.props.deleteColor(item.id) }}> <i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i>
                                 </div> </div>
  
 
@@ -101,13 +101,16 @@ changeShirtColorHere(item) {
 <div className='row choice-row'>
       {this.props.users.map((item, index) => {
   return (
-  
-    <div className = 'user-choice' key = {item._id} index = {index} ><div>
-    {item.name}</div> <div className='deleteUser' onClick={() => { this.props.deleteUser(item.id) }}><div className = "valign-wrapper"> <i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i></div>
-                                </div> </div>
 
-     
-        )
+    <div className = 'logo2-choice' key = {item._id} index = {index} >
+      <div className = 'col user-choice'>{item.name}</div> 
+
+      <div className='deleteLogo' onClick={() => { this.props.deleteUser(item.id) }}>
+      <i className="small material-icons">delete</i>
+      </div>
+     </div>
+    
+     )
   
 })}
 </div>
@@ -118,7 +121,7 @@ changeShirtColorHere(item) {
   return (
   
     <div className = 'logo-choice' key = {item._id} index = {index} ><div>
-    <img className = 'logo-final' src = {item.name} onClick={() => { this.props.changeCurrentLogo(item) }}></img></div> <div className='deleteLogo' onClick={() => { this.props.deleteLogo(item.id) }}><div className = "valign-wrapper"> <i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i></div>
+    <div className = 'logo-image'><img className = 'logo-final' src = {item.name} onClick={() => { this.props.changeCurrentLogo(item) }}></img></div></div> <div className='deleteLogo' onClick={() => { this.props.deleteLogo(item.id) }}><i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i>
                                 </div> </div>
 
      
