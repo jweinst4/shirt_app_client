@@ -66,55 +66,6 @@ changeShirtColorHere(item) {
 })}
 </div>
 
-  {/* <h4>Logo1 Color</h4>
-  <div className='row choice-row'>
-        {this.props.logoFillColors.map((item, index) => {
-    return (
-    
-      <div className = 'logo1-choice' key = {item._id} index = {index} onClick={() => { 
-        this.changeLogo1ColorHere(item) }} ><div className = 'col logo1-color' style={{backgroundColor: item}}>
-        &nbsp;</div> </div>
-  
-
-      
-      
-          )
-    
-  })}
-  </div>
-
-  <h4>Logo2 Color</h4>
-  <div className='row choice-row'>
-        {this.props.logoFillColors.map((item, index) => {
-    return (
-    
-      <div className = 'logo2-choice' key = {item._id} index = {index} onClick={() => { 
-        this.changeLogo2ColorHere(item) }} ><div className = 'col logo2-color' style={{backgroundColor: item}}>
-      &nbsp;</div> </div>
-      
-          )
-    
-  })}
-  </div> */}
-
-<h4>Users</h4>
-<div className='row choice-row'>
-      {this.props.users.map((item, index) => {
-  return (
-
-    <div className = 'logo2-choice' key = {item._id} index = {index} >
-      <div className = 'col user-choice'>{item.name}</div> 
-
-      <div className='deleteLogo' onClick={() => { this.props.deleteUser(item.id) }}>
-      <i className="small material-icons">delete</i>
-      </div>
-     </div>
-    
-     )
-  
-})}
-</div>
-
 <h4>Logos (draggable)</h4>
 <div className='row choice-row'>
       {this.props.logos.map((item, index) => {
