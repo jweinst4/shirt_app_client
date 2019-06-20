@@ -41,6 +41,7 @@ class URLImage extends React.Component {
         y={150}
         width={100}
         height={100}
+        draggable
         image={this.state.image}
         ref={node => {
           this.imageNode = node;

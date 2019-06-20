@@ -115,7 +115,7 @@ changeShirtColorHere(item) {
 })}
 </div>
 
-<h4>Logos</h4>
+<h4>Logos (draggable)</h4>
 <div className='row choice-row'>
       {this.props.logos.map((item, index) => {
   return (
