@@ -46,8 +46,9 @@ changeShirtColorHere(item) {
     return (
       <div className = 'toolbar-content'>
  
+ <h4> Note: add text box, add resize option to everything, redo shirt outline, discuss doing canvas shirt vs. real tshirt image (wont be able to adjust shirt color, but can have an actual image for however many colored shirts there are), auth login, look into automatic background removal pricing options.</h4>
 
- <h4>Shirt Color</h4>
+ <h4>Shirt Color (140 available colors)</h4>
 <div className='row choice-row'>
 
       {this.props.colors.map((item, index) => {
@@ -66,7 +67,7 @@ changeShirtColorHere(item) {
 })}
 </div>
 
-<h4>Logos (draggable)</h4>
+<h4>Logos (draggable, also need to buy server space if saving logos, otherwise they have to post the logo on a sitel like imgur, etc.)</h4>
 <div className='row choice-row'>
       {this.props.logos.map((item, index) => {
   return (
