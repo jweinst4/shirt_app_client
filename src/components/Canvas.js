@@ -37,11 +37,23 @@ class URLImage extends React.Component {
   render() {
     return (
       <Image
-        x={270}
-        y={120}
-        width={80}
-        height={80}
+        x={300}
+        y={160}
+        width={100}
+        height={100}
         draggable
+        onDragStart={() => {
+          this.setState({
+            isDragging: true
+          });
+        }}
+        onDragEnd={e => {
+          this.setState({
+            isDragging: false,
+            x: e.target.x(),
+            y: e.target.y()
+          });
+        }}
         image={this.state.image}
         ref={node => {
           this.imageNode = node;
@@ -80,40 +92,27 @@ class Canvas extends Component {
     return (
 
       <div className = 'canvas-border'>
-      <Stage width={700} height={600}>
+      <Stage width={800} height={700}>
         <Layer>
+        
 
-
-        {/* context.beginPath();
-                context.moveTo(300,50);
-                context.quadraticCurveTo(400,200,500,50);
-                context.lineTo(700,250);
-                context.lineTo(650,300);
-                context.lineTo(550,200);
-                context.lineTo(550,500);
-                context.lineTo(250,500);
-                context.lineTo(250,200);
-                context.lineTo(150,300);
-                context.lineTo(100,250);
-                context.lineTo(300,50);
-                context.closePath(); */}
             <Shape 
             sceneFunc={(context,shape) => {
-                context.beginPath();
-                context.moveTo(280,50);
-                context.lineTo(330,50);
-                context.quadraticCurveTo(400,200,470,50);
-                context.lineTo(520,50);
-                context.lineTo(700,250);
-                context.lineTo(650,300);
-                context.lineTo(550,200);
-                context.lineTo(550,500);
-                context.lineTo(250,500);
-                context.lineTo(250,200);
-                context.lineTo(150,300);
-                context.lineTo(100,250);
-                context.lineTo(280,50);
-                context.closePath();
+              context.beginPath();
+              context.lineTo(350,60);
+              context.lineTo(250,100);
+              context.lineTo(100,250);
+              context.lineTo(150,300);
+              context.lineTo(250,200);
+              context.lineTo(250,600);
+              context.lineTo(600,600);
+              context.lineTo(600,200);
+              context.lineTo(700,300);
+              context.lineTo(750,250);
+              context.lineTo(600,100);
+              context.lineTo(500,60);
+              context.quadraticCurveTo(425,140,350,60);
+              context.closePath();
                 context.fillStrokeShape(shape)
             }}
             fill={this.props.shirtFillColor}
