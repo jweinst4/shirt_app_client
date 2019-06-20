@@ -37,10 +37,10 @@ class URLImage extends React.Component {
   render() {
     return (
       <Image
-        x={280}
-        y={150}
-        width={100}
-        height={100}
+        x={270}
+        y={120}
+        width={80}
+        height={80}
         draggable
         image={this.state.image}
         ref={node => {
@@ -83,9 +83,8 @@ class Canvas extends Component {
       <Stage width={700} height={600}>
         <Layer>
 
-            <Shape 
-            sceneFunc={(context,shape) => {
-                context.beginPath();
+
+        {/* context.beginPath();
                 context.moveTo(300,50);
                 context.quadraticCurveTo(400,200,500,50);
                 context.lineTo(700,250);
@@ -97,6 +96,23 @@ class Canvas extends Component {
                 context.lineTo(150,300);
                 context.lineTo(100,250);
                 context.lineTo(300,50);
+                context.closePath(); */}
+            <Shape 
+            sceneFunc={(context,shape) => {
+                context.beginPath();
+                context.moveTo(280,50);
+                context.lineTo(330,50);
+                context.quadraticCurveTo(400,200,470,50);
+                context.lineTo(520,50);
+                context.lineTo(700,250);
+                context.lineTo(650,300);
+                context.lineTo(550,200);
+                context.lineTo(550,500);
+                context.lineTo(250,500);
+                context.lineTo(250,200);
+                context.lineTo(150,300);
+                context.lineTo(100,250);
+                context.lineTo(280,50);
                 context.closePath();
                 context.fillStrokeShape(shape)
             }}
