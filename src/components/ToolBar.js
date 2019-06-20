@@ -46,7 +46,7 @@ changeShirtColorHere(item) {
     return (
       <div className = 'toolbar-content'>
  
- <h4> Note: add text box, add resize option to everything, redo shirt outline, discuss doing canvas shirt vs. real tshirt image (wont be able to adjust shirt color, but can have an actual image for however many colored shirts there are), auth login, look into automatic background removal pricing options.</h4>
+ <h4> Note: add text box, add resize option to everything, redo shirt outline, discuss doing canvas shirt vs. real tshirt image (wont be able to adjust shirt color, but can have an actual image for however many colored shirts there are), auth login, need to buy server space if saving logos (otherwise they have to post the logo on a sitel like imgur, etc.), look into automatic background removal pricing options.</h4>
 
  <h4>Shirt Color (140 available colors)</h4>
 <div className='row choice-row'>
@@ -58,12 +58,8 @@ changeShirtColorHere(item) {
       this.changeShirtColorHere(item) }} ><div className = 'col shirt-color' style={{backgroundColor: item.name}}>
     &nbsp;</div><div className='deleteColor' onClick={() => { this.props.deleteColor(item.id) }}> <i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i>
                                 </div> </div>
- 
 
-    
-     
-        )
-  
+        )  
 })}
 </div>
 
