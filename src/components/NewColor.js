@@ -25,8 +25,7 @@ class NewColor extends React.Component {
         this.props.getColors()
     }
     handleColorChange(event) {
-        this.setState({ [event.currentTarget.id]: event.currentTarget.value })
-        console.log(event.currentTarget.value)
+        this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
     }
 
     handleColorSubmit(event) {

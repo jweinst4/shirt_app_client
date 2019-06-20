@@ -38,9 +38,9 @@ class URLImage extends React.Component {
     return (
       <Image
         x={300}
-        y={160}
-        width={100}
-        height={100}
+        y={170}
+        width={130}
+        height={45}
         draggable
         onDragStart={() => {
           this.setState({

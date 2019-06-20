@@ -80,7 +80,7 @@ class App extends Component {
 
 
   handleAddColor(color) {
-    console.log(color)
+  
     this.getColors()
     const copyColors = [...this.state.colors]
     copyColors.unshift(color.name)
@@ -91,7 +91,7 @@ class App extends Component {
   }
 
   handleAddUser(user) {
-    console.log(user)
+  
     this.getUsers()
     const copyUsers = [...this.state.users]
     copyUsers.unshift(user.name)
@@ -104,7 +104,7 @@ class App extends Component {
   }
 
   handleAddLogo(logo) {
-    console.log(logo)
+  
     this.getLogos()
     const copyLogos = [...this.state.logos]
     copyLogos.unshift(logo.name)
@@ -125,7 +125,7 @@ class App extends Component {
         const copyColors = [...this.state.colors]
         copyColors.splice(findIndex, 1)
         this.setState({ colors: copyColors })
-        console.log(this.state.colors)
+        
         this.setState({shirtFillColor: this.state.colors[0].name})
       
     })
@@ -139,7 +139,7 @@ deleteUser(id) {
       const copyUsers = [...this.state.users]
       copyUsers.splice(findIndex, 1)
       this.setState({ users: copyUsers })
-      console.log(this.state.users)
+      
   })
   
 }

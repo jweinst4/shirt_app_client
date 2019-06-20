@@ -29,7 +29,7 @@ class NewForm extends React.Component {
 
     handleUserChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value })
-        console.log(event.currentTarget.value)
+        
     }
 
     handleUserSubmit(event) {

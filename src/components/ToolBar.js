@@ -21,7 +21,7 @@ class ToolBar extends Component {
  this.changeLogo2ColorHere = this.changeLogo2ColorHere.bind(this)
 
   }
-
+ 
 
   componentDidMount(){
     this.props.getColors()
@@ -45,8 +45,11 @@ changeShirtColorHere(item) {
   render () {
     return (
       <div className = 'toolbar-content'>
- 
- <h4> Note: add text box, add resize option to everything, redo shirt outline, discuss doing canvas shirt vs. real tshirt image (wont be able to adjust shirt color, but can have an actual image for however many colored shirts there are), auth login, need to buy server space if saving logos (otherwise they have to post the logo on a sitel like imgur, etc.), look into automatic background removal pricing options.</h4>
+
+
+{/*  
+ <div className = 'note-section'> <h4> Note: add text box, add resize option to everything, redo shirt outline, discuss doing canvas shirt vs. real tshirt image (wont be able to adjust shirt color, but can have an actual image for however many colored shirts there are), auth login, need to buy server space if saving logos (otherwise they have to post the logo on a sitel like imgur, etc.), look into automatic background removal pricing options.</h4></div> */}
+
 
  <h4>Shirt Color (140 available colors)</h4>
 <div className='row choice-row'>
@@ -56,12 +59,15 @@ changeShirtColorHere(item) {
     
     <div className = 'shirt-choice col' key = {item._id} index = {index} onClick={() => { 
       this.changeShirtColorHere(item) }} ><div className = 'col shirt-color' style={{backgroundColor: item.name}}>
-    &nbsp;</div><div className='deleteColor' onClick={() => { this.props.deleteColor(item.id) }}> <i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i>
+    &nbsp;</div><div className='deleteColor' onClick={() => { this.props.deleteColor(item.id) }}> <i className="small material-icons"><div className = "edit-delete-icon">delete</div></i>
                                 </div> </div>
 
         )  
 })}
 </div>
+
+
+
 
 <h4>Logos (draggable, also need to buy server space if saving logos, otherwise they have to post the logo on a sitel like imgur, etc.)</h4>
 <div className='row choice-row'>

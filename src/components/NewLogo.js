@@ -28,11 +28,11 @@ class NewForm extends React.Component {
 
     handleLogoChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value })
-        console.log(event.currentTarget.value)
+        
     }
 
     handleLogoSubmit(event) {
-        console.log(event)
+        
         event.preventDefault()
         fetch(baseURL + '/logos', {
             method: 'POST',
@@ -44,7 +44,7 @@ class NewForm extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json()).then(resJSON => {
-            console.log(resJSON)
+            
             this.props.handleAddLogo(resJSON)
             this.setState({
                 name: '',
