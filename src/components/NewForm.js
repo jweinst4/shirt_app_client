@@ -58,7 +58,7 @@ class NewForm extends React.Component {
     render() {
         return (
             <div className = "valign-wrapper">
-            <form className = 'newUser' onSubmit={this.handleUserSubmit}>
+            {/* <form className = 'newUser' onSubmit={this.handleUserSubmit}>
 
             <div className = 'newFormItem'>
             <label htmlFor="name"><div className = "newFormText">Name: </div></label>
@@ -82,7 +82,7 @@ class NewForm extends React.Component {
                 <div className = 'newFormItem'>
                 <input type="submit" value="Add a User" />
                 </div>
-            </form>
+            </form> */}
 
            
             </div>

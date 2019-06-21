@@ -57,22 +57,24 @@ class NewForm extends React.Component {
     render() {
         return (
             <div className = "valign-wrapper">
+            
             <form className = 'newLogo' onSubmit={this.handleLogoSubmit}>
 
-            <div className = 'newFormItem'>
-            <label htmlFor="name"><div className = "newLogoText">Logo URL: </div></label>
+            <div className = 'newLogoItem'>
+            <label htmlFor="name"><span className = "newLogoText">Logo URL: </span></label>
                 <input type="text" id="name" name="name" onChange={this.handleLogoChange} value={this.state.name}  />  
                 </div>   
 
-                <div className = 'newFormItem'>
-                <label htmlFor="user_id"><div className = "newLogoText">user_id: </div></label>
+                <div className = 'newLogoItem'>
+                <label htmlFor="user_id"><span className = "newLogoText">user_id: </span></label>
                 <input type="number" id="user_id" name="user_id" onChange={this.handleLogoChange} value={this.state.user_id}  />     
                 </div>
 
-                <div className = 'newFormItem'>
-                <input type="submit" value="Add a Logo" />
-                </div>
+             
+                <input type="submit" value="Add a Logo" id = 'logoInput' />
+           
             </form>
+ 
 
            
             </div>

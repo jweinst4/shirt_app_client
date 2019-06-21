@@ -49,8 +49,11 @@ class NewColor extends React.Component {
         return (
             <div className = "valign-wrapper">
             <form className = 'newColor' onSubmit={this.handleColorSubmit}>
+
+            <div className = 'newColorItem'>
             <label htmlFor="name"><span className = "newColorText">Color: </span></label>
-                <input type="text" id="name" name="name" onChange={this.handleColorChange} value={this.state.name}  />                            
+                <input type="text" id="name" name="name" onChange={this.handleColorChange} value={this.state.name}  />    
+                </div>                        
 
                 <input type="submit" value="Add a Shirt Color" />
             </form>

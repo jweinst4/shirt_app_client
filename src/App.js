@@ -4,6 +4,7 @@ import NewColor from './components/NewColor.js'
 import NewForm from './components/NewForm.js'
 import NewLogo from './components/NewLogo.js'
 import ToolBar from './components/ToolBar.js'
+import PricingFormula from './components/PricingFormula.js'
 
 import './App.css';
 
@@ -36,6 +37,8 @@ class App extends Component {
       color: {},
       logos: [],
       logo: {},
+      prices: [],
+      price: {},
       users: [],
       user: {},
       currentLogo: '',
@@ -58,6 +61,8 @@ class App extends Component {
   this.changeLogo2Color= this.changeLogo2Color.bind(this)
 
   this.changeCurrentLogo= this.changeCurrentLogo.bind(this)
+
+  this.getPrices = this.getPrices.bind(this)
 
   }
  changeShirtColor(item) {
@@ -102,6 +107,7 @@ class App extends Component {
       size: '',
     })
   }
+
 
   handleAddLogo(logo) {
   
@@ -188,6 +194,17 @@ deleteLogo(id) {
     
   }
 
+  getPrices() {
+    fetch(baseURL+ '/prices')
+      .then(data => {
+        return data.json()},
+        err => console.log(err))
+      .then(parsedData => this.setState({prices: parsedData}),
+      
+       err=> console.log(err))
+    
+  }
+
   render() {
 
     return (
@@ -202,6 +219,9 @@ deleteLogo(id) {
       </div>
       <div className = 'col new-item-col'>
       <NewLogo handleAddLogo={this.handleAddLogo} getLogos={this.getLogos}/>
+      </div>
+      <div className = 'col new-item-col'>
+      <PricingFormula getPrices = {this.getPrices} prices={this.state.prices}/>
       </div>
       </div>
 
