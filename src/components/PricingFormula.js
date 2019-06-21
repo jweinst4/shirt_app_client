@@ -91,7 +91,7 @@ class PricingFormula extends React.Component {
 
                 <div className = 'newPriceItem'>
            
-                <h4>PrintSideOneCost:{this.state.printSideOneCost}</h4>
+               
                 </div>
              
                 <input type="submit" value="Get a Price Quote" id = 'priceInput' />
@@ -99,7 +99,7 @@ class PricingFormula extends React.Component {
             </form>
  
 
-         
+           <h3>PrintSideOneCost:{this.state.printSideOneCost}</h3>
             </div>
          
         )
