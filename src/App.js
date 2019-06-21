@@ -221,7 +221,7 @@ deleteLogo(id) {
       <NewLogo handleAddLogo={this.handleAddLogo} getLogos={this.getLogos}/>
       </div>
       <div className = 'col new-item-col'>
-      <PricingFormula getPrices = {this.getPrices} prices={this.state.prices}/>
+      <PricingFormula getPrices={this.getPrices} prices={this.state.prices}/>
       </div>
       </div>
 
