@@ -102,19 +102,6 @@ class Shirt extends React.Component {
         y={0}
         width={560}
         height={700}
-        draggable
-        onDragStart={() => {
-          this.setState({
-            isDragging: true
-          });
-        }}
-        onDragEnd={e => {
-          this.setState({
-            isDragging: false,
-            x: e.target.x(),
-            y: e.target.y()
-          });
-        }}
         image={this.state.image}
         ref={node => {
           this.imageNode = node;
