@@ -5,7 +5,7 @@
 
 .firstContent {
   margin-left: 20px;
-  margin-left: -1400px;
+  margin-left: -1300px;
   margin-top: 150px;
 }
 
@@ -25,11 +25,16 @@
 }
 
 .shirt-color {
-height: 60px;
-width: 60px;
+height: 125px;
+width: 100px;
 border-radius: 10px;
 margin: 0px 10px 10px 0px;
 border: 1px solid black;
+}
+
+.shirt-color img {
+  height: 125px;
+  width: 100px;
 }
 
 .shirt-color:hover {

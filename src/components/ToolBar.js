@@ -58,8 +58,8 @@ changeShirtColorHere(item) {
   return (
     
     <div className = 'shirt-choice col' key = {item._id} index = {index} onClick={() => { 
-      this.changeShirtColorHere(item) }} ><div className = 'col shirt-color' style={{backgroundColor: item.name}}>
-    &nbsp;</div><div className='deleteColor' onClick={() => { this.props.deleteColor(item.id) }}> <i className="small material-icons"><div className = "edit-delete-icon">delete</div></i>
+      this.changeShirtColorHere(item) }} ><div className = 'col shirt-color'>
+    <img src = {this.props.colors[index].name}></img></div><div className='deleteColor' onClick={() => { this.props.deleteColor(item.id) }}> <i className="small material-icons"><div className = "edit-delete-icon">delete</div></i>
                                 </div> </div>
 
         )  

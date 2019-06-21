@@ -169,7 +169,10 @@ deleteLogo(id) {
       .then(parsedData => this.setState({colors: parsedData}),
       
        err=> console.log(err))
-    
+       .then(parsedData => this.setState({shirtFillColor: this.state.colors[0].name}),
+       err=> console.log(err))
+       
+       
   }
 
   getUsers() {
