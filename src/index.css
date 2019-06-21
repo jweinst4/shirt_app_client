@@ -101,20 +101,20 @@ border: 1px solid black;
 
     .newColorItem > input {
     
-      width: 200px;
+      width: 100px;
       height: 20px;
       margin-bottom: 10px;
     }
 
     .newLogoItem > input {
-      width: 200px;
+      width: 100px;
       height: 20px;
       margin-bottom: 10px;
       
     }
 
     .newPriceItem > input {
-      width: 200px;
+      width: 100px;
       height: 20px;
       margin-bottom: 10px;
       
@@ -123,12 +123,12 @@ border: 1px solid black;
 
    .newLogoItem > label {
 
-     margin-left: -400px;
+     margin-left: -500px;
    }
 
    .newPriceItem > label {
 
-    margin-left: -200px;
+    margin-left: -350px;
   }
 
   .newPrice {
@@ -149,14 +149,28 @@ border: 1px solid black;
 
   #logoInput {
 
-    margin-left: -400px;
+    margin-left: -500px;
   }
 
   #priceInput {
 
-    margin-left: -200px;
+    margin-left: -350px;
   }
 
 
+.pricingFigures {
+  display: flex;
 
+}
 
+.printFiguresLeft {
+  margin-left: -300px;
+  margin-right: 100px;
+  margin-top: -25px;
+  
+}
+
+.printFiguresRight {
+
+  margin-top: -25px;
+}

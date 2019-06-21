@@ -16,10 +16,9 @@ class PricingFormula extends React.Component {
         this.state = {
         quantity: '',
         printSideOneQuantity: '',
+        printSideTwoQuantity: '',
         shirtCost: '',
         markUp: '',
-        printSideOneCost: '',
-        numberColorsText: ''
         }
         this.handlePriceChange = this.handlePriceChange.bind(this)
         this.handlePriceSubmit = this.handlePriceSubmit.bind(this)
@@ -31,42 +30,21 @@ class PricingFormula extends React.Component {
 
     handlePriceChange(event) {
         this.setState({ [event.currentTarget.id]: parseInt(event.currentTarget.value )})
-        
     }
 
     handlePriceSubmit(event) {
     event.preventDefault();
-    this.props.getPrices();
 
-        
-
-        if(this.state.printSideOneQuantity === 1) {
-            this.setState({printSideOneCost: parseFloat(this.props.prices[this.state.quantity-1].one)})
-            
-            
-        }
-        else if (this.state.printSideOneQuantity === 2) {
-            this.setState({printSideOneCost: parseFloat(this.props.prices[this.state.quantity-1].two)})
-        }
-        else if (this.state.printSideOneQuantity === 3) {
-            this.setState({printSideOneCost: parseFloat(this.props.prices[this.state.quantity-1].three)})
-        } 
-        else if (this.state.printSideOneQuantity === 4) {
-            this.setState({printSideOneCost: parseFloat(this.props.prices[this.state.quantity-1].four)})
-        } 
-        else if (this.state.printSideOneQuantity === 5) {
-            this.setState({printSideOneCost: parseFloat(this.props.prices[this.state.quantity-1].five)})
-        }
-               
-        
-       
-        
+    this.props.handlePriceSubmitApp(this.state.quantity,this.state.printSideOneQuantity,this.state.printSideTwoQuantity)
+    
     }
 
     render() {
         return (
             <div className = "valign-wrapper">
             
+            <div className = "row pricingFigures">
+            <div class = 'col'>
             <form className = 'newPrice' onSubmit={this.handlePriceSubmit}>
 
             <div className = 'newPriceItem'>
@@ -77,15 +55,21 @@ class PricingFormula extends React.Component {
                 <div className = 'newPriceItem'>
             <label htmlFor="printSideOneQuantity"><span className = "newPriceNumber">PrintSideOneQuantity: </span></label>
                 <input type="number" id="printSideOneQuantity" name="printSideOneQuantity" onChange={this.handlePriceChange} value={this.state.printSideOneQuantity}  />  
-                </div>   
+                </div>
 
                 <div className = 'newPriceItem'>
-            <label htmlFor="shirtCost"><span className = "newPriceText">ShirtCost: </span></label>
-                <input type="number" id="shirtCost" name="shirtCost" onChange={this.handlePriceChange} value={this.state.shirtCost}  />  
+            <label htmlFor="printSideTwoQuantity"><span className = "newPriceNumber">PrintSideTwoQuantity: </span></label>
+                <input type="number" id="printSideTwoQuantity" name="printSideTwoQuantity" onChange={this.handlePriceChange} value={this.state.printSideTwoQuantity}  />  
+                </div>
+
+
+                <div className = 'newPriceItem'>
+            <label htmlFor="shirtCost"><span className = "newPriceText">ShirtCost(MUST BE 150 for $1.50): </span></label>
+                <input type="number" id="shirtCost" name="shirtCost" step=".01" onChange={this.handlePriceChange} value={this.state.shirtCost}  />  
                 </div> 
 
                 <div className = 'newPriceItem'>
-            <label htmlFor="markUp"><span className = "markUp">MarkUp: </span></label>
+            <label htmlFor="markUp"><span className = "markUp">MarkUp(MUST BE 50 for 50%): </span></label>
                 <input type="number" id="markUp" name="markUp" onChange={this.handlePriceChange} value={this.state.markUp}  />  
                 </div>  
 
@@ -97,9 +81,30 @@ class PricingFormula extends React.Component {
                 <input type="submit" value="Get a Price Quote" id = 'priceInput' />
            
             </form>
+            </div>  
  
 
-           <h3>PrintSideOneCost:{this.state.printSideOneCost}</h3>
+
+<div className = "col printFiguresLeft">
+            <h6>Quantity: {this.state.quantity}</h6>
+            <h6>PrintSideOneColors: {this.state.printSideOneQuantity}</h6>
+            <h6>PrintSideTwoColors: {this.state.printSideTwoQuantity}</h6>
+            <h6>PrintSideOneCost: ${this.props.printSideOneCostApp}</h6>
+            <h6>PrintSideTwoCost: ${this.props.printSideTwoCostApp}</h6>
+
+            </div>
+            <div className = "col printFiguresRight">
+            <h6>ShirtCost: ${this.state.shirtCost / 100}</h6>
+            <h6>Net Cost: ${(this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100))}</h6>
+            <h6>MarkUp: {this.state.markUp}%</h6>
+        
+            
+            <h6>Profit: ${((this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100)) * (this.state.markUp / 100))}</h6>
+            <h6>TotalCost: ${(this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100)) + ((this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100)) * (this.state.markUp / 100))}</h6>
+            <h6>TotalProfit: ${this.state.quantity * ((this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100)) * (this.state.markUp / 100))}</h6>
+            </div>
+            </div>
+     
             </div>
          
         )

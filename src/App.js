@@ -42,6 +42,9 @@ class App extends Component {
       users: [],
       user: {},
       currentLogo: '',
+      printSideOneCostApp: '',
+      printSideTwoCostApp: '',
+
     }
 
   this.deleteColor = this.deleteColor.bind(this)
@@ -63,6 +66,8 @@ class App extends Component {
   this.changeCurrentLogo= this.changeCurrentLogo.bind(this)
 
   this.getPrices = this.getPrices.bind(this)
+
+  this.handlePriceSubmitApp = this.handlePriceSubmitApp.bind(this)
 
   }
  changeShirtColor(item) {
@@ -208,6 +213,50 @@ deleteLogo(id) {
     
   }
 
+  
+  handlePriceSubmitApp(quantity,printSideOneQuantity,printSideTwoQuantity) {
+    console.log(quantity)
+    console.log(printSideOneQuantity)
+    console.log(printSideTwoQuantity)
+    console.log(this.state.prices[quantity-1].one)
+        
+        if(printSideOneQuantity === 1) {
+            this.setState({printSideOneCostApp: this.state.prices[quantity-1].one})
+        }
+       else if (printSideOneQuantity === 2) {
+        this.setState({printSideOneCostApp: parseFloat(this.state.prices[quantity-1].two)})
+    }
+    else if (printSideOneQuantity === 3) {
+      this.setState({printSideOneCostApp: parseFloat(this.state.prices[quantity-1].three)})
+  }
+  else if (printSideOneQuantity === 4) {
+    this.setState({printSideOneCostApp: parseFloat(this.state.prices[quantity-1].four)})
+}
+else if (printSideOneQuantity === 5) {
+  this.setState({printSideOneCostApp: parseFloat(this.state.prices[quantity-1].five)})
+}
+
+
+if(printSideTwoQuantity === 1) {
+  this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].one)})
+}
+else if (printSideTwoQuantity === 2) {
+this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].two)})
+}
+else if (printSideTwoQuantity === 3) {
+this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].three)})
+}
+else if (printSideTwoQuantity === 4) {
+this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].four)})
+}
+else if (printSideTwoQuantity === 5) {
+this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].five)})
+}
+
+
+
+    }
+
   render() {
 
     return (
@@ -224,7 +273,7 @@ deleteLogo(id) {
       <NewLogo handleAddLogo={this.handleAddLogo} getLogos={this.getLogos}/>
       </div>
       <div className = 'col new-item-col'>
-      <PricingFormula getPrices={this.getPrices} prices={this.state.prices}/>
+      <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp}/>
       </div>
       </div>
 
