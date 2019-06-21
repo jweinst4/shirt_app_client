@@ -95,7 +95,7 @@ class PricingFormula extends React.Component {
             </form>
  
 
-           <h1>PrintSideOneCost:{this.state.printSideOneCost}</h1>
+           <h3>PrintSideOneCost:{this.state.printSideOneCost}</h3>
             </div>
          
         )
