@@ -87,15 +87,19 @@ class PricingFormula extends React.Component {
                 <div className = 'newPriceItem'>
             <label htmlFor="markUp"><span className = "markUp">MarkUp: </span></label>
                 <input type="number" id="markUp" name="markUp" onChange={this.handlePriceChange} value={this.state.markUp}  />  
-                </div>     
+                </div>  
 
+                <div className = 'newPriceItem'>
+           
+                <h4>PrintSideOneCost:{this.state.printSideOneCost}</h4>
+                </div>
              
                 <input type="submit" value="Get a Price Quote" id = 'priceInput' />
            
             </form>
  
 
-           <h3>PrintSideOneCost:{this.state.printSideOneCost}</h3>
+         
             </div>
          
         )
