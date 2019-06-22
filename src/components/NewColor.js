@@ -51,11 +51,11 @@ class NewColor extends React.Component {
             <form className = 'newColor' onSubmit={this.handleColorSubmit}>
 
             <div className = 'newColorItem'>
-            <label htmlFor="name"><span className = "newColorText">Color: </span></label>
+            <label htmlFor="name"><span className = "newColorText">NewShirtURL: </span></label>
                 <input type="text" id="name" name="name" onChange={this.handleColorChange} value={this.state.name}  />    
                 </div>                        
 
-                <input type="submit" value="Add a Shirt Color" />
+                <input type="submit" value="Add a Shirt URL" />
             </form>
 
            

@@ -86,22 +86,22 @@ class PricingFormula extends React.Component {
 
 
 <div className = "col printFiguresLeft">
-            <h6>Quantity: {this.state.quantity}</h6>
-            <h6>PrintSideOneColors: {this.state.printSideOneQuantity}</h6>
-            <h6>PrintSideTwoColors: {this.state.printSideTwoQuantity}</h6>
-            <h6>PrintSideOneCost: ${this.props.printSideOneCostApp}</h6>
-            <h6>PrintSideTwoCost: ${this.props.printSideTwoCostApp}</h6>
+            <h6>pricingQuantity: {this.state.quantity}</h6>
+            <h6>pricingPrintSideOneColors: {this.state.printSideOneQuantity}</h6>
+            <h6>pricingPrintSideTwoColors: {this.state.printSideTwoQuantity}</h6>
+            <h6>pricingPrintSideOneCost: ${this.props.printSideOneCostApp}</h6>
+            <h6>pricingPrintSideTwoCost: ${this.props.printSideTwoCostApp}</h6>
 
             </div>
             <div className = "col printFiguresRight">
-            <h6>ShirtCost: ${this.state.shirtCost / 100}</h6>
-            <h6>Net Cost: ${(this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100))}</h6>
-            <h6>MarkUp: {this.state.markUp}%</h6>
+            <h6>pricingShirtCost: ${this.state.shirtCost / 100}</h6>
+            <h6>pricingNetCost: ${(this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100))}</h6>
+            <h6>pricingMarkUp: {this.state.markUp}%</h6>
         
             
-            <h6>Profit: ${((this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100)) * (this.state.markUp / 100))}</h6>
-            <h6>TotalCost: ${(this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100)) + ((this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100)) * (this.state.markUp / 100))}</h6>
-            <h6>TotalProfit: ${this.state.quantity * ((this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100)) * (this.state.markUp / 100))}</h6>
+            <h6>pricingProfit: ${((this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100)) * (this.state.markUp / 100))}</h6>
+            <h6>pricingTotalCost: ${(this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100)) + ((this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100)) * (this.state.markUp / 100))}</h6>
+            <h6>pricingTotalProfit: ${this.state.quantity * ((this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100)) * (this.state.markUp / 100))}</h6>
             </div>
             </div>
      
