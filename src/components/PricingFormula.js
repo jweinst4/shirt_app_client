@@ -48,28 +48,28 @@ class PricingFormula extends React.Component {
             <form className = 'newPrice' onSubmit={this.handlePriceSubmit}>
 
             <div className = 'newPriceItem'>
-            <label htmlFor="quantity"><span className = "newPriceText">Quantity: </span></label>
+            <label htmlFor="quantity"><span className = "newPriceText">pricingQuantity: </span></label>
                 <input type="number" id="quantity" name="quantity" onChange={this.handlePriceChange} value={this.state.quantity}  />  
                 </div> 
 
                 <div className = 'newPriceItem'>
-            <label htmlFor="printSideOneQuantity"><span className = "newPriceNumber">PrintSideOneQuantity: </span></label>
+            <label htmlFor="printSideOneQuantity"><span className = "newPriceNumber">pricingPrintSideOneQuantity: </span></label>
                 <input type="number" id="printSideOneQuantity" name="printSideOneQuantity" onChange={this.handlePriceChange} value={this.state.printSideOneQuantity}  />  
                 </div>
 
                 <div className = 'newPriceItem'>
-            <label htmlFor="printSideTwoQuantity"><span className = "newPriceNumber">PrintSideTwoQuantity: </span></label>
+            <label htmlFor="printSideTwoQuantity"><span className = "newPriceNumber">pricingPrintSideTwoQuantity: </span></label>
                 <input type="number" id="printSideTwoQuantity" name="printSideTwoQuantity" onChange={this.handlePriceChange} value={this.state.printSideTwoQuantity}  />  
                 </div>
 
 
                 <div className = 'newPriceItem'>
-            <label htmlFor="shirtCost"><span className = "newPriceText">ShirtCost(MUST BE 150 for $1.50): </span></label>
+            <label htmlFor="shirtCost"><span className = "newPriceText">pricingShirtCost(MUST BE 150 for $1.50): </span></label>
                 <input type="number" id="shirtCost" name="shirtCost" step=".01" onChange={this.handlePriceChange} value={this.state.shirtCost}  />  
                 </div> 
 
                 <div className = 'newPriceItem'>
-            <label htmlFor="markUp"><span className = "markUp">MarkUp(MUST BE 50 for 50%): </span></label>
+            <label htmlFor="markUp"><span className = "markUp">pricingMarkUp(MUST BE 50 for 50%): </span></label>
                 <input type="number" id="markUp" name="markUp" onChange={this.handlePriceChange} value={this.state.markUp}  />  
                 </div>  
 

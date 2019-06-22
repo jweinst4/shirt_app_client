@@ -69,7 +69,7 @@ changeShirtColorHere(item) {
 
 
 
-<h4>Logos (draggable, also need to buy server space if saving logos, otherwise they have to post the logo on a sitel like imgur, etc.)</h4>
+<h4>Logos(draggable)</h4>
 <div className='row choice-row'>
       {this.props.logos.map((item, index) => {
   return (
