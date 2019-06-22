@@ -37,8 +37,8 @@ class URLImage extends React.Component {
   render() {
     return (
       <Image
-        x={175}
-        y={190}
+        x={195}
+        y={120}
         width={130}
         height={45}
         draggable
@@ -98,8 +98,8 @@ class Shirt extends React.Component {
   render() {
     return (
       <Image
-        x={0}
-        y={0}
+        x={30}
+        y={-60}
         width={560}
         height={700}
         image={this.state.image}
@@ -130,7 +130,7 @@ class Canvas extends Component {
     return (
 
       <div className = 'canvas-border'>
-      <Stage width={800} height={1000}>
+      <Stage width={570} height={580} fill = 'red'>
         <Layer>
         
 

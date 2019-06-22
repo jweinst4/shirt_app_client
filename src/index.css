@@ -6,7 +6,7 @@
 .firstContent {
   margin-left: 20px;
   margin-left: -1300px;
-  margin-top: 150px;
+  margin-top: 250px;
 }
 
 .first {
@@ -41,7 +41,9 @@ border: 1px solid black;
   transform: scale(1.3);
  }
 
-
+.canvas-border {
+  /* background: red; */
+}
 
     .user-choice {
       height: 60px;
