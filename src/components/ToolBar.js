@@ -52,11 +52,7 @@ changeShirtColorHere(item) {
       <div className = 'toolbar-content'>
 
 
-{/*  
- <div className = 'note-section'> <h4> Note: add text box, add resize option to everything, redo shirt outline, discuss doing canvas shirt vs. real tshirt image (wont be able to adjust shirt color, but can have an actual image for however many colored shirts there are), auth login, need to buy server space if saving logos (otherwise they have to post the logo on a sitel like imgur, etc.), look into automatic background removal pricing options.</h4></div> */}
-
-
- <h4>Shirt Color</h4>
+ <h4>Shirt</h4>
 <div className='row choice-row'>
 
       {this.props.colors.map((item, index) => {
@@ -64,24 +60,29 @@ changeShirtColorHere(item) {
     
     <div className = 'shirt-choice col' key = {item._id} index = {index} onClick={() => { 
       this.changeShirtColorHere(item) }} ><div className = 'col shirt-color'>
-    <img src = {this.props.colors[index].name}></img></div><div className='deleteColor' onClick={() => { this.props.deleteColor(item.id) }}> <i className="small material-icons"><div className = "edit-delete-icon">delete</div></i>
-                                </div> </div>
+    <img src = {this.props.colors[index].name}></img></div> </div>
 
         )  
 })}
 </div>
 
+{/* <div className='deleteColor' onClick={() => { this.props.deleteColor(item.id) }}> <i className="small material-icons"><div className = "edit-delete-icon">delete</div></i>
+                                </div> */}
 
+{/* 
+<div className='deleteLogo' onClick={() => { this.props.deleteLogo(item.id) }}><i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i>
+</div> */}
 
-
-<h4>Logos(draggable)</h4>
+<h4>Logos</h4>
 <div className='row choice-row'>
       {this.props.logos.map((item, index) => {
   return (
   
     <div className = 'logo-choice' key = {item._id} index = {index} ><div>
-    <div className = 'logo-image'><img className = 'logo-final' src = {item.name} onClick={() => { this.props.changeCurrentLogo(item) }}></img></div></div> <div className='deleteLogo' onClick={() => { this.props.deleteLogo(item.id) }}><i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i>
-                                </div> </div>
+    <div className = 'logo-image'><img className = 'logo-final' src = {item.name} onClick={() => { this.props.changeCurrentLogo(item) }}></img></div></div> </div>
+
+
+                                
 
      
         )

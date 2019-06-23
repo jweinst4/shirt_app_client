@@ -52,8 +52,9 @@
 
    .logo-choice {
     height: 45px;
-    width: 130px;
+    width: 140px;
     border-radius: 10px;
+    margin-right: 10px;
     border: 1px solid black;
     margin: 0px 10px 10px 0px;
     }
