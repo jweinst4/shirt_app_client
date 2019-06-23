@@ -1,11 +1,16 @@
 
-.container {
+.outerContainer {
   display: flex;
+  width: 100%;
+  
 }
 
 .navBar {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  
+  height: 50px;
+  width: 100%;
 }
 
 .topCol {
@@ -17,11 +22,13 @@
 
 .canvasToolbarRow {
   display: flex;
+  
 }
 
 .canvasToolbarCol {
   display: flex;
   width: 40%;
+  
 }
 
 .shirt-color {
@@ -91,7 +98,7 @@
 
   .newColor {
     margin-top: 100px;
-    margin-left: -1000px;
+    margin-left: -1500px;
     font-size: 36px;
   }
 
@@ -123,7 +130,7 @@ font-size: 36px;
 
   .newUser {
     margin-top: 100px;
-    margin-left: -1000px;
+    margin-left: -1500px;
   }
 
   .newUserItem {
@@ -134,7 +141,7 @@ font-size: 36px;
 
   .newLogo {
     margin-top: 100px;
-    margin-left: -1000px;
+    margin-left: -1500px;
   }
 
   .newLogoItem {
@@ -149,16 +156,19 @@ font-size: 36px;
   }
 
   .pricingContainer {
-    margin-left: -1300px;
+    margin-left: -1400px;
     margin-top: 200px;
   }
 
   .printFiguresLeft > h6 {
     margin-right: 50px;
     font-size: 24px;
-    margin-left: 100px;
     margin-bottom: 30px;
   }
+
+.printFiguresLeft {
+  width: 500px;
+}
 
   .newPriceItem {
     margin-right: 50px;
@@ -170,3 +180,7 @@ font-size: 36px;
     border-radius: 5px;
   }
 
+.outerContainer {
+  display: flex;
+
+}

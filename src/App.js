@@ -267,8 +267,8 @@ this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].fiv
 
       <Router>
 
-<div className = 'container'>
 
+<div className = 'outerContainer'>
 <div className = 'navBar'>
 
 <div className = 'topCol col'>
@@ -295,8 +295,6 @@ this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].fiv
 
 
 <div className = 'canvasToolbarRow row'>
-
-
 <div className = 'canvasToolbarCol col'>
 
 <Route exact path ='/' exact render={() => <Canvas shirtFillColor={this.state.shirtFillColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} currentLogo={this.state.currentLogo} changeShirtColor={this.changeShirtColor}/>}/>
@@ -320,8 +318,8 @@ this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].fiv
       
     <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} />}/>
            
-        
     </div>
+
       </Router>
     );
   }
