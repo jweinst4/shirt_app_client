@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Stage, Layer, Shape, Image} from 'react-konva';
 import useImage from 'use-image';
+
+import 'materialize-css'; // It installs the JS asset only
+import 'materialize-css/dist/css/materialize.min.css';
 // https://codesandbox.io/s/github/konvajs/site/tree/master/react-demos/images?from-embed
 
 class URLImage extends React.Component {
@@ -130,7 +133,8 @@ class Canvas extends Component {
     return (
 
       <div className = 'canvas-border'>
-      <Stage width={570} height={580} fill = 'red'>
+  
+      <Stage width={570} height={580}>
         <Layer>
         
 

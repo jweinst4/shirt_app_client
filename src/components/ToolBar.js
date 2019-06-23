@@ -1,4 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+
+import 'materialize-css'; // It installs the JS asset only
+import 'materialize-css/dist/css/materialize.min.css';
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -8,7 +12,7 @@ if (process.env.NODE_ENV === 'development') {
   baseURL = 'https://shirt-api.herokuapp.com'
 }
 
-class ToolBar extends Component {
+class ToolBar extends React.Component {
 
   constructor(props) {
     super(props)
@@ -25,6 +29,7 @@ class ToolBar extends Component {
 
   componentDidMount(){
     this.props.getColors()
+    this.props.getLogos()
     }
 
 

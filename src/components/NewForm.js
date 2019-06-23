@@ -1,4 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+
+
+import 'materialize-css'; // It installs the JS asset only
+import 'materialize-css/dist/css/materialize.min.css';
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -57,32 +62,32 @@ class NewForm extends React.Component {
 
     render() {
         return (
-            <div className = "valign-wrapper">
-            {/* <form className = 'newUser' onSubmit={this.handleUserSubmit}>
+            <div className = "newUser">
+            <form className = 'newUser' onSubmit={this.handleUserSubmit}>
 
-            <div className = 'newFormItem'>
-            <label htmlFor="name"><div className = "newFormText">Name: </div></label>
+            <div className = 'newUserItem'>
+            <label htmlFor="name"><div className = "newUserText">Name: </div></label>
                 <input type="text" id="name" name="name" onChange={this.handleUserChange} value={this.state.name}  /> 
                 </div>
        
             
                     
 
-                <div className = 'newFormItem'>
-<label htmlFor="age"><div className = "newFormText">Age: </div></label>
+                <div className = 'newUserItem'>
+<label htmlFor="age"><div className = "newUserText">Age: </div></label>
                 <input type="number" id="age" name="age" onChange={this.handleUserChange} value={this.state.age}  />
                 </div>
                 
-                <div className = 'newFormItem'>
-                <label htmlFor="size"><div className = "newFormText">Size: </div></label>
+                <div className = 'newUserItem'>
+                <label htmlFor="size"><div className = "newUserText">Size: </div></label>
                 <input type="text" id="size" name="size" onChange={this.handleUserChange} value={this.state.size}  />
               
                 </div>
                                        
-                <div className = 'newFormItem'>
+                <div className = 'newUserItem'>
                 <input type="submit" value="Add a User" />
                 </div>
-            </form> */}
+            </form>
 
            
             </div>

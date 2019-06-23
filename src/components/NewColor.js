@@ -1,6 +1,10 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import 'materialize-css'; // It installs the JS asset only
+import 'materialize-css/dist/css/materialize.min.css';
 let baseURL = process.env.REACT_APP_BASEURL
+
+
 
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3000'
@@ -47,15 +51,20 @@ class NewColor extends React.Component {
 
     render() {
         return (
-            <div className = "valign-wrapper">
+
+            
+            <div className = "newColor">
+
             <form className = 'newColor' onSubmit={this.handleColorSubmit}>
 
             <div className = 'newColorItem'>
-            <label htmlFor="name"><span className = "newColorText">NewShirtURL: </span></label>
+            <label htmlFor="name"><div className = "newColorText">NewShirtURL: </div></label>
                 <input type="text" id="name" name="name" onChange={this.handleColorChange} value={this.state.name}  />    
                 </div>                        
 
+                <div className = 'newColorItem'>
                 <input type="submit" value="Add a Shirt URL" />
+                </div>
             </form>
 
            

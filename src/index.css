@@ -1,178 +1,178 @@
 
-.choice-row {
+.container {
   display: flex;
 }
 
-.firstContent {
-  margin-left: 20px;
-  margin-left: -1300px;
-  margin-top: 250px;
-}
-
-.first {
-  display: flex;
-  width: 50%;
-}
-
-.toolbar {
-  display: flex;
-  width: 50%;
-}
-
-.app {
+.navBar {
   display: flex;
   flex-direction: row;
 }
 
+.topCol {
+  display: flex;
+  height: 50px;
+  width: 200px;
+  font-size: 30px;
+}
+
+.canvasToolbarRow {
+  display: flex;
+}
+
+.canvasToolbarCol {
+  display: flex;
+  width: 40%;
+}
+
 .shirt-color {
-height: 125px;
-width: 100px;
-border-radius: 10px;
-margin: 0px 10px 10px 0px;
-border: 1px solid black;
-}
+  height: 130px;
+  width: 125px;
+  
+  border-radius: 10px;
+  margin: 0px 10px 10px 0px;
+  border: 5px solid #e3f2fd;
+  }
+  
+  .shirt-color img {
+    height: 125px;
+    width: 100px;
+  }
+  
+  .shirt-color:hover {
+    transform: scale(1.3);
+   }
 
-.shirt-color img {
-  height: 125px;
-  width: 100px;
-}
 
-.shirt-color:hover {
-  transform: scale(1.3);
- }
+   .logo-choice {
+    height: 45px;
+    width: 130px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 0px 10px 10px 0px;
+    }
 
-.canvas-border {
-  /* background: red; */
-}
+    .logo-choice:hover {
+      transform: scale(1.3);
+     }
 
-    .user-choice {
-      height: 60px;
-      width: 60px;
-      background: #e3f2fd;
-      border-radius: 10px;
-      border: 1px solid black;
-      margin: 0px 10px 10px 0px;
+
+     .logo-image > img {
+      width: 130px;
+      height: 45px;
+      
+    }
+ 
+    .logo-choice > img {
+     width: 60px;
+     height: 60px;
+     
+   }
+
+   .choice-row {
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+ 
+  .canvas-border {
+    margin-left: -1100px;
+    margin-top: 200px;
+  }
+
+  .toolbar-content {
+    
+    margin-left: -500px;
+    margin-top: 200px;
+  }
+
+  .toolbar-content {
+    color: black;
+  }
+
+  .newColor {
+    margin-top: 100px;
+    margin-left: -1400px;
+    font-size: 36px;
+  }
+
+  .newColorItem {
+
+width: 600px;
+font-size: 36px;
+  }
+
+  .newColorText {
+
+    font-size: 36px;
+    }
+
+    .newUserText {
+
+      font-size: 36px;
       }
 
-      .user-choice:hover {
-        transform: scale(1.3);
-       }
+      .newLogoText {
 
-
-      .logo-choice {
-        height: 45px;
-        width: 130px;
-        border-radius: 10px;
-        border: 1px solid black;
-        margin: 0px 10px 10px 0px;
+        font-size: 36px;
         }
 
-        .logo-choice:hover {
-          transform: scale(1.3);
-         }
+        .newPriceText {
 
-    .toolbar-content {
-      margin-top: 250px;
-      margin-left: 70px;
-    }
+          font-size: 36px;
+          }
 
-    .new-item-row{
-      display: flex;
+  .newUser {
+    margin-top: 100px;
+    margin-left: -1400px;
+  }
+
+  .newUserItem {
+
+width: 600px;
+font-size: 36px;
+  }
+
+  .newLogo {
+    margin-top: 100px;
+    margin-left: -1400px;
+  }
+
+  .newLogoItem {
+
+width: 600px;
+font-size: 36px;
+  }
+
+  .pricingFigures {
+    display: flex;
     
-    }
-
-    .new-item-col {
-      width: 350px;
-    }
-
-
-    .newColorItem {
-    
-      width: 300px;
-    }
-
-    .newLogoItem {
-      width: 400px;
-    }
-
-    .newPriceItem {
-      width: 400px;
-    }
-
-   
-
-    .newColorItem > input {
-    
-      width: 100px;
-      height: 20px;
-      margin-bottom: 10px;
-    }
-
-    .newLogoItem > input {
-      width: 100px;
-      height: 20px;
-      margin-bottom: 10px;
-      
-    }
-
-    .newPriceItem > input {
-      width: 100px;
-      height: 20px;
-      margin-bottom: 10px;
-      
-    }
-
-
-   .newLogoItem > label {
-
-     margin-left: -500px;
-   }
-
-   .newPriceItem > label {
-
-    margin-left: -350px;
   }
 
-  .newPrice {
-    margin-left: -200px;
+  .pricingContainer {
+    margin-left: -1300px;
+    margin-top: 200px;
   }
 
-
-       
-   .logo-image > img {
-     width: 130px;
-     height: 45px;
-   }
-
-   .logo-choice > img {
-    width: 60px;
-    height: 60px;
+  .printFiguresLeft > h6 {
+    margin-right: 50px;
+    font-size: 24px;
+    margin-left: 100px;
+    margin-bottom: 30px;
   }
 
-  #logoInput {
-
-    margin-left: -500px;
+  .printFiguresRight > h6 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    margin-right: 50px;
   }
 
-  #priceInput {
-
-    margin-left: -350px;
+  .newPriceItem {
+    margin-right: 50px;
+    font-size: 36px;
   }
 
+  .printFigures {
+    border: 1px solid black;
+    border-radius: 5px;
+  }
 
-.pricingFigures {
-  display: flex;
-
-}
-
-.printFiguresLeft {
-  margin-left: -300px;
-  margin-right: 100px;
-  margin-top: -25px;
-  
-}
-
-.printFiguresRight {
-
-  margin-top: -25px;
-}

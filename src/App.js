@@ -1,10 +1,18 @@
-import React, { Component } from 'react';
-import First from './components/First.js'
+import React from 'react';
+import { BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
+
+import 'materialize-css'; // It installs the JS asset only
+import 'materialize-css/dist/css/materialize.min.css';
+
+
 import NewColor from './components/NewColor.js'
 import NewForm from './components/NewForm.js'
 import NewLogo from './components/NewLogo.js'
 import ToolBar from './components/ToolBar.js'
+import Canvas from './components/Canvas.js'
 import PricingFormula from './components/PricingFormula.js'
+
+
 
 import './App.css';
 
@@ -18,7 +26,7 @@ if (process.env.NODE_ENV === 'development') {
 
 console.log('current base URL:', baseURL)
 
-class App extends Component {
+class App extends React.Component {
 
   constructor(props) {
     super(props)
@@ -215,10 +223,6 @@ deleteLogo(id) {
 
   
   handlePriceSubmitApp(quantity,printSideOneQuantity,printSideTwoQuantity) {
-    console.log(quantity)
-    console.log(printSideOneQuantity)
-    console.log(printSideTwoQuantity)
-    console.log(this.state.prices[quantity-1].one)
         
         if(printSideOneQuantity === 1) {
             this.setState({printSideOneCostApp: this.state.prices[quantity-1].one})
@@ -260,37 +264,65 @@ this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].fiv
   render() {
 
     return (
-      <div className="app row">
-      <div className = 'first col'>
-      <div className = 'row new-item-row'>
-    <div className = 'col new-item-col'>
-      <NewColor handleAddColor={this.handleAddColor} getColors={this.getColors}/>
-      </div>
-      <div className = 'col new-item-col'>
-      <NewForm handleAddUser={this.handleAddUser} getUsers={this.getUsers}/>
-      </div>
-      <div className = 'col new-item-col'>
-      <NewLogo handleAddLogo={this.handleAddLogo} getLogos={this.getLogos}/>
-      </div>
-      <div className = 'col new-item-col'>
-      <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp}/>
-      </div>
-      </div>
 
-      <First shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor} changeShirtColor={this.changeShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} currentLogo={this.state.currentLogo}/>
+      <Router>
+
+<div className = 'container'>
+
+<div className = 'navBar'>
+
+<div className = 'topCol col'>
+<Link to={'/'}>Home</Link>
+</div>
+
+<div className = 'topCol col'>
+<Link to={'/newShirt'}>NewShirt</Link>
+</div>
+
+<div className = 'topCol col'>
+<Link to={'/newUser'}>NewUser</Link>
+</div>
+
+<div className = 'topCol col'>
+<Link to={'/newLogo'}>NewLogo</Link>
+</div>
+
+<div className = 'topCol col'>
+<Link to={'/pricingFormula'}>PricingFormula</Link>
+</div>
+
+</div>
 
 
-        </div>
-        <div className = 'toolbar col'>
-        <ToolBar  shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor}changeShirtColor={this.changeShirtColor} changeLogo1Color={this.changeLogo1Color} changeLogo2Color={this.changeLogo2Color} colors={this.state.colors}  logoFillColors= {this.state.logoFillColors} deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} users = {this.state.users} logos = {this.state.logos} changeCurrentLogo={this.changeCurrentLogo}/>
+<div className = 'canvasToolbarRow row'>
 
+
+<div className = 'canvasToolbarCol col'>
+
+<Route exact path ='/' exact render={() => <Canvas shirtFillColor={this.state.shirtFillColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} currentLogo={this.state.currentLogo} changeShirtColor={this.changeShirtColor}/>}/>
+</div>
+
+<div className = 'canvasToolbarCol col'>
+<Route exact path ='/' exact render={() => <ToolBar  shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor}changeShirtColor={this.changeShirtColor} changeLogo1Color={this.changeLogo1Color} changeLogo2Color={this.changeLogo2Color} colors={this.state.colors}  logoFillColors= {this.state.logoFillColors} deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} getLogos = {this.getLogos} users = {this.state.users} logos = {this.state.logos} changeCurrentLogo={this.changeCurrentLogo}/>}/>
+</div>
+
+</div>
+
+
+
+    <Route exact path ='/newShirt' exact render={() => <NewColor handleAddColor={this.handleAddColor} getColors={this.getColors}/>}/>
+ 
+     
+    <Route exact path ='/newUser' exact render={() => <NewForm handleAddUser={this.handleAddUser} getUsers={this.getUsers}/>}/>
+     
       
-  
-       
-        </div>
-       
+    <Route exact path ='/newLogo' exact render={() => <NewLogo handleAddLogo={this.handleAddLogo} getLogos={this.getLogos} logos={this.state.logos}/>}/>
+      
+    <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} />}/>
+           
         
-      </div>
+    </div>
+      </Router>
     );
   }
 }

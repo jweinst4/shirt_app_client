@@ -1,4 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+
+import 'materialize-css'; // It installs the JS asset only
+import 'materialize-css/dist/css/materialize.min.css';
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -10,7 +14,7 @@ if (process.env.NODE_ENV === 'development') {
 
 
 
-class NewForm extends React.Component {
+class NewLogo extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -56,22 +60,25 @@ class NewForm extends React.Component {
 
     render() {
         return (
-            <div className = "valign-wrapper">
+            <div className = "newLogo">
+
+           
             
             <form className = 'newLogo' onSubmit={this.handleLogoSubmit}>
 
             <div className = 'newLogoItem'>
-            <label htmlFor="name"><span className = "newLogoText">Logo URL: </span></label>
+            <label htmlFor="name"><div className = "newLogoText">Logo URL: </div></label>
                 <input type="text" id="name" name="name" onChange={this.handleLogoChange} value={this.state.name}  />  
                 </div>   
 
                 <div className = 'newLogoItem'>
-                <label htmlFor="user_id"><span className = "newLogoText">user_id: </span></label>
+                <label htmlFor="user_id"><div className = "newLogoText">user_id: </div></label>
                 <input type="number" id="user_id" name="user_id" onChange={this.handleLogoChange} value={this.state.user_id}  />     
                 </div>
 
-             
+                <div className = 'newLogoItem'>
                 <input type="submit" value="Add a Logo" id = 'logoInput' />
+                </div>
            
             </form>
  
@@ -83,4 +90,4 @@ class NewForm extends React.Component {
     }
 }
 
-export default NewForm
+export default NewLogo
