@@ -6,7 +6,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 
 
 import NewColor from './components/NewColor.js'
-import NewForm from './components/NewForm.js'
+import NewUser from './components/NewUser.js'
 import NewLogo from './components/NewLogo.js'
 import ToolBar from './components/ToolBar.js'
 import Canvas from './components/Canvas.js'
@@ -583,8 +583,8 @@ deleteLogo(id) {
       <Router>
 
 
-<div className = 'outerContainer'>
-<div className = 'navBar'>
+<div className = 'appContainer row'>
+<div className = 'navBar col s12 m12 l12'>
 
 <div className = 'topCol col'>
 <Link to={'/'}>Home</Link>
@@ -610,12 +610,17 @@ deleteLogo(id) {
 
 
 <div className = 'canvasToolbarRow row'>
-<div className = 'canvasToolbarCol col'>
+
+<div className = 'canvasCol col s6 m6 l6'>
+
 
 <Route exact path ='/' exact render={() => <Canvas shirtFillColor={this.state.shirtFillColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} currentLogo={this.state.currentLogo} changeShirtColor={this.changeShirtColor}/>}/>
 </div>
 
-<div className = 'canvasToolbarCol col'>
+
+
+
+<div className = 'toolbarCol col s6 m6 l6'>
 <Route exact path ='/' exact render={() => <ToolBar  shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor}changeShirtColor={this.changeShirtColor} changeLogo1Color={this.changeLogo1Color} changeLogo2Color={this.changeLogo2Color} colors={this.state.colors}  logoFillColors= {this.state.logoFillColors} deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} getLogos = {this.getLogos} users = {this.state.users} logos = {this.state.logos} changeCurrentLogo={this.changeCurrentLogo}/>}/>
 </div>
 
@@ -624,9 +629,12 @@ deleteLogo(id) {
 
 
     <Route exact path ='/newShirt' exact render={() => <NewColor handleAddColor={this.handleAddColor} getColors={this.getColors}/>}/>
+
+
+
  
      
-    <Route exact path ='/newUser' exact render={() => <NewForm handleAddUser={this.handleAddUser} getUsers={this.getUsers}/>}/>
+    <Route exact path ='/newUser' exact render={() => <NewUser handleAddUser={this.handleAddUser} getUsers={this.getUsers}/>}/>
      
       
     <Route exact path ='/newLogo' exact render={() => <NewLogo handleAddLogo={this.handleAddLogo} getLogos={this.getLogos} logos={this.state.logos}/>}/>

@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'development') {
 
 
 
-class NewForm extends React.Component {
+class NewUser extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -62,38 +62,39 @@ class NewForm extends React.Component {
 
     render() {
         return (
-            <div className = "newUser">
-            <form className = 'newUser' onSubmit={this.handleUserSubmit}>
-
-            <div className = 'newUserItem'>
-            <label htmlFor="name"><div className = "newUserText">Name: </div></label>
-                <input type="text" id="name" name="name" onChange={this.handleUserChange} value={this.state.name}  /> 
-                </div>
-       
             
-                    
-
-                <div className = 'newUserItem'>
-<label htmlFor="age"><div className = "newUserText">Age: </div></label>
-                <input type="number" id="age" name="age" onChange={this.handleUserChange} value={this.state.age}  />
-                </div>
-                
-                <div className = 'newUserItem'>
-                <label htmlFor="size"><div className = "newUserText">Size: </div></label>
-                <input type="text" id="size" name="size" onChange={this.handleUserChange} value={this.state.size}  />
-              
-                </div>
-                                       
-                <div className = 'newUserItem'>
-                <input type="submit" value="Add a User" />
-                </div>
-            </form>
-
-           
-            </div>
+         <form className = 'col s12 m12 l12' onSubmit={this.handleUserSubmit}>
          
+         <div className = 'form-inline'>
+         <div className = 'col s12 m12 l12 form-group'>
+         <label className = 'col s2 m2 l2' htmlFor="name">UserName:</label>
+             <input className = 'col s2 m2 l2' type="text" id="name" name="name" onChange={this.handleUserChange} value={this.state.name}  />  
+             </div>   
+             </div>
+
+             <div className = 'form-inline'>
+         <div className = 'col s12 m12 l12 form-group'>
+         <label className = 'col s2 m2 l2' htmlFor="age">Age:</label>
+             <input className = 'col s2 m2 l2' type="number" id="age" name="age" onChange={this.handleUserChange} value={this.state.age}  />  
+             </div>   
+             </div>
+
+             <div className = 'form-inline'>
+         <div className = 'col s12 m12 l12 form-group'>
+         <label className = 'col s2 m2 l2' htmlFor="size">Size:</label>
+             <input className = 'col s2 m2 l2' type="text" id="size" name="size" onChange={this.handleUserChange} value={this.state.size}  />  
+             </div>   
+             </div>
+
+
+             <div className = 'form-row'>
+             <input type="submit" value="Add a User"/>
+             </div>
+           
+          
+         </form>
         )
     }
 }
 
-export default NewForm
+export default NewUser

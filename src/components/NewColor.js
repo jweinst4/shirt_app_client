@@ -52,24 +52,22 @@ class NewColor extends React.Component {
     render() {
         return (
 
-            
-            <div className = "newColor">
-
-            <form className = 'newColor' onSubmit={this.handleColorSubmit}>
-
-            <div className = 'newColorItem'>
-            <label htmlFor="name"><div className = "newColorText">NewShirtURL: </div></label>
-                <input type="text" id="name" name="name" onChange={this.handleColorChange} value={this.state.name}  />    
-                </div>                        
-
-                <div className = 'newColorItem'>
-                <input type="submit" value="Add a Shirt URL" />
-                </div>
-            </form>
-
            
-            </div>
+         <form className = 'col s12 m12 l12' onSubmit={this.handleColorSubmit}>
          
+            <div className = 'form-inline'>
+            <div className = 'col s12 m12 l12 form-group'>
+            <label className = 'col s2 m2 l2' htmlFor="name">Shirt URL:</label>
+                <input className = 'col s6 m6 l6' type="text" id="name" name="name" onChange={this.handleColorChange} value={this.state.name}  />  
+                </div>   
+                </div>
+
+                <div className = 'form-row'>
+                <input type="submit" value="Add a Shirt"/>
+                </div>
+              
+             
+            </form>
         )
     }
 }

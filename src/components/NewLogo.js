@@ -60,31 +60,39 @@ class NewLogo extends React.Component {
 
     render() {
         return (
-            <div className = "newLogo">
+       
 
            
             
-            <form className = 'newLogo' onSubmit={this.handleLogoSubmit}>
-
-            <div className = 'newLogoItem'>
-            <label htmlFor="name"><div className = "newLogoText">Logo URL: </div></label>
-                <input type="text" id="name" name="name" onChange={this.handleLogoChange} value={this.state.name}  />  
+            <form className = 'col s12 m12 l12' onSubmit={this.handleLogoSubmit}>
+         
+            <div className = 'form-inline'>
+            <div className = 'col s12 m12 l12 form-group'>
+            <label className = 'col s2 m2 l2' htmlFor="name">Logo URL:</label>
+                <input className = 'col s6 m6 l6' type="text" id="name" name="name" onChange={this.handleLogoChange} value={this.state.name}  />  
                 </div>   
-
-                <div className = 'newLogoItem'>
-                <label htmlFor="user_id"><div className = "newLogoText">user_id: </div></label>
-                <input type="number" id="user_id" name="user_id" onChange={this.handleLogoChange} value={this.state.user_id}  />     
                 </div>
 
-                <div className = 'newLogoItem'>
-                <input type="submit" value="Add a Logo" id = 'logoInput' />
+                <div className = 'form-inline'>
+            <div className = 'col s12 m12 l12 form-group'>
+            <label className = 'col s2 m2 l2' htmlFor="name">userID:</label>
+                <input className = 'col s6 m6 l6' type="text" id="user_id" name="user_id" onChange={this.handleLogoChange} value={this.state.user_id}  />  
+                </div>   
                 </div>
+               
+
+                 
            
+                <div className = 'form-row'>
+                <input type="submit" value="Add a Logo"/>
+                </div>
+              
+             
             </form>
  
 
            
-            </div>
+     
          
         )
     }

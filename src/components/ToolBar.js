@@ -69,9 +69,9 @@ changeShirtColorHere(item) {
 {/* <div className='deleteColor' onClick={() => { this.props.deleteColor(item.id) }}> <i className="small material-icons"><div className = "edit-delete-icon">delete</div></i>
                                 </div> */}
 
-{/* 
-<div className='deleteLogo' onClick={() => { this.props.deleteLogo(item.id) }}><i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i>
-</div> */}
+{/* // 
+// <div className='deleteLogo' onClick={() => { this.props.deleteLogo(item.id) }}><i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i>
+// </div> */}
 
 <h4>Logos</h4>
 <div className='row choice-row'>

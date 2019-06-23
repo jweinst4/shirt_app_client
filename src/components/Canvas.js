@@ -142,8 +142,8 @@ class Canvas extends Component {
 
 
 
-<Shirt src= {this.props.shirtFillColor} />
-<URLImage src={this.props.currentLogo} />
+<Shirt src= {this.props.shirtFillColor} className = 'col'/>
+<URLImage src={this.props.currentLogo} className = 'col'/>
 
         </Layer>
       </Stage>
