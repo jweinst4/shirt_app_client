@@ -52,9 +52,22 @@ class App extends React.Component {
       currentLogo: '',
       printSideOneCostApp: '',
       printSideTwoCostApp: '',
+      lessThan12: [2.25,3.25,4.75,5.75,6.50],
+      lessThan37: [1.75,2.85,3.85,4.80,6.25],
+      lessThan73:[1.05,2.10,2.85,3.30,4.10],
+      lessThan144:[.85,1.75,2.10,2.40,3.00],
+      lessThan289: [.80,1.15,1.55,1.90,2.20],
+      lessThan500: [.60,.95,1.25,1.50,1.70],
+      lessThan1000: [.50,.75,.90,1.10,1.30],
+      lessThan5000: [.45,.55,.75,.90,1.10],
+      moreThan5000: [.40,.50,.60,.75,1.00]
 
     }
 
+
+
+ 
+    
   this.deleteColor = this.deleteColor.bind(this)
   this.getColors = this.getColors.bind(this)
   this.handleAddColor = this.handleAddColor.bind(this)
@@ -223,41 +236,343 @@ deleteLogo(id) {
 
   
   handlePriceSubmitApp(quantity,printSideOneQuantity,printSideTwoQuantity) {
-        
-        if(printSideOneQuantity === 1) {
-            this.setState({printSideOneCostApp: this.state.prices[quantity-1].one})
-        }
-       else if (printSideOneQuantity === 2) {
-        this.setState({printSideOneCostApp: parseFloat(this.state.prices[quantity-1].two)})
+
+    if(quantity < 12) {
+      if (printSideOneQuantity === 1) {
+        this.setState({printSideOneCostApp: this.state.lessThan12[0]})
+      }
+      else if (printSideOneQuantity === 2) {
+        this.setState({printSideOneCostApp: this.state.lessThan12[1]})
+      }
+      else if (printSideOneQuantity === 3) {
+        this.setState({printSideOneCostApp: this.state.lessThan12[2]})
+      }
+      else if (printSideOneQuantity === 4) {
+        this.setState({printSideOneCostApp: this.state.lessThan12[3]})
+      }
+      else if (printSideOneQuantity === 5) {
+        this.setState({printSideOneCostApp: this.state.lessThan12[4]})
+      }
     }
-    else if (printSideOneQuantity === 3) {
-      this.setState({printSideOneCostApp: parseFloat(this.state.prices[quantity-1].three)})
-  }
-  else if (printSideOneQuantity === 4) {
-    this.setState({printSideOneCostApp: parseFloat(this.state.prices[quantity-1].four)})
-}
-else if (printSideOneQuantity === 5) {
-  this.setState({printSideOneCostApp: parseFloat(this.state.prices[quantity-1].five)})
-}
+
+    else if(quantity < 37) {
+      if (printSideOneQuantity === 1) {
+        this.setState({printSideOneCostApp: this.state.lessThan37[0]})
+      }
+      else if (printSideOneQuantity === 2) {
+        this.setState({printSideOneCostApp: this.state.lessThan37[1]})
+      }
+      else if (printSideOneQuantity === 3) {
+        this.setState({printSideOneCostApp: this.state.lessThan37[2]})
+      }
+      else if (printSideOneQuantity === 4) {
+        this.setState({printSideOneCostApp: this.state.lessThan37[3]})
+      }
+      else if (printSideOneQuantity === 5) {
+        this.setState({printSideOneCostApp: this.state.lessThan37[4]})
+      }
+    }
+
+    else if(quantity < 73) {
+      if (printSideOneQuantity === 1) {
+        this.setState({printSideOneCostApp: this.state.lessThan73[0]})
+      }
+      else if (printSideOneQuantity === 2) {
+        this.setState({printSideOneCostApp: this.state.lessThan73[1]})
+      }
+      else if (printSideOneQuantity === 3) {
+        this.setState({printSideOneCostApp: this.state.lessThan73[2]})
+      }
+      else if (printSideOneQuantity === 4) {
+        this.setState({printSideOneCostApp: this.state.lessThan73[3]})
+      }
+      else if (printSideOneQuantity === 5) {
+        this.setState({printSideOneCostApp: this.state.lessThan73[4]})
+      }
+    }
+
+    else if(quantity < 144) {
+      if (printSideOneQuantity === 1) {
+        this.setState({printSideOneCostApp: this.state.lessThan144[0]})
+      }
+      else if (printSideOneQuantity === 2) {
+        this.setState({printSideOneCostApp: this.state.lessThan144[1]})
+      }
+      else if (printSideOneQuantity === 3) {
+        this.setState({printSideOneCostApp: this.state.lessThan144[2]})
+      }
+      else if (printSideOneQuantity === 4) {
+        this.setState({printSideOneCostApp: this.state.lessThan144[3]})
+      }
+      else if (printSideOneQuantity === 5) {
+        this.setState({printSideOneCostApp: this.state.lessThan144[4]})
+      }
+    }
+
+    else if(quantity < 289) {
+      if (printSideOneQuantity === 1) {
+        this.setState({printSideOneCostApp: this.state.lessThan289[0]})
+      }
+      else if (printSideOneQuantity === 2) {
+        this.setState({printSideOneCostApp: this.state.lessThan289[1]})
+      }
+      else if (printSideOneQuantity === 3) {
+        this.setState({printSideOneCostApp: this.state.lessThan289[2]})
+      }
+      else if (printSideOneQuantity === 4) {
+        this.setState({printSideOneCostApp: this.state.lessThan289[3]})
+      }
+      else if (printSideOneQuantity === 5) {
+        this.setState({printSideOneCostApp: this.state.lessThan289[4]})
+      }
+    }
+
+    else if(quantity < 500) {
+      if (printSideOneQuantity === 1) {
+        this.setState({printSideOneCostApp: this.state.lessThan500[0]})
+      }
+      else if (printSideOneQuantity === 2) {
+        this.setState({printSideOneCostApp: this.state.lessThan500[1]})
+      }
+      else if (printSideOneQuantity === 3) {
+        this.setState({printSideOneCostApp: this.state.lessThan500[2]})
+      }
+      else if (printSideOneQuantity === 4) {
+        this.setState({printSideOneCostApp: this.state.lessThan500[3]})
+      }
+      else if (printSideOneQuantity === 5) {
+        this.setState({printSideOneCostApp: this.state.lessThan500[4]})
+      }
+    }
+
+    else if(quantity < 1000) {
+      if (printSideOneQuantity === 1) {
+        this.setState({printSideOneCostApp: this.state.lessThan1000[0]})
+      }
+      else if (printSideOneQuantity === 2) {
+        this.setState({printSideOneCostApp: this.state.lessThan1000[1]})
+      }
+      else if (printSideOneQuantity === 3) {
+        this.setState({printSideOneCostApp: this.state.lessThan1000[2]})
+      }
+      else if (printSideOneQuantity === 4) {
+        this.setState({printSideOneCostApp: this.state.lessThan1000[3]})
+      }
+      else if (printSideOneQuantity === 5) {
+        this.setState({printSideOneCostApp: this.state.lessThan1000[4]})
+      }
+    }
+
+    else if(quantity < 5000) {
+      if (printSideOneQuantity === 1) {
+        this.setState({printSideOneCostApp: this.state.lessThan5000[0]})
+      }
+      else if (printSideOneQuantity === 2) {
+        this.setState({printSideOneCostApp: this.state.lessThan5000[1]})
+      }
+      else if (printSideOneQuantity === 3) {
+        this.setState({printSideOneCostApp: this.state.lessThan5000[2]})
+      }
+      else if (printSideOneQuantity === 4) {
+        this.setState({printSideOneCostApp: this.state.lessThan5000[3]})
+      }
+      else if (printSideOneQuantity === 5) {
+        this.setState({printSideOneCostApp: this.state.lessThan5000[4]})
+      }
+    }
+
+    else if(quantity >= 5000) {
+      if (printSideOneQuantity === 1) {
+        this.setState({printSideOneCostApp: this.state.moreThan5000[0]})
+      }
+      else if (printSideOneQuantity === 2) {
+        this.setState({printSideOneCostApp: this.state.moreThan5000[1]})
+      }
+      else if (printSideOneQuantity === 3) {
+        this.setState({printSideOneCostApp: this.state.moreThan5000[2]})
+      }
+      else if (printSideOneQuantity === 4) {
+        this.setState({printSideOneCostApp: this.state.moreThan5000[3]})
+      }
+      else if (printSideOneQuantity === 5) {
+        this.setState({printSideOneCostApp: this.state.moreThan5000[4]})
+      }
+    }
+
+    else {
+
+    }
 
 
-if(printSideTwoQuantity === 1) {
-  this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].one)})
-}
-else if (printSideTwoQuantity === 2) {
-this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].two)})
-}
-else if (printSideTwoQuantity === 3) {
-this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].three)})
-}
-else if (printSideTwoQuantity === 4) {
-this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].four)})
-}
-else if (printSideTwoQuantity === 5) {
-this.setState({printSideTwoCostApp: parseFloat(this.state.prices[quantity-1].five)})
-}
 
 
+
+    if(quantity < 12) {
+      if (printSideTwoQuantity === 1) {
+        this.setState({printSideTwoCostApp: this.state.lessThan12[0]})
+      }
+      else if (printSideTwoQuantity === 2) {
+        this.setState({printSideTwoCostApp: this.state.lessThan12[1]})
+      }
+      else if (printSideTwoQuantity === 3) {
+        this.setState({printSideTwoCostApp: this.state.lessThan12[2]})
+      }
+      else if (printSideTwoQuantity === 4) {
+        this.setState({printSideTwoCostApp: this.state.lessThan12[3]})
+      }
+      else if (printSideTwoQuantity === 5) {
+        this.setState({printSideTwoCostApp: this.state.lessThan12[4]})
+      }
+    }
+
+    else if(quantity < 37) {
+      if (printSideTwoQuantity === 1) {
+        this.setState({printSideTwoCostApp: this.state.lessThan37[0]})
+      }
+      else if (printSideTwoQuantity === 2) {
+        this.setState({printSideTwoCostApp: this.state.lessThan37[1]})
+      }
+      else if (printSideTwoQuantity === 3) {
+        this.setState({printSideTwoCostApp: this.state.lessThan37[2]})
+      }
+      else if (printSideTwoQuantity === 4) {
+        this.setState({printSideTwoCostApp: this.state.lessThan37[3]})
+      }
+      else if (printSideTwoQuantity === 5) {
+        this.setState({printSideTwoCostApp: this.state.lessThan37[4]})
+      }
+    }
+
+    else if(quantity < 73) {
+      if (printSideTwoQuantity === 1) {
+        this.setState({printSideTwoCostApp: this.state.lessThan73[0]})
+      }
+      else if (printSideTwoQuantity === 2) {
+        this.setState({printSideTwoCostApp: this.state.lessThan73[1]})
+      }
+      else if (printSideTwoQuantity === 3) {
+        this.setState({printSideTwoCostApp: this.state.lessThan73[2]})
+      }
+      else if (printSideTwoQuantity === 4) {
+        this.setState({printSideTwoCostApp: this.state.lessThan73[3]})
+      }
+      else if (printSideTwoQuantity === 5) {
+        this.setState({printSideTwoCostApp: this.state.lessThan73[4]})
+      }
+    }
+
+    else if(quantity < 144) {
+      if (printSideTwoQuantity === 1) {
+        this.setState({printSideTwoCostApp: this.state.lessThan144[0]})
+      }
+      else if (printSideTwoQuantity === 2) {
+        this.setState({printSideTwoCostApp: this.state.lessThan144[1]})
+      }
+      else if (printSideTwoQuantity === 3) {
+        this.setState({printSideTwoCostApp: this.state.lessThan144[2]})
+      }
+      else if (printSideTwoQuantity === 4) {
+        this.setState({printSideTwoCostApp: this.state.lessThan144[3]})
+      }
+      else if (printSideTwoQuantity === 5) {
+        this.setState({printSideTwoCostApp: this.state.lessThan144[4]})
+      }
+    }
+
+    else if(quantity < 289) {
+      if (printSideTwoQuantity === 1) {
+        this.setState({printSideTwoCostApp: this.state.lessThan289[0]})
+      }
+      else if (printSideTwoQuantity === 2) {
+        this.setState({printSideTwoCostApp: this.state.lessThan289[1]})
+      }
+      else if (printSideTwoQuantity === 3) {
+        this.setState({printSideTwoCostApp: this.state.lessThan289[2]})
+      }
+      else if (printSideTwoQuantity === 4) {
+        this.setState({printSideTwoCostApp: this.state.lessThan289[3]})
+      }
+      else if (printSideTwoQuantity === 5) {
+        this.setState({printSideTwoCostApp: this.state.lessThan289[4]})
+      }
+    }
+
+    else if(quantity < 500) {
+      if (printSideTwoQuantity === 1) {
+        this.setState({printSideTwoCostApp: this.state.lessThan500[0]})
+      }
+      else if (printSideTwoQuantity === 2) {
+        this.setState({printSideTwoCostApp: this.state.lessThan500[1]})
+      }
+      else if (printSideTwoQuantity === 3) {
+        this.setState({printSideTwoCostApp: this.state.lessThan500[2]})
+      }
+      else if (printSideTwoQuantity === 4) {
+        this.setState({printSideTwoCostApp: this.state.lessThan500[3]})
+      }
+      else if (printSideTwoQuantity === 5) {
+        this.setState({printSideTwoCostApp: this.state.lessThan500[4]})
+      }
+    }
+
+    else if(quantity < 1000) {
+      if (printSideTwoQuantity === 1) {
+        this.setState({printSideTwoCostApp: this.state.lessThan1000[0]})
+      }
+      else if (printSideTwoQuantity === 2) {
+        this.setState({printSideTwoCostApp: this.state.lessThan1000[1]})
+      }
+      else if (printSideTwoQuantity === 3) {
+        this.setState({printSideTwoCostApp: this.state.lessThan1000[2]})
+      }
+      else if (printSideOneQuantity === 4) {
+        this.setState({printSideOneCostApp: this.state.lessThan1000[3]})
+      }
+      else if (printSideTwoQuantity === 5) {
+        this.setState({printSideTwoCostApp: this.state.lessThan1000[4]})
+      }
+    }
+
+    else if(quantity < 5000) {
+      if (printSideTwoQuantity === 1) {
+        this.setState({printSideTwoCostApp: this.state.lessThan5000[0]})
+      }
+      else if (printSideTwoQuantity === 2) {
+        this.setState({printSideTwoCostApp: this.state.lessThan5000[1]})
+      }
+      else if (printSideTwoQuantity === 3) {
+        this.setState({printSideTwoCostApp: this.state.lessThan5000[2]})
+      }
+      else if (printSideTwoQuantity === 4) {
+        this.setState({printSideTwoCostApp: this.state.lessThan5000[3]})
+      }
+      else if (printSideTwoQuantity === 5) {
+        this.setState({printSideTwoCostApp: this.state.lessThan5000[4]})
+      }
+    }
+
+    else if(quantity >= 5000) {
+      if (printSideTwoQuantity === 1) {
+        this.setState({printSideTwoCostApp: this.state.moreThan5000[0]})
+      }
+      else if (printSideTwoQuantity === 2) {
+        this.setState({printSideTwoCostApp: this.state.moreThan5000[1]})
+      }
+      else if (printSideTwoQuantity === 3) {
+        this.setState({printSideTwoCostApp: this.state.moreThan5000[2]})
+      }
+      else if (printSideTwoQuantity === 4) {
+        this.setState({printSideTwoCostApp: this.state.moreThan5000[3]})
+      }
+      else if (printSideTwoQuantity === 5) {
+        this.setState({printSideTwoCostApp: this.state.moreThan5000[4]})
+      }
+    }
+
+    else {
+      
+    }
+  
 
     }
 
