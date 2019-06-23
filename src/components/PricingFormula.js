@@ -98,8 +98,8 @@ class PricingFormula extends React.Component {
             <h6>PrintSideOneCost: ${this.props.printSideOneCostApp}</h6>
             <h6>PrintSideTwoCost: ${this.props.printSideTwoCostApp}</h6>
 
-            </div>
-            <div className = "col printFiguresRight">
+     
+
             <h6>ShirtCost: ${this.state.shirtCost / 100}</h6>
             <h6>NetCost: ${(this.props.printSideOneCostApp + this.props.printSideTwoCostApp + (this.state.shirtCost / 100))}</h6>
             <h6>MarkUp: {this.state.markUp}%</h6>
