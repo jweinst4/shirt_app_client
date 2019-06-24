@@ -46,7 +46,7 @@ class NewColor extends React.Component {
         }).then(res => res.json()).then(resJSON => {
             this.props.handleAddColor(resJSON)
         }).catch(error => console.error({ 'Error': error }))
-        
+        this.setState({name: ''})
     }
 
     render() {

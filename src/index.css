@@ -12,32 +12,29 @@
   font-size: 30px;
 }
 
-
 .shirt-color {
-  height: 60px;
-  width: 70px;
-  border-radius: 10px;
-  margin: 0px 10px 10px 0px;
-  border: 5px solid #e3f2fd;
-  }
   
+
+  width: 50px;
+
+}
+
   .shirt-color img {
-    height: 50px;
-    width: 36px;
+    height: 60px;
+    width: 50px;
+
+    margin-left: -10px;
   }
   
-  .shirt-color:hover {
+  .shirt-color img:hover {
     transform: scale(2);
    }
 
 
    .logo-choice {
-    height: 50px;
-    width: 140px;
-    border-radius: 10px;
-    margin-right: 10px;
-    border: 1px solid black;
-    margin: 0px 10px 10px 0px;
+    
+    margin-right: 30px;
+
     }
 
     .logo-choice:hover {
@@ -46,21 +43,21 @@
 
 
      .logo-image > img {
-      width: 130px;
-      height: 45px;
+      width: 90px;
+      height: 38px;
       
     }
  
     .logo-choice > img {
      width: 60px;
      height: 60px;
-     
+    
    }
 
    .choice-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: left;  
     
   }
 
@@ -123,9 +120,7 @@ input[type='submit'] {
 }
 
 .textLogoForm {
-  margin-bottom: 10px;
-
-  
+  margin-bottom: 10px; 
 }
 
 .addLogoTextSubmit {
@@ -135,12 +130,13 @@ margin-top: -20px;
 
 .logoTextSection {
   margin-bottom: 20px;
+  margin-top: -40px;
 }
 .font-choice {
   font-size: 20px;
   margin-right: 20px;
+  margin-top: -20px;
 }
-
 
 
 .font-choice:hover {

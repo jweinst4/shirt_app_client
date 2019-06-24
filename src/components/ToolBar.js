@@ -77,9 +77,9 @@ changeShirtColorHere(item) {
       {this.props.colors.map((item, index) => {
   return (
     
-    <div className = 'shirt-choice col' key = {item._id} index = {index} onClick={() => { 
-      this.changeShirtColorHere(item) }} ><div className = 'col shirt-color'>
-    <img src = {this.props.colors[index].name}></img></div> </div>
+    <div className = 'shirt-color col' key = {item._id} index = {index} onClick={() => { 
+      this.changeShirtColorHere(item) }} >
+    <img src = {this.props.colors[index].name}></img> </div>
 
         )  
 })}
@@ -120,7 +120,7 @@ changeShirtColorHere(item) {
                 <input className = 'col s6 m6 l6' type="text" id="logoText" name="logoText" onChange={this.handleLogoTextChange} value={this.state.logoText}  />  
                 
                 <div className = 'addLogoTextSubmit col s2 m2 l2'>
-                <input type="submit" value="Add LogoText"/>
+                <input type="submit" value="Add Logo Text"/>
                 </div>
 
                 </div>   
