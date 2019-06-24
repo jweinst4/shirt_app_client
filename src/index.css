@@ -14,17 +14,16 @@
 
 
 .shirt-color {
-  height: 130px;
-  width: 125px;
-  
+  height: 110px;
+  width: 105px;
   border-radius: 10px;
   margin: 0px 10px 10px 0px;
   border: 5px solid #e3f2fd;
   }
   
   .shirt-color img {
-    height: 125px;
-    width: 100px;
+    height: 100px;
+    width: 75px;
   }
   
   .shirt-color:hover {
@@ -33,7 +32,7 @@
 
 
    .logo-choice {
-    height: 45px;
+    height: 50px;
     width: 140px;
     border-radius: 10px;
     margin-right: 10px;
@@ -120,4 +119,14 @@ input[type='submit'] {
 
 .row > h6 {
   font-size: 24px;
+}
+
+.textLogoForm {
+  margin-bottom: 10px;
+
+  
+}
+
+.textLogoSubmit {
+  margin-top: 10px !important;
 }

@@ -17,12 +17,16 @@ class ToolBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentShirtColor: this.props.shirtFillColor
+      currentShirtColor: this.props.shirtFillColor,
+      logoText: '',
      }
 
  this.changeShirtColorHere = this.changeShirtColorHere.bind(this)
  this.changeLogo1ColorHere = this.changeLogo1ColorHere.bind(this)
  this.changeLogo2ColorHere = this.changeLogo2ColorHere.bind(this)
+
+ this.handleLogoTextChange = this.handleLogoTextChange.bind(this)
+ this.handleLogoTextSubmit = this.handleLogoTextSubmit.bind(this)
 
   }
  
@@ -31,6 +35,20 @@ class ToolBar extends React.Component {
     this.props.getColors()
     this.props.getLogos()
     }
+
+
+    handleLogoTextChange(event) {
+      this.setState({ [event.currentTarget.id]: event.currentTarget.value})
+      console.log(event.currentTarget.value)
+  }
+
+  handleLogoTextSubmit(event) {
+  event.preventDefault();
+
+  this.props.handleLogoTextSubmitApp(this.state.logoText)
+  
+  }
+
 
 
 changeShirtColorHere(item) {
@@ -88,6 +106,52 @@ changeShirtColorHere(item) {
         )
   
 })}
+
+
+
+
+</div>
+
+<form className = 'logoTextForm col s12 m12 l12' onSubmit={this.handleLogoTextSubmit}>
+         
+            <div className = 'form-inline'>
+            <div className = 'col s12 m12 l12 form-group'>
+            <label className = 'col s3 m3 l3' htmlFor="logoText">LogoText:</label>
+                <input className = 'col s4 m4 l4' type="text" id="logoText" name="logoText" onChange={this.handleLogoTextChange} value={this.state.logoText}  />  
+               
+     
+           
+                
+                <input className = 'logoTextSubmit col s4 m4 l4' type="submit" value="Add Text"/>
+                </div>
+                </div>   
+        
+             
+            </form>
+            
+
+
+<h4>Fonts</h4>
+<div className='row choice-row'>
+      {this.props.fonts.map((item, index) => {
+  return (
+
+    
+  
+    <div className = 'font-choice' key = {item._id} index = {index} ><div>
+    <div className = 'font-image'><p  onClick={() => { this.props.changeCurrentFont(item) }}><span style={{fontFamily: item}}>{item}</span></p></div></div> </div>
+
+
+                                
+
+     
+        )
+  
+})}
+
+
+
+
 </div>
       
       </div>
