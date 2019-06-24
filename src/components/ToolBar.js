@@ -46,6 +46,7 @@ class ToolBar extends React.Component {
   event.preventDefault();
 
   this.props.handleLogoTextSubmitApp(this.state.logoText)
+  this.setState({logoText: ''})
   
   }
 
@@ -111,27 +112,28 @@ changeShirtColorHere(item) {
 
 
 </div>
-
-<form className = 'logoTextForm col s12 m12 l12' onSubmit={this.handleLogoTextSubmit}>
+<h4>LogoText:</h4>
+<form className = 'col s12 m12 l12' onSubmit={this.handleLogoTextSubmit}>
          
             <div className = 'form-inline'>
             <div className = 'col s12 m12 l12 form-group'>
-            <label className = 'col s3 m3 l3' htmlFor="logoText">LogoText:</label>
-                <input className = 'col s4 m4 l4' type="text" id="logoText" name="logoText" onChange={this.handleLogoTextChange} value={this.state.logoText}  />  
-               
-     
-           
+    
+                <input className = 'col s10 m10 l10' type="text" id="logoText" name="logoText" onChange={this.handleLogoTextChange} value={this.state.logoText}  />  
                 
-                <input className = 'logoTextSubmit col s4 m4 l4' type="submit" value="Add Text"/>
+                <div className = 'addLogoTextSubmit col s2 m2 l2'>
+                <input type="submit" value="Add LogoText"/>
                 </div>
+
                 </div>   
-        
+                </div>
+
+              
              
             </form>
             
 
 
-<h4>Fonts</h4>
+<h4 className = 'fontSection'>Fonts</h4>
 <div className='row choice-row'>
       {this.props.fonts.map((item, index) => {
   return (

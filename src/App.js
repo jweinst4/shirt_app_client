@@ -36,7 +36,7 @@ class App extends React.Component {
       logo2FillColor: 'yellow',
       logo1TextColor: 'blue',
       logo2TextColor: 'white',
-      shirtFillColor: 'pink',
+      shirtFillColor: '',
       logoFillColors: ['pink','yellow','blue','red','white','black'],
       textColors: ['pink','yellow','blue','red','white','black'],
       items: [],

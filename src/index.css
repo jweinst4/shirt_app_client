@@ -14,16 +14,16 @@
 
 
 .shirt-color {
-  height: 110px;
-  width: 105px;
+  height: 60px;
+  width: 70px;
   border-radius: 10px;
   margin: 0px 10px 10px 0px;
   border: 5px solid #e3f2fd;
   }
   
   .shirt-color img {
-    height: 100px;
-    width: 75px;
+    height: 50px;
+    width: 36px;
   }
   
   .shirt-color:hover {
@@ -60,7 +60,7 @@
    .choice-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: left;
     
   }
 
@@ -119,6 +119,7 @@ input[type='submit'] {
 
 .row > h6 {
   font-size: 24px;
+
 }
 
 .textLogoForm {
@@ -127,6 +128,26 @@ input[type='submit'] {
   
 }
 
-.textLogoSubmit {
-  margin-top: 10px !important;
+.addLogoTextSubmit {
+margin-top: -20px;
+
 }
+
+.font-choice {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.fontSection {
+  margin-bottom: 20px;
+}
+
+
+.font-choice img {
+  height: 50px;
+  width: 36px;
+}
+
+.font-choice:hover {
+  transform: scale(1.3);
+ }
