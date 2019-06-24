@@ -71,7 +71,7 @@ class PricingFormula extends React.Component {
 
 
          <div className = 'col s12 m12 l12 form-group'>
-         <label className = 'col s10 m10 l10' htmlFor="shirtCost">shirtCost(MUST BE 150 for $1.50):</label>
+         <label className = 'col s10 m10 l10' htmlFor="shirtCost">shirtCost(MUST BE 150 for $1.50, 200 for $2.00, etc.):</label>
              <input className = 'col s2 m2 l2' type="number" id="shirtCost" name="shirtCost" onChange={this.handlePriceChange} value={this.state.shirtCost}  />  
              </div>   
        
@@ -79,7 +79,7 @@ class PricingFormula extends React.Component {
 
  
          <div className = 'col s12 m12 l12 form-group'>
-         <label className = 'col s9 m9 l9' htmlFor="markUp">markUp(MUST BE 50 for 50%):</label>
+         <label className = 'col s9 m9 l9' htmlFor="markUp">markUp(MUST BE 50 for 50%, 100 for 100%, etc.):</label>
              <input className = 'col s3 m3 l3' type="number" id="markUp" name="markUp" onChange={this.handlePriceChange} value={this.state.markUp}  />  
              </div>   
            
