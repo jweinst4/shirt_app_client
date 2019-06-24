@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Stage, Layer, Shape, Image, Text, Star} from 'react-konva';
+import { Stage, Layer, Image, Text} from 'react-konva';
 import useImage from 'use-image';
 
 import 'materialize-css'; // It installs the JS asset only
@@ -115,8 +115,10 @@ class Shirt extends React.Component {
 }
 
 
+
+
 // https://github.com/konvajs/react-konva/issues/256
-class Canvas extends Component {
+class Canvas extends React.Component {
 
   constructor(props) {
     super(props)
@@ -125,10 +127,12 @@ class Canvas extends Component {
     }
 
     
+
   }
+ 
+// Converts canvas to an image
 
  
-
   render() {
     return (
 
@@ -139,15 +143,19 @@ class Canvas extends Component {
         
 
             
-
+        
 
 
 <Shirt src= {this.props.shirtFillColor} className = 'col'/>
 <URLImage src={this.props.currentLogo} className = 'col'/>
+
 <Text x={340} y={130} fontFamily={this.props.currentFont} fontSize={30} text={this.props.logoText}  draggable />
          
+        
         </Layer>
       </Stage>
+
+      {/* <button onClick={ this.saveCanvas }>Save</button> */}
       </div>
     );
   }
