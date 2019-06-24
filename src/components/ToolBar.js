@@ -118,7 +118,7 @@ changeShirtColorHere(item) {
             <div className = 'form-inline'>
             <div className = 'col s12 m12 l12 form-group'>
     
-                <input className = 'col s10 m10 l10' type="text" id="logoText" name="logoText" onChange={this.handleLogoTextChange} value={this.state.logoText}  />  
+                <input className = 'col s6 m6 l6' type="text" id="logoText" name="logoText" onChange={this.handleLogoTextChange} value={this.state.logoText}  />  
                 
                 <div className = 'addLogoTextSubmit col s2 m2 l2'>
                 <input type="submit" value="Add LogoText"/>
