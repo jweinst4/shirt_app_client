@@ -133,21 +133,28 @@ margin-top: -20px;
 
 }
 
+.logoTextSection {
+  margin-bottom: 20px;
+}
 .font-choice {
   font-size: 20px;
   margin-right: 20px;
 }
 
-.fontSection {
-  margin-bottom: 20px;
-}
 
-
-.font-choice img {
-  height: 50px;
-  width: 36px;
-}
 
 .font-choice:hover {
   transform: scale(1.3);
+ }
+
+ .logoTextColor {
+   width: 40px;
+   height: 40px;
+   border: 1px solid black;
+   border-radius: 5px;
+   margin-bottom: 10px;
+ }
+
+ h6 {
+   font-weight: bold !important;
  }

@@ -65,6 +65,8 @@ class App extends React.Component {
       moreThan5000: [.40,.50,.60,.75,1.00],
       currentFont: 'Arial',
       logoText: '',
+      logoTextColor: ['red','blue','white','pink','green','black'],
+      currentLogoTextColor: 'black',
 
     }
 
@@ -92,6 +94,8 @@ class App extends React.Component {
 
   this.changeCurrentFont= this.changeCurrentFont.bind(this)
 
+  this.changeCurrentLogoTextColor= this.changeCurrentLogoTextColor.bind(this)
+
   this.getPrices = this.getPrices.bind(this)
 
   this.handlePriceSubmitApp = this.handlePriceSubmitApp.bind(this)
@@ -108,10 +112,13 @@ class App extends React.Component {
     }
 
     changeCurrentFont(item) {
-      console.log(item)
       this.setState ({currentFont: item})
     }
 
+
+    changeCurrentLogoTextColor(item) {
+      this.setState ({currentLogoTextColor: item})
+    }
 
 
     changeLogo1Color(item) {
@@ -632,14 +639,14 @@ deleteLogo(id) {
 <div className = 'canvasCol col s6 m6 l6'>
 
 
-<Route exact path ='/' exact render={() => <Canvas shirtFillColor={this.state.shirtFillColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} currentLogo={this.state.currentLogo} changeShirtColor={this.changeShirtColor} currentFont={this.state.currentFont} logoText={this.state.logoText}/>}/>
+<Route exact path ='/' exact render={() => <Canvas shirtFillColor={this.state.shirtFillColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} currentLogo={this.state.currentLogo} changeShirtColor={this.changeShirtColor} currentFont={this.state.currentFont} logoText={this.state.logoText} currentLogoTextColor={this.state.currentLogoTextColor}/>}/>
 </div>
 
 
 
 
 <div className = 'toolbarCol col s6 m6 l6'>
-<Route exact path ='/' exact render={() => <ToolBar  shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor}changeShirtColor={this.changeShirtColor} changeLogo1Color={this.changeLogo1Color} changeLogo2Color={this.changeLogo2Color} colors={this.state.colors}  logoFillColors= {this.state.logoFillColors} deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} getLogos = {this.getLogos} users = {this.state.users} logos = {this.state.logos} changeCurrentLogo={this.changeCurrentLogo} fonts = {this.state.fonts} changeCurrentFont={this.changeCurrentFont}  handleLogoTextSubmitApp={this.handleLogoTextSubmitApp}/>}/>
+<Route exact path ='/' exact render={() => <ToolBar  shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor}changeShirtColor={this.changeShirtColor} changeLogo1Color={this.changeLogo1Color} changeLogo2Color={this.changeLogo2Color} colors={this.state.colors}  logoFillColors= {this.state.logoFillColors} deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} getLogos = {this.getLogos} users = {this.state.users} logos = {this.state.logos} changeCurrentLogo={this.changeCurrentLogo} fonts = {this.state.fonts} changeCurrentFont={this.changeCurrentFont}  handleLogoTextSubmitApp={this.handleLogoTextSubmitApp} logoTextColor={this.state.logoTextColor} changeCurrentLogoTextColor={this.changeCurrentLogoTextColor}/>}/>
 </div>
 
 </div>

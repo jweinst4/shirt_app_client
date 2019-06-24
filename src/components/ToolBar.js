@@ -71,7 +71,7 @@ changeShirtColorHere(item) {
       <div className = 'toolbar-content'>
 
 
- <h4>Shirt</h4>
+ <h6>Shirt</h6>
 <div className='row choice-row'>
 
       {this.props.colors.map((item, index) => {
@@ -92,7 +92,7 @@ changeShirtColorHere(item) {
 // <div className='deleteLogo' onClick={() => { this.props.deleteLogo(item.id) }}><i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i>
 // </div> */}
 
-<h4>Logos</h4>
+<h6>Logos</h6>
 <div className='row choice-row'>
       {this.props.logos.map((item, index) => {
   return (
@@ -112,8 +112,7 @@ changeShirtColorHere(item) {
 
 
 </div>
-<h4>LogoText:</h4>
-<form className = 'col s12 m12 l12' onSubmit={this.handleLogoTextSubmit}>
+<form className = 'logoTextSection col s12 m12 l12' onSubmit={this.handleLogoTextSubmit}>
          
             <div className = 'form-inline'>
             <div className = 'col s12 m12 l12 form-group'>
@@ -132,8 +131,23 @@ changeShirtColorHere(item) {
             </form>
             
 
+            <h6 className = 'logoTextColorSection'>LogoTextColor</h6>
+<div className='row choice-row'>
 
-<h4 className = 'fontSection'>Fonts</h4>
+      {this.props.logoTextColor.map((item, index) => {
+  return (
+    
+    <div className = 'logoTextColor-choice col' key = {item._id} index = {index} onClick={() => { 
+      this.props.changeCurrentLogoTextColor(item) }} ><div className = 'logoTextColor col' style={{backgroundColor: item}} onClick={() => { this.props.changeCurrentLogoTextColor(item) }}>
+   &nbsp;</div> </div>
+
+        )  
+})}
+</div>
+
+
+
+<h6 className = 'fontSection'>Fonts</h6>
 <div className='row choice-row'>
       {this.props.fonts.map((item, index) => {
   return (
@@ -141,7 +155,7 @@ changeShirtColorHere(item) {
     
   
     <div className = 'font-choice' key = {item._id} index = {index} ><div>
-    <div className = 'font-image'><p  onClick={() => { this.props.changeCurrentFont(item) }}><span style={{fontFamily: item}}>{item}</span></p></div></div> </div>
+    <div className = 'font-image'><p onClick={() => { this.props.changeCurrentFont(item) }}><span style={{fontFamily: item}}>{item}</span></p></div></div> </div>
 
 
                                 
