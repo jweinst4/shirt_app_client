@@ -32,10 +32,6 @@ class App extends React.Component {
     super(props)
     this.state = {
       shirtStrokeColor: 'black',
-      logo1FillColor: 'blue',
-      logo2FillColor: 'yellow',
-      logo1TextColor: 'blue',
-      logo2TextColor: 'white',
       shirtFillColor: '',
       logoFillColors: ['pink','yellow','blue','red','white','black'],
       textColors: ['pink','yellow','blue','red','white','black'],
@@ -218,7 +214,7 @@ deleteLogo(id) {
       .then(parsedData => this.setState({colors: parsedData}),
       
        err=> console.log(err))
-       .then(parsedData => this.setState({shirtFillColor: this.state.colors[0].name}),
+       .then(parsedData => this.setState({shirtFillColor: this.state.colors[0].url}),
        err=> console.log(err))
        
        
