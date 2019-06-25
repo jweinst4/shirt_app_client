@@ -138,7 +138,7 @@ class Canvas extends React.Component {
 
       <div className = 'canvas-border'>
   
-      <Stage width={570} height={620}>
+      <Stage width={570} height={640}>
         <Layer>
         
 
@@ -151,7 +151,8 @@ class Canvas extends React.Component {
 
 <Text x={340} y={130} fontFamily={this.props.currentFont} fontSize={30} fill={this.props.currentLogoTextColor} text={this.props.logoText}  draggable />
 
-<Text x={70} y={590} fontSize={20} text={this.props.shirtFillColor.name} draggable/>
+<Text x={70} y={590} fontSize={20} text={'Shirt Color: ' + this.props.shirtFillColor.name}/>
+<Text x={70} y={620} fontSize={20} text={'Logo Text Color: ' + this.props.currentLogoTextColor}/>
          
         
         </Layer>

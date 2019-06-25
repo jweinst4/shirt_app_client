@@ -18,6 +18,7 @@
   width: 30px;
   margin: 5px;
   
+  
 
 }
 
@@ -25,11 +26,12 @@
     height: 30px;
     width: 30px;
     border-radius: 5px;
+    border: 1px solid black;
 
   }
   
   .shirt-color img:hover {
-    transform: scale(1.3);
+    transform: scale(1.5);
    }
 
 
@@ -40,7 +42,7 @@
     }
 
     .logo-choice:hover {
-      transform: scale(1.3);
+      transform: scale(1.5);
      }
 
 
@@ -146,11 +148,15 @@ margin-top: -20px;
  }
 
  .logoTextColor {
-   width: 40px;
-   height: 40px;
-   border: 1px solid black;
-   border-radius: 5px;
-   margin-bottom: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+ }
+
+ .logoTextColor:hover {
+   transform: scale(1.5)
  }
 
  h6 {

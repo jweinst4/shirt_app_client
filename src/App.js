@@ -31,23 +31,23 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      shirtStrokeColor: 'black',
+
+      shirtStrokeColor: 'Black',
       shirtFillColor: '',
-      logoFillColors: ['pink','yellow','blue','red','white','black'],
-      textColors: ['pink','yellow','blue','red','white','black'],
-      items: [],
-      item: {},
       colors: [],
-      color: {},
       logos: [],
-      logo: {},
       prices: [],
-      price: {},
       users: [],
-      user: {},
-      fonts: ['Comic Sans MS','Verdana','Impact','Hoefler Text','Rockwell','Copperplate','Papyrus'],
-      font: {},
+      fonts: ['Comic Sans MS','Verdana','Impact','Hoefler Text','Rockwell','Copperplate','Papyrus','Times New Roman','Times','Courier new','Courier','Verdana','Georgia','Palatino','Trebuchet MS','Arial Black'],
+
+
       currentLogo: '',
+      currentFont: 'Arial',
+      logoText: '',
+      logoTextColor: ['Red','Blue','White','Pink','Green','Black','Orange','Yellow','Violet','Aqua','Azure','Beige','Brown','Burlywood','Chocolate','Cyan','Darkorange','Fuchsia','Hotpink','Lawngreen','Lime','Maroon','Mistyrose','Olive','Orchid','Peru','Plum','Skyblue','Salmon','Snow','Tan','Teal'],
+      currentLogoTextColor: 'Black',
+
+
       printSideOneCostApp: '',
       printSideTwoCostApp: '',
       lessThan12: [2.25,3.25,4.75,5.75,6.50],
@@ -59,10 +59,7 @@ class App extends React.Component {
       lessThan1000: [.50,.75,.90,1.10,1.30],
       lessThan5000: [.45,.55,.75,.90,1.10],
       moreThan5000: [.40,.50,.60,.75,1.00],
-      currentFont: 'Arial',
-      logoText: '',
-      logoTextColor: ['red','blue','white','pink','green','black'],
-      currentLogoTextColor: 'black',
+     
 
     }
 
