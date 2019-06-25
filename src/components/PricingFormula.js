@@ -23,17 +23,14 @@ class PricingFormula extends React.Component {
         printSideTwoQuantity: '',
         shirtCost: '',
         markUp: '',
-        radioButtonValue: '',
         lightShirt: '',
         darkShirt: '',
         embroidery: '',
-        selectedOption: "option1",
-
 
         }
         this.handlePriceChange = this.handlePriceChange.bind(this)
         this.handlePriceSubmit = this.handlePriceSubmit.bind(this)
-        this.handleOptionChange = this.handleOptionChange.bind(this)
+
     }
 
     componentDidMount() {
@@ -48,16 +45,10 @@ class PricingFormula extends React.Component {
     event.preventDefault();
 
     this.props.handlePriceSubmitApp(this.state.quantity,this.state.printSideOneQuantity,this.state.printSideTwoQuantity)
-    console.log("You have submitted:", this.state.selectedOption)
+
+
     
     }
-
-    handleOptionChange (event) {
-        this.setState({
-          selectedOption: event.currentTarget.value
-        });
-      };
-
 
 
     render() {

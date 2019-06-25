@@ -133,6 +133,10 @@ class Canvas extends React.Component {
 
  
   render() {
+
+if (this.props.frontOrBack === 'front') {
+
+
     return (
 
       <div className = 'canvas-border row'>
@@ -147,20 +151,53 @@ class Canvas extends React.Component {
 
 
         <Shirt src= {this.props.currentShirtColor.url} className = 'col'/>
-<URLImage src={this.props.currentLogo} className = 'col'/>
+<URLImage src={this.props.currentLogoFront} className = 'col'/>
 
-<Text x={340} y={130} fontFamily={this.props.currentFont} fontSize={30} fill={this.props.currentLogoTextColor} text={this.props.logoText}  draggable />
+<Text x={340} y={130} fontFamily={this.props.currentFontFront} fontSize={30} fill={this.props.currentLogoTextColorFront} text={this.props.logoTextFront}  draggable />
 
 <Text x={70} y={590} fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
-<Text x={70} y={620} fontSize={20} text={'Logo Text Color: ' + this.props.currentLogoTextColor}/>
-<Text x={70} y={650} fontSize={20} text={'Logo Font: ' + this.props.currentFont}/>
+<Text x={70} y={620} fontSize={20} text={'Logo Text Color Front: ' + this.props.currentLogoTextColorFront}/>
+<Text x={70} y={650} fontSize={20} text={'Logo Font Front: ' + this.props.currentFontFront}/>
          
         
         </Layer>
       </Stage>
 </div>
       </div>
-    );
+    )
+}
+else if (this.props.frontOrBack === 'back') {
+
+
+  return (
+
+    <div className = 'canvas-border row'>
+    <div className = 'col s1'>
+
+    <Stage width={570} height={670}>
+      <Layer>
+      
+
+          
+      
+
+
+      <Shirt src= {this.props.currentShirtColor.backURL} className = 'col'/>
+<URLImage src={this.props.currentLogoBack} className = 'col'/>
+
+<Text x={340} y={130} fontFamily={this.props.currentFontBack} fontSize={30} fill={this.props.currentLogoTextColorBack} text={this.props.logoTextBack}  draggable />
+
+<Text x={70} y={590} fontSize={20} text={'Shirt Color Back: ' + this.props.currentShirtColor.name}/>
+<Text x={70} y={620} fontSize={20} text={'Logo Text Color Back: ' + this.props.currentLogoTextColorBack}/>
+<Text x={70} y={650} fontSize={20} text={'Logo Font Back: ' + this.props.currentFontBack }/>
+       
+      
+      </Layer>
+    </Stage>
+</div>
+    </div>
+  )
+};
   }
 }
 
