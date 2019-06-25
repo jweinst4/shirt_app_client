@@ -103,7 +103,7 @@ class App extends React.Component {
 
   }
  changeShirtColor(item) {
-      this.setState ({shirtFillColor: item.name})
+      this.setState ({shirtFillColor: item})
     }
 
 
@@ -132,13 +132,15 @@ class App extends React.Component {
 
 
   handleAddColor(color) {
-  
+  console.log(color)
     this.getColors()
     const copyColors = [...this.state.colors]
-    copyColors.unshift(color.name)
+    copyColors.unshift(color)
     this.setState({
       colors: copyColors,
-      name: ''
+      name: '',
+      url: '',
+      swatch: '',
     })
   }
 

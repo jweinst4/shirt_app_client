@@ -79,18 +79,20 @@ changeShirtColorHere(item) {
     
     <div className = 'shirt-color col' key = {item._id} index = {index} onClick={() => { 
       this.changeShirtColorHere(item) }} >
-    <img src = {this.props.colors[index].name}></img> </div>
+    <img src = {this.props.colors[index].swatch}></img> </div>
 
         )  
 })}
 </div>
-
-{/* <div className='deleteColor' onClick={() => { this.props.deleteColor(item.id) }}> <i className="small material-icons"><div className = "edit-delete-icon">delete</div></i>
+{/*  
+<div className='deleteColor' onClick={() => { this.props.deleteColor(item.id) }}> <i className="small material-icons"><div className = "edit-delete-icon">delete</div></i>
                                 </div> */}
 
 {/* // 
 // <div className='deleteLogo' onClick={() => { this.props.deleteLogo(item.id) }}><i className="small material-icons"><div className = "edit-delete-icon  ">delete</div></i>
 // </div> */}
+
+
 
 <h6>Logos</h6>
 <div className='row choice-row'>

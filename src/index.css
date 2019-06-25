@@ -15,19 +15,21 @@
 .shirt-color {
   
 
-  width: 50px;
+  width: 30px;
+  margin: 5px;
+  
 
 }
 
   .shirt-color img {
-    height: 60px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
 
-    margin-left: -10px;
   }
   
   .shirt-color img:hover {
-    transform: scale(2);
+    transform: scale(1.3);
    }
 
 
