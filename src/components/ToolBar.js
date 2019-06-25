@@ -71,7 +71,7 @@ changeShirtColorHere(item) {
       <div className = 'toolbar-content'>
 
 
- <h6>Shirt</h6>
+ <h6>Shirt Colors</h6>
 <div className='row choice-row'>
 
       {this.props.colors.map((item, index) => {
@@ -133,7 +133,7 @@ changeShirtColorHere(item) {
             </form>
             
 
-            <h6 className = 'logoTextColorSection'>LogoTextColor</h6>
+            <h6 className = 'logoTextColorSection'>Logo Text Colors</h6>
 <div className='row choice-row'>
 
       {this.props.logoTextColor.map((item, index) => {
