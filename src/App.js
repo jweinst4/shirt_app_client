@@ -214,7 +214,7 @@ deleteLogo(id) {
       .then(parsedData => this.setState({colors: parsedData}),
       
        err=> console.log(err))
-       .then(parsedData => this.setState({shirtFillColor: this.state.colors[0].url}),
+       .then(parsedData => this.setState({shirtFillColor: this.state.colors[0]}),
        err=> console.log(err))
        
        
