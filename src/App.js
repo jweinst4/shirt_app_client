@@ -45,12 +45,12 @@ class App extends React.Component {
 
       currentLogoFront: '',
       currentFontFront: 'Arial',
-      logoTextFront: '',
+      currentLogoTextFront: '',
       currentLogoTextColorFront: 'Black',
 
       currentLogoBack: '',
       currentFontBack: 'Arial',
-      logoTextBack: '',
+      currentLogoTextBack: '',
       currentLogoTextColorBack: 'Black',
 
       printSideOneCostApp: '',
@@ -65,6 +65,18 @@ class App extends React.Component {
       lessThan5000: [.45,.55,.75,.90,1.10],
       moreThan5000: [.40,.50,.60,.75,1.00],
 
+      lessThan12Dark: [2.75, 3.75, 5.25, 6.25, 7.00],
+      lessThan37Dark: [2.15, 3.25, 4.25, 5.20, 6.65],
+      lessThan73Dark:[1.35, 2.40, 3.15, 3.60, 4.40],
+      lessThan144Dark:[1.10, 2.00, 2.35, 2.65, 3.25],
+      lessThan289Dark: [.80, 1.15, 1.55, 1.90, 2.20],
+      lessThan500Dark: [.60, .95, 1.25, 1.50, 1.70],
+      lessThan1000Dark: [.50, .75, .90, 1.10, 1.30],
+      lessThan5000Dark: [.45, .55, .75, .90, 1.10],
+      moreThan5000Dark: [.40, .50, .60, .75, 1.00],
+
+
+
       currentPricingType: 'lightShirt',
       lightShirtBackgroundColor: '#e3f2fd',
       darkShirtBackgroundColor: 'white',
@@ -73,6 +85,8 @@ class App extends React.Component {
       frontOfShirtBackgroundColor: '#e3f2fd',
       backOfShirtBackgroundColor: 'white',
       frontOrBack: 'front',
+      front: true,
+      back: false,
 
     }
 
@@ -105,6 +119,7 @@ class App extends React.Component {
   this.getPrices = this.getPrices.bind(this)
 
   this.handlePriceSubmitApp = this.handlePriceSubmitApp.bind(this)
+  this.handlePriceSubmitAppDark = this.handlePriceSubmitAppDark.bind(this)
 
   this.handleLogoTextSubmitAppFront = this.handleLogoTextSubmitAppFront.bind(this)
   this.handleLogoTextSubmitAppBack = this.handleLogoTextSubmitAppBack.bind(this)
@@ -116,12 +131,16 @@ class App extends React.Component {
 
   frontOfShirt() {
     this.setState({frontOrBack: 'front'})  
+    this.setState({front: true}) 
+    this.setState({back: false})  
     this.setState({frontOfShirtBackgroundColor: '#e3f2fd'})
     this.setState({backOfShirtBackgroundColor: 'white'})  
   }
 
   backOfShirt() {
     this.setState({frontOrBack: 'back'})  
+    this.setState({back: true}) 
+    this.setState({front: false})  
     this.setState({backOfShirtBackgroundColor: '#e3f2fd'})
     this.setState({frontOfShirtBackgroundColor: 'white'}) 
   }
@@ -156,9 +175,12 @@ class App extends React.Component {
 
 
 changeCurrentLogoFront(item) {
+  console.log(item)
     this.setState ({currentLogoFront: item.name})
-}
-
+    console.log(this.state.currentLogoFront)
+    console.log(this.state.currentLogoBack)
+  }
+    
 changeCurrentLogoBack(item) {
   this.setState ({currentLogoBack: item.name})
 }
@@ -173,12 +195,14 @@ changeCurrentFontBack(item) {
 
 
 changeCurrentLogoTextColorFront(item) {
-    this.setState ({currentLogoTextColorFront: item})
-}
 
-changeCurrentLogoTextColorBack(item) {
-  this.setState ({currentLogoTextColorBack: item})
-}
+  this.setState ({currentLogoTextColorFront: item})
+  }
+
+  changeCurrentLogoTextColorBack(item) {
+
+    this.setState ({currentLogoTextColorBack: item})
+    }
 
   handleAddColor(color) {
   console.log(color)
@@ -207,7 +231,6 @@ changeCurrentLogoTextColorBack(item) {
     })
   }
 
-
   handleAddLogo(logo) {
   
     this.getLogos()
@@ -234,30 +257,30 @@ changeCurrentLogoTextColorBack(item) {
     
 }
 
-deleteUser(id) {
+  deleteUser(id) {
 
-  fetch(baseURL + '/users/' + id, { method: 'DELETE' }).then(response => {
-      const findIndex = this.state.users.findIndex(user => user.id === id)
-      const copyUsers = [...this.state.users]
-      copyUsers.splice(findIndex, 1)
-      this.setState({ users: copyUsers })
-      
-  })
-  
-}
+    fetch(baseURL + '/users/' + id, { method: 'DELETE' }).then(response => {
+        const findIndex = this.state.users.findIndex(user => user.id === id)
+        const copyUsers = [...this.state.users]
+        copyUsers.splice(findIndex, 1)
+        this.setState({ users: copyUsers })
+        
+    })
+    
+  }
 
-deleteLogo(id) {
+  deleteLogo(id) {
 
-  fetch(baseURL + '/logos/' + id, { method: 'DELETE' }).then(response => {
-      const findIndex = this.state.logos.findIndex(logo => logo.id === id)
-      const copyLogos = [...this.state.logos]
-      copyLogos.splice(findIndex, 1)
-      this.setState({ logos: copyLogos })
-  })
-  
-}
+    fetch(baseURL + '/logos/' + id, { method: 'DELETE' }).then(response => {
+        const findIndex = this.state.logos.findIndex(logo => logo.id === id)
+        const copyLogos = [...this.state.logos]
+        copyLogos.splice(findIndex, 1)
+        this.setState({ logos: copyLogos })
+    })
+    
+  }
 
-   getColors() {
+  getColors() {
     fetch(baseURL+ '/colors')
       .then(data => {
         return data.json()},
@@ -305,11 +328,12 @@ deleteLogo(id) {
   }
 
   handleLogoTextSubmitAppFront(item) {
-      this.setState ({logoTextFront: item})
+    console.log(item)
+      this.setState ({currentLogoTextFront: item})
   }
 
   handleLogoTextSubmitAppBack(item) {
-    this.setState ({logoTextBack: item})
+    this.setState ({currentLogoTextBack: item})
 }
 
   handlePriceSubmitApp(quantity,printSideOneQuantity,printSideTwoQuantity) {
@@ -653,6 +677,347 @@ deleteLogo(id) {
 
     }
 
+    handlePriceSubmitAppDark(quantity,printSideOneQuantity,printSideTwoQuantity) {
+
+      if(quantity < 12) {
+        if (printSideOneQuantity === 1) {
+          this.setState({printSideOneCostApp: this.state.lessThan12Dark[0]})
+        }
+        else if (printSideOneQuantity === 2) {
+          this.setState({printSideOneCostApp: this.state.lessThan12Dark[1]})
+        }
+        else if (printSideOneQuantity === 3) {
+          this.setState({printSideOneCostApp: this.state.lessThan12Dark[2]})
+        }
+        else if (printSideOneQuantity === 4) {
+          this.setState({printSideOneCostApp: this.state.lessThan12Dark[3]})
+        }
+        else if (printSideOneQuantity === 5) {
+          this.setState({printSideOneCostApp: this.state.lessThan12Dark[4]})
+        }
+      }
+  
+      else if(quantity < 37) {
+        if (printSideOneQuantity === 1) {
+          this.setState({printSideOneCostApp: this.state.lessThan37Dark[0]})
+        }
+        else if (printSideOneQuantity === 2) {
+          this.setState({printSideOneCostApp: this.state.lessThan37Dark[1]})
+        }
+        else if (printSideOneQuantity === 3) {
+          this.setState({printSideOneCostApp: this.state.lessThan37Dark[2]})
+        }
+        else if (printSideOneQuantity === 4) {
+          this.setState({printSideOneCostApp: this.state.lessThan37Dark[3]})
+        }
+        else if (printSideOneQuantity === 5) {
+          this.setState({printSideOneCostApp: this.state.lessThan37Dark[4]})
+        }
+      }
+  
+      else if(quantity < 73) {
+        if (printSideOneQuantity === 1) {
+          this.setState({printSideOneCostApp: this.state.lessThan73Dark[0]})
+        }
+        else if (printSideOneQuantity === 2) {
+          this.setState({printSideOneCostApp: this.state.lessThan73Dark[1]})
+        }
+        else if (printSideOneQuantity === 3) {
+          this.setState({printSideOneCostApp: this.state.lessThan73Dark[2]})
+        }
+        else if (printSideOneQuantity === 4) {
+          this.setState({printSideOneCostApp: this.state.lessThan73Dark[3]})
+        }
+        else if (printSideOneQuantity === 5) {
+          this.setState({printSideOneCostApp: this.state.lessThan73Dark[4]})
+        }
+      }
+  
+      else if(quantity < 144) {
+        if (printSideOneQuantity === 1) {
+          this.setState({printSideOneCostApp: this.state.lessThan144Dark[0]})
+        }
+        else if (printSideOneQuantity === 2) {
+          this.setState({printSideOneCostApp: this.state.lessThan144Dark[1]})
+        }
+        else if (printSideOneQuantity === 3) {
+          this.setState({printSideOneCostApp: this.state.lessThan144Dark[2]})
+        }
+        else if (printSideOneQuantity === 4) {
+          this.setState({printSideOneCostApp: this.state.lessThan144Dark[3]})
+        }
+        else if (printSideOneQuantity === 5) {
+          this.setState({printSideOneCostApp: this.state.lessThan144Dark[4]})
+        }
+      }
+  
+      else if(quantity < 289) {
+        if (printSideOneQuantity === 1) {
+          this.setState({printSideOneCostApp: this.state.lessThan289Dark[0]})
+        }
+        else if (printSideOneQuantity === 2) {
+          this.setState({printSideOneCostApp: this.state.lessThan289Dark[1]})
+        }
+        else if (printSideOneQuantity === 3) {
+          this.setState({printSideOneCostApp: this.state.lessThan289Dark[2]})
+        }
+        else if (printSideOneQuantity === 4) {
+          this.setState({printSideOneCostApp: this.state.lessThan289Dark[3]})
+        }
+        else if (printSideOneQuantity === 5) {
+          this.setState({printSideOneCostApp: this.state.lessThan289Dark[4]})
+        }
+      }
+  
+      else if(quantity < 500) {
+        if (printSideOneQuantity === 1) {
+          this.setState({printSideOneCostApp: this.state.lessThan500Dark[0]})
+        }
+        else if (printSideOneQuantity === 2) {
+          this.setState({printSideOneCostApp: this.state.lessThan500Dark[1]})
+        }
+        else if (printSideOneQuantity === 3) {
+          this.setState({printSideOneCostApp: this.state.lessThan500Dark[2]})
+        }
+        else if (printSideOneQuantity === 4) {
+          this.setState({printSideOneCostApp: this.state.lessThan500Dark[3]})
+        }
+        else if (printSideOneQuantity === 5) {
+          this.setState({printSideOneCostApp: this.state.lessThan500Dark[4]})
+        }
+      }
+  
+      else if(quantity < 1000) {
+        if (printSideOneQuantity === 1) {
+          this.setState({printSideOneCostApp: this.state.lessThan1000Dark[0]})
+        }
+        else if (printSideOneQuantity === 2) {
+          this.setState({printSideOneCostApp: this.state.lessThan1000Dark[1]})
+        }
+        else if (printSideOneQuantity === 3) {
+          this.setState({printSideOneCostApp: this.state.lessThan1000Dark[2]})
+        }
+        else if (printSideOneQuantity === 4) {
+          this.setState({printSideOneCostApp: this.state.lessThan1000Dark[3]})
+        }
+        else if (printSideOneQuantity === 5) {
+          this.setState({printSideOneCostApp: this.state.lessThan1000Dark[4]})
+        }
+      }
+  
+      else if(quantity < 5000) {
+        if (printSideOneQuantity === 1) {
+          this.setState({printSideOneCostApp: this.state.lessThan5000Dark[0]})
+        }
+        else if (printSideOneQuantity === 2) {
+          this.setState({printSideOneCostApp: this.state.lessThan5000Dark[1]})
+        }
+        else if (printSideOneQuantity === 3) {
+          this.setState({printSideOneCostApp: this.state.lessThan5000Dark[2]})
+        }
+        else if (printSideOneQuantity === 4) {
+          this.setState({printSideOneCostApp: this.state.lessThan5000Dark[3]})
+        }
+        else if (printSideOneQuantity === 5) {
+          this.setState({printSideOneCostApp: this.state.lessThan5000Dark[4]})
+        }
+      }
+  
+      else if(quantity >= 5000) {
+        if (printSideOneQuantity === 1) {
+          this.setState({printSideOneCostApp: this.state.moreThan5000Dark[0]})
+        }
+        else if (printSideOneQuantity === 2) {
+          this.setState({printSideOneCostApp: this.state.moreThan5000Dark[1]})
+        }
+        else if (printSideOneQuantity === 3) {
+          this.setState({printSideOneCostApp: this.state.moreThan5000Dark[2]})
+        }
+        else if (printSideOneQuantity === 4) {
+          this.setState({printSideOneCostApp: this.state.moreThan5000Dark[3]})
+        }
+        else if (printSideOneQuantity === 5) {
+          this.setState({printSideOneCostApp: this.state.moreThan5000Dark[4]})
+        }
+      }
+  
+      else {
+  
+      }
+  
+  
+  
+  
+  
+      if(quantity < 12) {
+        if (printSideTwoQuantity === 1) {
+          this.setState({printSideTwoCostApp: this.state.lessThan12Dark[0]})
+        }
+        else if (printSideTwoQuantity === 2) {
+          this.setState({printSideTwoCostApp: this.state.lessThan12Dark[1]})
+        }
+        else if (printSideTwoQuantity === 3) {
+          this.setState({printSideTwoCostApp: this.state.lessThan12Dark[2]})
+        }
+        else if (printSideTwoQuantity === 4) {
+          this.setState({printSideTwoCostApp: this.state.lessThan12Dark[3]})
+        }
+        else if (printSideTwoQuantity === 5) {
+          this.setState({printSideTwoCostApp: this.state.lessThan12Dark[4]})
+        }
+      }
+  
+      else if(quantity < 37) {
+        if (printSideTwoQuantity === 1) {
+          this.setState({printSideTwoCostApp: this.state.lessThan37Dark[0]})
+        }
+        else if (printSideTwoQuantity === 2) {
+          this.setState({printSideTwoCostApp: this.state.lessThan37Dark[1]})
+        }
+        else if (printSideTwoQuantity === 3) {
+          this.setState({printSideTwoCostApp: this.state.lessThan37Dark[2]})
+        }
+        else if (printSideTwoQuantity === 4) {
+          this.setState({printSideTwoCostApp: this.state.lessThan37Dark[3]})
+        }
+        else if (printSideTwoQuantity === 5) {
+          this.setState({printSideTwoCostApp: this.state.lessThan37Dark[4]})
+        }
+      }
+  
+      else if(quantity < 73) {
+        if (printSideTwoQuantity === 1) {
+          this.setState({printSideTwoCostApp: this.state.lessThan73Dark[0]})
+        }
+        else if (printSideTwoQuantity === 2) {
+          this.setState({printSideTwoCostApp: this.state.lessThan73Dark[1]})
+        }
+        else if (printSideTwoQuantity === 3) {
+          this.setState({printSideTwoCostApp: this.state.lessThan73Dark[2]})
+        }
+        else if (printSideTwoQuantity === 4) {
+          this.setState({printSideTwoCostApp: this.state.lessThan73Dark[3]})
+        }
+        else if (printSideTwoQuantity === 5) {
+          this.setState({printSideTwoCostApp: this.state.lessThan73Dark[4]})
+        }
+      }
+  
+      else if(quantity < 144) {
+        if (printSideTwoQuantity === 1) {
+          this.setState({printSideTwoCostApp: this.state.lessThan144Dark[0]})
+        }
+        else if (printSideTwoQuantity === 2) {
+          this.setState({printSideTwoCostApp: this.state.lessThan144Dark[1]})
+        }
+        else if (printSideTwoQuantity === 3) {
+          this.setState({printSideTwoCostApp: this.state.lessThan144Dark[2]})
+        }
+        else if (printSideTwoQuantity === 4) {
+          this.setState({printSideTwoCostApp: this.state.lessThan144Dark[3]})
+        }
+        else if (printSideTwoQuantity === 5) {
+          this.setState({printSideTwoCostApp: this.state.lessThan144Dark[4]})
+        }
+      }
+  
+      else if(quantity < 289) {
+        if (printSideTwoQuantity === 1) {
+          this.setState({printSideTwoCostApp: this.state.lessThan289Dark[0]})
+        }
+        else if (printSideTwoQuantity === 2) {
+          this.setState({printSideTwoCostApp: this.state.lessThan289Dark[1]})
+        }
+        else if (printSideTwoQuantity === 3) {
+          this.setState({printSideTwoCostApp: this.state.lessThan289Dark[2]})
+        }
+        else if (printSideTwoQuantity === 4) {
+          this.setState({printSideTwoCostApp: this.state.lessThan289Dark[3]})
+        }
+        else if (printSideTwoQuantity === 5) {
+          this.setState({printSideTwoCostApp: this.state.lessThan289Dark[4]})
+        }
+      }
+  
+      else if(quantity < 500) {
+        if (printSideTwoQuantity === 1) {
+          this.setState({printSideTwoCostApp: this.state.lessThan500Dark[0]})
+        }
+        else if (printSideTwoQuantity === 2) {
+          this.setState({printSideTwoCostApp: this.state.lessThan500Dark[1]})
+        }
+        else if (printSideTwoQuantity === 3) {
+          this.setState({printSideTwoCostApp: this.state.lessThan500Dark[2]})
+        }
+        else if (printSideTwoQuantity === 4) {
+          this.setState({printSideTwoCostApp: this.state.lessThan500Dark[3]})
+        }
+        else if (printSideTwoQuantity === 5) {
+          this.setState({printSideTwoCostApp: this.state.lessThan500Dark[4]})
+        }
+      }
+  
+      else if(quantity < 1000) {
+        if (printSideTwoQuantity === 1) {
+          this.setState({printSideTwoCostApp: this.state.lessThan1000Dark[0]})
+        }
+        else if (printSideTwoQuantity === 2) {
+          this.setState({printSideTwoCostApp: this.state.lessThan1000Dark[1]})
+        }
+        else if (printSideTwoQuantity === 3) {
+          this.setState({printSideTwoCostApp: this.state.lessThan1000Dark[2]})
+        }
+        else if (printSideOneQuantity === 4) {
+          this.setState({printSideOneCostApp: this.state.lessThan1000Dark[3]})
+        }
+        else if (printSideTwoQuantity === 5) {
+          this.setState({printSideTwoCostApp: this.state.lessThan1000Dark[4]})
+        }
+      }
+  
+      else if(quantity < 5000) {
+        if (printSideTwoQuantity === 1) {
+          this.setState({printSideTwoCostApp: this.state.lessThan5000Dark[0]})
+        }
+        else if (printSideTwoQuantity === 2) {
+          this.setState({printSideTwoCostApp: this.state.lessThan5000Dark[1]})
+        }
+        else if (printSideTwoQuantity === 3) {
+          this.setState({printSideTwoCostApp: this.state.lessThan5000Dark[2]})
+        }
+        else if (printSideTwoQuantity === 4) {
+          this.setState({printSideTwoCostApp: this.state.lessThan5000Dark[3]})
+        }
+        else if (printSideTwoQuantity === 5) {
+          this.setState({printSideTwoCostApp: this.state.lessThan5000Dark[4]})
+        }
+      }
+  
+      else if(quantity >= 5000) {
+        if (printSideTwoQuantity === 1) {
+          this.setState({printSideTwoCostApp: this.state.moreThan5000Dark[0]})
+        }
+        else if (printSideTwoQuantity === 2) {
+          this.setState({printSideTwoCostApp: this.state.moreThan5000Dark[1]})
+        }
+        else if (printSideTwoQuantity === 3) {
+          this.setState({printSideTwoCostApp: this.state.moreThan5000Dark[2]})
+        }
+        else if (printSideTwoQuantity === 4) {
+          this.setState({printSideTwoCostApp: this.state.moreThan5000Dark[3]})
+        }
+        else if (printSideTwoQuantity === 5) {
+          this.setState({printSideTwoCostApp: this.state.moreThan5000Dark[4]})
+        }
+      }
+  
+      else {
+        
+      }
+    
+  
+      }
+
 
   render() {
 
@@ -689,7 +1054,7 @@ deleteLogo(id) {
           <div className = 'canvasToolbarRow row'>
 
             <div className = 'canvasCol col s6 m6 l6'>
-              <Route exact path ='/' exact render={() => <Canvas currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentFontFront={this.state.currentFontFront} logoTextFront={this.state.logoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} logoTextBack={this.state.logoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack}/>}/>
+              <Route exact path ='/' exact render={() => <Canvas currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back}/>}/>
             </div>
 
             <div className = 'toolbarCol col s6 m6 l6'>
@@ -704,7 +1069,8 @@ deleteLogo(id) {
             
             <Route exact path ='/newLogo' exact render={() => <NewLogo handleAddLogo={this.handleAddLogo} getLogos={this.getLogos} logos={this.state.logos}/>}/>
               
-            <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} lightShirtPricing={this.lightShirtPricing} darkShirtPricing={this.darkShirtPricing} embroideryPricing={this.embroideryPricing} currentPricingType={this.state.currentPricingType} lightShirtBackgroundColor={this.state.lightShirtBackgroundColor} darkShirtBackgroundColor={this.state.darkShirtBackgroundColor} embroideryBackgroundColor={this.state.embroideryBackgroundColor}/>}/>
+            <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} handlePriceSubmitAppDark={this.handlePriceSubmitAppDark} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} 
+          lightShirtPricing={this.lightShirtPricing} darkShirtPricing={this.darkShirtPricing} embroideryPricing={this.embroideryPricing} currentPricingType={this.state.currentPricingType} lightShirtBackgroundColor={this.state.lightShirtBackgroundColor} darkShirtBackgroundColor={this.state.darkShirtBackgroundColor} embroideryBackgroundColor={this.state.embroideryBackgroundColor}/>}/>
 
         </div>
 

@@ -44,9 +44,15 @@ class PricingFormula extends React.Component {
     handlePriceSubmit(event) {
     event.preventDefault();
 
-    this.props.handlePriceSubmitApp(this.state.quantity,this.state.printSideOneQuantity,this.state.printSideTwoQuantity)
-
-
+    if (this.props.currentPricingType === 'lightShirt') {
+        this.props.handlePriceSubmitApp(this.state.quantity,this.state.printSideOneQuantity,this.state.printSideTwoQuantity)
+    }
+    else if (this.props.currentPricingType === 'darkShirt') {
+        this.props.handlePriceSubmitAppDark(this.state.quantity,this.state.printSideOneQuantity,this.state.printSideTwoQuantity)
+    }
+    else {
+        
+    }
     
     }
 
@@ -61,7 +67,7 @@ class PricingFormula extends React.Component {
       <div className = 'darkShirt col s2 m2 l2' onClick={() => { 
       this.props.darkShirtPricing() }} style={{backgroundColor: this.props.darkShirtBackgroundColor}}>DarkShirt</div>
       <div className = 'embroidery col s2 m2 l2' onClick={() => { 
-      this.props.embroideryPricing() }} style={{backgroundColor: this.props.embroideryBackgroundColor}}>Embroidery</div>
+      this.props.embroideryPricing() }} style={{backgroundColor: this.props.embroideryBackgroundColor}}>Embroidery (Not Working Yet)</div>
 
 
 </div>
@@ -123,7 +129,12 @@ class PricingFormula extends React.Component {
 <div className = "priceOutput col s6 m6 l6">
 <div className = 'col s12 m12 l12'>
 
-<div className = 'row s12 m12 l12'>
+
+            <div className = 'row s12 m12 l12'>
+            <h6 className = 'col s10 m10 l10'>{this.props.currentPricingType}</h6>
+            </div>
+
+            <div className = 'row s12 m12 l12'>
             <h6 className = 'col s10 m10 l10'>Quantity:</h6><h6 className = 'col s2 m2 l2'> {this.state.quantity}</h6>
             </div>
 
