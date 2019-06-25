@@ -58,9 +58,18 @@ class App extends React.Component {
       lessThan1000: [.50,.75,.90,1.10,1.30],
       lessThan5000: [.45,.55,.75,.90,1.10],
       moreThan5000: [.40,.50,.60,.75,1.00],
-     
+
+      currentPricingType: 'lightShirt',
+      lightShirtBackgroundColor: '#e3f2fd',
+      darkShirtBackgroundColor: 'white',
+      embroideryBackgroundColor: 'white',
+
 
     }
+
+  this.lightShirtPricing = this.lightShirtPricing.bind(this)
+  this.darkShirtPricing = this.darkShirtPricing.bind(this)
+  this.embroideryPricing = this.embroideryPricing.bind(this)
 
   this.deleteColor = this.deleteColor.bind(this)
   this.getColors = this.getColors.bind(this)
@@ -88,6 +97,30 @@ class App extends React.Component {
   this.handleLogoTextSubmitApp = this.handleLogoTextSubmitApp.bind(this)
 
   }
+
+  lightShirtPricing() {
+    this.setState({currentPricingType: 'lightShirt'})  
+    this.setState({lightShirtBackgroundColor: '#e3f2fd'})
+    this.setState({darkShirtBackgroundColor: 'white'})
+    this.setState({embroideryBackgroundColor: 'white'})  
+    
+  }
+
+  darkShirtPricing() {
+    this.setState({currentPricingType: 'darkShirt'})  
+    this.setState({lightShirtBackgroundColor: 'white'})
+    this.setState({darkShirtBackgroundColor: '#e3f2fd'})
+    this.setState({embroideryBackgroundColor: 'white'})  
+  }
+
+  embroideryPricing() {
+    this.setState({currentPricingType: 'embroidery'})  
+    this.setState({lightShirtBackgroundColor: 'white'})
+    this.setState({darkShirtBackgroundColor: 'white'})
+    this.setState({embroideryBackgroundColor: '#e3f2fd'})  
+  }
+
+
  changeCurrentShirtColor(item) {
       this.setState ({currentShirtColor: item})
     }
@@ -574,6 +607,7 @@ deleteLogo(id) {
 
     }
 
+
   render() {
 
     return (
@@ -624,8 +658,8 @@ deleteLogo(id) {
             
             <Route exact path ='/newLogo' exact render={() => <NewLogo handleAddLogo={this.handleAddLogo} getLogos={this.getLogos} logos={this.state.logos}/>}/>
               
-            <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} />}/>
-                  
+            <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} lightShirtPricing={this.lightShirtPricing} darkShirtPricing={this.darkShirtPricing} embroideryPricing={this.embroideryPricing} currentPricingType={this.state.currentPricingType} lightShirtBackgroundColor={this.state.lightShirtBackgroundColor} darkShirtBackgroundColor={this.state.darkShirtBackgroundColor} embroideryBackgroundColor={this.state.embroideryBackgroundColor}/>}/>
+
         </div>
 
       </Router>

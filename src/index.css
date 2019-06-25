@@ -13,13 +13,8 @@
 }
 
 .shirt-color {
-  
-
   width: 30px;
   margin: 5px;
-  
-  
-
 }
 
   .shirt-color img {
@@ -71,8 +66,6 @@ margin-top: 50px;
 margin-left: -50px;
   }
   
-
-
 
   .shirtImage {
     width: 570px;
@@ -170,3 +163,15 @@ margin-top: -20px;
  h6 {
    font-weight: bold !important;
  }
+
+ .lightShirt {
+   border-radius: 5px;
+ }
+
+ .darkShirt {
+  border-radius: 5px;
+}
+
+.embroidery {
+  border-radius: 5px;
+}
