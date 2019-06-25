@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Stage, Layer, Image, Text} from 'react-konva';
-import useImage from 'use-image';
 
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
