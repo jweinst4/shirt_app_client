@@ -122,10 +122,10 @@ changeShirtColorHere(item) {
       <div className = 'toolbar-content'>
 
 <div className = 'row s6 m6 l6'>
-<div className = 'frontOfShirt col s2 m2 l2' style={{backgroundColor: this.props.frontOfShirtBackgroundColor}}onClick={() => { 
+<div className = 'frontOfShirt col s3 m3 l3' style={{backgroundColor: this.props.frontOfShirtBackgroundColor}}onClick={() => { 
       this.props.frontOfShirt() }}>FrontOfShirt</div>
-      <div className = 'backOfShirt col s2 m2 l2' style={{backgroundColor: this.props.backOfShirtBackgroundColor}} onClick={() => { 
-      this.props.backOfShirt() }}>BackOfShirt (only 20ish have back images currently)</div>
+      <div className = 'backOfShirt col s3 m3 l3' style={{backgroundColor: this.props.backOfShirtBackgroundColor}} onClick={() => { 
+      this.props.backOfShirt() }}>BackOfShirt</div>
 
 </div>
 
