@@ -17,13 +17,10 @@ class ToolBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentShirtColor: this.props.shirtFillColor,
       logoText: '',
      }
 
  this.changeShirtColorHere = this.changeShirtColorHere.bind(this)
- this.changeLogo1ColorHere = this.changeLogo1ColorHere.bind(this)
- this.changeLogo2ColorHere = this.changeLogo2ColorHere.bind(this)
 
  this.handleLogoTextChange = this.handleLogoTextChange.bind(this)
  this.handleLogoTextSubmit = this.handleLogoTextSubmit.bind(this)
@@ -53,18 +50,9 @@ class ToolBar extends React.Component {
 
 
 changeShirtColorHere(item) {
-  this.props.changeShirtColor(item);
+  this.props.changeCurrentShirtColor(item);
   }
 
-
-
-  changeLogo1ColorHere(item) {
-    this.props.changeLogo1Color(item);
-    }
-
-    changeLogo2ColorHere(item) {
-      this.props.changeLogo2Color(item);
-      }
 
   render () {
     return (
@@ -102,15 +90,9 @@ changeShirtColorHere(item) {
     <div className = 'logo-choice' key = {item._id} index = {index} ><div>
     <div className = 'logo-image'><img className = 'logo-final' src = {item.name} onClick={() => { this.props.changeCurrentLogo(item) }}></img></div></div> </div>
 
-
-                                
-
-     
         )
   
 })}
-
-
 
 
 </div>

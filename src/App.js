@@ -33,13 +33,12 @@ class App extends React.Component {
     this.state = {
 
       shirtStrokeColor: 'Black',
-      shirtFillColor: '',
+      currentShirtColor: '',
       colors: [],
       logos: [],
       prices: [],
       users: [],
       fonts: ['Comic Sans MS','Verdana','Impact','Hoefler Text','Rockwell','Copperplate','Papyrus','Times New Roman','Times','Courier new','Courier','Verdana','Georgia','Palatino','Trebuchet MS','Arial Black'],
-
 
       currentLogo: '',
       currentFont: 'Arial',
@@ -63,10 +62,6 @@ class App extends React.Component {
 
     }
 
-
-
- 
-    
   this.deleteColor = this.deleteColor.bind(this)
   this.getColors = this.getColors.bind(this)
   this.handleAddColor = this.handleAddColor.bind(this)
@@ -79,9 +74,7 @@ class App extends React.Component {
   this.getLogos = this.getLogos.bind(this)
   this.handleAddLogo = this.handleAddLogo.bind(this)
 
-  this.changeShirtColor= this.changeShirtColor.bind(this)
-  this.changeLogo1Color= this.changeLogo1Color.bind(this)
-  this.changeLogo2Color= this.changeLogo2Color.bind(this)
+  this.changeCurrentShirtColor= this.changeCurrentShirtColor.bind(this)
 
   this.changeCurrentLogo= this.changeCurrentLogo.bind(this)
 
@@ -95,34 +88,23 @@ class App extends React.Component {
   this.handleLogoTextSubmitApp = this.handleLogoTextSubmitApp.bind(this)
 
   }
- changeShirtColor(item) {
-      this.setState ({shirtFillColor: item})
+ changeCurrentShirtColor(item) {
+      this.setState ({currentShirtColor: item})
     }
 
 
-    changeCurrentLogo(item) {
-      this.setState ({currentLogo: item.name})
-    }
+changeCurrentLogo(item) {
+  this.setState ({currentLogo: item.name})
+}
 
-    changeCurrentFont(item) {
-      this.setState ({currentFont: item})
-    }
-
-
-    changeCurrentLogoTextColor(item) {
-      this.setState ({currentLogoTextColor: item})
-    }
+changeCurrentFont(item) {
+  this.setState ({currentFont: item})
+}
 
 
-    changeLogo1Color(item) {
-      this.setState ({logo1FillColor: item})
-    }
-
-    changeLogo2Color(item) {
-      this.setState ({logo2FillColor: item})
-    }
-
-
+changeCurrentLogoTextColor(item) {
+  this.setState ({currentLogoTextColor: item})
+}
 
   handleAddColor(color) {
   console.log(color)
@@ -162,9 +144,6 @@ class App extends React.Component {
       user_id: '',
     })
   }
-
-
-
 
   deleteColor(id) {
 
@@ -211,7 +190,7 @@ deleteLogo(id) {
       .then(parsedData => this.setState({colors: parsedData}),
       
        err=> console.log(err))
-       .then(parsedData => this.setState({shirtFillColor: this.state.colors[0]}),
+       .then(parsedData => this.setState({currentShirtColor: this.state.colors[0]}),
        err=> console.log(err))
        
        
@@ -254,7 +233,6 @@ deleteLogo(id) {
     this.setState({logoText: item})  
   }
 
-  
   handlePriceSubmitApp(quantity,printSideOneQuantity,printSideTwoQuantity) {
 
     if(quantity < 12) {
@@ -602,66 +580,53 @@ deleteLogo(id) {
 
       <Router>
 
+        <div className = 'appContainer row'>
+            <div className = 'navBar col s12 m12 l12'>
 
-<div className = 'appContainer row'>
-<div className = 'navBar col s12 m12 l12'>
+              <div className = 'topCol col'>
+              <Link to={'/'}>Home</Link>
+              </div>
 
-<div className = 'topCol col'>
-<Link to={'/'}>Home</Link>
-</div>
+              <div className = 'topCol col'>
+              <Link to={'/newShirt'}>NewShirt</Link>
+              </div>
 
-<div className = 'topCol col'>
-<Link to={'/newShirt'}>NewShirt</Link>
-</div>
+              <div className = 'topCol col'>
+              <Link to={'/newUser'}>NewUser</Link>
+              </div>
 
-<div className = 'topCol col'>
-<Link to={'/newUser'}>NewUser</Link>
-</div>
+              <div className = 'topCol col'>
+              <Link to={'/newLogo'}>NewLogo</Link>
+              </div>
 
-<div className = 'topCol col'>
-<Link to={'/newLogo'}>NewLogo</Link>
-</div>
+              <div className = 'topCol col'>
+              <Link to={'/pricingFormula'}>PricingFormula</Link>
+              </div>
 
-<div className = 'topCol col'>
-<Link to={'/pricingFormula'}>PricingFormula</Link>
-</div>
-
-</div>
-
-
-<div className = 'canvasToolbarRow row'>
-
-<div className = 'canvasCol col s6 m6 l6'>
+            </div>
 
 
-<Route exact path ='/' exact render={() => <Canvas shirtFillColor={this.state.shirtFillColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} currentLogo={this.state.currentLogo} changeShirtColor={this.changeShirtColor} currentFont={this.state.currentFont} logoText={this.state.logoText} currentLogoTextColor={this.state.currentLogoTextColor}/>}/>
-</div>
+          <div className = 'canvasToolbarRow row'>
 
+            <div className = 'canvasCol col s6 m6 l6'>
+              <Route exact path ='/' exact render={() => <Canvas currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} currentLogo={this.state.currentLogo} changeCurrentShirtColor={this.changeCurrentShirtColor} currentFont={this.state.currentFont} logoText={this.state.logoText} currentLogoTextColor={this.state.currentLogoTextColor}/>}/>
+            </div>
 
+            <div className = 'toolbarCol col s6 m6 l6'>
+              <Route exact path ='/' exact render={() => <ToolBar  currentShirtColor={this.state.shirtFillColor}changeCurrentShirtColor={this.changeCurrentShirtColor} colors={this.state.colors}  deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} getLogos = {this.getLogos} users = {this.state.users} logos = {this.state.logos} changeCurrentLogo={this.changeCurrentLogo} fonts = {this.state.fonts} changeCurrentFont={this.changeCurrentFont}  handleLogoTextSubmitApp={this.handleLogoTextSubmitApp} logoTextColor={this.state.logoTextColor} changeCurrentLogoTextColor={this.changeCurrentLogoTextColor}/>}/>
+            </div>
 
+          </div>
 
-<div className = 'toolbarCol col s6 m6 l6'>
-<Route exact path ='/' exact render={() => <ToolBar  shirtFillColor={this.state.shirtFillColor} logo1FillColor={this.state.logo1FillColor} logo2FillColor={this.state.logo2FillColor}changeShirtColor={this.changeShirtColor} changeLogo1Color={this.changeLogo1Color} changeLogo2Color={this.changeLogo2Color} colors={this.state.colors}  logoFillColors= {this.state.logoFillColors} deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} getLogos = {this.getLogos} users = {this.state.users} logos = {this.state.logos} changeCurrentLogo={this.changeCurrentLogo} fonts = {this.state.fonts} changeCurrentFont={this.changeCurrentFont}  handleLogoTextSubmitApp={this.handleLogoTextSubmitApp} logoTextColor={this.state.logoTextColor} changeCurrentLogoTextColor={this.changeCurrentLogoTextColor}/>}/>
-</div>
+            <Route exact path ='/newShirt' exact render={() => <NewColor handleAddColor={this.handleAddColor} getColors={this.getColors}/>}/>
 
-</div>
-
-
-
-    <Route exact path ='/newShirt' exact render={() => <NewColor handleAddColor={this.handleAddColor} getColors={this.getColors}/>}/>
-
-
-
- 
-     
-    <Route exact path ='/newUser' exact render={() => <NewUser handleAddUser={this.handleAddUser} getUsers={this.getUsers}/>}/>
-     
-      
-    <Route exact path ='/newLogo' exact render={() => <NewLogo handleAddLogo={this.handleAddLogo} getLogos={this.getLogos} logos={this.state.logos}/>}/>
-      
-    <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} />}/>
-           
-    </div>
+            <Route exact path ='/newUser' exact render={() => <NewUser handleAddUser={this.handleAddUser} getUsers={this.getUsers}/>}/>
+            
+            <Route exact path ='/newLogo' exact render={() => <NewLogo handleAddLogo={this.handleAddLogo} getLogos={this.getLogos} logos={this.state.logos}/>}/>
+              
+            <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} />}/>
+                  
+        </div>
 
       </Router>
     );
