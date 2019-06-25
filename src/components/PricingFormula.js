@@ -61,12 +61,12 @@ class PricingFormula extends React.Component {
         return (
     <div className = 'row s12 m12 l12 '>
 
-<div className = 'row s6 m6 l6'>
-<div className = 'lightShirt col s2 m2 l2' onClick={() => { 
+<div className = 'row s12 m12 l12'>
+<div className = 'lightShirt col s4 m4 l4' onClick={() => { 
       this.props.lightShirtPricing() }} style={{backgroundColor: this.props.lightShirtBackgroundColor}}>LightShirt</div>
-      <div className = 'darkShirt col s2 m2 l2' onClick={() => { 
+      <div className = 'darkShirt col s4 m4 l4' onClick={() => { 
       this.props.darkShirtPricing() }} style={{backgroundColor: this.props.darkShirtBackgroundColor}}>DarkShirt</div>
-      <div className = 'embroidery col s2 m2 l2' onClick={() => { 
+      <div className = 'embroidery col s4 m4 l4' onClick={() => { 
       this.props.embroideryPricing() }} style={{backgroundColor: this.props.embroideryBackgroundColor}}>Embroidery (Not Working Yet)</div>
 
 
