@@ -135,9 +135,10 @@ class Canvas extends React.Component {
   render() {
     return (
 
-      <div className = 'canvas-border'>
+      <div className = 'canvas-border row'>
+      <div className = 'col s1'>
   
-      <Stage width={570} height={640}>
+      <Stage width={570} height={670}>
         <Layer>
         
 
@@ -145,18 +146,19 @@ class Canvas extends React.Component {
         
 
 
-<Shirt src= {this.props.shirtFillColor.url} className = 'col'/>
+        <Shirt src= {this.props.shirtFillColor.url} className = 'col'/>
 <URLImage src={this.props.currentLogo} className = 'col'/>
 
 <Text x={340} y={130} fontFamily={this.props.currentFont} fontSize={30} fill={this.props.currentLogoTextColor} text={this.props.logoText}  draggable />
 
 <Text x={70} y={590} fontSize={20} text={'Shirt Color: ' + this.props.shirtFillColor.name}/>
 <Text x={70} y={620} fontSize={20} text={'Logo Text Color: ' + this.props.currentLogoTextColor}/>
+<Text x={70} y={650} fontSize={20} text={'Logo Font: ' + this.props.currentFont}/>
          
         
         </Layer>
       </Stage>
-
+</div>
       </div>
     );
   }
