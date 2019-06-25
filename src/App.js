@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
 
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
-import './App.css';
 
 
 import NewColor from './components/NewColor.js'
@@ -15,7 +14,7 @@ import PricingFormula from './components/PricingFormula.js'
 
 
 
-
+import './App.css';
 
 let baseURL = process.env.REACT_APP_BASEURL
 
