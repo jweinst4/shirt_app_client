@@ -123,9 +123,9 @@ changeShirtColorHere(item) {
 
 <div className = 'row s6 m6 l6'>
 <div className = 'frontOfShirt col s3 m3 l3' style={{backgroundColor: this.props.frontOfShirtBackgroundColor}}onClick={() => { 
-      this.props.frontOfShirt() }}>FrontOfShirt</div>
+      this.props.frontOfShirt() }}><h6>Front</h6></div>
       <div className = 'backOfShirt col s3 m3 l3' style={{backgroundColor: this.props.backOfShirtBackgroundColor}} onClick={() => { 
-      this.props.backOfShirt() }}>BackOfShirt</div>
+      this.props.backOfShirt() }}><h6>Back</h6></div>
 
 </div>
 
