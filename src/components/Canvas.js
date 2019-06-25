@@ -187,7 +187,7 @@ else if (this.props.frontOrBack === 'back') {
 
 <Text x={340} y={130} fontFamily={this.props.currentFontBack} fontSize={30} fill={this.props.currentLogoTextColorBack} text={this.props.logoTextBack}  draggable />
 
-<Text x={70} y={590} fontSize={20} text={'Shirt Color Back: ' + this.props.currentShirtColor.name}/>
+<Text x={70} y={590} fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
 <Text x={70} y={620} fontSize={20} text={'Logo Text Color Back: ' + this.props.currentLogoTextColorBack}/>
 <Text x={70} y={650} fontSize={20} text={'Logo Font Back: ' + this.props.currentFontBack }/>
        
