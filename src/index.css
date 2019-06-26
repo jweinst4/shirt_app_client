@@ -22,14 +22,19 @@
     width: 30px;
     border-radius: 5px;
     border: 1px solid black;
+    cursor: grab;
   }
 
   .shirtImage {
     box-shadow: 3px 3px 1px 1px;
   }
   
+  .shirtTotal {
+    background: red;
+  }
+  
   .shirt-color img:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
    }
 
 
@@ -51,6 +56,7 @@
       height: 38px;
       box-shadow: 3px 3px 0px 0px;
       border-radius: 5px;
+      cursor: grab;
       
     }
  
@@ -71,18 +77,16 @@
   .canvas-border {
 margin-top: 50px;
 margin-left: -50px;
+
+
   }
   
-
-  .shirtImage {
-    width: 570px;
-    height: 640px;
-  }
-
-  .toolbar-content {
-    margin-top: 50px;
-
-  }
+.shirtTotal {
+  background: red;
+  border: 1px solid red;
+  max-width: 100px;
+}
+ 
 
   .newFormItem {
     
@@ -148,6 +152,7 @@ margin-top: -20px;
   font-size: 20px;
   margin-right: 20px;
   margin-top: -20px;
+  cursor: grab;
 }
 
 
@@ -162,6 +167,7 @@ margin-top: -20px;
   border: 1px solid black;
   margin-bottom: 10px;
   box-shadow: 3px 3px 1px 1px;
+  cursor: grab;
  }
 
  .logoTextColor:hover {
@@ -182,4 +188,12 @@ margin-top: -20px;
 
 .embroidery {
   border-radius: 5px;
+}
+
+.frontOfShirt {
+  cursor: grab;
+}
+
+.backOfShirt {
+  cursor: grab;
 }

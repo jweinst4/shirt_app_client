@@ -128,7 +128,7 @@ class URLImageBack extends React.Component {
 
 class Shirt extends React.Component {
   state = {
-    image: null
+    image: null,
   };
   componentDidMount() {
     this.loadImage();
@@ -158,6 +158,8 @@ class Shirt extends React.Component {
     // this.imageNode.getLayer().batchDraw();
   };
   render() {
+
+    
     return (
       <Image
         x={30}
@@ -167,14 +169,12 @@ class Shirt extends React.Component {
         image={this.state.image}
         ref={node => {
           this.imageNode = node;
+
         }}
       />
     );
   }
 }
-
-
-
 
 // https://github.com/konvajs/react-konva/issues/256
 class Canvas extends React.Component {
@@ -203,11 +203,13 @@ class Canvas extends React.Component {
 
 {this.props.front ? (
  <>
-  <Shirt src= {this.props.currentShirtColor.url} className = 'col'/>
 
-  <URLImageFront src={this.props.currentLogoFront} className = 'col'/>
+  <Shirt src= {this.props.currentShirtColor.url}/>
 
-  <Text x={340} y={130} fontFamily={this.props.currentFontFront} fontSize={30} fill={this.props.currentLogoTextColorFront} text={this.props.currentLogoTextFront}  draggable />
+
+  <URLImageFront src={this.props.currentLogoFront}/>
+
+  <Text x={340} y={130} fontFamily={this.props.currentFontFront} keepRatio={true} fontSize={30} fill={this.props.currentLogoTextColorFront} text={this.props.currentLogoTextFront}  draggable />
 
   
   <Text x={70} y={590} fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
@@ -218,9 +220,9 @@ class Canvas extends React.Component {
 </>
 ) : (
   <>
-  <Shirt src= {this.props.currentShirtColor.backURL} className = 'col'/>
+  <Shirt src= {this.props.currentShirtColor.backURL}/>
 
-  <URLImageBack src={this.props.currentLogoBack} className = 'col'/>
+  <URLImageBack src={this.props.currentLogoBack}/>
 
   <Text x={340} y={130} fontFamily={this.props.currentFontBack} fontSize={30} fill={this.props.currentLogoTextColorBack} text={this.props.currentLogoTextBack}  draggable />
 

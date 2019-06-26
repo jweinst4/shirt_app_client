@@ -122,10 +122,10 @@ changeShirtColorHere(item) {
       <div className = 'toolbar-content'>
 
 <div className = 'row s6 m6 l6'>
-<div className = 'frontOfShirt col s3 m3 l3' onClick={() => { 
-      this.props.frontOfShirt() }}><h6 style={{backgroundColor: this.props.frontOfShirtBackgroundColor}}>Front</h6></div>
+<div className = 'col s3 m3 l3' onClick={() => { 
+      this.props.frontOfShirt() }}><h6 className = 'frontOfShirt' style={{backgroundColor: this.props.frontOfShirtBackgroundColor}} >Front</h6></div>
       <div className = 'backOfShirt col s3 m3 l3'  onClick={() => { 
-      this.props.backOfShirt() }}><h6 style={{backgroundColor: this.props.backOfShirtBackgroundColor}}>Back</h6></div>
+      this.props.backOfShirt() }}><h6 className = 'backOfShirt' style={{backgroundColor: this.props.backOfShirtBackgroundColor}}>Back</h6></div>
 
 </div>
 
@@ -136,7 +136,7 @@ changeShirtColorHere(item) {
       {this.props.colors.map((item, index) => {
   return (
     
-    <div className = 'shirt-color col' key = {item._id} index = {index} onClick={() => { 
+    <div className = 'shirt-color col ' key = {item._id} index = {index} onClick={() => { 
       this.changeShirtColorHere(item) }} >
     <img className = 'shirtImage' src = {this.props.colors[index].swatch}></img> </div>
 
