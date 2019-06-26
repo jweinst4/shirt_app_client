@@ -10,6 +10,7 @@ import NewUser from './components/NewUser.js'
 import NewLogo from './components/NewLogo.js'
 import ToolBar from './components/ToolBar.js'
 import Canvas from './components/Canvas.js'
+import Test from './components/Test.js'
 import PricingFormula from './components/PricingFormula.js'
 
 
@@ -1048,6 +1049,10 @@ changeCurrentLogoTextColorFront(item) {
               <Link to={'/pricingFormula'}>PricingFormula</Link>
               </div>
 
+              <div className = 'topCol col'>
+              <Link to={'/test'}>Test</Link>
+              </div>
+
             </div>
 
 
@@ -1071,6 +1076,12 @@ changeCurrentLogoTextColorFront(item) {
               
             <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} handlePriceSubmitAppDark={this.handlePriceSubmitAppDark} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} 
           lightShirtPricing={this.lightShirtPricing} darkShirtPricing={this.darkShirtPricing} embroideryPricing={this.embroideryPricing} currentPricingType={this.state.currentPricingType} lightShirtBackgroundColor={this.state.lightShirtBackgroundColor} darkShirtBackgroundColor={this.state.darkShirtBackgroundColor} embroideryBackgroundColor={this.state.embroideryBackgroundColor}/>}/>
+
+
+<div className = 'canvasCol col s12 m12 l12'>
+
+<Route exact path ='/test' exact render={() => <Test currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back}/>}/>
+</div>
 
         </div>
 

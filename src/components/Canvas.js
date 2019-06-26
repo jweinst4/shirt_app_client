@@ -46,7 +46,7 @@ class URLImageFront extends React.Component {
         draggable
         onDragStart={() => {
           this.setState({
-            isDragging: true
+            isDraggingLogo: true
           });
         }}
         onDragEnd={e => {
@@ -164,8 +164,8 @@ class Shirt extends React.Component {
       <Image
         x={30}
         y={-60}
-        width={560}
-        height={700}
+        width={window.innerWidth * 0.3}
+        height={window.innerHeight * 0.75}
         image={this.state.image}
         ref={node => {
           this.imageNode = node;
@@ -182,23 +182,52 @@ class Canvas extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      stageWidth: 570,
+      stageHeight: 700,
     }
     
-
+this.checkSize = this.checkSize.bind(this)
   }
- 
-// Converts canvas to an image
+  componentDidMount() {
+    this.checkSize();
+    // here we should add listener for "container" resize
+    // take a look here https://developers.google.com/web/updates/2016/10/resizeobserver
+    // for simplicity I will just listen window resize
+    window.addEventListener("resize", this.checkSize);
+  }
 
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.checkSize);
+  }
+
+  checkSize() {
+    const width = this.container.offsetWidth;
+    const height = this.container.offsetHeight;
+    this.setState({
+      stageWidth: width,
+    });
+
+    this.setState({
+      stageHeight: height
+    });
+
+  };
  
   render() {
-
-
+  
     return (
-
+<div
+        style={{
+          height: "50%",
+      
+        }}
+        ref={node => {
+          this.container = node;
+        }}
+      >
 <div className = 'canvas-border row'>
   <div className = 'col s1'>
-    <Stage width={570} height={670}>
+    <Stage width={560} height={670}>
       <Layer>
 
 {this.props.front ? (
@@ -226,7 +255,7 @@ class Canvas extends React.Component {
 
   <Text x={340} y={130} fontFamily={this.props.currentFontBack} fontSize={30} fill={this.props.currentLogoTextColorBack} text={this.props.currentLogoTextBack}  draggable />
 
-  
+
   <Text x={70} y={590} fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
 
   <Text x={70} y={620} fontSize={20} text={'Logo Text Color Back: ' + this.props.currentLogoTextColorBack}/>
@@ -237,6 +266,7 @@ class Canvas extends React.Component {
       </Layer>
     </Stage>
   </div>
+</div>
 </div>
     )
 
