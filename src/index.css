@@ -180,14 +180,17 @@ margin-top: -20px;
 
  .lightShirt {
    border-radius: 5px;
+   cursor: grab;
  }
 
  .darkShirt {
   border-radius: 5px;
+  cursor: grab;
 }
 
 .embroidery {
   border-radius: 5px;
+  cursor: grab;
 }
 
 .frontOfShirt {
