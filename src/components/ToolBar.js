@@ -119,7 +119,7 @@ changeShirtColorHere(item) {
     
 
     return (
-      <div className = 'toolbar-content'>
+      <div className = 'toolbar-content s12 m12 l12'>
 
 <div className = 'row s6 m6 l6'>
 <div className = 'col s3 m3 l3' onClick={() => { 
@@ -136,7 +136,7 @@ changeShirtColorHere(item) {
       {this.props.colors.map((item, index) => {
   return (
     
-    <div className = 'shirt-color col ' key = {item._id} index = {index} onClick={() => { 
+    <div className = 'shirt-color col s2 m1 l1' key = {item._id} index = {index} onClick={() => { 
       this.changeShirtColorHere(item) }} >
     <img className = 'shirtImage' src = {this.props.colors[index].swatch}></img> </div>
 
@@ -192,7 +192,7 @@ changeShirtColorHere(item) {
       {this.props.logoTextColor.map((item, index) => {
   return (
     
-    <div className = 'logoTextColor-choice col' key = {item._id} index = {index} ><div className = 'logoTextColor col' style={{backgroundColor: item}} onClick={() => { this.changeCurrentLogoTextColor(item) }}>
+    <div className = 'logoTextColor-choice col s2 m2 l2' key = {item._id} index = {index} ><div className = 'logoTextColor col' style={{backgroundColor: item}} onClick={() => { this.changeCurrentLogoTextColor(item) }}>
    &nbsp;</div> </div>
 
         )  

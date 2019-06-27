@@ -382,29 +382,29 @@ changeCurrentLogoTextColorFront(item) {
       <Router>
 
         <div className = 'appContainer row'>
-            <div className = 'navBar col s12 m12 l12'>
+            <div className = 'navBar row s12 m12 l12'>
 
-              <div className = 'topCol col'>
+              <div className = 'topCol col s12 m5 l2'>
               <Link to={'/'}>Home</Link>
               </div>
 
-              <div className = 'topCol col'>
+              <div className = 'topCol col s12 m5 l2'>
               <Link to={'/newShirt'}>NewShirt</Link>
               </div>
 
-              <div className = 'topCol col'>
+              <div className = 'topCol col s12 m5 l2'>
               <Link to={'/newUser'}>NewUser</Link>
               </div>
 
-              <div className = 'topCol col'>
+              <div className = 'topCol col s12 m5 l2'>
               <Link to={'/newLogo'}>NewLogo</Link>
               </div>
 
-              <div className = 'topCol col'>
+              <div className = 'topCol col s12 m5 l2'>
               <Link to={'/pricingFormula'}>PricingFormula</Link>
               </div>
 
-              <div className = 'topCol col'>
+              <div className = 'topCol col s12 m5 l2'>
               <Link to={'/test'}>Test</Link>
               </div>
 
@@ -413,11 +413,11 @@ changeCurrentLogoTextColorFront(item) {
 
           <div className = 'canvasToolbarRow row'>
 
-            <div className = 'canvasCol col s6 m6 l6'>
+            <div className = 'canvasCol col s12 m12 l8'>
               <Route exact path ='/' exact render={() => <Canvas currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back}/>}/>
             </div>
 
-            <div className = 'toolbarCol col s6 m6 l6'>
+            <div className = 'toolbarCol col s12 m12 l4'>
               <Route exact path ='/' exact render={() => <ToolBar  currentShirtColor={this.state.shirtFillColor}changeCurrentShirtColor={this.changeCurrentShirtColor} colors={this.state.colors}  deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} getLogos = {this.getLogos} users = {this.state.users} logos = {this.state.logos} fonts = {this.state.fonts}  logoTextColor={this.state.logoTextColor}  changeCurrentLogoFront={this.changeCurrentLogoFront} changeCurrentFontFront={this.changeCurrentFontFront}  handleLogoTextSubmitAppFront={this.handleLogoTextSubmitAppFront} logoTextColor={this.state.logoTextColor} changeCurrentLogoTextColorFront={this.changeCurrentLogoTextColorFront} changeCurrentLogoBack={this.changeCurrentLogoBack} changeCurrentFontBack={this.changeCurrentFontBack}  handleLogoTextSubmitAppBack={this.handleLogoTextSubmitAppBack} changeCurrentLogoTextColorBack={this.changeCurrentLogoTextColorBack} frontOfShirt={this.frontOfShirt} backOfShirt = {this.backOfShirt} frontOfShirtBackgroundColor={this.state.frontOfShirtBackgroundColor} backOfShirtBackgroundColor={this.state.backOfShirtBackgroundColor} frontOrBack={this.state.frontOrBack}/>}/>
             </div>
 
@@ -431,12 +431,6 @@ changeCurrentLogoTextColorFront(item) {
               
             <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} handlePriceSubmitAppDark={this.handlePriceSubmitAppDark} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} 
           lightShirtPricing={this.lightShirtPricing} darkShirtPricing={this.darkShirtPricing} embroideryPricing={this.embroideryPricing} currentPricingType={this.state.currentPricingType} lightShirtBackgroundColor={this.state.lightShirtBackgroundColor} darkShirtBackgroundColor={this.state.darkShirtBackgroundColor} embroideryBackgroundColor={this.state.embroideryBackgroundColor}/>}/>
-
-
-<div className = 'canvasCol col s12 m12 l12'>
-
-<Route exact path ='/test' exact render={() => <Test currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back}/>}/>
-</div>
 
         </div>
 
