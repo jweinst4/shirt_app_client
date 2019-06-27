@@ -202,3 +202,14 @@ border: 1px solid black;
 .backOfShirt {
   cursor: grab;
 }
+
+
+.logoTest {
+  position: absolute;
+  top: 130px;
+}
+
+.shirtTest {
+  position: absolute;
+  top: 130px;
+}

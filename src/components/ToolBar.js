@@ -134,7 +134,7 @@ changeShirtColorHere(item) {
 
 </div>
 
-{/* <form className = 'canvasImageSizeSection col s12 m12 l12' onSubmit={this.canvasTestButton}>
+ {/* <form className = 'canvasImageSizeSection col s12 m12 l12' onSubmit={this.canvasTestButton}>
          
             <div className = 'form-inline'>
             <div className = 'col s12 m12 l12 form-group'>

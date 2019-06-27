@@ -11,6 +11,7 @@ import NewLogo from './components/NewLogo.js'
 import ToolBar from './components/ToolBar.js'
 import Canvas from './components/Canvas.js'
 import ShirtTest from './components/ShirtTest.js'
+import LogoTest from './components/LogoTest.js'
 import PricingFormula from './components/PricingFormula.js'
 
 
@@ -74,9 +75,14 @@ class App extends React.Component {
       shirtRatio: 1.25,
       canvasWidth: 560,
       canvasHeight: 670,
+      shirtCanvasWidth: 560,
+      shirtCanvasHeight: 670,
       shirtWidth: 560,
       shirtHeight: 670,
-
+      logoWidth: 130,
+      logoHeight: 45,
+      logoCanvasWidth: 560,
+      logoCanvasHeight: 670,
     }
 
   this.lightShirtPricing = this.lightShirtPricing.bind(this)
@@ -121,10 +127,15 @@ class App extends React.Component {
 
 
   canvasTestButtonApp(event) {
-    this.setState({canvasWidth: 400});
-    this.setState({canvasHeight: 500});
-    this.setState({shirtWidth: 400});
-    this.setState({shirtHeight: 500});
+    this.setState({shirtCanvasWidth: 200});
+    this.setState({shirtCanvasHeight: 240});
+    this.setState({shirtWidth: 200});
+    this.setState({shirtHeight: 240});
+
+    this.setState({logoCanvasWidth: 200});
+    this.setState({logoCanvasHeight: 240});
+    this.setState({logoWidth: 46});
+    this.setState({logotHeight: 16});
 
   }
   frontOfShirt() {
@@ -448,8 +459,13 @@ changeCurrentLogoTextColorFront(item) {
             <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} handlePriceSubmitAppDark={this.handlePriceSubmitAppDark} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} 
           lightShirtPricing={this.lightShirtPricing} darkShirtPricing={this.darkShirtPricing} embroideryPricing={this.embroideryPricing} currentPricingType={this.state.currentPricingType} lightShirtBackgroundColor={this.state.lightShirtBackgroundColor} darkShirtBackgroundColor={this.state.darkShirtBackgroundColor} embroideryBackgroundColor={this.state.embroideryBackgroundColor}/>}/>
 
+<div className = 'shirtTest'>
+<Route exact path ='/shirtTest' exact render={() => <ShirtTest currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back} shirtCanvasWidth = {this.state.shirtCanvasWidth} shirtCanvasHeight = {this.state.shirtCanvasHeight} shirtWidth = {this.state.shirtWidth} shirtHeight={this.state.shirtHeight}/> }/>
+</div>
 
-<Route exact path ='/shirtTest' exact render={() => <ShirtTest currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back} canvasWidth = {this.state.canvasWidth} canvasHeight = {this.state.canvasHeight} shirtWidth = {this.state.shirtWidth} shirtHeight={this.state.shirtHeight}/>}/>
+<div className = 'logoTest'>
+<Route exact path ='/shirtTest' exact render={() => <LogoTest currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back} shirtCanvasWidth = {this.state.shirtCanvasWidth} shirtCanvasHeight = {this.state.shirtCanvasHeight} shirtWidth = {this.state.shirtWidth} shirtHeight={this.state.shirtHeight} logoHeight = {this.state.logoHeight} logoWidth = {this.state.logoWidth} logoCanvasWidth = {this.state.logoCanvasWidth} logoCanvasHeight = {this.state.logoCanvasHeight}/> }/>
+</div>
 
         </div>
 

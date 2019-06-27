@@ -5,7 +5,7 @@ import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 // https://codesandbox.io/s/github/konvajs/site/tree/master/react-demos/images?from-embed
 
-class ShirtTest extends React.Component {
+class LogoTest extends React.Component {
 
     constructor(props) {
       super(props)
@@ -28,7 +28,7 @@ class ShirtTest extends React.Component {
       loadImage() {
         // save to "this" to remove "load" handler on unmount
         this.image = new window.Image();
-        this.image.src = this.props.currentShirtColor.url;
+        this.image.src = this.props.currentLogoFront;
         this.image.addEventListener('load', this.handleLoad);
       }
       handleLoad = () => {
@@ -44,21 +44,23 @@ class ShirtTest extends React.Component {
 
     render() {
       return (
-        <Stage width={this.props.shirtCanvasWidth} height={this.props.shirtCanvasHeight}>
+        <Stage width={this.props.logoCanvasWidth} height={this.props.logoCanvasHeight}>
         <Layer>
 
    
         <Image
- src = {this.props.currentShirtColor.url}
+ src = {this.props.currentLogoFront}
  x={0}
  y={0}
- width = {this.props.shirtWidth}
- height = {this.props.shirtHeight}
+ draggable={true}
+ width = {this.props.logoWidth}
+ height = {this.props.logoHeight}
  image={this.state.image}
  ref={node => {
    this.imageNode = node;
 
  }}
+
 
  
 />
@@ -78,4 +80,4 @@ class ShirtTest extends React.Component {
 
   
 
-  export default ShirtTest
+  export default LogoTest
