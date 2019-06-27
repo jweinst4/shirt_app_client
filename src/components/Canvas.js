@@ -129,9 +129,11 @@ class URLImageBack extends React.Component {
 class Shirt extends React.Component {
   state = {
     image: null,
-  };
+    shirtWidth: '',
+  }
   componentDidMount() {
     this.loadImage();
+    
   }
   componentDidUpdate(oldProps) {
     if (oldProps.src !== this.props.src) {
@@ -158,19 +160,20 @@ class Shirt extends React.Component {
     // this.imageNode.getLayer().batchDraw();
   };
   render() {
-
     
+ 
     return (
       <Image
         x={30}
         y={-60}
-        width={560}
-        height={700}
+        width = {560}
+        height = {670}
         image={this.state.image}
         ref={node => {
           this.imageNode = node;
 
         }}
+        
       />
     );
   }
@@ -182,52 +185,17 @@ class Canvas extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      stageWidth: 570,
-      stageHeight: 700,
+
     }
-    
-this.checkSize = this.checkSize.bind(this)
-  }
-  componentDidMount() {
-    this.checkSize();
-    // here we should add listener for "container" resize
-    // take a look here https://developers.google.com/web/updates/2016/10/resizeobserver
-    // for simplicity I will just listen window resize
-    window.addEventListener("resize", this.checkSize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.checkSize);
-  }
-
-  checkSize() {
-    const width = this.container.offsetWidth;
-    const height = this.container.offsetHeight;
-    this.setState({
-      stageWidth: width,
-    });
-
-    this.setState({
-      stageHeight: height
-    });
-
+ 
   };
  
   render() {
-  
     return (
-<div
-        style={{
-          height: "50%",
-      
-        }}
-        ref={node => {
-          this.container = node;
-        }}
-      >
+
 <div className = 'canvas-border row'>
   <div className = 'col s1'>
-    <Stage width={560} height={670}>
+    <Stage width={this.props.canvasWidth} height={this.props.canvasHeight}>
       <Layer>
 
 {this.props.front ? (
@@ -267,7 +235,7 @@ this.checkSize = this.checkSize.bind(this)
     </Stage>
   </div>
 </div>
-</div>
+
     )
 
   }

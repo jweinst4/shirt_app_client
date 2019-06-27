@@ -28,9 +28,14 @@ class ToolBar extends React.Component {
 
  this.handleLogoTextChange = this.handleLogoTextChange.bind(this)
  this.handleLogoTextSubmit = this.handleLogoTextSubmit.bind(this)
+
+ this.canvasTestButton = this.canvasTestButton.bind(this)
   }
  
-
+canvasTestButton(event) {
+  event.preventDefault();
+  this.props.canvasTestButtonApp();
+}
   componentDidMount(){
     this.props.getColors()
     this.props.getLogos()
@@ -129,6 +134,22 @@ changeShirtColorHere(item) {
 
 </div>
 
+{/* <form className = 'canvasImageSizeSection col s12 m12 l12' onSubmit={this.canvasTestButton}>
+         
+            <div className = 'form-inline'>
+            <div className = 'col s12 m12 l12 form-group'>
+    
+        
+                <div className = 'addLogoTextSubmit col s3 m3 l3'>
+                <input type='submit' value='Canvas Test Button'/>
+                </div>
+
+                </div>   
+                </div>
+
+              
+             
+</form> */}
 
  <h6>Shirt Colors</h6>
 <div className='row choice-row'>
