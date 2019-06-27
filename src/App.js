@@ -404,10 +404,6 @@ changeCurrentLogoTextColorFront(item) {
               <Link to={'/pricingFormula'}>PricingFormula</Link>
               </div>
 
-              <div className = 'topCol col s12 m5 l2'>
-              <Link to={'/test'}>Test</Link>
-              </div>
-
             </div>
 
 
