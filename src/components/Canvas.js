@@ -164,8 +164,8 @@ class Shirt extends React.Component {
       <Image
         x={30}
         y={-60}
-        width={window.innerWidth * 0.3}
-        height={window.innerHeight * 0.75}
+        width={560}
+        height={700}
         image={this.state.image}
         ref={node => {
           this.imageNode = node;

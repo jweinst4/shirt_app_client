@@ -43,17 +43,7 @@ class PricingFormula extends React.Component {
 
     handlePriceSubmit(event) {
     event.preventDefault();
-
-    if (this.props.currentPricingType === 'lightShirt') {
         this.props.handlePriceSubmitApp(this.state.quantity,this.state.printSideOneQuantity,this.state.printSideTwoQuantity)
-    }
-    else if (this.props.currentPricingType === 'darkShirt') {
-        this.props.handlePriceSubmitAppDark(this.state.quantity,this.state.printSideOneQuantity,this.state.printSideTwoQuantity)
-    }
-    else {
-        
-    }
-    
     }
 
 
