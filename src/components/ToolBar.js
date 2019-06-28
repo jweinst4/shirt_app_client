@@ -235,14 +235,14 @@ changeShirtColorHere(item) {
 {this.props.front && !!this.props.currentLogoTextFront ? (
   <>
    <div className = 'row s12 m12 l12'>
-  <div className = 'col s5 m5 l5'>
-                <button className = 'increaseTextSize' onClick = {this.props.increaseTextSizeFront} >  <i className="material-icons">arrow_upwards</i></button>
-                </div>
+  <div className = 'col s6 m6 l6 center-align'>
+              <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront} >arrow_upwards</i></div>
+             
 
-                <div className = 'col s5 m5 l5'>
-                <button className = 'decreaseTextSize' onClick = {this.props.decreaseTextSizeFront} >  <i className="material-icons">arrow_downward</i></button>
+                <div className = 'col s6 m6 l6  center-align'>
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeFront} >arrow_downward</i></div>
                 </div>
-                </div>
+            
    </>
  
  ) : (
@@ -254,14 +254,14 @@ changeShirtColorHere(item) {
  {this.props.back &&  !!this.props.currentLogoTextBack ? (
   <>
     <div className = 'row s12 m12 l12'>
-  <div className = 'col s5 m5 l5'>
-                <button className = 'increaseTextSize' onClick = {this.props.increaseTextSizeBack} >  <i className="material-icons">arrow_upwards</i></button>
-                </div>
+  <div className = 'col s6 m6 l6 center-align'>
+                <i className="material-icons arrowUp" onClick = {this.props.increaseTextSizeBack} >arrow_upwards</i></div>
+            
 
-                <div className = 'col s5 m5 l5'>
-                <button className = 'decreaseTextSize' onClick = {this.props.decreaseTextSizeBack} >  <i className="material-icons">arrow_downward</i></button>
+                <div className = 'col s6 m6 l6 center-align'>
+                <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeBack} >arrow_downward</i></div>
                 </div>
-                </div>
+  
 
    </>
  

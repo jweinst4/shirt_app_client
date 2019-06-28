@@ -239,3 +239,8 @@ border: 1px solid black;
 .clearTextStroke {
   cursor: grab;
 }
+
+.arrowUp, .arrowDown {
+  cursor: grab;
+}
+
