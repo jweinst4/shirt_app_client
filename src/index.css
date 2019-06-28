@@ -148,6 +148,13 @@ margin-top: -20px;
 
 }
 
+.addLogoTextSubmit > input[type='submit'] {
+  box-shadow: 1px 1px 1px 1px;
+  border-radius: 5px;
+  background:#e3f2fd;
+  
+  }
+
 .logoTextSection {
   margin-bottom: 20px;
   margin-top: -40px;
@@ -200,10 +207,16 @@ border: 1px solid black;
 
 .frontOfShirt {
   cursor: grab;
+
+
+text-align: center;
 }
 
 .backOfShirt {
   cursor: grab;
+
+
+text-align: center;
 }
 
 
@@ -230,10 +243,12 @@ border: 1px solid black;
 
 .logoFillToggle {
   cursor: grab;
+border-radius: 5px;
 }
 
 .logoStrokeToggle {
   cursor: grab;
+border-radius: 5px;
 }
 
 .clearTextStroke {
