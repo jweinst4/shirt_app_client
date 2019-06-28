@@ -8,11 +8,14 @@
   border-bottom: 10px double #e3f2fd;
 }
 
+
 .topCol {
   height: 50px;
   font-size: 30px;
 }
-
+.clearTextStroke {
+  margin-bottom: 25px;
+}
 .shirt-color {
   width: 20px;
   margin: 5px;
@@ -223,4 +226,16 @@ border: 1px solid black;
 .embroiderySection h6 {
 
   font-size: 20px;
+}
+
+.logoFillToggle {
+  cursor: grab;
+}
+
+.logoStrokeToggle {
+  cursor: grab;
+}
+
+.clearTextStroke {
+  cursor: grab;
 }

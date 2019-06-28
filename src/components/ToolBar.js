@@ -84,17 +84,39 @@ changeCurrentLogo(item) {
 
 changeCurrentLogoTextColor(item) {
 
-  if (this.props.frontOrBack === 'front') {
-    this.props.changeCurrentLogoTextColorFront(item)
-  }
-  
-  else if (this.props.frontOrBack === 'back') {
-    this.props.changeCurrentLogoTextColorBack(item)
-  }
+      if (this.props.logoTextFillToggle) {
+        if (this.props.frontOrBack === 'front') {
+          this.props.changeCurrentLogoTextColorFront(item)
+        }
+        
+        else if (this.props.frontOrBack === 'back') {
+          this.props.changeCurrentLogoTextColorBack(item)
+        }
 
-  else {
+        else {
 
-  }
+        }
+    }
+
+    else if (this.props.logoTextStrokeToggle) {
+
+      if (this.props.frontOrBack === 'front') {
+        this.props.changeCurrentLogoTextStrokeFront(item)
+      }
+      
+      else if (this.props.frontOrBack === 'back') {
+        this.props.changeCurrentLogoTextStrokeBack(item)
+      }
+
+      else {
+
+      }
+
+    }
+
+    else {
+
+    }
 
 }
 
@@ -206,9 +228,24 @@ changeShirtColorHere(item) {
              
             </form>
             
+            <div className = 'row s12 m12 l12'>
+            <h8 className = 'col s6 m6 l6 logoFillToggle' onClick={() => {this.props.toggleLogoTextFill()}} style={{backgroundColor: this.props.logoFillToggleBackgroundColor}}>Logo Text Fill Color </h8>
+            <h8 className = 'col s6 m6 l6 logoStrokeToggle' onClick={() => {this.props.toggleLogoTextStroke()}} style={{backgroundColor: this.props.logoStrokeToggleBackgroundColor}}>Logo Text Stroke Color </h8>
+            </div>
 
-            <h6 className = 'logoTextColorSection'>Logo Text Colors</h6>
+         
 <div className='row choice-row'>
+{this.props.logoTextStrokeToggle ? (
+ <>
+  <h8 className = 'col s12 m12 l12 clearTextStroke' onClick={() => {this.props.clearLogoTextStroke()}}>Clear Logo Text Stroke</h8>
+  </>
+
+) : (
+<>  
+</>
+)}
+ 
+
 
       {this.props.logoTextColor.map((item, index) => {
   return (

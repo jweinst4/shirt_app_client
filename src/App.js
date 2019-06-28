@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 
-
 import NewColor from './components/NewColor.js'
 import NewUser from './components/NewUser.js'
 import NewLogo from './components/NewLogo.js'
@@ -14,10 +13,8 @@ import ShirtTest from './components/ShirtTest.js'
 import LogoTest from './components/LogoTest.js'
 import PricingFormula from './components/PricingFormula.js'
 
-
-
 import './App.css';
-import { isNull } from 'util';
+
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -50,11 +47,13 @@ class App extends React.Component {
       currentFontFront: 'Arial',
       currentLogoTextFront: '',
       currentLogoTextColorFront: 'Black',
+      currentLogoTextStrokeFront: '',
 
       currentLogoBack: '',
       currentFontBack: 'Arial',
       currentLogoTextBack: '',
       currentLogoTextColorBack: 'Black',
+      currentLogoTextStrokeBack: '',
 
       printSideOneCostApp: '',
       printSideTwoCostApp: '',
@@ -76,12 +75,20 @@ class App extends React.Component {
       embroideryBackgroundColor: 'white',
       lightOrDarkPricing: true,
       embroideryPricing: false,
+      logoTextFillToggle: true,
+      logoTextStrokeToggle: false,
+      logoFillToggleBackgroundColor: '#e3f2fd',
+      logoStrokeToggleBackgroundColor: 'white',
+  
 
       frontOfShirtBackgroundColor: '#e3f2fd',
       backOfShirtBackgroundColor: 'white',
       frontOrBack: 'front',
       front: true,
       back: false,
+
+      logoFillToggleBackgroundColor: '#e3f2fd',
+      logoStrokeToggleBackgroundColor: 'white',
 
       shirtRatio: 1.25,
       canvasWidth: 560,
@@ -117,10 +124,14 @@ class App extends React.Component {
   this.changeCurrentLogoFront= this.changeCurrentLogoFront.bind(this)
   this.changeCurrentFontFront= this.changeCurrentFontFront.bind(this)
   this.changeCurrentLogoTextColorFront= this.changeCurrentLogoTextColorFront.bind(this)
+  this.changeCurrentLogoTextStrokeFront= this.changeCurrentLogoTextStrokeFront.bind(this)
 
   this.changeCurrentLogoBack= this.changeCurrentLogoBack.bind(this)
   this.changeCurrentFontBack= this.changeCurrentFontBack.bind(this)
   this.changeCurrentLogoTextColorBack= this.changeCurrentLogoTextColorBack.bind(this)
+  this.changeCurrentLogoTextStrokeBack= this.changeCurrentLogoTextStrokeBack.bind(this)
+
+  this.clearLogoTextStroke = this.clearLogoTextStroke.bind(this)
 
   this.getPrices = this.getPrices.bind(this)
 
@@ -132,10 +143,33 @@ class App extends React.Component {
 
   this.frontOfShirt = this.frontOfShirt.bind(this)
   this.backOfShirt = this.backOfShirt.bind(this)
+  this.toggleLogoTextFill = this.toggleLogoTextFill.bind(this)
+  this.toggleLogoTextStroke = this.toggleLogoTextStroke.bind(this)
 
   this.canvasTestButtonApp = this.canvasTestButtonApp.bind(this)
 
   }
+
+  toggleLogoTextFill() {
+    if (!this.state.logoTextFillToggle) {
+      this.setState({logoTextFillToggle: !this.state.logoTextFillToggle})
+      this.setState({logoTextStrokeToggle: !this.state.logoTextStrokeToggle}) 
+
+      this.setState({logoFillToggleBackgroundColor: '#e3f2fd'})
+      this.setState({logoStrokeToggleBackgroundColor: 'white'})
+    }
+  }
+
+  toggleLogoTextStroke() {
+    if (!this.state.logoTextStrokeToggle) {
+    this.setState({logoTextFillToggle: !this.state.logoTextFillToggle})
+    this.setState({logoTextStrokeToggle: !this.state.logoTextStrokeToggle}) 
+
+    this.setState({logoFillToggleBackgroundColor: 'white'})
+    this.setState({logoStrokeToggleBackgroundColor: '#e3f2fd'})
+    }
+}
+
 
 
   canvasTestButtonApp(event) {
@@ -150,6 +184,7 @@ class App extends React.Component {
     this.setState({logotHeight: 16});
 
   }
+
   frontOfShirt() {
     this.setState({frontOrBack: 'front'})  
     this.setState({front: true}) 
@@ -230,6 +265,31 @@ changeCurrentLogoTextColorFront(item) {
 
     this.setState ({currentLogoTextColorBack: item})
     }
+
+    
+
+
+changeCurrentLogoTextStrokeFront(item) {
+
+  this.setState ({currentLogoTextStrokeFront: item})
+  }
+
+  changeCurrentLogoTextStrokeBack(item) {
+
+    this.setState ({currentLogoTextStrokeBack: item})
+    }
+
+    
+
+    clearLogoTextStroke() {
+
+this.setState ({currentLogoTextStrokeFront: ''})
+this.setState ({currentLogoTextStrokeBack: ''})
+    }
+
+
+
+    
 
   handleAddColor(color) {
   console.log(color)
@@ -747,11 +807,15 @@ changeCurrentLogoTextColorFront(item) {
           <div className = 'canvasToolbarRow row'>
 
             <div className = 'canvasCol col s12 m12 l8'>
-              <Route exact path ='/' exact render={() => <Canvas currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back} canvasWidth = {this.state.canvasWidth} canvasHeight = {this.state.canvasHeight}/>}/>
+              <Route exact path ='/' exact render={() => <Canvas currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back} canvasWidth = {this.state.canvasWidth} canvasHeight = {this.state.canvasHeight} currentLogoTextStrokeFront={this.state.currentLogoTextStrokeFront} currentLogoTextStrokeBack={this.state.currentLogoTextStrokeBack} />}/>
             </div>
 
             <div className = 'toolbarCol col s12 m12 l4'>
-              <Route exact path ='/' exact render={() => <ToolBar  canvasTestButtonApp = {this.canvasTestButtonApp} currentShirtColor={this.state.shirtFillColor}changeCurrentShirtColor={this.changeCurrentShirtColor} colors={this.state.colors}  deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} getLogos = {this.getLogos} users = {this.state.users} logos = {this.state.logos} fonts = {this.state.fonts}  logoTextColor={this.state.logoTextColor}  changeCurrentLogoFront={this.changeCurrentLogoFront} changeCurrentFontFront={this.changeCurrentFontFront}  handleLogoTextSubmitAppFront={this.handleLogoTextSubmitAppFront} logoTextColor={this.state.logoTextColor} changeCurrentLogoTextColorFront={this.changeCurrentLogoTextColorFront} changeCurrentLogoBack={this.changeCurrentLogoBack} changeCurrentFontBack={this.changeCurrentFontBack}  handleLogoTextSubmitAppBack={this.handleLogoTextSubmitAppBack} changeCurrentLogoTextColorBack={this.changeCurrentLogoTextColorBack} frontOfShirt={this.frontOfShirt} backOfShirt = {this.backOfShirt} frontOfShirtBackgroundColor={this.state.frontOfShirtBackgroundColor} backOfShirtBackgroundColor={this.state.backOfShirtBackgroundColor} frontOrBack={this.state.frontOrBack}/>}/>
+              <Route exact path ='/' exact render={() => <ToolBar  canvasTestButtonApp = {this.canvasTestButtonApp} currentShirtColor={this.state.shirtFillColor}changeCurrentShirtColor={this.changeCurrentShirtColor} colors={this.state.colors}  deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} getLogos = {this.getLogos} users = {this.state.users} logos = {this.state.logos} fonts = {this.state.fonts}  logoTextColor={this.state.logoTextColor}  changeCurrentLogoFront={this.changeCurrentLogoFront} changeCurrentFontFront={this.changeCurrentFontFront}  handleLogoTextSubmitAppFront={this.handleLogoTextSubmitAppFront} logoTextColor={this.state.logoTextColor} changeCurrentLogoTextColorFront={this.changeCurrentLogoTextColorFront} changeCurrentLogoBack={this.changeCurrentLogoBack} changeCurrentFontBack={this.changeCurrentFontBack}  handleLogoTextSubmitAppBack={this.handleLogoTextSubmitAppBack} changeCurrentLogoTextColorBack={this.changeCurrentLogoTextColorBack} frontOfShirt={this.frontOfShirt} backOfShirt = {this.backOfShirt} frontOfShirtBackgroundColor={this.state.frontOfShirtBackgroundColor} backOfShirtBackgroundColor={this.state.backOfShirtBackgroundColor} frontOrBack={this.state.frontOrBack}        logoTextFillToggle={this.state.logoTextFillToggle} logoTextStrokeToggle={this.state.logoTextStrokeToggle} toggleLogoTextStroke={this.toggleLogoTextStroke} toggleLogoTextFill={this.toggleLogoTextFill} logoFillToggleBackgroundColor = {this.state.logoFillToggleBackgroundColor} logoStrokeToggleBackgroundColor = {this.state.logoStrokeToggleBackgroundColor} changeCurrentLogoTextStrokeFront={this.changeCurrentLogoTextStrokeFront} changeCurrentLogoTextStrokeBack={this.changeCurrentLogoTextStrokeBack} clearLogoTextStroke = {this.clearLogoTextStroke}/>}/>
+
+
+
+  
             </div>
 
           </div>
