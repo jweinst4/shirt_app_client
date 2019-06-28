@@ -17,6 +17,7 @@ import PricingFormula from './components/PricingFormula.js'
 
 
 import './App.css';
+import { isNull } from 'util';
 
 let baseURL = process.env.REACT_APP_BASEURL
 
@@ -57,14 +58,24 @@ class App extends React.Component {
 
       printSideOneCostApp: '',
       printSideTwoCostApp: '',
+      location1EmbroideryCost: '',
+      location2EmbroideryCost: '',
+      location3EmbroideryCost: '',
+      location4EmbroideryCost: '',
+      location5EmbroideryCost: '',
+      location6EmbroideryCost: '',
       lightShirtArray: [[2.25,3.25,4.75,5.75,6.50],[1.75,2.85,3.85,4.80,6.25],[1.05,2.10,2.85,3.30,4.10],[.85,1.75,2.10,2.40,3.00],[.80,1.15,1.55,1.90,2.20],[.60,.95,1.25,1.50,1.70],[.50,.75,.90,1.10,1.30],[.45,.55,.75,.90,1.10],[.40,.50,.60,.75,1.00]],
       darkShirtArray: [[2.75, 3.75, 5.25, 6.25, 7.00],[2.15, 3.25, 4.25, 5.20, 6.65],[1.35, 2.40, 3.15, 3.60, 4.40],[1.10, 2.00, 2.35, 2.65, 3.25],[.80, 1.15, 1.55, 1.90, 2.20],[.60, .95, 1.25, 1.50, 1.70],[.50, .75, .90, 1.10, 1.30],[.45, .55, .75, .90, 1.10],[.40, .50, .60, .75, 1.00]],
-      embroideryArray: [[0, 0, 0, 0, 0],[0, 0, 0, 0, 0],[0, 0, 0, 0, 0],[0, 0, 0, 0, 0],[0, 0, 0, 0, 0],[0, 0, 0, 0, 0],[0, 0, 0, 0, 0],[0, 0, 0, 0, 0],[0, 0, 0, 0, 0]],
+      embroideryArray: [[0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],[4.326,3.9655,3.605,3.2445,2.884,2.6677,2.5235,2.3072,2.163,1.9467,1.8025],[5.562,5.0985,4.635,4.1715,3.708,3.4299,3.2445,2.9664,2.781,2.5029,2.3175],[6.798,6.2315,5.665,5.0985,4.532,4.1921,3.9655,3.6256,3.399,3.0591,2.8325],[8.034,7.3645,6.695,6.0255,5.356,4.9543,4.6865,4.2848,4.017,3.6153,3.3475],[9.27,8.4975,7.725,6.9525,6.18,5.7165,5.4075,4.944,4.635,4.1715,3.8625],[10.506,9.6305,8.755,7.8795,7.004,6.4787,6.1285,5.6032,5.047,0,0],[11.742,10.7635,9.785,8.8065,7.828,7.2409,6.8495,6.2624,5.871,0,0],[12.978,11.8965,10.815,9.7335,8.652,8.0031,7.5705,6.9216,6.489,0,0],[14.214,13.0295,11.845,10.6605,9.476,8.7653,8.2915,7.5808,7.107,0,0],[15.45,14.1625,12.875,11.5875,10.3,9.5275,9.0125,8.24,7.725,0,0]],
+
+
     
       currentPricingType: 'lightShirt',
       lightShirtBackgroundColor: '#e3f2fd',
       darkShirtBackgroundColor: 'white',
       embroideryBackgroundColor: 'white',
+      lightOrDarkPricing: true,
+      embroideryPricing: false,
 
       frontOfShirtBackgroundColor: '#e3f2fd',
       backOfShirtBackgroundColor: 'white',
@@ -114,6 +125,7 @@ class App extends React.Component {
   this.getPrices = this.getPrices.bind(this)
 
   this.handlePriceSubmitApp = this.handlePriceSubmitApp.bind(this)
+  this.handlePriceSubmitEmbroideryApp = this.handlePriceSubmitEmbroideryApp.bind(this)
 
   this.handleLogoTextSubmitAppFront = this.handleLogoTextSubmitAppFront.bind(this)
   this.handleLogoTextSubmitAppBack = this.handleLogoTextSubmitAppBack.bind(this)
@@ -160,6 +172,8 @@ class App extends React.Component {
     this.setState({lightShirtBackgroundColor: '#e3f2fd'})
     this.setState({darkShirtBackgroundColor: 'white'})
     this.setState({embroideryBackgroundColor: 'white'})  
+    this.setState({lightOrDarkPricing: true})
+    this.setState({embroideryPricing: false})  
     
   }
 
@@ -167,7 +181,9 @@ class App extends React.Component {
     this.setState({currentPricingType: 'darkShirt'})  
     this.setState({lightShirtBackgroundColor: 'white'})
     this.setState({darkShirtBackgroundColor: '#e3f2fd'})
-    this.setState({embroideryBackgroundColor: 'white'})  
+    this.setState({embroideryBackgroundColor: 'white'})
+    this.setState({lightOrDarkPricing: true})
+    this.setState({embroideryPricing: false})    
   }
 
   embroideryPricing() {
@@ -175,6 +191,8 @@ class App extends React.Component {
     this.setState({lightShirtBackgroundColor: 'white'})
     this.setState({darkShirtBackgroundColor: 'white'})
     this.setState({embroideryBackgroundColor: '#e3f2fd'})  
+    this.setState({lightOrDarkPricing: false})
+    this.setState({embroideryPricing: true})  
   }
 
 
@@ -379,6 +397,8 @@ changeCurrentLogoTextColorFront(item) {
       
     }
 
+    
+
 
     if (this.state.currentPricingType === 'lightShirt') {
       this.setState({printSideOneCostApp: this.state.lightShirtArray[quantityArray][printSideOneQuantity - 1]})
@@ -390,14 +410,300 @@ changeCurrentLogoTextColorFront(item) {
 
       this.setState({printSideTwoCostApp: this.state.darkShirtArray[quantityArray][printSideTwoQuantity - 1]})
     }
-    else if (this.state.currentPricingType === 'embroidery') {
-      this.setState({printSideOneCostApp: this.state.embroideryArray[quantityArray][printSideOneQuantity - 1]})
-
-      this.setState({printSideTwoCostApp: this.state.embroideryArray[quantityArray][printSideTwoQuantity - 1]})
-    }
     else {
 
     }
+
+    if (!printSideOneQuantity) {
+      this.setState({printSideOneCostApp: 0})
+    }
+
+    if (!printSideTwoQuantity) {
+      this.setState({printSideTwoCostApp: 0})
+    }
+
+    
+  }
+
+  handlePriceSubmitEmbroideryApp(quantity,location1,location2,location3,location4,location5,location6) {
+    let quantityArray = 0;
+    let location1StitchArray = '';
+    let location2StitchArray = '';
+    let location3StitchArray = '';
+    let location4StitchArray = '';
+    let location5StitchArray = '';
+    let location6StitchArray = '';
+  
+    if (quantity < 6) {
+      quantityArray = 0;
+    }
+    else if (quantity < 12) {
+      quantityArray = 1;
+    }
+    else if (quantity < 24) {
+      quantityArray = 2;
+    }
+    else if (quantity < 48) {
+      quantityArray = 3;
+    }
+    else if (quantity < 100) {
+      quantityArray = 4;
+    }
+    else if (quantity < 200) {
+      quantityArray = 5;
+    }
+    else if (quantity < 400) {
+      quantityArray = 6;
+    }
+    else if (quantity < 800) {
+      quantityArray = 7;
+    }
+    else if (quantity < 1600) {
+      quantityArray = 8;
+    }
+    else if (quantity >= 1600) {
+      quantityArray = 9;
+    }
+    else  {
+      
+    }
+
+
+    if (!location1) {
+      location1StitchArray = 0;
+
+    }
+   else if (location1 < 5000) {
+      location1StitchArray = 1;
+    }
+    else if (location1 < 7000) {
+      location1StitchArray = 2;
+    }
+    else if (location1 < 9000) {
+      location1StitchArray = 3;
+    }
+    else if (location1 < 11000) {
+      location1StitchArray = 4;
+    }
+    else if (location1 < 13000) {
+      location1StitchArray = 5;
+    }
+    else if (location1 < 15000) {
+      location1StitchArray = 6;
+    }
+    else if (location1 < 17000) {
+      location1StitchArray = 7;
+    }
+    else if (location1 < 19000) {
+      location1StitchArray = 8;
+    }
+    else if (location1 < 21000) {
+      location1StitchArray = 9;
+    }
+    else if (location1 >= 21000) {
+      location1StitchArray = 10;
+    }
+    else  {
+      
+    }
+
+
+    if (!location2) {
+      location2StitchArray = 0;
+      
+    }
+    else if (location2 < 5000) {
+      location2StitchArray = 1;
+    }
+    else if (location2 < 7000) {
+      location2StitchArray = 2;
+    }
+    else if (location2 < 9000) {
+      location2StitchArray = 3;
+    }
+    else if (location2 < 11000) {
+     location2StitchArray = 4;
+    }
+    else if (location2 < 13000) {
+      location2StitchArray = 5;
+    }
+    else if (location2 < 15000) {
+      location2StitchArray = 6;
+    }
+    else if (location2 < 17000) {
+      location2StitchArray = 7;
+    }
+    else if (location2 < 19000) {
+      location2StitchArray = 8;
+    }
+    else if (location2 < 21000) {
+      location2StitchArray = 9;
+    }
+    else if (location2 >= 21000) {
+      location2StitchArray = 10;
+    }
+    else  {
+      
+    }
+
+    if (!location3){
+      location3StitchArray = 0;
+      
+    }
+    else if (location3 < 5000) {
+      location3StitchArray = 1;
+    }
+    else if (location3 < 7000) {
+      location3StitchArray = 2;
+    }
+    else if (location3 < 9000) {
+      location3StitchArray = 3;
+    }
+    else if (location3 < 11000) {
+     location3StitchArray = 4;
+    }
+    else if (location3 < 13000) {
+      location3StitchArray = 5;
+    }
+    else if (location3 < 15000) {
+      location3StitchArray = 6;
+    }
+    else if (location3 < 17000) {
+      location3StitchArray = 7;
+    }
+    else if (location3 < 19000) {
+      location3StitchArray = 8;
+    }
+    else if (location3 < 21000) {
+      location3StitchArray = 9;
+    }
+    else if (location3 >= 21000) {
+      location3StitchArray = 10;
+    }
+    else  {
+      
+    }
+
+    if (!location4) {
+      location4StitchArray = 0;
+    }
+    else if (location4 < 5000) {
+      location4StitchArray = 1;
+    }
+    else if (location4 < 7000) {
+      location4StitchArray = 2;
+    }
+    else if (location4 < 9000) {
+      location4StitchArray = 3;
+    }
+    else if (location4 < 11000) {
+     location4StitchArray = 4;
+    }
+    else if (location4 < 13000) {
+      location4StitchArray = 5;
+    }
+    else if (location4 < 15000) {
+      location4StitchArray = 6;
+    }
+    else if (location4 < 17000) {
+      location4StitchArray = 7;
+    }
+    else if (location4 < 19000) {
+      location4StitchArray = 8;
+    }
+    else if (location4 < 21000) {
+      location4StitchArray = 9;
+    }
+    else if (location4 >= 21000) {
+      location4StitchArray = 10;
+    }
+    else  {
+      
+    }
+
+    if  (!location5) {
+      location5StitchArray = 0;
+    }
+    else if (location5 < 5000) {
+      location5StitchArray = 1;
+    }
+    else if (location5 < 7000) {
+      location5StitchArray = 2;
+    }
+    else if (location5 < 9000) {
+      location5StitchArray = 3;
+    }
+    else if (location5 < 11000) {
+     location5StitchArray = 4;
+    }
+    else if (location5 < 13000) {
+      location5StitchArray = 5;
+    }
+    else if (location5 < 15000) {
+      location5StitchArray = 6;
+    }
+    else if (location5 < 17000) {
+      location5StitchArray = 7;
+    }
+    else if (location5 < 19000) {
+      location5StitchArray = 8;
+    }
+    else if (location5 < 21000) {
+      location5StitchArray = 9;
+    }
+    else if (location5 >= 21000) {
+      location5StitchArray = 10;
+    }
+    else  {
+      
+    }
+
+
+    if (!location6){
+      location6StitchArray = 0;
+    }
+    else if (location6 < 5000) {
+      location6StitchArray = 1;
+    }
+    else if (location6 < 7000) {
+      location6StitchArray = 2;
+    }
+    else if (location6 < 9000) {
+      location6StitchArray = 3;
+    }
+    else if (location6 < 11000) {
+     location6StitchArray = 4;
+    }
+    else if (location6 < 13000) {
+      location6StitchArray = 5;
+    }
+    else if (location6 < 15000) {
+      location6StitchArray = 6;
+    }
+    else if (location6 < 17000) {
+      location6StitchArray = 7;
+    }
+    else if (location6 < 19000) {
+      location6StitchArray = 8;
+    }
+    else if (location6 < 21000) {
+      location6StitchArray = 9;
+    }
+    else if (location6 >= 21000) {
+      location6StitchArray = 10;
+    }
+    else  {
+      
+    }
+  
+
+
+      this.setState({location1EmbroideryCost: this.state.embroideryArray[location1StitchArray][quantityArray]})
+      this.setState({location2EmbroideryCost: this.state.embroideryArray[location2StitchArray][quantityArray]})
+      this.setState({location3EmbroideryCost: this.state.embroideryArray[location3StitchArray][quantityArray]})
+      this.setState({location4EmbroideryCost: this.state.embroideryArray[location4StitchArray][quantityArray]})
+      this.setState({location5EmbroideryCost: this.state.embroideryArray[location5StitchArray][quantityArray]})
+      this.setState({location6EmbroideryCost: this.state.embroideryArray[location6StitchArray][quantityArray]})
     
   }
 
@@ -456,8 +762,8 @@ changeCurrentLogoTextColorFront(item) {
             
             <Route exact path ='/newLogo' exact render={() => <NewLogo handleAddLogo={this.handleAddLogo} getLogos={this.getLogos} logos={this.state.logos}/>}/>
               
-            <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} handlePriceSubmitAppDark={this.handlePriceSubmitAppDark} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} 
-          lightShirtPricing={this.lightShirtPricing} darkShirtPricing={this.darkShirtPricing} embroideryPricing={this.embroideryPricing} currentPricingType={this.state.currentPricingType} lightShirtBackgroundColor={this.state.lightShirtBackgroundColor} darkShirtBackgroundColor={this.state.darkShirtBackgroundColor} embroideryBackgroundColor={this.state.embroideryBackgroundColor}/>}/>
+            <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} handlePriceSubmitEmbroideryApp={this.handlePriceSubmitEmbroideryApp} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} 
+          lightShirtPricing={this.lightShirtPricing} darkShirtPricing={this.darkShirtPricing} embroideryPricing={this.embroideryPricing} currentPricingType={this.state.currentPricingType} lightShirtBackgroundColor={this.state.lightShirtBackgroundColor} darkShirtBackgroundColor={this.state.darkShirtBackgroundColor} embroideryBackgroundColor={this.state.embroideryBackgroundColor} lightOrDarkPricing={this.state.lightOrDarkPricing} location1EmbroideryCost={this.state.location1EmbroideryCost} location2EmbroideryCost={this.state.location2EmbroideryCost} location3EmbroideryCost={this.state.location3EmbroideryCost} location4EmbroideryCost={this.state.location4EmbroideryCost} location5EmbroideryCost={this.state.location5EmbroideryCost} location6EmbroideryCost={this.state.location6EmbroideryCost}/>}/>
 
 <div className = 'shirtTest'>
 <Route exact path ='/shirtTest' exact render={() => <ShirtTest currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back} shirtCanvasWidth = {this.state.shirtCanvasWidth} shirtCanvasHeight = {this.state.shirtCanvasHeight} shirtWidth = {this.state.shirtWidth} shirtHeight={this.state.shirtHeight}/> }/>

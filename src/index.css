@@ -213,3 +213,14 @@ border: 1px solid black;
   position: absolute;
   top: 130px;
 }
+
+.embroiderySection label {
+
+  font-size: 20px;
+}
+
+
+.embroiderySection h6 {
+
+  font-size: 20px;
+}
