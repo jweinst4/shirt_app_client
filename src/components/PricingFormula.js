@@ -138,32 +138,32 @@ class PricingFormula extends React.Component {
              </div>  
 
 <div className = 'col s12 m12 l12 form-group'>
-         <label className = 'col s10 m10 l10' htmlFor="embroideryLocation1">Location1Colors:</label>
+         <label className = 'col s10 m10 l10' htmlFor="embroideryLocation1">Location1Stitches:</label>
              <input className = 'col s2 m2 l2' type="number" id="embroideryLocation1" name="embroideryLocation1" onChange={this.handlePriceEmbroideryChange} value={this.state.embroideryLocation1}  />  
              </div>   
 
              <div className = 'col s12 m12 l12 form-group'>
-         <label className = 'col s10 m10 l10' htmlFor="embroideryLocation2">Location2Colors:</label>
+         <label className = 'col s10 m10 l10' htmlFor="embroideryLocation2">Location2Stitches:</label>
              <input className = 'col s2 m2 l2' type="number" id="embroideryLocation2" name="embroideryLocation2" onChange={this.handlePriceEmbroideryChange} value={this.state.embroideryLocation2} />  
              </div>   
 
              <div className = 'col s12 m12 l12 form-group'>
-         <label className = 'col s10 m10 l10' htmlFor="embroideryLocation3">Location3Colors:</label>
+         <label className = 'col s10 m10 l10' htmlFor="embroideryLocation3">Location3Stitches:</label>
              <input className = 'col s2 m2 l2' type="number" id="embroideryLocation3" name="embroideryLocation3" onChange={this.handlePriceEmbroideryChange} value={this.state.embroideryLocation3}  />  
              </div>   
 
              <div className = 'col s12 m12 l12 form-group'>
-         <label className = 'col s10 m10 l10' htmlFor="embroideryLocation4">Location4Colors:</label>
+         <label className = 'col s10 m10 l10' htmlFor="embroideryLocation4">Location4Stitches:</label>
              <input className = 'col s2 m2 l2' type="number" id="embroideryLocation4" name="embroideryLocation4" onChange={this.handlePriceEmbroideryChange} value={this.state.embroideryLocation4}  />  
              </div>   
 
              <div className = 'col s12 m12 l12 form-group'>
-         <label className = 'col s10 m10 l10' htmlFor="embroideryLocation5">Location5Colors:</label>
+         <label className = 'col s10 m10 l10' htmlFor="embroideryLocation5">Location5Stitches:</label>
              <input className = 'col s2 m2 l2' type="number" id="embroideryLocation5" name="embroideryLocation5" onChange={this.handlePriceEmbroideryChange} value={this.state.embroideryLocation5}  />  
              </div>   
 
              <div className = 'col s12 m12 l12 form-group'>
-         <label className = 'col s10 m10 l10' htmlFor="embroideryLocation6">Location6Colors:</label>
+         <label className = 'col s10 m10 l10' htmlFor="embroideryLocation6">Location6Stitches:</label>
              <input className = 'col s2 m2 l2' type="number" id="embroideryLocation6" name="embroideryLocation6" onChange={this.handlePriceEmbroideryChange} value={this.state.embroideryLocation6}  />  
              </div>   
             
