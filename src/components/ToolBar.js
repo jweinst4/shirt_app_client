@@ -232,7 +232,7 @@ changeShirtColorHere(item) {
 
            
 
-{this.props.front ? (
+{this.props.front && !!this.props.currentLogoTextFront ? (
   <>
    <div className = 'row s12 m12 l12'>
   <div className = 'col s5 m5 l5'>
@@ -247,7 +247,13 @@ changeShirtColorHere(item) {
  
  ) : (
  <>  
-   <div className = 'row s12 m12 l12'>
+  
+
+ </>
+ )}
+ {this.props.back &&  !!this.props.currentLogoTextBack ? (
+  <>
+    <div className = 'row s12 m12 l12'>
   <div className = 'col s5 m5 l5'>
                 <button className = 'increaseTextSize' onClick = {this.props.increaseTextSizeBack} >  <i className="material-icons">arrow_upwards</i></button>
                 </div>
@@ -257,9 +263,14 @@ changeShirtColorHere(item) {
                 </div>
                 </div>
 
+   </>
+ 
+ ) : (
+ <>  
+  
+
  </>
  )}
-
 
   
 
