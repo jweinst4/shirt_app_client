@@ -221,19 +221,60 @@ changeShirtColorHere(item) {
                 <input type='submit' value='Add Logo Text'/>
                 </div>
 
+
+
                 </div>   
                 </div>
 
               
              
             </form>
+
+           
+
+{this.props.front ? (
+  <>
+   <div className = 'row s12 m12 l12'>
+  <div className = 'col s5 m5 l5'>
+                <button className = 'increaseTextSize' onClick = {this.props.increaseTextSizeFront} >  <i className="material-icons">arrow_upwards</i></button>
+                </div>
+
+                <div className = 'col s5 m5 l5'>
+                <button className = 'decreaseTextSize' onClick = {this.props.decreaseTextSizeFront} >  <i className="material-icons">arrow_downward</i></button>
+                </div>
+                </div>
+   </>
+ 
+ ) : (
+ <>  
+   <div className = 'row s12 m12 l12'>
+  <div className = 'col s5 m5 l5'>
+                <button className = 'increaseTextSize' onClick = {this.props.increaseTextSizeBack} >  <i className="material-icons">arrow_upwards</i></button>
+                </div>
+
+                <div className = 'col s5 m5 l5'>
+                <button className = 'decreaseTextSize' onClick = {this.props.decreaseTextSizeBack} >  <i className="material-icons">arrow_downward</i></button>
+                </div>
+                </div>
+
+ </>
+ )}
+
+
+  
+
+ 
+            
+             
+         
             
             <div className = 'row s12 m12 l12'>
             <h8 className = 'col s6 m6 l6 logoFillToggle' onClick={() => {this.props.toggleLogoTextFill()}} style={{backgroundColor: this.props.logoFillToggleBackgroundColor}}>Logo Text Fill Color </h8>
             <h8 className = 'col s6 m6 l6 logoStrokeToggle' onClick={() => {this.props.toggleLogoTextStroke()}} style={{backgroundColor: this.props.logoStrokeToggleBackgroundColor}}>Logo Text Stroke Color </h8>
             </div>
 
-         
+
+            
 <div className='row choice-row'>
 {this.props.logoTextStrokeToggle ? (
  <>

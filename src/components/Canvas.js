@@ -206,7 +206,7 @@ class Canvas extends React.Component {
 
   <URLImageFront src={this.props.currentLogoFront}/>
 
-  <Text x={340} y={130} fontFamily={this.props.currentFontFront} keepRatio={true} fontSize={30} fill={this.props.currentLogoTextColorFront} text={this.props.currentLogoTextFront} stroke = {this.props.currentLogoTextStrokeFront} draggable />
+  <Text x={340} y={130} fontFamily={this.props.currentFontFront} fontSize={this.props.logoTextFontSizeFront} fill={this.props.currentLogoTextColorFront} text={this.props.currentLogoTextFront} stroke = {this.props.currentLogoTextStrokeFront} draggable />
 
   
   <Text x={70} y={590} fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
@@ -221,7 +221,7 @@ class Canvas extends React.Component {
 
   <URLImageBack src={this.props.currentLogoBack}/>
 
-  <Text x={340} y={130} fontFamily={this.props.currentFontBack} fontSize={30} fill={this.props.currentLogoTextColorBack} stroke = {this.props.currentLogoTextStrokeBack} text={this.props.currentLogoTextBack}  draggable />
+  <Text x={340} y={130} fontFamily={this.props.currentFontBack} fontSize={this.props.logoTextFontSizeBack} fill={this.props.currentLogoTextColorBack} stroke = {this.props.currentLogoTextStrokeBack} text={this.props.currentLogoTextBack}  draggable />
 
 
   <Text x={70} y={590} fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
