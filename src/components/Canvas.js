@@ -5,7 +5,7 @@ import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 // https://codesandbox.io/s/github/konvajs/site/tree/master/react-demos/images?from-embed
 
-class URLImageFront extends React.Component {
+class URLImageFront1 extends React.Component {
   state = {
     image: null
   };
@@ -65,6 +65,127 @@ class URLImageFront extends React.Component {
   }
 }
 
+class URLImageFront2 extends React.Component {
+  state = {
+    image: null
+  };
+  componentDidMount() {
+    this.loadImage();
+  }
+  componentDidUpdate(oldProps) {
+    if (oldProps.src !== this.props.src) {
+      this.loadImage();
+    }
+  }
+  componentWillUnmount() {
+    this.image.removeEventListener('load', this.handleLoad);
+  }
+  loadImage() {
+    // save to "this" to remove "load" handler on unmount
+    this.image = new window.Image();
+    this.image.src = this.props.src;
+    this.image.addEventListener('load', this.handleLoad);
+  }
+  handleLoad = () => {
+    // after setState react-konva will update canvas and redraw the layer
+    // because "image" property is changed
+    this.setState({
+      image: this.image
+    });
+    // if you keep same image object during source updates
+    // you will have to update layer manually:
+    // this.imageNode.getLayer().batchDraw();
+  };
+  render() {
+    return (
+      <Image
+        x={395}
+        y={120}
+        width={130}
+        height={45}
+        draggable
+        onDragStart={() => {
+          this.setState({
+            isDraggingLogo: true
+          });
+        }}
+        onDragEnd={e => {
+          this.setState({
+            isDragging: false,
+            x: e.target.x(),
+            y: e.target.y()
+          });
+        }}
+        image={this.state.image}
+        ref={node => {
+          this.imageNode = node;
+        }}
+      />
+    );
+  }
+}
+
+class URLImageFront3 extends React.Component {
+  state = {
+    image: null
+  };
+  componentDidMount() {
+    this.loadImage();
+  }
+  componentDidUpdate(oldProps) {
+    if (oldProps.src !== this.props.src) {
+      this.loadImage();
+    }
+  }
+  componentWillUnmount() {
+    this.image.removeEventListener('load', this.handleLoad);
+  }
+  loadImage() {
+    // save to "this" to remove "load" handler on unmount
+    this.image = new window.Image();
+    this.image.src = this.props.src;
+    this.image.addEventListener('load', this.handleLoad);
+  }
+  handleLoad = () => {
+    // after setState react-konva will update canvas and redraw the layer
+    // because "image" property is changed
+    this.setState({
+      image: this.image
+    });
+    // if you keep same image object during source updates
+    // you will have to update layer manually:
+    // this.imageNode.getLayer().batchDraw();
+  };
+  render() {
+    return (
+      <Image
+        x={395}
+        y={420}
+        width={130}
+        height={45}
+        draggable
+        onDragStart={() => {
+          this.setState({
+            isDraggingLogo: true
+          });
+        }}
+        onDragEnd={e => {
+          this.setState({
+            isDragging: false,
+            x: e.target.x(),
+            y: e.target.y()
+          });
+        }}
+        image={this.state.image}
+        ref={node => {
+          this.imageNode = node;
+        }}
+      />
+    );
+  }
+}
+
+
 class URLImageBack extends React.Component {
   state = {
     image: null
@@ -100,6 +221,127 @@ class URLImageBack extends React.Component {
     return (
       <Image
         x={195}
+        y={120}
+        width={130}
+        height={45}
+        draggable
+        onDragStart={() => {
+          this.setState({
+            isDragging: true
+          });
+        }}
+        onDragEnd={e => {
+          this.setState({
+            isDragging: false,
+            x: e.target.x(),
+            y: e.target.y()
+          });
+        }}
+        image={this.state.image}
+        ref={node => {
+          this.imageNode = node;
+        }}
+      />
+    );
+  }
+}
+
+
+class URLImageBack2 extends React.Component {
+  state = {
+    image: null
+  };
+  componentDidMount() {
+    this.loadImage();
+  }
+  componentDidUpdate(oldProps) {
+    if (oldProps.src !== this.props.src) {
+      this.loadImage();
+    }
+  }
+  componentWillUnmount() {
+    this.image.removeEventListener('load', this.handleLoad);
+  }
+  loadImage() {
+    // save to "this" to remove "load" handler on unmount
+    this.image = new window.Image();
+    this.image.src = this.props.src;
+    this.image.addEventListener('load', this.handleLoad);
+  }
+  handleLoad = () => {
+    // after setState react-konva will update canvas and redraw the layer
+    // because "image" property is changed
+    this.setState({
+      image: this.image
+    });
+    // if you keep same image object during source updates
+    // you will have to update layer manually:
+    // this.imageNode.getLayer().batchDraw();
+  };
+  render() {
+    return (
+      <Image
+        x={395}
+        y={120}
+        width={130}
+        height={45}
+        draggable
+        onDragStart={() => {
+          this.setState({
+            isDragging: true
+          });
+        }}
+        onDragEnd={e => {
+          this.setState({
+            isDragging: false,
+            x: e.target.x(),
+            y: e.target.y()
+          });
+        }}
+        image={this.state.image}
+        ref={node => {
+          this.imageNode = node;
+        }}
+      />
+    );
+  }
+}
+
+class URLImageBack3 extends React.Component {
+  state = {
+    image: null
+  };
+  componentDidMount() {
+    this.loadImage();
+  }
+  componentDidUpdate(oldProps) {
+    if (oldProps.src !== this.props.src) {
+      this.loadImage();
+    }
+  }
+  componentWillUnmount() {
+    this.image.removeEventListener('load', this.handleLoad);
+  }
+  loadImage() {
+    // save to "this" to remove "load" handler on unmount
+    this.image = new window.Image();
+    this.image.src = this.props.src;
+    this.image.addEventListener('load', this.handleLoad);
+  }
+  handleLoad = () => {
+    // after setState react-konva will update canvas and redraw the layer
+    // because "image" property is changed
+    this.setState({
+      image: this.image
+    });
+    // if you keep same image object during source updates
+    // you will have to update layer manually:
+    // this.imageNode.getLayer().batchDraw();
+  };
+  render() {
+    return (
+      <Image
+        x={295}
         y={120}
         width={130}
         height={45}
@@ -203,8 +445,11 @@ class Canvas extends React.Component {
 
   <Shirt src= {this.props.currentShirtColor.url}/>
 
-
-  <URLImageFront src={this.props.currentLogoFront}/>
+  <URLImageFront1 src={this.props.currentLogoFront}/>
+  <URLImageFront2 src={this.props.currentLogoFront2}/>
+  <URLImageFront3 src={this.props.currentLogoFront3}/>
+  
+  
 
   <Text x={340} y={130} fontFamily={this.props.currentFontFront} fontSize={this.props.logoTextFontSizeFront} fill={this.props.currentLogoTextColorFront} text={this.props.currentLogoTextFront} stroke = {this.props.currentLogoTextStrokeFront} draggable />
 
@@ -220,6 +465,8 @@ class Canvas extends React.Component {
   <Shirt src= {this.props.currentShirtColor.backURL}/>
 
   <URLImageBack src={this.props.currentLogoBack}/>
+  <URLImageBack2 src={this.props.currentLogoBack2}/>
+  <URLImageBack3 src={this.props.currentLogoBack3}/>
 
   <Text x={340} y={130} fontFamily={this.props.currentFontBack} fontSize={this.props.logoTextFontSizeBack} fill={this.props.currentLogoTextColorBack} stroke = {this.props.currentLogoTextStrokeBack} text={this.props.currentLogoTextBack}  draggable />
 

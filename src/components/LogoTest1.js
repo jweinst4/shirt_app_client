@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { Stage, Layer, Image} from 'react-konva';
-import LogoTest1 from '../components/LogoTest1';
-import LogoTest2 from '../components/LogoTest2';
-import LogoTest3 from '../components/LogoTest3';
-
 
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 // https://codesandbox.io/s/github/konvajs/site/tree/master/react-demos/images?from-embed
 
-class ShirtTest extends React.Component {
+
+class LogoTest1 extends React.Component {
 
     constructor(props) {
       super(props)
@@ -32,7 +29,7 @@ class ShirtTest extends React.Component {
       loadImage() {
         // save to "this" to remove "load" handler on unmount
         this.image = new window.Image();
-        this.image.src = this.props.currentShirtColor.url;
+        this.image.src = this.props.currentLogoFront;
         this.image.addEventListener('load', this.handleLoad);
       }
       handleLoad = () => {
@@ -50,29 +47,27 @@ class ShirtTest extends React.Component {
       return (
         <Stage width={this.props.shirtCanvasWidth} height={this.props.shirtCanvasHeight}>
         <Layer>
+
    
         <Image
- src = {this.props.currentShirtColor.url}
+ src = {this.props.currentLogoFront}
  x={0}
  y={0}
- width = {this.props.shirtWidth}
- height = {this.props.shirtHeight}
- draggable
+ draggable={true}
+ width = {this.props.logoWidth}
+ height = {this.props.logoHeight}
  image={this.state.image}
  ref={node => {
    this.imageNode = node;
 
  }}
+
+
+ 
 />
 
-
-   
         </Layer>
         </Stage>
-  
-
-        
-  
   
       )
   
@@ -81,4 +76,4 @@ class ShirtTest extends React.Component {
 
   
 
-  export default ShirtTest
+  export default LogoTest1
