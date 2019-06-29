@@ -277,27 +277,27 @@ class PricingFormula extends React.Component {
             </div>
 
             <div className = 'row s12 m12 l12'>
-            <h6 className = 'col s10 m10 l10'>Location1Price: </h6><h6 className = 'col s2 m2 l2'> {this.props.location1EmbroideryCost}</h6>
+            <h6 className = 'col s10 m10 l10'>Location1Price: </h6><h6 className = 'col s2 m2 l2'> ${this.props.location1EmbroideryCost}</h6>
             </div>
 
             <div className = 'row s12 m12 l12'>
-            <h6 className = 'col s10 m10 l10'>Location2Price: </h6><h6 className = 'col s2 m2 l2'> {this.props.location2EmbroideryCost}</h6>
+            <h6 className = 'col s10 m10 l10'>Location2Price: </h6><h6 className = 'col s2 m2 l2'> ${this.props.location2EmbroideryCost}</h6>
             </div>
 
             <div className = 'row s12 m12 l12'>
-            <h6 className = 'col s10 m10 l10'>Location3Price: </h6><h6 className = 'col s2 m2 l2'> {this.props.location3EmbroideryCost}</h6>
+            <h6 className = 'col s10 m10 l10'>Location3Price: </h6><h6 className = 'col s2 m2 l2'> ${this.props.location3EmbroideryCost}</h6>
             </div>
 
             <div className = 'row s12 m12 l12'>
-            <h6 className = 'col s10 m10 l10'>Location4Price: </h6><h6 className = 'col s2 m2 l2'> {this.props.location4EmbroideryCost}</h6>
+            <h6 className = 'col s10 m10 l10'>Location4Price: </h6><h6 className = 'col s2 m2 l2'> ${this.props.location4EmbroideryCost}</h6>
             </div>
 
             <div className = 'row s12 m12 l12'>
-            <h6 className = 'col s10 m10 l10'>Location5Price: </h6><h6 className = 'col s2 m2 l2'> {this.props.location5EmbroideryCost}</h6>
+            <h6 className = 'col s10 m10 l10'>Location5Price: </h6><h6 className = 'col s2 m2 l2'> ${this.props.location5EmbroideryCost}</h6>
             </div>
 
             <div className = 'row s12 m12 l12'>
-            <h6 className = 'col s10 m10 l10'>Location6Price: </h6><h6 className = 'col s2 m2 l2'> {this.props.location6EmbroideryCost}</h6>
+            <h6 className = 'col s10 m10 l10'>Location6Price: </h6><h6 className = 'col s2 m2 l2'> ${this.props.location6EmbroideryCost}</h6>
             </div>
 
 
