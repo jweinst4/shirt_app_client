@@ -79,10 +79,6 @@
 
 
   .canvas-border {
-margin-top: 50px;
-margin-left: -50px;
-
-
   }
   
 .shirtTotal {
@@ -254,11 +250,3 @@ border-radius: 5px;
   cursor: grab;
 }
 
-
-
-.logoTest2{
-  margin-top: -600px;
-}
-.logoTest3{
-  margin-top: -600px;
-}

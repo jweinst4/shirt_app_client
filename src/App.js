@@ -9,10 +9,7 @@ import NewUser from './components/NewUser.js'
 import NewLogo from './components/NewLogo.js'
 import ToolBar from './components/ToolBar.js'
 import Canvas from './components/Canvas.js'
-import ShirtTest from './components/ShirtTest.js'
-import LogoTest1 from './components/LogoTest1.js'
-import LogoTest2 from './components/LogoTest2.js'
-import LogoTest3 from './components/LogoTest3.js'
+import URLImageBack from './components/Canvas.js'
 import PricingFormula from './components/PricingFormula.js'
 
 import './App.css';
@@ -45,21 +42,42 @@ class App extends React.Component {
 
       logoTextColor: ['Red','Blue','White','Pink','Green','Black','Orange','Yellow','Violet','Aqua','Azure','Beige','Brown','Burlywood','Chocolate','Cyan','Darkorange','Fuchsia','Hotpink','Lawngreen','Lime','Maroon','Mistyrose','Olive','Orchid','Peru','Plum','Skyblue','Salmon','Snow','Tan','Teal'],
 
-      currentLogoFront: '',
+      currentLogoFront1: '',
       currentLogoFront2: '',
       currentLogoFront3: '',
-      currentFontFront: 'Arial',
-      currentLogoTextFront: '',
-      currentLogoTextColorFront: 'Black',
-      currentLogoTextStrokeFront: '',
+      currentFontFront1: 'Arial',
+      currentLogoTextFront1: '',
+      currentLogoTextColorFront1: 'Black',
+      currentLogoTextStrokeFront1: '',
 
-      currentLogoBack: '',
+      currentFontFront2: 'Arial',
+      currentLogoTextFront2: '',
+      currentLogoTextColorFront2: 'Black',
+      currentLogoTextStrokeFront2: '',
+
+      currentFontFront3: 'Arial',
+      currentLogoTextFront3: '',
+      currentLogoTextColorFront3: 'Black',
+      currentLogoTextStrokeFront3: '',
+
+      currentLogoBack1: '',
       currentLogoBack2: '',
       currentLogoBack3: '',
-      currentFontBack: 'Arial',
-      currentLogoTextBack: '',
-      currentLogoTextColorBack: 'Black',
-      currentLogoTextStrokeBack: '',
+
+      currentFontBack1: 'Arial',
+      currentLogoTextBack1: '',
+      currentLogoTextColorBack1: 'Black',
+      currentLogoTextStrokeBack1: '',
+
+      currentFontBack2: 'Arial',
+      currentLogoTextBack2: '',
+      currentLogoTextColorBack2: 'Black',
+      currentLogoTextStrokeBack2: '',
+
+      currentFontBack3: 'Arial',
+      currentLogoTextBack3: '',
+      currentLogoTextColorBack3: 'Black',
+      currentLogoTextStrokeBack3: '',
 
       printSideOneCostApp: '',
       printSideTwoCostApp: '',
@@ -97,22 +115,89 @@ class App extends React.Component {
       logoStrokeToggleBackgroundColor: 'white',
 
       shirtRatio: 1.25,
-      canvasWidth: 560,
-      canvasHeight: 670,
       shirtCanvasWidth: 560,
       shirtCanvasHeight: 670,
       shirtWidth: 560,
       shirtHeight: 670,
-      logoWidth: 130,
-      logoHeight: 45,
-      logoWidth2: 130,
-      logoHeight2: 45,
-      logoWidth3: 130,
-      logoHeight3: 45,
-      logoCanvasWidth: 560,
-      logoCanvasHeight: 670,
-      logoTextFontSizeFront: 30,
-      logoTextFontSizeBack: 30,
+
+      logo1FrontStartingX: 100,
+      logo1FrontStartingY: 100,
+      logo1FrontWidth: 130,
+      logo1FrontHeight: 45,
+      logoTextFontSizeFront1: 30,
+  
+      logo2FrontStartingX: 100,
+      logo2FrontStartingY: 100,
+      logo2FrontWidth: 130,
+      logo2FrontHeight: 45,
+      logoTextFontSizeFront2: 30,
+
+      logo3FrontStartingX: 100,
+      logo3FrontStartingY: 100,
+      logo3FrontWidth: 130,
+      logo3FrontHeight: 45,
+      logoTextFontSizeFront3: 30,
+
+      logo1BackStartingX: 100,
+      logo1BackStartingY: 100,
+      logo1BackWidth: 130,
+      logo1BackHeight: 45,
+      logoTextFontSizeBack1: 30,
+
+      logo2BackStartingX: 100,
+      logo2BackStartingY: 100,
+      logo2BackWidth: 130,
+      logo2BackHeight: 45,
+      logoTextFontSizeBack2: 30,
+
+      logo3BackStartingX: 100,
+      logo3BackStartingY: 100,
+      logo3BackWidth: 130,
+      logo3BackHeight: 45,
+      logoTextFontSizeBack3: 30,
+
+      canvasWidth: 560,
+      canvasHeight: 670,
+
+      shirtStartingX: 0,
+      shirtStartingY: 0,
+      shirtWidth: 560,
+      shirtHeight: 670,
+
+      text1FrontStartingX: 200,
+      text1FrontStartingY: 200,
+
+      text1BackStartingX: 200,
+      text1BackStartingY: 200,
+
+      text2FrontStartingX: 200,
+      text2FrontStartingY: 300,
+
+      text2BackStartingX: 200,
+      text2BackStartingY: 300,
+
+      text3FrontStartingX: 200,
+      text3FrontStartingY: 400,
+
+      text3BackStartingX: 200,
+      text3BackStartingY: 400,
+
+      logoTextFrontActive1: true,
+      logoTextFrontActive2: false,
+      logoTextFrontActive3: false,
+
+      logoTextBackActive1: true,
+      logoTextBackActive2: false,
+      logoTextBackActive3: false,
+
+      logoTextBackgroundColorFront1: '#e3f2fd',
+      logoTextBackgroundColorFront2: 'white',
+      logoTextBackgroundColorFront3: 'white',
+
+      logoTextBackgroundColorBack1: '#e3f2fd',
+      logoTextBackgroundColorBack2: 'white',
+      logoTextBackgroundColorBack3: 'white',
+
     }
 
   this.lightShirtPricing = this.lightShirtPricing.bind(this)
@@ -134,14 +219,11 @@ class App extends React.Component {
   this.changeCurrentShirtColor= this.changeCurrentShirtColor.bind(this)
 
   this.changeCurrentLogoFront= this.changeCurrentLogoFront.bind(this)
-  this.changeCurrentFontFront= this.changeCurrentFontFront.bind(this)
-  this.changeCurrentLogoTextColorFront= this.changeCurrentLogoTextColorFront.bind(this)
-  this.changeCurrentLogoTextStrokeFront= this.changeCurrentLogoTextStrokeFront.bind(this)
+  
+
 
   this.changeCurrentLogoBack= this.changeCurrentLogoBack.bind(this)
-  this.changeCurrentFontBack= this.changeCurrentFontBack.bind(this)
-  this.changeCurrentLogoTextColorBack= this.changeCurrentLogoTextColorBack.bind(this)
-  this.changeCurrentLogoTextStrokeBack= this.changeCurrentLogoTextStrokeBack.bind(this)
+  
 
   this.clearLogoTextStroke = this.clearLogoTextStroke.bind(this)
 
@@ -158,38 +240,260 @@ class App extends React.Component {
   this.toggleLogoTextFill = this.toggleLogoTextFill.bind(this)
   this.toggleLogoTextStroke = this.toggleLogoTextStroke.bind(this)
 
-  this.canvasTestButtonApp = this.canvasTestButtonApp.bind(this)
+  this.increaseTextSizeFront1 = this.increaseTextSizeFront1.bind(this)
+  this.decreaseTextSizeFront1 = this.decreaseTextSizeFront1.bind(this)
+  this.changeCurrentLogoTextColorFront1= this.changeCurrentLogoTextColorFront1.bind(this)
+  this.changeCurrentLogoTextStrokeFront1= this.changeCurrentLogoTextStrokeFront1.bind(this)
+  this.increaseLogoSize1Front = this.increaseLogoSize1Front.bind(this)
+  this.decreaseLogoSize1Front = this.decreaseLogoSize1Front.bind(this)
+  this.logoTextFrontActivate1 = this.logoTextFrontActivate1.bind(this)
+  this.changeCurrentFontFront1= this.changeCurrentFontFront1.bind(this)
+  
+
+  this.increaseTextSizeFront2 = this.increaseTextSizeFront2.bind(this)
+  this.decreaseTextSizeFront2 = this.decreaseTextSizeFront2.bind(this)
+  this.changeCurrentLogoTextColorFront2= this.changeCurrentLogoTextColorFront2.bind(this)
+  this.changeCurrentLogoTextStrokeFront2= this.changeCurrentLogoTextStrokeFront2.bind(this)
+  this.increaseLogoSize2Front = this.increaseLogoSize2Front.bind(this)
+  this.decreaseLogoSize2Front = this.decreaseLogoSize2Front.bind(this)
+  this.logoTextFrontActivate2 = this.logoTextFrontActivate2.bind(this)
+  this.changeCurrentFontFront2= this.changeCurrentFontFront2.bind(this)
+
+  this.increaseTextSizeFront3 = this.increaseTextSizeFront3.bind(this)
+  this.decreaseTextSizeFront3 = this.decreaseTextSizeFront3.bind(this)
+  this.changeCurrentLogoTextColorFront3= this.changeCurrentLogoTextColorFront3.bind(this)
+  this.changeCurrentLogoTextStrokeFront3= this.changeCurrentLogoTextStrokeFront3.bind(this)
+  this.increaseLogoSize3Front = this.increaseLogoSize3Front.bind(this)
+  this.decreaseLogoSize3Front = this.decreaseLogoSize3Front.bind(this)
+  this.logoTextFrontActivate3 = this.logoTextFrontActivate3.bind(this) 
+  this.changeCurrentFontFront3= this.changeCurrentFontFront3.bind(this)
+
+  this.increaseTextSizeBack1 = this.increaseTextSizeBack1.bind(this)
+  this.decreaseTextSizeBack1 = this.decreaseTextSizeBack1.bind(this)
+  this.changeCurrentLogoTextColorBack1= this.changeCurrentLogoTextColorBack1.bind(this)
+  this.changeCurrentLogoTextStrokeBack1= this.changeCurrentLogoTextStrokeBack1.bind(this)
+  this.increaseLogoSize1Back = this.increaseLogoSize1Back.bind(this)
+  this.decreaseLogoSize1Back = this.decreaseLogoSize1Back.bind(this)
+  this.logoTextBackActivate1 = this.logoTextBackActivate1.bind(this)
+  this.changeCurrentFontBack1= this.changeCurrentFontBack1.bind(this)
+
+  this.increaseTextSizeBack2 = this.increaseTextSizeBack2.bind(this)
+  this.decreaseTextSizeBack2 = this.decreaseTextSizeBack2.bind(this)
+  this.changeCurrentLogoTextColorBack2= this.changeCurrentLogoTextColorBack2.bind(this)
+  this.changeCurrentLogoTextStrokeBack2= this.changeCurrentLogoTextStrokeBack2.bind(this)
+  this.increaseLogoSize2Back = this.increaseLogoSize2Back.bind(this)
+  this.decreaseLogoSize2Back = this.decreaseLogoSize2Back.bind(this)
+  this.logoTextBackActivate2 = this.logoTextBackActivate2.bind(this) 
+  this.changeCurrentFontBack2= this.changeCurrentFontBack2.bind(this)
+
+  this.increaseTextSizeBack3 = this.increaseTextSizeBack3.bind(this)
+  this.decreaseTextSizeBack3 = this.decreaseTextSizeBack3.bind(this)
+  this.changeCurrentLogoTextColorBack3= this.changeCurrentLogoTextColorBack3.bind(this)
+  this.changeCurrentLogoTextStrokeBack3= this.changeCurrentLogoTextStrokeBack3.bind(this)
+  this.increaseLogoSize3Back = this.increaseLogoSize3Back.bind(this)
+  this.decreaseLogoSize3Back = this.decreaseLogoSize3Back.bind(this)
+  this.logoTextBackActivate3 = this.logoTextBackActivate3.bind(this) 
+  this.changeCurrentFontBack3= this.changeCurrentFontBack3.bind(this)
+ 
+  }
+
+  logoTextFrontActivate1() {
+    this.setState({logoTextFrontActive1: true})
+    this.setState({logoTextFrontActive2: false})
+    this.setState({logoTextFrontActive3: false})
+    this.setState({logoTextBackgroundColorFront1:'#e3f2fd'})
+    this.setState({logoTextBackgroundColorFront2:'white'})
+    this.setState({logoTextBackgroundColorFront3:'white'})
+  }
+
+  logoTextFrontActivate2() {
+    this.setState({logoTextFrontActive1: false})
+    this.setState({logoTextFrontActive2: true})
+    this.setState({logoTextFrontActive3: false})
+    this.setState({logoTextBackgroundColorFront1:'white'})
+    this.setState({logoTextBackgroundColorFront2:'#e3f2fd'})
+    this.setState({logoTextBackgroundColorFront3:'white'})
+  }
+
+  logoTextFrontActivate3() {
+    this.setState({logoTextFrontActive1: false})
+    this.setState({logoTextFrontActive2: false})
+    this.setState({logoTextFrontActive3: true})
+    this.setState({logoTextBackgroundColorFront1:'white'})
+    this.setState({logoTextBackgroundColorFront2:'white'})
+    this.setState({logoTextBackgroundColorFront3:'#e3f2fd'})
+  }
+
+  logoTextBackActivate1() {
+    this.setState({logoTextBackActive1: true})
+    this.setState({logoTextBackActive2: false})
+    this.setState({logoTextBackActive3: false})  
+    this.setState({logoTextBackgroundColorBack1:'#e3f2fd'})
+    this.setState({logoTextBackgroundColorBack2:'white'})
+    this.setState({logoTextBackgroundColorBack3:'white'})
+  }
+
+  logoTextBackActivate2() {
+    this.setState({logoTextBackActive1: false})
+    this.setState({logoTextBackActive2: true})
+    this.setState({logoTextBackActive3: false})  
+    this.setState({logoTextBackgroundColorBack1:'white'})
+    this.setState({logoTextBackgroundColorBack2:'#e3f2fd'})
+    this.setState({logoTextBackgroundColorBack3:'white'})
+  }
+
+  logoTextBackActivate3() {
+    this.setState({logoTextBackActive1: false})
+    this.setState({logoTextBackActive2: false})
+    this.setState({logoTextBackActive3: true}) 
+    this.setState({logoTextBackgroundColorBack1:'white'})
+    this.setState({logoTextBackgroundColorBack2:'white'})
+    this.setState({logoTextBackgroundColorBack3:'#e3f2fd'}) 
+  }
+
+  increaseLogoSize1Front () {
+
+    this.setState({logo1FrontWidth: this.state.logo1FrontWidth * 1.1})
+    this.setState({logo1FrontHeight: this.state.logo1FrontHeight * 1.1})
+  }
+
+  decreaseLogoSize1Front () {
+
+    this.setState({logo1FrontWidth: this.state.logo1FrontWidth / 1.1})
+    this.setState({logo1FrontHeight: this.state.logo1FrontHeight / 1.1})
+  }
+
+  
+
+  increaseLogoSize2Front () {
+    this.setState({logo2FrontWidth: this.state.logo2FrontWidth * 1.1})
+    this.setState({logo2FrontHeight: this.state.logo2FrontHeight * 1.1})
+  }
+
+  decreaseLogoSize2Front () {
+
+    this.setState({logo2FrontWidth: this.state.logo2FrontWidth / 1.1})
+    this.setState({logo2FrontHeight: this.state.logo2FrontHeight / 1.1})
+  }
 
 
-  this.increaseTextSizeFront = this.increaseTextSizeFront.bind(this)
-  this.decreaseTextSizeFront = this.decreaseTextSizeFront.bind(this)
+
+  increaseLogoSize3Front () {
+
+    this.setState({logo3FrontWidth: this.state.logo3FrontWidth * 1.1})
+    this.setState({logo3FrontHeight: this.state.logo3FrontHeight * 1.1})
+  }
+
+  decreaseLogoSize3Front () {
+
+    this.setState({logo3FrontWidth: this.state.logo3FrontWidth / 1.1})
+    this.setState({logo3FrontHeight: this.state.logo3FrontHeight / 1.1})
+  }
+
+
+  increaseLogoSize1Back () {
+
+    this.setState({logo1BackWidth: this.state.logo1BackWidth * 1.1})
+    this.setState({logo1BackHeight: this.state.logo1BackHeight * 1.1})
+  }
+
+  decreaseLogoSize1Back () {
+
+    this.setState({logo1BackWidth: this.state.logo1BackWidth / 1.1})
+    this.setState({logo1BackHeight: this.state.logo1BackHeight / 1.1})
+  }
+
+
+  increaseLogoSize2Back () {
+
+    this.setState({logo2BackWidth: this.state.logo2BackWidth * 1.1})
+    this.setState({logo2BackHeight: this.state.logo2BackHeight * 1.1})
+  }
+
+  decreaseLogoSize2Back () {
+
+    this.setState({logo2BackWidth: this.state.logo2BackWidth / 1.1})
+    this.setState({logo2BackHeight: this.state.logo2BackHeight / 1.1})
+  }
+
+
+  increaseLogoSize3Back () {
+
+    this.setState({logo3BackWidth: this.state.logo3BackWidth * 1.1})
+    this.setState({logo3BackHeight: this.state.logo3BackHeight * 1.1})
+  }
+
+  decreaseLogoSize3Back () {
+
+    this.setState({logo3BackWidth: this.state.logo3BackWidth / 1.1})
+    this.setState({logo3BackHeight: this.state.logo3BackHeight / 1.1})
+  }
 
 
 
+  increaseTextSizeFront1 () {
 
-  this.increaseTextSizeBack = this.increaseTextSizeBack.bind(this)
-  this.decreaseTextSizeBack = this.decreaseTextSizeBack.bind(this)
+    this.setState({logoTextFontSizeFront1: this.state.logoTextFontSizeFront1 * 1.1})
+  }
+
+  decreaseTextSizeFront1 () {
+    this.setState({logoTextFontSizeFront1: this.state.logoTextFontSizeFront1 / 1.1})
 
   }
 
-  increaseTextSizeFront () {
 
-    this.setState({logoTextFontSizeFront: this.state.logoTextFontSizeFront * 1.1})
+  increaseTextSizeBack1 () {
+
+    this.setState({logoTextFontSizeBack1: this.state.logoTextFontSizeBack1 * 1.1})
   }
 
-  decreaseTextSizeFront () {
-    this.setState({logoTextFontSizeFront: this.state.logoTextFontSizeFront / 1.1})
+  decreaseTextSizeBack1 () {
+    this.setState({logoTextFontSizeBack1: this.state.logoTextFontSizeBack1 / 1.1})
 
   }
 
 
-  increaseTextSizeBack () {
 
-    this.setState({logoTextFontSizeBack: this.state.logoTextFontSizeBack * 1.1})
+  increaseTextSizeFront2 () {
+
+    this.setState({logoTextFontSizeFront2: this.state.logoTextFontSizeFront2 * 1.1})
   }
 
-  decreaseTextSizeBack () {
-    this.setState({logoTextFontSizeBack: this.state.logoTextFontSizeBack / 1.1})
+  decreaseTextSizeFront2 () {
+    this.setState({logoTextFontSizeFront2: this.state.logoTextFontSizeFront2 / 1.1})
+
+  }
+
+
+  increaseTextSizeBack2 () {
+
+    this.setState({logoTextFontSizeBack2: this.state.logoTextFontSizeBack2 * 1.1})
+  }
+
+  decreaseTextSizeBack2 () {
+    this.setState({logoTextFontSizeBack2: this.state.logoTextFontSizeBack2/ 1.1})
+
+  }
+
+
+  increaseTextSizeFront3 () {
+
+    this.setState({logoTextFontSizeFront3: this.state.logoTextFontSizeFront3 * 1.1})
+  }
+
+  decreaseTextSizeFront3 () {
+    this.setState({logoTextFontSizeFront3: this.state.logoTextFontSizeFront3 / 1.1})
+
+  }
+
+
+  increaseTextSizeBack3 () {
+
+    this.setState({logoTextFontSizeBack3: this.state.logoTextFontSizeBack3 * 1.1})
+  }
+
+  decreaseTextSizeBack3 () {
+    this.setState({logoTextFontSizeBack3: this.state.logoTextFontSizeBack3 / 1.1})
 
   }
 
@@ -213,21 +517,6 @@ class App extends React.Component {
     this.setState({logoStrokeToggleBackgroundColor: '#e3f2fd'})
     }
 }
-
-
-
-  canvasTestButtonApp(event) {
-    this.setState({shirtCanvasWidth: 200});
-    this.setState({shirtCanvasHeight: 240});
-    this.setState({shirtWidth: 200});
-    this.setState({shirtHeight: 240});
-
-    this.setState({logoCanvasWidth: 200});
-    this.setState({logoCanvasHeight: 240});
-    this.setState({logoWidth: 46});
-    this.setState({logotHeight: 16});
-
-  }
 
   frontOfShirt() {
     this.setState({frontOrBack: 'front'})  
@@ -282,17 +571,17 @@ class App extends React.Component {
 
 changeCurrentLogoFront(item) {
 
-    if (!this.state.currentLogoFront) {
-      console.log('a')
-      this.setState ({currentLogoFront: item.name})
+    if (!this.state.currentLogoFront1) {
+      
+      this.setState ({currentLogoFront1: item.name})
     }
     else if (!this.state.currentLogoFront2) {
       this.setState ({currentLogoFront2: item.name})
-      console.log('b')
+      
     }
     else if (!this.state.currentLogoFront3) {
       this.setState ({currentLogoFront3: item.name})
-      console.log('c')
+      
     }
     else {
 
@@ -300,8 +589,8 @@ changeCurrentLogoFront(item) {
   }
   changeCurrentLogoBack(item) {
 
-    if (!this.state.currentLogoBack) {
-      this.setState ({currentLogoBack: item.name})
+    if (!this.state.currentLogoBack1) {
+      this.setState ({currentLogoBack1: item.name})
     }
     else if (!this.state.currentLogoBack2) {
       this.setState ({currentLogoBack2: item.name})
@@ -314,36 +603,95 @@ changeCurrentLogoFront(item) {
     }
   }
 
-changeCurrentFontFront(item) {
-    this.setState ({currentFontFront: item})
-}
 
-changeCurrentFontBack(item) {
-  this.setState ({currentFontBack: item})
-}
-
-
-changeCurrentLogoTextColorFront(item) {
-
-  this.setState ({currentLogoTextColorFront: item})
+  changeCurrentFontFront1(item) { 
+      this.setState ({currentFontFront1: item})
   }
 
-  changeCurrentLogoTextColorBack(item) {
+  changeCurrentFontFront2(item) { 
+    this.setState ({currentFontFront2: item})
+}
 
-    this.setState ({currentLogoTextColorBack: item})
+changeCurrentFontFront3(item) { 
+  this.setState ({currentFontFront3: item})
+}
+
+changeCurrentFontBack1(item) { 
+  this.setState ({currentFontBack1: item})
+}
+ 
+changeCurrentFontBack2(item) { 
+  this.setState ({currentFontBack2: item})
+}
+changeCurrentFontBack3(item) { 
+  this.setState ({currentFontBack3: item})
+}
+
+
+
+changeCurrentLogoTextColorFront1(item) {
+
+  this.setState ({currentLogoTextColorFront1: item})
+  }
+
+  changeCurrentLogoTextColorBack1(item) {
+
+    this.setState ({currentLogoTextColorBack1: item})
     }
+
+    changeCurrentLogoTextColorFront2(item) {
+
+      this.setState ({currentLogoTextColorFront2: item})
+      }
+    
+      changeCurrentLogoTextColorBack2(item) {
+    
+        this.setState ({currentLogoTextColorBack2: item})
+        }
+
+        changeCurrentLogoTextColorFront3(item) {
+
+          this.setState ({currentLogoTextColorFront3: item})
+          }
+        
+          changeCurrentLogoTextColorBack3(item) {
+        
+            this.setState ({currentLogoTextColorBack3: item})
+            }
 
     
 
 
-changeCurrentLogoTextStrokeFront(item) {
+changeCurrentLogoTextStrokeFront1(item) {
 
-  this.setState ({currentLogoTextStrokeFront: item})
+  this.setState ({currentLogoTextStrokeFront1: item})
   }
 
-  changeCurrentLogoTextStrokeBack(item) {
+  changeCurrentLogoTextStrokeBack1(item) {
 
-    this.setState ({currentLogoTextStrokeBack: item})
+    this.setState ({currentLogoTextStrokeBack1: item})
+    }
+
+
+changeCurrentLogoTextStrokeFront2(item) {
+
+  this.setState ({currentLogoTextStrokeFront2: item})
+  }
+
+  changeCurrentLogoTextStrokeBack2(item) {
+
+    this.setState ({currentLogoTextStrokeBack2: item})
+    }
+
+
+changeCurrentLogoTextStrokeFront3(item) {
+
+  this.setState ({currentLogoTextStrokeFront3: item})
+  }
+
+  changeCurrentLogoTextStrokeBack3(item) {
+
+    this.setState ({currentLogoTextStrokeBack3: item})
     }
 
     
@@ -482,13 +830,46 @@ this.setState ({currentLogoTextStrokeBack: ''})
   }
 
   handleLogoTextSubmitAppFront(item) {
-    console.log(item)
-      this.setState ({currentLogoTextFront: item})
+    
+
+    if (!this.state.currentLogoTextFront1) {
+
+      this.setState ({currentLogoTextFront1: item})
+    }
+    else if (!this.state.currentLogoTextFront2) {
+      this.setState ({currentLogoTextFront2: item})
+
+    }
+    else if (!this.state.currentLogoTextFront3) {
+      this.setState ({currentLogoTextFront3: item})
+
+    }
+    else {
+
+    }
+    
   }
 
   handleLogoTextSubmitAppBack(item) {
-    this.setState ({currentLogoTextBack: item})
-}
+    
+
+    if (!this.state.currentLogoTextBack1) {
+
+      this.setState ({currentLogoTextBack1: item})
+    }
+    else if (!this.state.currentLogoTextBack2) {
+      this.setState ({currentLogoTextBack2: item})
+
+    }
+    else if (!this.state.currentLogoTextBack3) {
+      this.setState ({currentLogoTextBack3: item})
+
+    }
+    else {
+
+    }
+    
+  }
 
   handlePriceSubmitApp(quantity,printSideOneQuantity,printSideTwoQuantity) {
     let quantityArray = 0;
@@ -874,11 +1255,151 @@ this.setState ({currentLogoTextStrokeBack: ''})
           <div className = 'canvasToolbarRow row'>
 
             <div className = 'canvasCol col s12 m12 l8'>
-              <Route exact path ='/' exact render={() => <Canvas currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentLogoFront2={this.state.currentLogoFront2} currentLogoFront3={this.state.currentLogoFront3}currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentLogoBack2={this.state.currentLogoBack2} currentLogoBack3={this.state.currentLogoBack3} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back} canvasWidth = {this.state.canvasWidth} canvasHeight = {this.state.canvasHeight} currentLogoTextStrokeFront={this.state.currentLogoTextStrokeFront} currentLogoTextStrokeBack={this.state.currentLogoTextStrokeBack} logoTextFontSizeFront = {this.state.logoTextFontSizeFront}  logoTextFontSizeBack = {this.state.logoTextFontSizeBack} />}/>
+              <Route exact path ='/' exact render={() => <Canvas 
+        
+              logo1FrontStartingX = {this.state.logo1FrontStartingX} logo1FrontStartingY = {this.state.logo1FrontStartingY} logo1FrontWidth = {this.state.logo1FrontWidth} logo1FrontHeight = {this.state.logo1FrontHeight} currentLogoFront1={this.state.currentLogoFront1}  currentFontFront1={this.state.currentFontFront1} currentLogoTextFront1={this.state.currentLogoTextFront1} currentLogoTextColorFront1={this.state.currentLogoTextColorFront1} currentLogoTextStrokeFront1={this.state.currentLogoTextStrokeFront1} text1FrontStartingX = {this.state.text1FrontStartingX} text1FrontStartingY = {this.state.text1FrontStartingY} logoTextFontSizeFront1 = {this.state.logoTextFontSizeFront1} logoTextBackgroundColorFront1={this.state.logoTextBackgroundColorFront1}
+              logoTextFrontActive1={this.state.logoTextFrontActive1}
+              
+              logo2FrontStartingX = {this.state.logo2FrontStartingX} logo2FrontStartingY = {this.state.logo2FrontStartingY} logo2FrontWidth = {this.state.logo2FrontWidth} logo2FrontHeight = {this.state.logo2FrontHeight} currentLogoFront2={this.state.currentLogoFront2}  currentFontFront2={this.state.currentFontFront2} currentLogoTextFront2={this.state.currentLogoTextFront2} currentLogoTextColorFront2={this.state.currentLogoTextColorFront2} currentLogoTextStrokeFront2={this.state.currentLogoTextStrokeFront2} text2FrontStartingX = {this.state.text2FrontStartingX} text2FrontStartingY = {this.state.text2FrontStartingY} logoTextFontSizeFront2 = {this.state.logoTextFontSizeFront2} logoTextBackgroundColorFront2={this.state.logoTextBackgroundColorFront2}
+              logoTextFrontActive2={this.state.logoTextFrontActive2}
+
+              logo3FrontStartingX = {this.state.logo3FrontStartingX} logo3FrontStartingY = {this.state.logo3FrontStartingY} logo3FrontWidth = {this.state.logo3FrontWidth} logo3FrontHeight = {this.state.logo3FrontHeight} currentLogoFront3={this.state.currentLogoFront3}  currentFontFront3={this.state.currentFontFront3} currentLogoTextFront3={this.state.currentLogoTextFront3} currentLogoTextColorFront3={this.state.currentLogoTextColorFront3} currentLogoTextStrokeFront3={this.state.currentLogoTextStrokeFront3} text3FrontStartingX = {this.state.text3FrontStartingX} text3FrontStartingY = {this.state.text3FrontStartingY} logoTextFontSizeFront3 = {this.state.logoTextFontSizeFront3}
+              logoTextBackgroundColorFront3={this.state.logoTextBackgroundColorFront3}
+              logoTextFrontActive3={this.state.logoTextFrontActive3}
+
+              logo1BackStartingX = {this.state.logo1BackStartingX} logo1BackStartingY = {this.state.logo1BackStartingY} logo1BackWidth = {this.state.logo1BackWidth} logo1BackHeight = {this.state.logo1BackHeight} currentLogoBack1={this.state.currentLogoBack1}  currentFontBack1={this.state.currentFontBack1} currentLogoTextBack1={this.state.currentLogoTextBack1} currentLogoTextColorBack1={this.state.currentLogoTextColorBack1} currentLogoTextStrokeBack1={this.state.currentLogoTextStrokeBack1} text1BackStartingX = {this.state.text1BackStartingX} text1BackStartingY = {this.state.text1BackStartingY} logoTextFontSizeBack1 = {this.state.logoTextFontSizeBack1} 
+              logoTextBackgroundColorBack1={this.state.logoTextBackgroundColorBack1}
+              logoTextBackActive1={this.state.logoTextBackActive1}
+
+              logo2BackStartingX = {this.state.logo2BackStartingX} logo2BackStartingY = {this.state.logo2BackStartingY} logo2BackWidth = {this.state.logo2BackWidth} logo2BackHeight = {this.state.logo2BackHeight} currentLogoBack2={this.state.currentLogoBack2}  currentFontBack2={this.state.currentFontBack2} currentLogoTextBack2={this.state.currentLogoTextBack2} currentLogoTextColorBack2={this.state.currentLogoTextColorBack2} currentLogoTextStrokeBack2={this.state.currentLogoTextStrokeBack2} text2BackStartingX = {this.state.text2BackStartingX} text2BackStartingY = {this.state.text2BackStartingY}  logoTextFontSizeBack2 = {this.state.logoTextFontSizeBack2} 
+              logoTextBackgroundColorBack2={this.state.logoTextBackgroundColorBack2}
+              logoTextBackActive2={this.state.logoTextBackActive2}
+
+              logo3BackStartingX = {this.state.logo3BackStartingX} logo3BackStartingY = {this.state.logo3BackStartingY} logo3BackWidth = {this.state.logo3BackWidth} logo3BackHeight = {this.state.logo3BackHeight} currentLogoBack3={this.state.currentLogoBack3}  currentFontBack3={this.state.currentFontBack3} currentLogoTextBack3={this.state.currentLogoTextBack3} currentLogoTextColorBack3={this.state.currentLogoTextColorBack3} currentLogoTextStrokeBack3={this.state.currentLogoTextStrokeBack3} text3BackStartingX = {this.state.text3BackStartingX} text3BackStartingY = {this.state.text3BackStartingY}  logoTextFontSizeBack3 = {this.state.logoTextFontSizeBack3}
+
+            
+
+
+
+
+              shirtStartingX = {this.state.shirtStartingX} shirtStartingY = {this.state.shirtStartingY}
+
+
+              text1BackStartingX = {this.state.text1BackStartingX} text1BackStartingY = {this.state.text1BackStartingY}
+
+              shirtWidth = {this.state.shirtWidth} shirtHeight = {this.state.shirtHeight}
+              currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} canvasWidth = {this.state.canvasWidth} canvasHeight = {this.state.canvasHeight}
+              
+            frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back}  /> }/>
             </div>
 
+      
+
+
             <div className = 'toolbarCol col s12 m12 l4'>
-              <Route exact path ='/' exact render={() => <ToolBar  canvasTestButtonApp = {this.canvasTestButtonApp} currentShirtColor={this.state.shirtFillColor}changeCurrentShirtColor={this.changeCurrentShirtColor} colors={this.state.colors}  deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} getLogos = {this.getLogos} users = {this.state.users} logos = {this.state.logos} fonts = {this.state.fonts}  logoTextColor={this.state.logoTextColor}  changeCurrentLogoFront={this.changeCurrentLogoFront} changeCurrentFontFront={this.changeCurrentFontFront}  handleLogoTextSubmitAppFront={this.handleLogoTextSubmitAppFront} logoTextColor={this.state.logoTextColor} changeCurrentLogoTextColorFront={this.changeCurrentLogoTextColorFront} changeCurrentLogoBack={this.changeCurrentLogoBack} changeCurrentFontBack={this.changeCurrentFontBack}  handleLogoTextSubmitAppBack={this.handleLogoTextSubmitAppBack} changeCurrentLogoTextColorBack={this.changeCurrentLogoTextColorBack} frontOfShirt={this.frontOfShirt} backOfShirt = {this.backOfShirt} frontOfShirtBackgroundColor={this.state.frontOfShirtBackgroundColor} backOfShirtBackgroundColor={this.state.backOfShirtBackgroundColor} frontOrBack={this.state.frontOrBack}        logoTextFillToggle={this.state.logoTextFillToggle} logoTextStrokeToggle={this.state.logoTextStrokeToggle} toggleLogoTextStroke={this.toggleLogoTextStroke} toggleLogoTextFill={this.toggleLogoTextFill} logoFillToggleBackgroundColor = {this.state.logoFillToggleBackgroundColor} logoStrokeToggleBackgroundColor = {this.state.logoStrokeToggleBackgroundColor} changeCurrentLogoTextStrokeFront={this.changeCurrentLogoTextStrokeFront} changeCurrentLogoTextStrokeBack={this.changeCurrentLogoTextStrokeBack} clearLogoTextStroke = {this.clearLogoTextStroke} increaseTextSizeFront = {this.increaseTextSizeFront}  decreaseTextSizeFront = {this.decreaseTextSizeFront} increaseTextSizeBack = {this.increaseTextSizeBack}  decreaseTextSizeBack = {this.decreaseTextSizeBack} front = {this.state.front} back = {this.state.back} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextBack={this.state.currentLogoTextBack}/>}/>
+              <Route exact path ='/' exact render={() => <ToolBar 
+              increaseLogoSize1Front = {this.increaseLogoSize1Front}
+              increaseLogoSize2Front = {this.increaseLogoSize2Front}
+              increaseLogoSize3Front = {this.increaseLogoSize3Front}
+            
+            decreaseLogoSize1Front = {this.decreaseLogoSize1Front}
+            decreaseLogoSize2Front = {this.decreaseLogoSize2Front}
+            decreaseLogoSize3Front = {this.decreaseLogoSize3Front}
+      
+            
+            increaseLogoSize1Back = {this.increaseLogoSize1Back}
+            increaseLogoSize2Back = {this.increaseLogoSize2Back}
+            increaseLogoSize3Back = {this.increaseLogoSize3Back}
+   
+            
+            decreaseLogoSize1Back = {this.decreaseLogoSize1Back}
+            decreaseLogoSize2Back = {this.decreaseLogoSize2Back}
+            decreaseLogoSize3Back = {this.decreaseLogoSize3Back}
+
+            logoTextFrontActivate1 = {this.logoTextFrontActivate1}
+            logoTextFrontActivate2 = {this.logoTextFrontActivate2}
+            logoTextFrontActivate3 = {this.logoTextFrontActivate3}
+
+            logoTextBackActivate1 = {this.logoTextBackActivate1}
+            logoTextBackActivate2 = {this.logoTextBackActivate2}
+            logoTextBackActivate3 = {this.logoTextBackActivate3}
+
+            logoTextFrontActive1 = {this.state.logoTextFrontActive1}
+            logoTextFrontActive2 = {this.state.logoTextFrontActive2}
+            logoTextFrontActive3 = {this.state.logoTextFrontActive3}
+
+            logoTextBackActive1 = {this.state.logoTextBackActive1}
+            logoTextBackActive2= {this.state.logoTextBackActive2}
+            logoTextBackActive3 = {this.state.logoTextBackActive3}
+
+            logoTextBackgroundColorFront1 = {this.state.logoTextBackgroundColorFront1}
+            logoTextBackgroundColorFront2 = {this.state.logoTextBackgroundColorFront2}
+            logoTextBackgroundColorFront3 = {this.state.logoTextBackgroundColorFront3}
+
+            logoTextBackgroundColorBack1 = {this.state.logoTextBackgroundColorBack1}
+            logoTextBackgroundColorBack2 = {this.state.logoTextBackgroundColorBack2}
+            logoTextBackgroundColorBack3 = {this.state.logoTextBackgroundColorBack3}
+
+            changeCurrentLogoTextColorFront1={this.changeCurrentLogoTextColorFront1}
+            changeCurrentLogoTextColorFront2={this.changeCurrentLogoTextColorFront2}
+            changeCurrentLogoTextColorFront3={this.changeCurrentLogoTextColorFront3}
+
+            changeCurrentLogoTextColorBack1={this.changeCurrentLogoTextColorBack1}
+            changeCurrentLogoTextColorBack2={this.changeCurrentLogoTextColorBack2}
+            changeCurrentLogoTextColorBack3={this.changeCurrentLogoTextColorBack3}
+
+            changeCurrentLogoTextStrokeFront1={this.changeCurrentLogoTextStrokeFront1}
+            changeCurrentLogoTextStrokeFront2={this.changeCurrentLogoTextStrokeFront2}
+            changeCurrentLogoTextStrokeFront3={this.changeCurrentLogoTextStrokeFront3}
+
+            changeCurrentLogoTextStrokeBack1={this.changeCurrentLogoTextStrokeBack1}
+            changeCurrentLogoTextStrokeBack2={this.changeCurrentLogoTextStrokeBack2}
+            changeCurrentLogoTextStrokeBack3={this.changeCurrentLogoTextStrokeBack3}
+            
+            changeCurrentFontFront1={this.changeCurrentFontFront1}
+            changeCurrentFontFront2={this.changeCurrentFontFront2}
+            changeCurrentFontFront3={this.changeCurrentFontFront3}
+
+            changeCurrentFontBack1={this.changeCurrentFontBack1}
+            changeCurrentFontBack2={this.changeCurrentFontBack2}
+            changeCurrentFontBack3={this.changeCurrentFontBack3}
+         
+
+              
+            logo1FrontStartingX = {this.state.logo1FrontStartingX} logo1FrontStartingY = {this.state.logo1FrontStartingY} logo1FrontWidth = {this.state.logo1FrontWidth} logo1FrontHeight = {this.state.logo1FrontHeight} currentLogoFront1={this.state.currentLogoFront1}    increaseTextSizeFront1 = {this.increaseTextSizeFront1}  decreaseTextSizeFront1 = {this.decreaseTextSizeFront1} currentLogoTextFront1={this.state.currentLogoTextFront1} 
+            changeCurrentLogoTextColorFront1={this.changeCurrentLogoTextColorFront1}
+            changeCurrentLogoTextStrokeFront1={this.changeCurrentLogoTextStrokeFront1} 
+
+            logo2FrontStartingX = {this.state.logo2FrontStartingX} logo2FrontStartingY = {this.state.logo2FrontStartingY} logo2FrontWidth = {this.state.logo2FrontWidth} logo2FrontHeight = {this.state.logo2FrontHeight} currentLogoFront2={this.state.currentLogoFront2} 
+            increaseTextSizeFront2 = {this.increaseTextSizeFront2}  decreaseTextSizeFront2 = {this.decreaseTextSizeFront2}  currentLogoTextFront2={this.state.currentLogoTextFront2} 
+            changeCurrentLogoTextColorFront2={this.changeCurrentLogoTextColorFront2}
+            changeCurrentLogoTextStrokeFront2={this.changeCurrentLogoTextStrokeFront2} 
+
+            logo3FrontStartingX = {this.state.logo3FrontStartingX} logo3FrontStartingY = {this.state.logo3FrontStartingY} logo3FrontWidth = {this.state.logo3FrontWidth} logo3FrontHeight = {this.state.logo3FrontHeight} currentLogoFront3={this.state.currentLogoFront3} increaseTextSizeFront3 = {this.increaseTextSizeFront3}  decreaseTextSizeFront3 = {this.decreaseTextSizeFront3}  currentLogoTextFront3={this.state.currentLogoTextFront3} 
+            changeCurrentLogoTextColorFront3={this.changeCurrentLogoTextColorFront3}
+            changeCurrentLogoTextStrokeFront3={this.changeCurrentLogoTextStrokeFront3} 
+            
+            logo1BackStartingX = {this.state.logo1BackStartingX} logo1BackStartingY = {this.state.logo1BackStartingY} logo1BackWidth = {this.state.logo1BackWidth} logo1BackHeight = {this.state.logo1BackHeight}  currentLogoBack1={this.state.currentLogoBack1} increaseTextSizeBack1 = {this.increaseTextSizeBack1}  decreaseTextSizeBack1 = {this.decreaseTextSizeBack1}  currentLogoTextBack1={this.state.currentLogoTextBack1}  changeCurrentLogoTextColorBack1={this.changeCurrentLogoTextColorBack1}
+            changeCurrentLogoTextStrokeBack1={this.changeCurrentLogoTextStrokeBack1} 
+
+            logo2BackStartingX = {this.state.logo2BackStartingX} logo2BackStartingY = {this.state.logo2BackStartingY} logo2BackWidth = {this.state.logo2BackWidth} logo2BackHeight = {this.state.logo2BackHeight} currentLogoBack2={this.state.currentLogoBack2} increaseTextSizeBack2 = {this.increaseTextSizeBack2}  decreaseTextSizeBack2 = {this.decreaseTextSizeBack2} currentLogoTextBack2={this.state.currentLogoTextBack2} changeCurrentLogoTextColorBack2={this.changeCurrentLogoTextColorBack2}
+            changeCurrentLogoTextStrokeBack2={this.changeCurrentLogoTextStrokeBack2} 
+
+            logo3BackStartingX = {this.state.logo3BackStartingX} logo3BackStartingY = {this.state.logo3BackStartingY} logo3BackWidth = {this.state.logo3BackWidth} logo3BackHeight = {this.state.logo3BackHeight} currentLogoBack3={this.state.currentLogoBack3} increaseTextSizeBack3 = {this.increaseTextSizeBack3}  decreaseTextSizeBack3 = {this.decreaseTextSizeBack3} currentLogoTextBack3={this.state.currentLogoTextBack3} changeCurrentLogoTextColorBack3={this.changeCurrentLogoTextColorBack3}
+            changeCurrentLogoTextStrokeBack3={this.changeCurrentLogoTextStrokeBack3} 
+
+            shirtStartingX = {this.state.shirtStartingX} shirtStartingY = {this.state.shirtStartingY}
+
+          
+
+            shirtWidth = {this.state.shirtWidth} shirtHeight = {this.state.shirtHeight}
+            
+            
+            currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack1={this.state.currentLogoBack1} currentLogoBack2={this.state.currentLogoBack2} currentLogoBack3={this.state.currentLogoBack3} currentFontBack1={this.state.currentFontBack1} currentLogoTextBack1={this.state.currentLogoTextBack1} currentLogoTextColorBack1={this.state.currentLogoTextColorBack1} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back} canvasWidth = {this.state.canvasWidth} canvasHeight = {this.state.canvasHeight} currentLogoTextStrokeFront1={this.state.currentLogoTextStrokeFront1} currentLogoTextStrokeBack={this.state.currentLogoTextStrokeBack} logoTextFontSizeFront = {this.state.logoTextFontSizeFront}  logoTextFontSizeBack = {this.state.logoTextFontSizeBack}  logo1StartingX = {this.state.logo1StartingX} logo1StartingY = {this.state.logo1StartingY} logo1Width = {this.state.logo1Width} logo1Height = {this.state.logo1Height}
+              
+              
+              
+           currentShirtColor={this.state.shirtFillColor}changeCurrentShirtColor={this.changeCurrentShirtColor} colors={this.state.colors}  deleteColor = {this.deleteColor}  deleteUser = {this.deleteUser} deleteLogo = {this.deleteLogo} getColors = {this.getColors} getLogos = {this.getLogos} users = {this.state.users} logos = {this.state.logos} fonts = {this.state.fonts}  logoTextColor={this.state.logoTextColor}  changeCurrentLogoFront={this.changeCurrentLogoFront} changeCurrentFontFront={this.changeCurrentFontFront}  handleLogoTextSubmitAppFront={this.handleLogoTextSubmitAppFront} logoTextColor={this.state.logoTextColor}  changeCurrentLogoBack={this.changeCurrentLogoBack} changeCurrentFontBack={this.changeCurrentFontBack}  handleLogoTextSubmitAppBack={this.handleLogoTextSubmitAppBack}  frontOfShirt={this.frontOfShirt} backOfShirt = {this.backOfShirt} frontOfShirtBackgroundColor={this.state.frontOfShirtBackgroundColor} backOfShirtBackgroundColor={this.state.backOfShirtBackgroundColor} frontOrBack={this.state.frontOrBack}        logoTextFillToggle={this.state.logoTextFillToggle} logoTextStrokeToggle={this.state.logoTextStrokeToggle} toggleLogoTextStroke={this.toggleLogoTextStroke} toggleLogoTextFill={this.toggleLogoTextFill} logoFillToggleBackgroundColor = {this.state.logoFillToggleBackgroundColor} logoStrokeToggleBackgroundColor = {this.state.logoStrokeToggleBackgroundColor} clearLogoTextStroke = {this.clearLogoTextStroke} front = {this.state.front} back = {this.state.back} />}/>
 
       
  </div>
@@ -893,30 +1414,6 @@ this.setState ({currentLogoTextStrokeBack: ''})
               
             <Route exact path ='/pricingFormula' exact render={() => <PricingFormula getPrices={this.getPrices} prices={this.state.prices} handlePriceSubmitApp={this.handlePriceSubmitApp} handlePriceSubmitEmbroideryApp={this.handlePriceSubmitEmbroideryApp} printSideOneCostApp={this.state.printSideOneCostApp} printSideTwoCostApp={this.state.printSideTwoCostApp} 
           lightShirtPricing={this.lightShirtPricing} darkShirtPricing={this.darkShirtPricing} embroideryPricing={this.embroideryPricing} currentPricingType={this.state.currentPricingType} lightShirtBackgroundColor={this.state.lightShirtBackgroundColor} darkShirtBackgroundColor={this.state.darkShirtBackgroundColor} embroideryBackgroundColor={this.state.embroideryBackgroundColor} lightOrDarkPricing={this.state.lightOrDarkPricing} location1EmbroideryCost={this.state.location1EmbroideryCost} location2EmbroideryCost={this.state.location2EmbroideryCost} location3EmbroideryCost={this.state.location3EmbroideryCost} location4EmbroideryCost={this.state.location4EmbroideryCost} location5EmbroideryCost={this.state.location5EmbroideryCost} location6EmbroideryCost={this.state.location6EmbroideryCost}/>}/>
-
-
-
-   <div className = 'shirtTest'>
-    <Route exact path ='/shirtTest' exact render={() => <ShirtTest currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentLogoFront2={this.state.currentLogoFront2} currentLogoFront3={this.state.currentLogoFront3} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back} shirtCanvasWidth = {this.state.shirtCanvasWidth} shirtCanvasHeight = {this.state.shirtCanvasHeight} shirtWidth = {this.state.shirtWidth} shirtHeight={this.state.shirtHeight}/> }/>
-
-    </div>
-
-
-
-<div className = 'logoTest1'>
-<Route exact path ='/shirtTest' exact render={() => <LogoTest1 currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront={this.state.currentLogoFront} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back} shirtCanvasWidth = {this.state.shirtCanvasWidth} shirtCanvasHeight = {this.state.shirtCanvasHeight} shirtWidth = {this.state.shirtWidth} shirtHeight={this.state.shirtHeight} logoHeight = {this.state.logoHeight} logoWidth = {this.state.logoWidth} logoCanvasWidth = {this.state.logoCanvasWidth} logoCanvasHeight = {this.state.logoCanvasHeight}/> }/>
-</div>
-
-<div className = 'logoTest2'>
-<Route exact path ='/shirtTest' exact render={() => <LogoTest2 currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront2={this.state.currentLogoFront2} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back} shirtCanvasWidth = {this.state.shirtCanvasWidth} shirtCanvasHeight = {this.state.shirtCanvasHeight} shirtWidth = {this.state.shirtWidth} shirtHeight={this.state.shirtHeight} logoHeight = {this.state.logoHeight} logoWidth = {this.state.logoWidth} logoCanvasWidth = {this.state.logoCanvasWidth} logoCanvasHeight = {this.state.logoCanvasHeight}/> }/>
-</div>
-
-<div className = 'logoTest3'>
-<Route exact path ='/shirtTest' exact render={() => <LogoTest3 currentShirtColor={this.state.currentShirtColor} colors={this.state.colors} shirtStrokeColor={this.state.shirtStrokeColor} changeCurrentShirtColor={this.changeCurrentShirtColor} currentLogoFront3={this.state.currentLogoFront3} currentFontFront={this.state.currentFontFront} currentLogoTextFront={this.state.currentLogoTextFront} currentLogoTextColorFront={this.state.currentLogoTextColorFront} currentLogoBack={this.state.currentLogoBack} currentFontBack={this.state.currentFontBack} currentLogoTextBack={this.state.currentLogoTextBack} currentLogoTextColorBack={this.state.currentLogoTextColorBack} frontOrBack={this.state.frontOrBack} front={this.state.front} back = {this.state.back} shirtCanvasWidth = {this.state.shirtCanvasWidth} shirtCanvasHeight = {this.state.shirtCanvasHeight} shirtWidth = {this.state.shirtWidth} shirtHeight={this.state.shirtHeight} logoHeight = {this.state.logoHeight} logoWidth = {this.state.logoWidth} logoCanvasWidth = {this.state.logoCanvasWidth} logoCanvasHeight = {this.state.logoCanvasHeight}/> }/>
-</div>
-
-
-
 
         </div>
 

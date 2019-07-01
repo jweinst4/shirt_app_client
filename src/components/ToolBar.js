@@ -29,13 +29,10 @@ class ToolBar extends React.Component {
  this.handleLogoTextChange = this.handleLogoTextChange.bind(this)
  this.handleLogoTextSubmit = this.handleLogoTextSubmit.bind(this)
 
- this.canvasTestButton = this.canvasTestButton.bind(this)
+
   }
  
-canvasTestButton(event) {
-  event.preventDefault();
-  this.props.canvasTestButtonApp();
-}
+
   componentDidMount(){
     this.props.getColors()
     this.props.getLogos()
@@ -86,11 +83,34 @@ changeCurrentLogoTextColor(item) {
 
       if (this.props.logoTextFillToggle) {
         if (this.props.frontOrBack === 'front') {
-          this.props.changeCurrentLogoTextColorFront(item)
+          if (this.props.logoTextFrontActive1) {
+            this.props.changeCurrentLogoTextColorFront1(item)
+          }
+          else if (this.props.logoTextFrontActive2) {
+            this.props.changeCurrentLogoTextColorFront2(item)
+          }
+          else if (this.props.logoTextFrontActive3) {
+            this.props.changeCurrentLogoTextColorFront3(item)
+          }
+          else {
+
+          }
+          
         }
         
         else if (this.props.frontOrBack === 'back') {
-          this.props.changeCurrentLogoTextColorBack(item)
+          if (this.props.logoTextBackActive1) {
+            this.props.changeCurrentLogoTextColorBack1(item)
+          }
+          else if (this.props.logoTextBackActive2) {
+            this.props.changeCurrentLogoTextColorBack2(item)
+          }
+          else if (this.props.logoTextBackActive3) {
+            this.props.changeCurrentLogoTextColorBack3(item)
+          }
+          else {
+
+          }
         }
 
         else {
@@ -101,11 +121,33 @@ changeCurrentLogoTextColor(item) {
     else if (this.props.logoTextStrokeToggle) {
 
       if (this.props.frontOrBack === 'front') {
-        this.props.changeCurrentLogoTextStrokeFront(item)
+        if (this.props.logoTextFrontActive1) {
+          this.props.changeCurrentLogoTextStrokeFront1(item)
+        }
+        else if (this.props.logoTextFrontActive2) {
+          this.props.changeCurrentLogoTextStrokeFront2(item)
+        }
+        else if (this.props.logoTextFrontActive3) {
+          this.props.changeCurrentLogoTextStrokeFront3(item)
+        }
+        else {
+
+        }
       }
       
       else if (this.props.frontOrBack === 'back') {
-        this.props.changeCurrentLogoTextStrokeBack(item)
+        if (this.props.logoTextBackActive1) {
+          this.props.changeCurrentLogoTextStrokeBack1(item)
+        }
+        else if (this.props.logoTextBackActive2) {
+          this.props.changeCurrentLogoTextStrokeBack2(item)
+        }
+        else if (this.props.logoTextBackActive3) {
+          this.props.changeCurrentLogoTextStrokeBack3(item)
+        }
+        else {
+
+        }
       }
 
       else {
@@ -123,17 +165,34 @@ changeCurrentLogoTextColor(item) {
 changeCurrentFont(item) {
 
   if (this.props.frontOrBack === 'front') {
-    this.props.changeCurrentFontFront(item)
+    if (this.props.logoTextFrontActive1) {
+      this.props.changeCurrentFontFront1(item)
+    }
+    else if (this.props.logoTextFrontActive2) {
+      this.props.changeCurrentFontFront2(item)
+    }
+    else if (this.props.logoTextFrontActive3) {
+      this.props.changeCurrentFontFront3(item)
+    }
+    else {
+
+    }
+  }
+  else if (this.props.frontOrBack === 'back') {
+    if (this.props.logoTextBackActive1) {
+      this.props.changeCurrentFontBack1(item)
+    }
+    else if (this.props.logoTextBackActive2) {
+      this.props.changeCurrentFontBack2(item)
+    }
+    else if (this.props.logoTextBackActive3) {
+      this.props.changeCurrentFontBack3(item)
+    }
+    else {
+
+    }
   }
   
-  else if (this.props.frontOrBack === 'back') {
-    this.props.changeCurrentFontBack(item)
-  }
-
-  else {
-
-  }
-
 }
 
 changeShirtColorHere(item) {
@@ -160,24 +219,7 @@ changeShirtColorHere(item) {
 
 </div>
 
- {/* <form className = 'canvasImageSizeSection col s12 m12 l12' onSubmit={this.canvasTestButton}>
-         
-            <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-    
-        
-                <div className = 'addLogoTextSubmit col s3 m3 l3'>
-                <input type='submit' value='Canvas Test Button'/>
-                </div>
-
-                </div>   
-                </div>
-
-              
-             
-</form> */}
-
- <h6>Shirt Colors</h6>
+  <h6>Shirt Colors</h6>
 <div className='row choice-row'>
 
       {this.props.colors.map((item, index) => {
@@ -206,14 +248,95 @@ changeShirtColorHere(item) {
   return (
   
     <div className = 'logo-choice' key = {item._id} index = {index} ><div>
-    <div className = 'logo-image'><img className = 'logo-final' src = {item.name} onClick={() => { this.changeCurrentLogo(item) }}></img></div></div> </div>
+    <div className = 'logo-image'><img className = 'logo-final' src = {item.name} onClick={() => { this.changeCurrentLogo(item) }}></img></div></div> 
+    
+    
+    
+    
+    </div>
+
+    
 
         )
   
 })}
 
+{!!this.props.currentLogoFront1 && this.props.front ? (
+  <> 
+  <p>Logo1:  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize1Front} >arrow_upwards</i>
+ <i className="material-icons arrowUp"  onClick = {this.props.decreaseLogoSize1Front} >arrow_downwards</i></p> 
+
+  </>
+):(
+<>
+
+</>
+)}
+
+{!!this.props.currentLogoFront2 && this.props.front ? (
+  <> 
+  <p>Logo2:  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize2Front} >arrow_upwards</i>
+ <i className="material-icons arrowUp"  onClick = {this.props.decreaseLogoSize2Front} >arrow_downwards</i></p> 
+
+  </>
+):(
+<>
+
+</>
+)}
+
+{!!this.props.currentLogoFront3 && this.props.front ? (
+  <> 
+  <p>Logo3:  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize3Front} >arrow_upwards</i>
+ <i className="material-icons arrowUp"  onClick = {this.props.decreaseLogoSize3Front} >arrow_downwards</i></p> 
+
+  </>
+):(
+<>
+
+</>
+)}
+
+{!!this.props.currentLogoBack1 && this.props.back ? (
+  <> 
+  <p>Logo1:  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize1Back} >arrow_upwards</i>
+ <i className="material-icons arrowUp"  onClick = {this.props.decreaseLogoSize1Back} >arrow_downwards</i></p> 
+
+  </>
+):(
+<>
+
+</>
+)}
+
+{!!this.props.currentLogoBack2 && this.props.back ? (
+  <> 
+  <p>Logo2:  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize2Back} >arrow_upwards</i>
+ <i className="material-icons arrowUp"  onClick = {this.props.decreaseLogoSize2Back} >arrow_downwards</i></p> 
+
+  </>
+):(
+<>
+
+</>
+)}
+
+{!!this.props.currentLogoBack3 && this.props.back ? (
+  <> 
+  <p>Logo3:  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize3Back} >arrow_upwards</i>
+ <i className="material-icons arrowUp"  onClick = {this.props.decreaseLogoSize3Back} >arrow_downwards</i></p> 
+
+  </>
+):(
+<>
+
+</>
+)}
+
 
 </div>
+
+
 <form className = 'logoTextSection col s12 m12 l12' onSubmit={this.handleLogoTextSubmit}>
          
             <div className = 'form-inline'>
@@ -236,15 +359,16 @@ changeShirtColorHere(item) {
 
            
 
-{this.props.front && !!this.props.currentLogoTextFront ? (
-  <>
+  
+{this.props.front && !!this.props.currentLogoTextFront1 ? (
+  <>  
    <div className = 'row s12 m12 l12'>
   <div className = 'col s6 m6 l6 center-align'>
-              <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront} >arrow_upwards</i></div>
+              <div className = 'col' onClick = {this.props.logoTextFrontActivate1} style={{backgroundColor: this.props.logoTextBackgroundColorFront1}}>FontSizeFront1:</div> <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront1} >arrow_upwards</i></div>
              
 
                 <div className = 'col s6 m6 l6  center-align'>
-               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeFront} >arrow_downward</i></div>
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeFront1} >arrow_downward</i></div>
                 </div>
             
    </>
@@ -255,18 +379,18 @@ changeShirtColorHere(item) {
 
  </>
  )}
- {this.props.back &&  !!this.props.currentLogoTextBack ? (
-  <>
-    <div className = 'row s12 m12 l12'>
+
+{this.props.front && !!this.props.currentLogoTextFront2 ? (
+  <>  
+   <div className = 'row s12 m12 l12'>
   <div className = 'col s6 m6 l6 center-align'>
-                <i className="material-icons arrowUp" onClick = {this.props.increaseTextSizeBack} >arrow_upwards</i></div>
-            
+  <div className = 'col' onClick = {this.props.logoTextFrontActivate2} style={{backgroundColor: this.props.logoTextBackgroundColorFront2}}>FontSizeFront2:</div><i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront2} >arrow_upwards</i></div>
+             
 
-                <div className = 'col s6 m6 l6 center-align'>
-                <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeBack} >arrow_downward</i></div>
+                <div className = 'col s6 m6 l6  center-align'>
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeFront2} >arrow_downward</i></div>
                 </div>
-  
-
+            
    </>
  
  ) : (
@@ -275,6 +399,88 @@ changeShirtColorHere(item) {
 
  </>
  )}
+
+{this.props.front && !!this.props.currentLogoTextFront3 ? (
+  <>  
+   <div className = 'row s12 m12 l12'>
+  <div className = 'col s6 m6 l6 center-align'>
+  <div className = 'col' onClick = {this.props.logoTextFrontActivate3} style={{backgroundColor: this.props.logoTextBackgroundColorFront3}}>FontSizeFront3:</div><i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront3} >arrow_upwards</i></div>
+             
+
+                <div className = 'col s6 m6 l6  center-align'>
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeFront3} >arrow_downward</i></div>
+                </div>
+            
+   </>
+ 
+ ) : (
+ <>  
+  
+
+ </>
+ )}
+
+
+{this.props.back && !!this.props.currentLogoTextBack1 ? (
+  <>  
+   <div className = 'row s12 m12 l12'>
+  <div className = 'col s6 m6 l6 center-align'>
+  <div className = 'col' onClick = {this.props.logoTextBackActivate1} style={{backgroundColor: this.props.logoTextBackgroundColorBack1}}>FontSizeBack1:</div><i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeBack1} >arrow_upwards</i></div>
+             
+
+                <div className = 'col s6 m6 l6  center-align'>
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeBack1} >arrow_downward</i></div>
+                </div>
+            
+   </>
+ 
+ ) : (
+ <>  
+  
+
+ </>
+ )}
+
+{this.props.back && !!this.props.currentLogoTextBack2 ? (
+  <>  
+   <div className = 'row s12 m12 l12'>
+  <div className = 'col s6 m6 l6 center-align'>
+  <div className = 'col' onClick = {this.props.logoTextBackActivate2} style={{backgroundColor: this.props.logoTextBackgroundColorBack2}}>FontSizeBack2:</div> <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeBack2} >arrow_upwards</i></div>
+             
+
+                <div className = 'col s6 m6 l6  center-align'>
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeBack2} >arrow_downward</i></div>
+                </div>
+            
+   </>
+ 
+ ) : (
+ <>  
+  
+
+ </>
+ )}
+
+{this.props.back && !!this.props.currentLogoTextBack3 ? (
+  <>  
+   <div className = 'row s12 m12 l12'>
+  <div className = 'col s6 m6 l6 center-align'>
+  <div className = 'col' onClick = {this.props.logoTextBackActivate3} style={{backgroundColor: this.props.logoTextBackgroundColorBack3}}>FontSizeBack3:</div> <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeBack3} >arrow_upwards</i></div>
+             
+
+                <div className = 'col s6 m6 l6  center-align'>
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeBack3} >arrow_downward</i></div>
+                </div>
+            
+   </>
+ 
+ ) : (
+ <>  
+  
+
+ </>
+ )}
+ 
 
   
 
