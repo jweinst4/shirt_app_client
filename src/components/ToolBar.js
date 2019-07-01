@@ -41,7 +41,6 @@ class ToolBar extends React.Component {
 
     handleLogoTextChange(event) {
       this.setState({ [event.currentTarget.id]: event.currentTarget.value})
-      console.log(event.currentTarget.value)
   }
 
   handleLogoTextSubmit(event) {
