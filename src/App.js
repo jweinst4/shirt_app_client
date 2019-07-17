@@ -44,6 +44,54 @@ class App extends React.Component {
 
       logoTextColor: ['Red','Blue','White','Pink','Green','Black','Orange','Yellow','Violet','Aqua','Azure','Beige','Brown','Burlywood','Chocolate','Cyan','Darkorange','Fuchsia','Hotpink','Lawngreen','Lime','Maroon','Mistyrose','Olive','Orchid','Peru','Plum','Skyblue','Salmon','Snow','Tan','Teal'],
 
+      originalLogoFrontWidth: 130,
+      originalLogoFrontHeight: 45,
+
+      originalLogoBackWidth: 130,
+      originalLogoBackHeight: 45,
+
+      originalLogoTextFontSizeFront1: 30,
+      originalText1FrontStartingX: 200,
+      originalText1FrontStartingY: 200,
+      originalFontFront1: 'Arial',
+      originalLogoTextColorFront1: 'Black',
+      originalLogoTextStrokeFront1: '',
+
+      originalLogoTextFontSizeBack1: 30,
+      originalText1BackStartingX: 200,
+      originalText1BackStartingY: 200,
+      originalFontBack1: 'Arial',
+      originalLogoTextColorBack1: 'Black',
+      originalLogoTextStrokeBack1: '',
+
+      originalLogoTextFontSizeFront2: 30,
+      originalText2FrontStartingX: 200,
+      originalText2FrontStartingY: 300,
+      originalFontFront2: 'Arial',
+      originalLogoTextColorFront2: 'Black',
+      originalLogoTextStrokeFront2: '',
+
+      originalLogoTextFontSizeBack2: 30,
+      originalText2BackStartingX: 200,
+      originalText2BackStartingY: 300,
+      originalFontBack2: 'Arial',
+      originalLogoTextColorBack2: 'Black',
+      originalLogoTextStrokeBack2: '',
+
+      originalLogoTextFontSizeFront3: 30,
+      originalText3FrontStartingX: 200,
+      originalText3FrontStartingY: 400,
+      originalFontFront3: 'Arial',
+      originalLogoTextColorFront3: 'Black',
+      originalLogoTextStrokeFront3: '',
+
+      originalLogoTextFontSizeBack3: 30,
+      originalText3BackStartingX: 200,
+      originalText3BackStartingY: 400,
+      originalFontBack3: 'Arial',
+      originalLogoTextColorBack3: 'Black',
+      originalLogoTextStrokeBack3: '',
+
               currentLogoFront1: '',
               currentFontFront1: 'Arial',
               currentLogoTextFront1: '',
@@ -296,6 +344,22 @@ class App extends React.Component {
           this.decreaseLogoSize3Back = this.decreaseLogoSize3Back.bind(this)
           this.logoTextBackActivate3 = this.logoTextBackActivate3.bind(this) 
           this.changeCurrentFontBack3= this.changeCurrentFontBack3.bind(this)
+
+          this.deleteCurrentLogoFrontOne=this.deleteCurrentLogoFrontOne.bind(this)
+          this.deleteCurrentLogoFrontTwo=this.deleteCurrentLogoFrontTwo.bind(this)
+          this.deleteCurrentLogoFrontThree=this.deleteCurrentLogoFrontThree.bind(this)
+
+          this.deleteCurrentLogoBackOne=this.deleteCurrentLogoBackOne.bind(this)
+          this.deleteCurrentLogoBackTwo=this.deleteCurrentLogoBackTwo.bind(this)
+          this.deleteCurrentLogoBackThree=this.deleteCurrentLogoBackThree.bind(this)
+
+          this.deleteTextFrontOne=this.deleteTextFrontOne.bind(this)
+          this.deleteTextFrontTwo=this.deleteTextFrontTwo.bind(this)
+          this.deleteTextFrontThree=this.deleteTextFrontThree.bind(this)
+
+          this.deleteTextBackOne=this.deleteTextBackOne.bind(this)
+          this.deleteTextBackTwo=this.deleteTextBackTwo.bind(this)
+          this.deleteTextBackThree=this.deleteTextBackThree.bind(this)
  
   }
 
@@ -563,8 +627,7 @@ class App extends React.Component {
 
       changeCurrentLogoFront(item) {
 
-        if (!this.state.currentLogoFront1) {
-          
+        if (!this.state.currentLogoFront1) {    
           this.setState ({currentLogoFront1: item.name})
         }
         else if (!this.state.currentLogoFront2) {
@@ -578,6 +641,104 @@ class App extends React.Component {
         else {
 
         }
+      }
+
+      deleteCurrentLogoFrontOne() {    
+          this.setState({currentLogoFront1: ''})
+          this.setState({logo1FrontWidth: this.state.originalLogoFrontWidth})
+          this.setState({logo1FrontHeight: this.state.originalLogoFrontHeight})
+      }
+
+      deleteCurrentLogoBackOne() {    
+        this.setState({currentLogoBack1: ''})
+        this.setState({logo1BackWidth: this.state.originalLogoBackWidth})
+        this.setState({logo1BackHeight: this.state.originalLogoBackHeight})
+    }
+
+      deleteCurrentLogoFrontTwo() {    
+        this.setState({currentLogoFront2: ''})
+        this.setState({logo2FrontWidth: this.state.originalLogoFrontWidth})
+        this.setState({logo2FrontHeight: this.state.originalLogoFrontHeight})   
+      }
+
+      deleteCurrentLogoBackTwo() {    
+        this.setState({currentLogoBack2: ''})
+        this.setState({logo2BackWidth: this.state.originalLogoBackWidth})
+        this.setState({logo2BackHeight: this.state.originalLogoBackHeight})
+    }
+
+      deleteCurrentLogoFrontThree() {    
+        this.setState({currentLogoFront3: ''})
+        this.setState({logo3FrontWidth: this.state.originalLogoFrontWidth})
+        this.setState({logo3FrontHeight: this.state.originalLogoFrontHeight})
+      }
+
+      deleteCurrentLogoBackThree() {    
+        this.setState({currentLogoBack3: ''})
+        this.setState({logo3BackWidth: this.state.originalLogoBackWidth})
+        this.setState({logo3BackHeight: this.state.originalLogoBackHeight})
+    }
+
+      deleteTextFrontOne() {    
+        this.setState({text1FrontStartingX: this.state.originalText1FrontStartingX})
+        this.setState({text1FrontStartingY: this.state.originalText1FrontStartingY})
+        this.setState({currentFontFront1:  this.state.originalFontFront1})
+        this.setState({logoTextFontSizeFront1: this.state. originalLogoTextFontSizeFront1})
+        this.setState({currentLogoTextColorFront1:this.state. originalLogoTextColorFront1})
+        this.setState({currentLogoTextFront1: this.state. originalLogoTextStrokeFront1})
+        this.setState({currentLogoTextStrokeFront1: this.state.originalLogoTextStrokeFront1})
+      }
+
+      deleteTextBackOne() {    
+        this.setState({text1BackStartingX: this.state.originalText1BackStartingX})
+        this.setState({text1BackStartingY: this.state.originalText1BackStartingY})
+        this.setState({currentFontBack1:  this.state.originalFontBack1})
+        this.setState({logoTextFontSizeBack1: this.state. originalLogoTextFontSizeBack1})
+        this.setState({currentLogoTextColorBack1:this.state. originalLogoTextColorBack1})
+        this.setState({currentLogoTextBack1: this.state. originalLogoTextStrokeBack1})
+        this.setState({currentLogoTextStrokeBack1: this.state.originalLogoTextStrokeBack1})
+      }
+
+
+      deleteTextFrontTwo() {    
+        this.setState({text2FrontStartingX: this.state.originalText2FrontStartingX})
+        this.setState({text2FrontStartingY: this.state.originalText2FrontStartingY})
+        this.setState({currentFontFront2:  this.state.originalFontFront2})
+        this.setState({logoTextFontSizeFront2: this.state. originalLogoTextFontSizeFront2})
+        this.setState({currentLogoTextColorFront2:this.state. originalLogoTextColorFront2})
+        this.setState({currentLogoTextFront2: this.state. originalLogoTextStrokeFront2})
+        this.setState({currentLogoTextStrokeFront2: this.state.originalLogoTextStrokeFront2})
+      }
+
+      deleteTextBackTwo() {    
+        this.setState({text2BackStartingX: this.state.originalText2BackStartingX})
+        this.setState({text2BackStartingY: this.state.originalText2BackStartingY})
+        this.setState({currentFontBack2:  this.state.originalFontBack2})
+        this.setState({logoTextFontSizeBack2: this.state. originalLogoTextFontSizeBack2})
+        this.setState({currentLogoTextColorBack2:this.state. originalLogoTextColorBack2})
+        this.setState({currentLogoTextBack2: this.state. originalLogoTextStrokeBack2})
+        this.setState({currentLogoTextStrokeBack2: this.state.originalLogoTextStrokeBack2})
+      }
+
+
+      deleteTextFrontThree() {    
+        this.setState({text3FrontStartingX: this.state.originalText3FrontStartingX})
+        this.setState({text3FrontStartingY: this.state.originalText3FrontStartingY})
+        this.setState({currentFontFront3:  this.state.originalFontFront3})
+        this.setState({logoTextFontSizeFront3: this.state. originalLogoTextFontSizeFront3})
+        this.setState({currentLogoTextColorFront3:this.state. originalLogoTextColorFront3})
+        this.setState({currentLogoTextFront3: this.state. originalLogoTextStrokeFront3})
+        this.setState({currentLogoTextStrokeFront3: this.state.originalLogoTextStrokeFront3})
+      }
+
+      deleteTextBackThree() {    
+        this.setState({text3BackStartingX: this.state.originalText3BackStartingX})
+        this.setState({text3BackStartingY: this.state.originalText3BackStartingY})
+        this.setState({currentFontBack3:  this.state.originalFontBack3})
+        this.setState({logoTextFontSizeBack3: this.state. originalLogoTextFontSizeBack3})
+        this.setState({currentLogoTextColorBack3:this.state. originalLogoTextColorBack3})
+        this.setState({currentLogoTextBack3: this.state. originalLogoTextStrokeBack3})
+        this.setState({currentLogoTextStrokeBack3: this.state.originalLogoTextStrokeBack3})
       }
 
       changeCurrentLogoBack(item) {
@@ -757,7 +918,6 @@ this.setState ({currentLogoTextStrokeBack: ''})
         }
 
         deleteLogo(id) {
-
           fetch(baseURL + '/logos/' + id, { method: 'DELETE' }).then(response => {
               const findIndex = this.state.logos.findIndex(logo => logo.id === id)
               const copyLogos = [...this.state.logos]
@@ -1357,7 +1517,7 @@ this.setState ({currentLogoTextStrokeBack: ''})
                   
                 changeCurrentShirtColor={this.changeCurrentShirtColor} deleteColor = {this.deleteColor} deleteLogo = {this.deleteLogo} getColors = {this.getColors} getLogos = {this.getLogos} logos = {this.state.logos} fonts = {this.state.fonts}  logoTextColor={this.state.logoTextColor}  changeCurrentLogoFront={this.changeCurrentLogoFront} changeCurrentFontFront={this.changeCurrentFontFront}  handleLogoTextSubmitAppFront={this.handleLogoTextSubmitAppFront} logoTextColor={this.state.logoTextColor}  changeCurrentLogoBack={this.changeCurrentLogoBack} handleLogoTextSubmitAppBack={this.handleLogoTextSubmitAppBack}  frontOfShirt={this.frontOfShirt} backOfShirt = {this.backOfShirt} frontOfShirtBackgroundColor={this.state.frontOfShirtBackgroundColor} backOfShirtBackgroundColor={this.state.backOfShirtBackgroundColor} 
                 
-              logoTextFillToggle={this.state.logoTextFillToggle} logoTextStrokeToggle={this.state.logoTextStrokeToggle} toggleLogoTextStroke={this.toggleLogoTextStroke} toggleLogoTextFill={this.toggleLogoTextFill} logoFillToggleBackgroundColor = {this.state.logoFillToggleBackgroundColor} logoStrokeToggleBackgroundColor = {this.state.logoStrokeToggleBackgroundColor} clearLogoTextStroke = {this.clearLogoTextStroke}  />}/>
+              logoTextFillToggle={this.state.logoTextFillToggle} logoTextStrokeToggle={this.state.logoTextStrokeToggle} toggleLogoTextStroke={this.toggleLogoTextStroke} toggleLogoTextFill={this.toggleLogoTextFill} logoFillToggleBackgroundColor = {this.state.logoFillToggleBackgroundColor} logoStrokeToggleBackgroundColor = {this.state.logoStrokeToggleBackgroundColor} clearLogoTextStroke = {this.clearLogoTextStroke} deleteCurrentLogoFrontOne={this.deleteCurrentLogoFrontOne}  deleteCurrentLogoFrontTwo={this.deleteCurrentLogoFrontTwo}  deleteCurrentLogoFrontThree={this.deleteCurrentLogoFrontThree}  deleteTextFrontOne={this.deleteTextFrontOne}  deleteTextFrontTwo={this.deleteTextFrontTwo}  deleteTextFrontThree={this.deleteTextFrontThree} deleteTextBackone={this.deleteTextBackOne} deleteTextBackTwo={this.deleteTextBackTwo} deleteTextBackThree={this.deleteTextBackThree}  deleteCurrentLogoBackOne={this.deleteCurrentLogoBackOne}  deleteCurrentLogoBackTwo={this.deleteCurrentLogoBackTwo}  deleteCurrentLogoBackThree={this.deleteCurrentLogoBackThree}/>}/>
   
  </div>
 

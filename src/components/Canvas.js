@@ -17,7 +17,6 @@ class URLImageFront1 extends React.Component {
   componentDidUpdate(oldProps) {
     if (oldProps.src !== this.props.src) {
       this.loadImage();
-      
     }
   }
   componentWillUnmount() {
@@ -452,14 +451,41 @@ class Canvas extends React.Component {
 {this.props.front ? (
  <>
 
-  <Shirt allProps = {this.props}  src= {this.props.currentShirtColor.url}/>
+      <Shirt allProps = {this.props}  src= {this.props.currentShirtColor.url}/>
 
-  <URLImageFront1 allProps = {this.props} src={this.props.currentLogoFront1}/>
-  <URLImageFront2 allProps = {this.props}  src={this.props.currentLogoFront2}/>
-  <URLImageFront3 allProps = {this.props}  src={this.props.currentLogoFront3}/>
-  
-  
+    {this.props.currentLogoFront1 !== '' ? (
+        <>
+          <URLImageFront1 allProps = {this.props} src={this.props.currentLogoFront1}/>
+        </>
+      ):(
+        <>
 
+        </>
+      )
+    }
+  
+  {this.props.currentLogoFront2 !== '' ? (
+        <>
+          <URLImageFront2 allProps = {this.props} src={this.props.currentLogoFront2}/>
+        </>
+      ):(
+        <>
+
+        </>
+      )
+    }
+
+{this.props.currentLogoFront3 !== '' ? (
+        <>
+          <URLImageFront3 allProps = {this.props} src={this.props.currentLogoFront3}/>
+        </>
+      ):(
+        <>
+
+        </>
+      )
+    }
+  
   <Text x={this.props.text1FrontStartingX} y={this.props.text1FrontStartingY} allProps = {this.props}  fontFamily={this.props.currentFontFront1} fontSize={this.props.logoTextFontSizeFront1} fill={this.props.currentLogoTextColorFront1} text={this.props.currentLogoTextFront1} stroke = {this.props.currentLogoTextStrokeFront1} draggable />
 
   <Text x={this.props.text2FrontStartingX} y={this.props.text2FrontStartingY} allProps = {this.props}  fontFamily={this.props.currentFontFront2} fontSize={this.props.logoTextFontSizeFront2} fill={this.props.currentLogoTextColorFront2} text={this.props.currentLogoTextFront2} stroke = {this.props.currentLogoTextStrokeFront2} draggable />
@@ -477,9 +503,38 @@ class Canvas extends React.Component {
   <>
   <Shirt allProps = {this.props}  src= {this.props.currentShirtColor.backURL}/>
 
-  <URLImageBack1  allProps = {this.props} src={this.props.currentLogoBack1}/>
-  <URLImageBack2 allProps = {this.props} src={this.props.currentLogoBack2}/>
-  <URLImageBack3 allProps = {this.props} src={this.props.currentLogoBack3}/>
+  {this.props.currentLogoBack1 !== '' ? (
+        <>
+          <URLImageBack1 allProps = {this.props} src={this.props.currentLogoBack1}/>
+        </>
+      ):(
+        <>
+
+        </>
+      )
+    }
+  
+  {this.props.currentLogoBack2 !== '' ? (
+        <>
+          <URLImageBack2 allProps = {this.props} src={this.props.currentLogoBack2}/>
+        </>
+      ):(
+        <>
+
+        </>
+      )
+    }
+
+{this.props.currentLogoBack3 !== '' ? (
+        <>
+          <URLImageBack3 allProps = {this.props} src={this.props.currentLogoBack3}/>
+        </>
+      ):(
+        <>
+
+        </>
+      )
+    }
 
   <Text x={this.props.text1BackStartingX} y={this.props.text1BackStartingY} allProps = {this.props}  fontFamily={this.props.currentFontBack1} fontSize={this.props.logoTextFontSizeBack1} fill={this.props.currentLogoTextColorBack1} text={this.props.currentLogoTextBack1} stroke = {this.props.currentLogoTextStrokeBack1} draggable />
 
