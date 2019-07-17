@@ -26,6 +26,7 @@ class NewColor extends React.Component {
         }
         this.handleColorChange = this.handleColorChange.bind(this)
         this.handleColorSubmit = this.handleColorSubmit.bind(this)
+        this.handleAddColor = this.handleAddColor.bind(this)
     }
 
     componentDidMount() {
@@ -54,10 +55,12 @@ class NewColor extends React.Component {
             }
         }).then(res => res.json()).then(resJSON => {
             console.log(resJSON)
-            this.props.handleAddColor(resJSON)
+            this.handleAddColor(resJSON)
         }).catch(error => console.error({ 'Error': error }))
         this.setState({name: '',url: '',swatch: ''})
     }
+
+    
 
     render() {
         return (
