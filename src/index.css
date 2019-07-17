@@ -203,16 +203,16 @@ border: 1px solid black;
 
 .frontOfShirt {
   cursor: grab;
-
-
-text-align: center;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .backOfShirt {
   cursor: grab;
-
-
-text-align: center;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 
@@ -248,5 +248,19 @@ border-radius: 5px;
 
 .arrowUp, .arrowDown {
   cursor: grab;
+}
+
+.toggleHeader {
+  font-size: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background:#e3f2fd;
+  cursor: grab;
+  margin-bottom: 15px;
+  height: 40px;
+}
+
+.headerText {
+ margin-left: 15px;
 }
 

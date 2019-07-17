@@ -19,7 +19,10 @@ class ToolBar extends React.Component {
     this.state = {
       logoTextFront: '',
       logoTextBack: '',
-     }
+      showShirtColors: true,
+      showLogos: false,
+      showLogoText: false,
+    }
 
  this.changeShirtColorHere = this.changeShirtColorHere.bind(this)
  this.changeCurrentLogo = this.changeCurrentLogo.bind(this)
@@ -29,7 +32,9 @@ class ToolBar extends React.Component {
  this.handleLogoTextChange = this.handleLogoTextChange.bind(this)
  this.handleLogoTextSubmit = this.handleLogoTextSubmit.bind(this)
 
-
+ this.showShirtColorsToggle = this.showShirtColorsToggle.bind(this)
+ this.showLogosToggle = this.showLogosToggle.bind(this)
+ this.showLogoTextToggle = this.showLogoTextToggle.bind(this)
   }
  
 
@@ -38,6 +43,17 @@ class ToolBar extends React.Component {
     this.props.getLogos()
     }
 
+showShirtColorsToggle() {
+  this.setState({showShirtColors: !this.state.showShirtColors})
+}
+
+showLogosToggle() {
+  this.setState({showLogos: !this.state.showLogos})
+}
+
+showLogoTextToggle() {
+  this.setState({showLogoText: !this.state.showLogoText})
+}
 
     handleLogoTextChange(event) {
       this.setState({ [event.currentTarget.id]: event.currentTarget.value})
@@ -218,25 +234,41 @@ changeShirtColorHere(item) {
 
 </div>
 
-  <h6>Shirt Colors</h6>
-<div className='row choice-row'>
+  <div><h6 className = 'toggleHeader' onClick = {this.showShirtColorsToggle}><div className = 'headerText'>Shirt Colors</div></h6></div>
 
-      {this.props.colors.map((item, index) => {
-  return (
-    
-    <div className = 'shirt-color col s2 m1 l1' key = {item._id} index = {index} onClick={() => { 
-      this.changeShirtColorHere(item) }} >
-    <img className = 'shirtImage' src = {this.props.colors[index].swatch}></img> </div>
+  {this.state.showShirtColors ? (
+  <> 
+  <div className='row choice-row'>
 
-        )  
+{this.props.colors.map((item, index) => {
+return (
+
+<div className = 'shirt-color col s2 m1 l1' key = {item._id} index = {index} onClick={() => { 
+this.changeShirtColorHere(item) }} >
+<img className = 'shirtImage' src = {this.props.colors[index].swatch}></img> </div>
+
+  )  
 })}
 </div>
 
+  </>
+):(
+<>
+
+</>
+)}
 
 
 
-<h6>Logos</h6>
-<div className='row choice-row'>
+
+
+
+
+<div><h6 onClick = {this.showLogosToggle} className = 'toggleHeader'><div className = 'headerText'>Logos</div></h6></div>
+
+{this.state.showLogos ? (
+  <> 
+ <div className='row choice-row'>
       {this.props.logos.map((item, index) => {
   return (
   
@@ -331,31 +363,40 @@ changeShirtColorHere(item) {
 
 </div>
 
+  </>
+):(
+<>
 
-<form className = 'logoTextSection col s12 m12 l12' onSubmit={this.handleLogoTextSubmit}>
+</>
+)}
+
+
+<div><h6 onClick = {this.showLogoTextToggle} className = 'toggleHeader'><div className = 'headerText'>Logo Text/Logo Colors</div></h6></div>
+
+{this.state.showLogoText ? (
+  <> 
+  
+  <form className = 'logoTextSection col s12 m12 l12' onSubmit={this.handleLogoTextSubmit}>
          
-            <div className = 'form-inline'>
-            <div className = 'col s12 m12 l12 form-group'>
-    
-                <input className = 'col s6 m6 l6' type='text' id='logoText' name='logoText' onChange={this.handleLogoTextChange} value={this.state.logoText}  />  
-                
-                <div className = 'addLogoTextSubmit col s2 m2 l2'>
-                <input type='submit' value='Add Logo Text'/>
-                </div>
-
-
-
-                </div>   
-                </div>
-
-              
+         <div className = 'form-inline'>
+         <div className = 'col s12 m12 l12 form-group'>
+ 
+             <input className = 'col s6 m6 l6' type='text' id='logoText' name='logoText' onChange={this.handleLogoTextChange} value={this.state.logoText}  />  
              
-            </form>
+             <div className = 'addLogoTextSubmit col s2 m2 l2'>
+             <input type='submit' value='Add Logo Text'/>
+             </div>
+
+
+
+             </div>   
+             </div>
 
            
+          
+         </form>
 
-  
-{this.props.front && !!this.props.currentLogoTextFront1 ? (
+         {this.props.front && !!this.props.currentLogoTextFront1 ? (
   <>  
    <div className = 'row s12 m12 l12'>
   <div className = 'col s12 m12 l12 center-align'>
@@ -567,10 +608,15 @@ changeShirtColorHere(item) {
   
 })}
 
-
-
-
 </div>
+  </>
+):(
+<>
+
+</>
+)}
+  
+
       
       </div>
 
