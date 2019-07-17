@@ -26,7 +26,6 @@ class NewColor extends React.Component {
         }
         this.handleColorChange = this.handleColorChange.bind(this)
         this.handleColorSubmit = this.handleColorSubmit.bind(this)
-        this.handleAddColor = this.handleAddColor.bind(this)
     }
 
     componentDidMount() {
