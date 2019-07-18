@@ -5,9 +5,14 @@ import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 // https://codesandbox.io/s/github/konvajs/site/tree/master/react-demos/images?from-embed
 
+let boundaryXLeft = 150;
+let boundaryXRight = 300;
+let boundaryYTop = 125;
+let boundaryYBottom = 350;
+
 class URLImageFront1 extends React.Component {
   state = {
-    image: null
+    image: null,
   };
   componentDidMount() {
     this.loadImage();
@@ -42,11 +47,43 @@ class URLImageFront1 extends React.Component {
     return (
      
       <Image
-        x={this.props.allProps.logo1FrontStartingX}
-        y={this.props.allProps.logo1FrontStartingY}
+        x={this.props.allProps.dragEndFront1X}
+        y={this.props.allProps.dragEndFront1Y} 
         width={this.props.allProps.logo1FrontWidth}
         height={this.props.allProps.logo1FrontHeight}
         draggable
+
+      dragBoundFunc= {(pos) => {  
+        // var newY = pos.y < boundaryYBottom ? boundaryYBottom : pos.y;
+
+        if (pos.y < boundaryYTop) {
+          var newY = boundaryYTop
+        }
+        else if (pos.y > boundaryYBottom) {
+          var newY = boundaryYBottom
+        }
+        else {
+          var newY = pos.y
+        }
+
+        if (pos.x < boundaryXLeft) {
+          var newX = boundaryXLeft
+        }
+        else if (pos.x > boundaryXRight) {
+          var newX = boundaryXRight
+        }
+        else {
+          var newX = pos.x
+        }
+
+        return {
+          x: newX,
+          y: newY,
+        };
+      }
+    }
+  
+    
         onDragStart={() => {
           this.setState({
             isDraggingLogo: true
@@ -58,6 +95,7 @@ class URLImageFront1 extends React.Component {
             x: e.target.x(),
             y: e.target.y()
           });
+         this.props.allProps.dragEndFront1(e.target.x(),e.target.y())
         }}
         image={this.state.image}
         ref={node => {
@@ -104,11 +142,44 @@ class URLImageFront2 extends React.Component {
   render() {
     return (
       <Image
-      x={this.props.allProps.logo2FrontStartingX}
-      y={this.props.allProps.logo2FrontStartingY}
+      x={this.props.allProps.dragEndFront2X}
+      y={this.props.allProps.dragEndFront2Y}
       width={this.props.allProps.logo2FrontWidth}
       height={this.props.allProps.logo2FrontHeight}
         draggable
+
+        dragBoundFunc= {(pos) => {  
+          // var newY = pos.y < boundaryYBottom ? boundaryYBottom : pos.y;
+  
+          if (pos.y < boundaryYTop) {
+            var newY = boundaryYTop
+          }
+          else if (pos.y > boundaryYBottom) {
+            var newY = boundaryYBottom
+          }
+          else {
+            var newY = pos.y
+          }
+  
+  
+          if (pos.x < boundaryXLeft) {
+            var newX = boundaryXLeft
+          }
+          else if (pos.x > boundaryXRight) {
+            var newX = boundaryXRight
+          }
+          else {
+            var newX = pos.x
+          }
+  
+          return {
+            x: newX,
+            y: newY,
+          };
+        }
+      }
+
+
         onDragStart={() => {
           this.setState({
             isDraggingLogo: true
@@ -120,6 +191,7 @@ class URLImageFront2 extends React.Component {
             x: e.target.x(),
             y: e.target.y()
           });
+          this.props.allProps.dragEndFront2(e.target.x(),e.target.y())
         }}
         image={this.state.image}
         ref={node => {
@@ -164,11 +236,44 @@ class URLImageFront3 extends React.Component {
   render() {
     return (
       <Image
-      x={this.props.allProps.logo3FrontStartingX}
-      y={this.props.allProps.logo3FrontStartingY}
+      x={this.props.allProps.dragEndFront3X}
+      y={this.props.allProps.dragEndFront3Y}
       width={this.props.allProps.logo3FrontWidth}
       height={this.props.allProps.logo3FrontHeight}
         draggable
+
+        dragBoundFunc= {(pos) => {  
+          // var newY = pos.y < boundaryYBottom ? boundaryYBottom : pos.y;
+  
+          if (pos.y < boundaryYTop) {
+            var newY = boundaryYTop
+          }
+          else if (pos.y > boundaryYBottom) {
+            var newY = boundaryYBottom
+          }
+          else {
+            var newY = pos.y
+          }
+  
+  
+          if (pos.x < boundaryXLeft) {
+            var newX = boundaryXLeft
+          }
+          else if (pos.x > boundaryXRight) {
+            var newX = boundaryXRight
+          }
+          else {
+            var newX = pos.x
+          }
+  
+          return {
+            x: newX,
+            y: newY,
+          };
+        }
+      }
+
+
         onDragStart={() => {
           this.setState({
             isDraggingLogo: true
@@ -180,6 +285,7 @@ class URLImageFront3 extends React.Component {
             x: e.target.x(),
             y: e.target.y()
           });
+          this.props.allProps.dragEndFront3(e.target.x(),e.target.y())
         }}
         image={this.state.image}
         ref={node => {
@@ -225,11 +331,44 @@ class URLImageBack1 extends React.Component {
   render() {
     return (
       <Image
-      x={this.props.allProps.logo1BackStartingX}
-      y={this.props.allProps.logo1BackStartingY}
+      x={this.props.allProps.dragEndBack1X}
+      y={this.props.allProps.dragEndBack1Y} 
       width={this.props.allProps.logo1BackWidth}
       height={this.props.allProps.logo1BackHeight}
         draggable
+
+        dragBoundFunc= {(pos) => {  
+          // var newY = pos.y < boundaryYBottom ? boundaryYBottom : pos.y;
+  
+          if (pos.y < boundaryYTop) {
+            var newY = boundaryYTop
+          }
+          else if (pos.y > boundaryYBottom) {
+            var newY = boundaryYBottom
+          }
+          else {
+            var newY = pos.y
+          }
+  
+  
+          if (pos.x < boundaryXLeft) {
+            var newX = boundaryXLeft
+          }
+          else if (pos.x > boundaryXRight) {
+            var newX = boundaryXRight
+          }
+          else {
+            var newX = pos.x
+          }
+  
+          return {
+            x: newX,
+            y: newY,
+          };
+        }
+      }
+
+
         onDragStart={() => {
           this.setState({
             isDragging: true
@@ -241,6 +380,7 @@ class URLImageBack1 extends React.Component {
             x: e.target.x(),
             y: e.target.y()
           });
+          this.props.allProps.dragEndBack1(e.target.x(),e.target.y())
         }}
         image={this.state.image}
         ref={node => {
@@ -286,11 +426,44 @@ class URLImageBack2 extends React.Component {
   render() {
     return (
       <Image
-      x={this.props.allProps.logo2BackStartingX}
-      y={this.props.allProps.logo2BackStartingY}
+      x={this.props.allProps.dragEndBack2X}
+      y={this.props.allProps.dragEndBack2Y} 
       width={this.props.allProps.logo2BackWidth}
       height={this.props.allProps.logo2BackHeight}
         draggable
+
+        dragBoundFunc= {(pos) => {  
+          // var newY = pos.y < boundaryYBottom ? boundaryYBottom : pos.y;
+  
+          if (pos.y < boundaryYTop) {
+            var newY = boundaryYTop
+          }
+          else if (pos.y > boundaryYBottom) {
+            var newY = boundaryYBottom
+          }
+          else {
+            var newY = pos.y
+          }
+  
+  
+          if (pos.x < boundaryXLeft) {
+            var newX = boundaryXLeft
+          }
+          else if (pos.x > boundaryXRight) {
+            var newX = boundaryXRight
+          }
+          else {
+            var newX = pos.x
+          }
+  
+          return {
+            x: newX,
+            y: newY,
+          };
+        }
+      }
+
+
         onDragStart={() => {
           this.setState({
             isDragging: true
@@ -302,6 +475,7 @@ class URLImageBack2 extends React.Component {
             x: e.target.x(),
             y: e.target.y()
           });
+          this.props.allProps.dragEndBack2(e.target.x(),e.target.y())
         }}
         image={this.state.image}
         ref={node => {
@@ -347,11 +521,44 @@ class URLImageBack3 extends React.Component {
   render() {
     return (
       <Image
-      x={this.props.allProps.logo3BackStartingX}
-      y={this.props.allProps.logo3BackStartingY}
+      x={this.props.allProps.dragEndBack3X}
+      y={this.props.allProps.dragEndBack3Y} 
       width={this.props.allProps.logo3BackWidth}
       height={this.props.allProps.logo3BackHeight}
         draggable
+
+        dragBoundFunc= {(pos) => {  
+          // var newY = pos.y < boundaryYBottom ? boundaryYBottom : pos.y;
+  
+          if (pos.y < boundaryYTop) {
+            var newY = boundaryYTop
+          }
+          else if (pos.y > boundaryYBottom) {
+            var newY = boundaryYBottom
+          }
+          else {
+            var newY = pos.y
+          }
+  
+  
+          if (pos.x < boundaryXLeft) {
+            var newX = boundaryXLeft
+          }
+          else if (pos.x > boundaryXRight) {
+            var newX = boundaryXRight
+          }
+          else {
+            var newX = pos.x
+          }
+  
+          return {
+            x: newX,
+            y: newY,
+          };
+        }
+      }
+
+
         onDragStart={() => {
           this.setState({
             isDragging: true
@@ -363,6 +570,7 @@ class URLImageBack3 extends React.Component {
             x: e.target.x(),
             y: e.target.y()
           });
+          this.props.allProps.dragEndBack3(e.target.x(),e.target.y())
         }}
         image={this.state.image}
         ref={node => {
@@ -437,8 +645,12 @@ class Canvas extends React.Component {
     this.state = {
 
     }
+
   };
 
+
+ 
+ 
   componentDidMount() {
     
   }
@@ -454,11 +666,11 @@ class Canvas extends React.Component {
 {this.props.front ? (
  <>
 
-      <Shirt allProps = {this.props}  src= {this.props.currentShirtColor.url}/>
+      <Shirt crossOrigin = 'Anonymous' allProps = {this.props}  src= {this.props.currentShirtColor.url}/>
 
     {this.props.currentLogoFront1 !== '' ? (
         <>
-          <URLImageFront1 allProps = {this.props} src={this.props.currentLogoFront1} cursor={'grab'}/>
+          <URLImageFront1 crossOrigin = 'Anonymous' allProps = {this.props} src={this.props.currentLogoFront1} x = {this.props.dragEndFront1X} y = {this.props.dragEndFront1Y}/>
         </>
       ):(
         <>
@@ -469,7 +681,7 @@ class Canvas extends React.Component {
   
   {this.props.currentLogoFront2 !== '' ? (
         <>
-          <URLImageFront2 allProps = {this.props} src={this.props.currentLogoFront2}/>
+          <URLImageFront2 crossOrigin = 'Anonymous' allProps = {this.props} src={this.props.currentLogoFront2}   x = {this.props.dragEndFront2X} y = {this.props.dragEndFront2Y}/>
         </>
       ):(
         <>
@@ -480,7 +692,7 @@ class Canvas extends React.Component {
 
 {this.props.currentLogoFront3 !== '' ? (
         <>
-          <URLImageFront3 allProps = {this.props} src={this.props.currentLogoFront3}/>
+          <URLImageFront3 crossOrigin = 'Anonymous' allProps = {this.props} src={this.props.currentLogoFront3}  x = {this.props.dragEndFront3X} y = {this.props.dragEndFront3Y}/>
         </>
       ):(
         <>
@@ -505,11 +717,11 @@ class Canvas extends React.Component {
 </>
 ) : (
   <>
-  <Shirt allProps = {this.props}  src= {this.props.currentShirtColor.backURL}/>
+  <Shirt crossOrigin = 'Anonymous' allProps = {this.props}  src= {this.props.currentShirtColor.backURL}/>
 
   {this.props.currentLogoBack1 !== '' ? (
         <>
-          <URLImageBack1 allProps = {this.props} src={this.props.currentLogoBack1}/>
+          <URLImageBack1 crossOrigin = 'Anonymous' allProps = {this.props} src={this.props.currentLogoBack1}  x = {this.props.dragEndBack1X} y = {this.props.dragEndBack1Y}/>
         </>
       ):(
         <>
@@ -520,7 +732,7 @@ class Canvas extends React.Component {
   
   {this.props.currentLogoBack2 !== '' ? (
         <>
-          <URLImageBack2 allProps = {this.props} src={this.props.currentLogoBack2}/>
+          <URLImageBack2 crossOrigin = 'Anonymous' allProps = {this.props} src={this.props.currentLogoBack2}  x = {this.props.dragEndBack2X} y = {this.props.dragEndBack2Y}/>
         </>
       ):(
         <>
@@ -531,7 +743,7 @@ class Canvas extends React.Component {
 
 {this.props.currentLogoBack3 !== '' ? (
         <>
-          <URLImageBack3 allProps = {this.props} src={this.props.currentLogoBack3}/>
+          <URLImageBack3 crossOrigin = 'Anonymous' allProps = {this.props} src={this.props.currentLogoBack3}  x = {this.props.dragEndBack3X} y = {this.props.dragEndBack3Y}/>
         </>
       ):(
         <>
@@ -556,6 +768,9 @@ class Canvas extends React.Component {
 )}       
       </Layer>
     </Stage>
+    
+
+    
   </div>
 
 
@@ -563,5 +778,7 @@ class Canvas extends React.Component {
 
   }
 }
+
+
 
 export default Canvas

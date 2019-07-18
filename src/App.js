@@ -21,7 +21,6 @@ let amazonObjectURL = [];
 let allImages=[];
 
 
-
 //test
 
 
@@ -107,7 +106,7 @@ class App extends React.Component {
               currentLogoTextStrokeFront1: '',
 
               logo1FrontStartingX: 100,
-              logo1FrontStartingY: 100,
+              logo1FrontStartingY: 130,
               logo1FrontWidth: 130,
               logo1FrontHeight: 45,
               logoTextFontSizeFront1: 30,
@@ -124,7 +123,7 @@ class App extends React.Component {
 
 
                   logo2FrontStartingX: 100,
-                  logo2FrontStartingY: 100,
+                  logo2FrontStartingY: 130,
                   logo2FrontWidth: 130,
                   logo2FrontHeight: 45,
                   logoTextFontSizeFront2: 30,
@@ -139,7 +138,7 @@ class App extends React.Component {
               currentLogoTextStrokeFront3: '',
 
               logo3FrontStartingX: 100,
-              logo3FrontStartingY: 100,
+              logo3FrontStartingY: 130,
               logo3FrontWidth: 130,
               logo3FrontHeight: 45,
               logoTextFontSizeFront3: 30,
@@ -154,7 +153,7 @@ class App extends React.Component {
                   currentLogoBack1: '',
 
                   logo1BackStartingX: 100,
-                  logo1BackStartingY: 100,
+                  logo1BackStartingY: 130,
                   logo1BackWidth: 130,
                   logo1BackHeight: 45,
                   logoTextFontSizeBack1: 30,
@@ -169,7 +168,7 @@ class App extends React.Component {
               currentLogoBack2: '',
 
               logo2BackStartingX: 100,
-              logo2BackStartingY: 100,
+              logo2BackStartingY: 130,
               logo2BackWidth: 130,
               logo2BackHeight: 45,
               logoTextFontSizeBack2: 30,
@@ -184,7 +183,7 @@ class App extends React.Component {
                   currentLogoBack3: '',
 
                   logo3BackStartingX: 100,
-                  logo3BackStartingY: 100,
+                  logo3BackStartingY: 130,
                   logo3BackWidth: 130,
                   logo3BackHeight: 45,
                   logoTextFontSizeBack3: 30,
@@ -261,6 +260,25 @@ class App extends React.Component {
               shirtCanvasHeight: 670,
               shirtWidth: 560,
               shirtHeight: 670,
+
+              dragEndFront1X:150,
+              dragEndFront1Y:125,
+
+              dragEndFront2X:150,
+              dragEndFront2Y:175,
+
+              dragEndFront3X:150,
+              dragEndFront3Y:225,
+
+              dragEndBack1X:150,
+              dragEndBack1Y:125,
+
+              dragEndBack2X:150,
+              dragEndBack2Y:175,
+
+              dragEndBack3X:150,
+              dragEndBack3Y:225,
+
 
     }
 
@@ -368,7 +386,50 @@ class App extends React.Component {
           this.deleteTextBackOne=this.deleteTextBackOne.bind(this)
           this.deleteTextBackTwo=this.deleteTextBackTwo.bind(this)
           this.deleteTextBackThree=this.deleteTextBackThree.bind(this)
- 
+
+          this.dragEndFront1=this.dragEndFront1.bind(this)
+          this.dragEndFront2=this.dragEndFront2.bind(this)
+          this.dragEndFront3=this.dragEndFront3.bind(this)
+
+          this.dragEndBack1=this.dragEndBack1.bind(this)
+          this.dragEndBack2=this.dragEndBack2.bind(this)
+          this.dragEndBack3=this.dragEndBack3.bind(this)
+  }
+
+  dragEndFront1(x,y) {
+    this.setState({dragEndFront1X: x})
+    this.setState({dragEndFront1Y: y})
+    console.log(x,y)
+  }
+
+  dragEndFront2(x,y) {
+    this.setState({dragEndFront2X: x})
+    this.setState({dragEndFront2Y: y})
+    console.log(x,y)
+  }
+
+  dragEndFront3(x,y) {
+    this.setState({dragEndFront3X: x})
+    this.setState({dragEndFront3Y: y})
+    console.log(x,y)
+  }
+
+  dragEndBack1(x,y) {
+    this.setState({dragEndBack1X: x})
+    this.setState({dragEndBack1Y: y})
+    console.log(x,y)
+  }
+
+  dragEndBack2(x,y) {
+    this.setState({dragEndBack2X: x})
+    this.setState({dragEndBack2Y: y})
+    console.log(x,y)
+  }
+
+  dragEndBack3(x,y) {
+    this.setState({dragEndBack3X: x})
+    this.setState({dragEndBack3Y: y})
+    console.log(x,y)
   }
 
   componentDidMount() {
@@ -402,7 +463,7 @@ class App extends React.Component {
       }
     
     })();
-          console.log('test')
+          
           }
 
       logoTextFrontActivate1() {
@@ -1442,8 +1503,37 @@ this.setState ({currentLogoTextStrokeBack: ''})
 
           <div className = 'canvasToolbarRow row'>
 
-            <div className = 'canvasCol col s12 m12 l8'>
+            <div className = 'canvasCol col s12 m12 l8' id='canvasContainer'>
               <Route exact path ='/' exact render={() => <Canvas 
+
+dragEndFront1X = {this.state.dragEndFront1X}
+dragEndFront1Y = {this.state.dragEndFront1Y}
+dragEndFront1 = {this.dragEndFront1}
+
+dragEndFront2X = {this.state.dragEndFront2X}
+dragEndFront2Y = {this.state.dragEndFront2Y}
+dragEndFront2 = {this.dragEndFront2}
+
+dragEndFront3X = {this.state.dragEndFront3X}
+dragEndFront3Y = {this.state.dragEndFront3Y}
+dragEndFront3 = {this.dragEndFront3}
+
+
+dragEndBack1X = {this.state.dragEndBack1X}
+dragEndBack1Y = {this.state.dragEndBack1Y}
+dragEndBack1 = {this.dragEndBack1}
+
+dragEndBack2X = {this.state.dragEndBack2X}
+dragEndBack2Y = {this.state.dragEndBack2Y}
+dragEndBack2 = {this.dragEndBack2}
+
+dragEndBack3X = {this.state.dragEndBack3X}
+dragEndBack3Y = {this.state.dragEndBack3Y}
+dragEndBack3 = {this.dragEndBack3}
+
+
+updateLogo1FrontStartingX={this.updateLogo1FrontStartingX}
+updateLogo1FrontStartingY={this.updateLogo1FrontStartingY}
 
                   shirtStartingX = {this.state.shirtStartingX} shirtStartingY = {this.state.shirtStartingY}
                   shirtWidth = {this.state.shirtWidth} shirtHeight = {this.state.shirtHeight}
@@ -1469,6 +1559,7 @@ this.setState ({currentLogoTextStrokeBack: ''})
 
             <div className = 'toolbarCol col s12 m12 l4'>
               <Route exact path ='/' exact render={() => <ToolBar 
+  
               increaseLogoSize1Front = {this.increaseLogoSize1Front}
               increaseLogoSize2Front = {this.increaseLogoSize2Front}
               increaseLogoSize3Front = {this.increaseLogoSize3Front}

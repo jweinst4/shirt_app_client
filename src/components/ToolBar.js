@@ -9,6 +9,7 @@ let baseURL = process.env.REACT_APP_BASEURL
 
 
 
+
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3000'
 } else {
@@ -27,6 +28,7 @@ class ToolBar extends React.Component {
       showLogoText: false,
       showSaveAsForm: false,
       name: '',
+      nameOfProject: '',
       email: '',
       message: '',
     }
@@ -48,6 +50,8 @@ class ToolBar extends React.Component {
  this.handleContactSubmit = this.handleContactSubmit.bind(this)
  this.sendEmail = this.sendEmail.bind(this)
 }
+
+
 
 handleContactChange(event) {
   this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
@@ -668,10 +672,19 @@ this.changeShirtColorHere(item) }} >
          
          <div className = 'form-inline'>
          <div className = 'form-group'>
-         <label htmlFor="name"><span className = 'contactLabel'>Name: </span></label>
+         <label htmlFor="name"><span className = 'contactLabel'>Your Name: </span></label>
              <input className = 'contactInput' type="text" id="name" name="name" onChange={this.handleContactChange} value={this.state.name}  />  
              </div>   
              </div>
+
+             <div className = 'form-inline'>
+         <div className = 'form-group'>
+         <label htmlFor="nameOfProject"><span className = 'contactLabel'>Name of Project: </span></label>
+             <input className = 'contactInput' type="text" id="nameOfProject" name="nameOfProject" onChange={this.handleContactChange} value={this.state.nameOfProject}  />  
+             </div>   
+             </div>
+
+             
 
              <div className = 'form-inline'>
          <div className = 'form-group'>
@@ -685,7 +698,6 @@ this.changeShirtColorHere(item) }} >
              </div>
            
          </form>
-
   </>
 ):(
 <>
