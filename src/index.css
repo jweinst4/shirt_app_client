@@ -78,7 +78,8 @@
   }
 
 
-  .canvas-border {
+  .contactInput {
+    height: 200px;
   }
   
 .shirtTotal {
@@ -260,7 +261,23 @@ border-radius: 5px;
   height: 40px;
 }
 
+.toggleSaveAsFormHeader {
+  font-size: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background:lightgreen;
+  opacity: 0.5;
+  cursor: grab;
+  margin-bottom: 15px;
+  height: 80px;
+
+}
+
 .headerText {
  margin-left: 15px;
+}
+
+.showSaveAsForm {
+  height: 250px !important;
 }
 

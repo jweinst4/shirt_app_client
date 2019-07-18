@@ -25,6 +25,7 @@ class ToolBar extends React.Component {
       showShirtColors: true,
       showLogos: false,
       showLogoText: false,
+      showSaveAsForm: false,
       name: '',
       email: '',
       message: '',
@@ -41,6 +42,7 @@ class ToolBar extends React.Component {
  this.showShirtColorsToggle = this.showShirtColorsToggle.bind(this)
  this.showLogosToggle = this.showLogosToggle.bind(this)
  this.showLogoTextToggle = this.showLogoTextToggle.bind(this)
+ this.showSaveAsFormToggle = this.showSaveAsFormToggle.bind(this)
 
  this.handleContactChange = this.handleContactChange.bind(this)
  this.handleContactSubmit = this.handleContactSubmit.bind(this)
@@ -93,9 +95,13 @@ showLogoTextToggle() {
   this.setState({showLogoText: !this.state.showLogoText})
 }
 
-    handleLogoTextChange(event) {
-      this.setState({ [event.currentTarget.id]: event.currentTarget.value})
-  }
+showSaveAsFormToggle() {
+  this.setState({showSaveAsForm: !this.state.showSaveAsForm})
+}
+
+handleLogoTextChange(event) {
+  this.setState({ [event.currentTarget.id]: event.currentTarget.value})
+}
 
   handleLogoTextSubmit(event) {
     event.preventDefault();
@@ -653,37 +659,39 @@ this.changeShirtColorHere(item) }} >
 
 </>
 )}
-  <form className = 'col s12 m12 l12 contactForm' onSubmit={this.handleContactSubmit}>
+
+         <div><h6 className = 'toggleSaveAsFormHeader'><div onClick = {this.showSaveAsFormToggle} className = 'headerText saveAsFormHeaderText'>Save and Email Your Shirt!</div></h6></div>
+
+         {this.state.showSaveAsForm ? (
+  <> 
+ <form className = 'contactForm' onSubmit={this.handleContactSubmit}>
          
          <div className = 'form-inline'>
-         <div className = 'col s12 m12 l12 form-group'>
-         <label className = 'col s2 m2 l2' htmlFor="name"><span className = 'contactLabel'>Name: </span></label>
-             <input className = 'col s6 m6 l6 contactInput' type="text" id="name" name="name" onChange={this.handleContactChange} value={this.state.name}  />  
+         <div className = 'form-group'>
+         <label htmlFor="name"><span className = 'contactLabel'>Name: </span></label>
+             <input className = 'contactInput' type="text" id="name" name="name" onChange={this.handleContactChange} value={this.state.name}  />  
              </div>   
              </div>
 
              <div className = 'form-inline'>
-         <div className = 'col s12 m12 l12 form-group'>
-         <label className = 'col s2 m2 l2' htmlFor="email"><span className = 'contactLabel'>Email: </span></label>
-             <input className = 'col s6 m6 l6 contactInput' type="text" id="email" name="email" onChange={this.handleContactChange} value={this.state.email}  />  
+         <div className = 'form-group'>
+         <label htmlFor="email"><span className = 'contactLabel'>Email: </span></label>
+             <input className = 'contactInput' type="text" id="email" name="email" onChange={this.handleContactChange} value={this.state.email}  />  
              </div>   
              </div>
-
-             <div className = 'form-inline'>
-         <div className = 'col s12 m12 l12 form-group'>
-         <label className = 'col s2 m2 l2' htmlFor="message"><span className = 'contactLabel'>Message: </span></label>
-             <textarea className = 'col s6 m6 l6 contactInput' type="text" id="message" name="message" onChange={this.handleContactChange} value={this.state.message}  />  
-             </div>   
-             </div>
-
 
              <div className = 'form-row'>
-               <input className = 'contactSubmit' type="submit" value="Submit Your Message"/>
+               <input className = 'contactSubmit' type="submit" value="Save and email your shirt!"/>
              </div>
            
-          
          </form>
 
+  </>
+):(
+<>
+
+</>
+)}
       
       </div>
 
