@@ -40,6 +40,7 @@ class URLImageFront1 extends React.Component {
   };
   render() {
     return (
+     
       <Image
         x={this.props.allProps.logo1FrontStartingX}
         y={this.props.allProps.logo1FrontStartingY}
@@ -63,9 +64,11 @@ class URLImageFront1 extends React.Component {
           this.imageNode = node;
         }}
       />
+ 
     );
   }
 }
+
 
 class URLImageFront2 extends React.Component {
   state = {
@@ -455,7 +458,7 @@ class Canvas extends React.Component {
 
     {this.props.currentLogoFront1 !== '' ? (
         <>
-          <URLImageFront1 allProps = {this.props} src={this.props.currentLogoFront1}/>
+          <URLImageFront1 allProps = {this.props} src={this.props.currentLogoFront1} cursor={'grab'}/>
         </>
       ):(
         <>
@@ -485,8 +488,9 @@ class Canvas extends React.Component {
         </>
       )
     }
-  
+
   <Text x={this.props.text1FrontStartingX} y={this.props.text1FrontStartingY} allProps = {this.props}  fontFamily={this.props.currentFontFront1} fontSize={this.props.logoTextFontSizeFront1} fill={this.props.currentLogoTextColorFront1} text={this.props.currentLogoTextFront1} stroke = {this.props.currentLogoTextStrokeFront1} draggable />
+
 
   <Text x={this.props.text2FrontStartingX} y={this.props.text2FrontStartingY} allProps = {this.props}  fontFamily={this.props.currentFontFront2} fontSize={this.props.logoTextFontSizeFront2} fill={this.props.currentLogoTextColorFront2} text={this.props.currentLogoTextFront2} stroke = {this.props.currentLogoTextStrokeFront2} draggable />
 

@@ -9,10 +9,18 @@ import NewUser from './components/NewUser.js'
 import NewLogo from './components/NewLogo.js'
 import ToolBar from './components/ToolBar.js'
 import Canvas from './components/Canvas.js'
-import URLImageBack from './components/Canvas.js'
 import PricingFormula from './components/PricingFormula.js'
 
 import './App.css';
+require('dotenv').config()
+const aws = require('aws-sdk');
+
+
+let amazonObject = [];
+let amazonObjectURL = [];
+let allImages=[];
+
+
 
 //test
 
@@ -362,6 +370,40 @@ class App extends React.Component {
           this.deleteTextBackThree=this.deleteTextBackThree.bind(this)
  
   }
+
+  componentDidMount() {
+    (async function() {
+      try { 
+        aws.config.setPromisesDependency();
+        aws.config.update({
+        accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+        region: 'us-east-1',
+      });
+    
+      const s3= new aws.S3();
+    
+      const response = await s3.listObjectsV2({
+        Bucket: process.env.REACT_APP_S3_BUCKET
+      }).promise();
+    
+        amazonObject.push(response)
+        for (let i = 0; i < amazonObject[0].Contents.length; i++) {
+          if (amazonObject[0].Contents[i].Size > 0) {
+            amazonObjectURL.push(amazonObject[0].Contents[i].Key)
+          }
+        }
+    
+        allImages = amazonObjectURL.map(el => 'https://' + process.env.REACT_APP_S3_BUCKET + '.s3.amazonaws.com/' + el)
+        console.log(allImages)
+    
+      } catch(e) {
+        console.log('error');
+      }
+    
+    })();
+          console.log('test')
+          }
 
       logoTextFrontActivate1() {
         this.setState({logoTextFrontActive1: true})
