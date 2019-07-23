@@ -331,11 +331,25 @@ this.changeShirtColorHere(item) }} >
   
 })}
 
+
+<div className = 'col s12 m12 l12 logoOperators'>
 {!!this.props.currentLogoFront1 && this.props.front ? (
   <> 
-  <p>Logo1:  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize1Front} >arrow_upwards</i>
+  <div className = 'col s3 m3 l3'>
+  Logo1:
+  </div>
+  
+  <div className = 'col s3 m3 l3'>
+  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize1Front} >arrow_upwards</i>
+  </div>
+
+  <div className = 'col s3 m3 l3'>
  <i className="material-icons arrowUp"  onClick = {this.props.decreaseLogoSize1Front} >arrow_downwards</i>
- <i className="material-icons delete"  onClick = {this.props.deleteCurrentLogoFrontOne} >delete</i></p> 
+ </div>
+
+ <div className = 'col s3 m3 l3'>
+ <i className="material-icons delete"  onClick = {this.props.deleteCurrentLogoFrontOne} >delete</i>
+ </div>
 
   </>
 ):(
@@ -343,12 +357,27 @@ this.changeShirtColorHere(item) }} >
 
 </>
 )}
+</div>
 
+
+<div className = 'col s12 m12 l12 logoOperators'>
 {!!this.props.currentLogoFront2 && this.props.front ? (
   <> 
-  <p>Logo2:  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize2Front} >arrow_upwards</i>
+  <div className = 'col s3 m3 l3'>
+  Logo2:
+  </div>
+  
+  <div className = 'col s3 m3 l3'>
+  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize2Front} >arrow_upwards</i>
+  </div>
+
+  <div className = 'col s3 m3 l3'>
  <i className="material-icons arrowUp"  onClick = {this.props.decreaseLogoSize2Front} >arrow_downwards</i>
- <i className="material-icons delete"  onClick = {this.props.deleteCurrentLogoFrontTwo} >delete</i></p> 
+ </div>
+
+ <div className = 'col s3 m3 l3'>
+ <i className="material-icons delete"  onClick = {this.props.deleteCurrentLogoFrontTwo} >delete</i> 
+ </div>
  
 
   </>
@@ -357,12 +386,28 @@ this.changeShirtColorHere(item) }} >
 
 </>
 )}
+</div>
 
+
+
+<div className = 'col s12 m12 l12 logoOperators'>
 {!!this.props.currentLogoFront3 && this.props.front ? (
   <> 
-  <p>Logo3:  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize3Front} >arrow_upwards</i>
+  <div className = 'col s3 m3 l3'>
+  Logo3:
+  </div>
+  
+  <div className = 'col s3 m3 l3'>
+  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize3Front} >arrow_upwards</i>
+  </div>
+
+  <div className = 'col s3 m3 l3'>
  <i className="material-icons arrowUp"  onClick = {this.props.decreaseLogoSize3Front} >arrow_downwards</i>
- <i className="material-icons delete"  onClick = {this.props.deleteCurrentLogoFrontThree} >delete</i> </p> 
+ </div>
+
+ <div className = 'col s3 m3 l3'>
+ <i className="material-icons delete"  onClick = {this.props.deleteCurrentLogoFrontThree} >delete</i>
+ </div>
 
   </>
 ):(
@@ -370,12 +415,26 @@ this.changeShirtColorHere(item) }} >
 
 </>
 )}
+</div>
 
+<div className = 'col s12 m12 l12 logoOperators'>
 {!!this.props.currentLogoBack1 && this.props.back ? (
   <> 
-  <p>Logo1:  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize1Back} >arrow_upwards</i>
+  <div className = 'col s3 m3 l3'>
+  Logo1:
+  </div>
+  
+  <div className = 'col s3 m3 l3'>
+  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize1Back} >arrow_upwards</i>
+  </div>
+
+  <div className = 'col s3 m3 l3'>
  <i className="material-icons arrowUp"  onClick = {this.props.decreaseLogoSize1Back} >arrow_downwards</i>
- <i className="material-icons delete"  onClick = {this.props.deleteCurrentLogoBackOne} >delete</i></p> 
+ </div>
+
+ <div className = 'col s3 m3 l3'>
+ <i className="material-icons delete"  onClick = {this.props.deleteCurrentLogoBackOne} >delete</i>
+ </div>
 
   </>
 ):(
@@ -383,12 +442,26 @@ this.changeShirtColorHere(item) }} >
 
 </>
 )}
+</div>
 
+<div className = 'col s12 m12 l12 logoOperators'>
 {!!this.props.currentLogoBack2 && this.props.back ? (
   <> 
-  <p>Logo2:  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize2Back} >arrow_upwards</i>
+ <div className = 'col s3 m3 l3'>
+  Logo2:
+  </div>
+  
+  <div className = 'col s3 m3 l3'>
+  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize2Back} >arrow_upwards</i>
+  </div>
+
+  <div className = 'col s3 m3 l3'>
  <i className="material-icons arrowUp"  onClick = {this.props.decreaseLogoSize2Back} >arrow_downwards</i>
- <i className="material-icons delete"  onClick = {this.props.deleteCurrentLogoBackTwo} >delete</i></p> 
+ </div>
+
+ <div className = 'col s3 m3 l3'>
+ <i className="material-icons delete"  onClick = {this.props.deleteCurrentLogoBackTwo} >delete</i>
+ </div>
 
   </>
 ):(
@@ -396,12 +469,26 @@ this.changeShirtColorHere(item) }} >
 
 </>
 )}
+</div>
 
+<div className = 'col s12 m12 l12 logoOperators'>
 {!!this.props.currentLogoBack3 && this.props.back ? (
   <> 
-  <p>Logo3:  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize3Back} >arrow_upwards</i>
+<div className = 'col s3 m3 l3'>
+  Logo3:
+  </div>
+  
+  <div className = 'col s3 m3 l3'> 
+  <i className="material-icons arrowUp"  onClick = {this.props.increaseLogoSize3Back} >arrow_upwards</i>
+  </div>
+
+  <div className = 'col s3 m3 l3'>
  <i className="material-icons arrowUp"  onClick = {this.props.decreaseLogoSize3Back} >arrow_downwards</i>
- <i className="material-icons delete"  onClick = {this.props.deleteCurrentLogoBackThree} >delete</i></p> 
+ </div>
+ 
+ <div className = 'col s3 m3 l3'>
+ <i className="material-icons delete"  onClick = {this.props.deleteCurrentLogoBackThree} >delete</i>
+ </div>
 
   </>
 ):(
@@ -412,8 +499,9 @@ this.changeShirtColorHere(item) }} >
 
 
 </div>
-
+</div>
   </>
+  
 ):(
 <>
 
@@ -449,18 +537,20 @@ this.changeShirtColorHere(item) }} >
          {this.props.front && !!this.props.currentLogoTextFront1 ? (
   <>  
    <div className = 'row s12 m12 l12'>
-  <div className = 'col s12 m12 l12 center-align'>
-              <div className = 'col' onClick = {this.props.logoTextFrontActivate1} style={{backgroundColor: this.props.logoTextBackgroundColorFront1}}>FontSizeFront1:</div> <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront1} >arrow_upwards</i></div>
-             
+  
+              <div className = 'col s6 m6 l6' onClick = {this.props.logoTextFrontActivate1} style={{backgroundColor: this.props.logoTextBackgroundColorFront1}}>FontSizeFront1:</div> 
+              
+              <div className = 'col s2 m2 l2'>
+                <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront1} >arrow_upwards</i>
+              </div>
+ 
+              <div className = 'col s2 m2 l2'>
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeFront1} >arrow_downward</i>
+               </div>
 
-                <div className = 'col s4 m4 l4  center-align'>
-               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeFront1} >arrow_downward</i></div>
-
-               <div className = 'col s4 m4 l4 center-align'>
-               <i className="material-icons delete" onClick = {this.props.deleteTextFrontOne} >delete</i></div>
-
-
-
+               <div className = 'col s2 m2 l2'>
+               <i className="material-icons delete" onClick = {this.props.deleteTextFrontOne} >delete</i>
+               </div>
 
                 </div>
 
@@ -478,15 +568,20 @@ this.changeShirtColorHere(item) }} >
 {this.props.front && !!this.props.currentLogoTextFront2 ? (
   <>  
    <div className = 'row s12 m12 l12'>
-  <div className = 'col s6 m6 l6 center-align'>
-  <div className = 'col' onClick = {this.props.logoTextFrontActivate2} style={{backgroundColor: this.props.logoTextBackgroundColorFront2}}>FontSizeFront2:</div><i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront2} >arrow_upwards</i></div>
-             
 
-                <div className = 'col s6 m6 l6  center-align'>
-               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeFront2} >arrow_downward</i></div>
+  <div className = 'col s6 m6 l6' onClick = {this.props.logoTextFrontActivate2} style={{backgroundColor: this.props.logoTextBackgroundColorFront2}}>FontSizeFront2:</div>
+  
+            <div className = 'col s2 m2 l2'>
+              <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront2} >arrow_upwards</i>
+             </div>
 
-               <div className = 'col s4 m4 l4 center-align'>
-               <i className="material-icons delete" onClick = {this.props.deleteTextFrontTwo} >delete</i></div>
+              <div className = 'col s2 m2 l2'>       
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeFront2} >arrow_downward</i>
+               </div>
+
+               <div className = 'col s2 m2 l2'>
+               <i className="material-icons delete" onClick = {this.props.deleteTextFrontTwo} >delete</i>
+               </div>
 
 
 
@@ -504,17 +599,20 @@ this.changeShirtColorHere(item) }} >
 {this.props.front && !!this.props.currentLogoTextFront3 ? (
   <>  
    <div className = 'row s12 m12 l12'>
-  <div className = 'col s6 m6 l6 center-align'>
-  <div className = 'col' onClick = {this.props.logoTextFrontActivate3} style={{backgroundColor: this.props.logoTextBackgroundColorFront3}}>FontSizeFront3:</div><i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront3} >arrow_upwards</i></div>
+
+  <div className = 'col s6 m6 l6' onClick = {this.props.logoTextFrontActivate3} style={{backgroundColor: this.props.logoTextBackgroundColorFront3}}>FontSizeFront3:</div>
+  
+            <div className = 'col s2 m2 l2'>
+              <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront3} >arrow_upwards</i>
+            </div>
              
+            <div className = 'col s2 m2 l2'>
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeFront3} >arrow_downward</i>
+               </div>
 
-                <div className = 'col s6 m6 l6  center-align'>
-               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeFront3} >arrow_downward</i></div>
-
-               <div className = 'col s4 m4 l4 center-align'>
-               <i className="material-icons delete" onClick = {this.props.deleteTextFrontThree} >delete</i></div>
-
-
+               <div className = 'col s2 m2 l2'>
+               <i className="material-icons delete" onClick = {this.props.deleteTextFrontThree} >delete</i>
+               </div>
                 </div>
             
    </>
@@ -530,15 +628,20 @@ this.changeShirtColorHere(item) }} >
 {this.props.back && !!this.props.currentLogoTextBack1 ? (
   <>  
    <div className = 'row s12 m12 l12'>
-  <div className = 'col s6 m6 l6 center-align'>
-  <div className = 'col' onClick = {this.props.logoTextBackActivate1} style={{backgroundColor: this.props.logoTextBackgroundColorBack1}}>FontSizeBack1:</div><i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeBack1} >arrow_upwards</i></div>
-             
 
-                <div className = 'col s6 m6 l6  center-align'>
-               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeBack1} >arrow_downward</i></div>
+  <div className = 'col s6 m6 l6' onClick = {this.props.logoTextBackActivate1} style={{backgroundColor: this.props.logoTextBackgroundColorBack1}}>FontSizeBack1:</div>
+  
+  <div className = 'col s2 m2 l2'>
+              <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeBack1} >arrow_upwards</i>
+              </div>
 
-               <div className = 'col s4 m4 l4 center-align'>
-               <i className="material-icons delete" onClick = {this.props.deleteTextBackOne} >delete</i></div>
+              <div className = 'col s2 m2 l2'>          
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeBack1} >arrow_downward</i>
+               </div>
+
+               <div className = 'col s2 m2 l2'>
+               <i className="material-icons delete" onClick = {this.props.deleteTextBackOne} >delete</i>
+               </div>
 
                 </div>
             
@@ -554,15 +657,21 @@ this.changeShirtColorHere(item) }} >
 {this.props.back && !!this.props.currentLogoTextBack2 ? (
   <>  
    <div className = 'row s12 m12 l12'>
-  <div className = 'col s6 m6 l6 center-align'>
-  <div className = 'col' onClick = {this.props.logoTextBackActivate2} style={{backgroundColor: this.props.logoTextBackgroundColorBack2}}>FontSizeBack2:</div> <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeBack2} >arrow_upwards</i></div>
-             
 
-                <div className = 'col s6 m6 l6  center-align'>
-               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeBack2} >arrow_downward</i></div>
+  <div className = 'col s6 m6 l6' onClick = {this.props.logoTextBackActivate2} style={{backgroundColor: this.props.logoTextBackgroundColorBack2}}>FontSizeBack2:</div>
+  
+  <div className = 'col s2 m2 l2'>
+              <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeBack2} >arrow_upwards</i>
+              </div>
+                      
+              <div className = 'col s2 m2 l2'>
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeBack2} >arrow_downward</i>
+               </div>
 
-               <div className = 'col s4 m4 l4 center-align'>
-               <i className="material-icons delete" onClick = {this.props.deleteTextBackTwo} >delete</i></div>
+               
+               <div className = 'col s2 m2 l2'>
+               <i className="material-icons delete" onClick = {this.props.deleteTextBackTwo} >delete</i>
+               </div>
 
                 </div>
             
@@ -578,15 +687,22 @@ this.changeShirtColorHere(item) }} >
 {this.props.back && !!this.props.currentLogoTextBack3 ? (
   <>  
    <div className = 'row s12 m12 l12'>
-  <div className = 'col s6 m6 l6 center-align'>
-  <div className = 'col' onClick = {this.props.logoTextBackActivate3} style={{backgroundColor: this.props.logoTextBackgroundColorBack3}}>FontSizeBack3:</div> <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeBack3} >arrow_upwards</i></div>
-             
 
-                <div className = 'col s6 m6 l6  center-align'>
-               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeBack3} >arrow_downward</i></div>
+  <div className = 'col s6 m6 l6' onClick = {this.props.logoTextBackActivate3} style={{backgroundColor: this.props.logoTextBackgroundColorBack3}}>FontSizeBack3:</div> 
 
-               <div className = 'col s4 m4 l4 center-align'>
-               <i className="material-icons delete" onClick = {this.props.deleteTextBackThree} >delete</i></div>
+
+            <div className = 'col s2 m2 l2'>
+              <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeBack3} >arrow_upwards</i>
+            </div>
+
+            <div className = 'col s2 m2 l2'>
+               <i className="material-icons arrowDown" onClick = {this.props.decreaseTextSizeBack3} >arrow_downward</i>
+               </div>
+
+              <div className = 'col s2 m2 l2'> 
+               <i className="material-icons delete" onClick = {this.props.deleteTextBackThree} >delete</i>
+               </div>
+
 
 
                 </div>
