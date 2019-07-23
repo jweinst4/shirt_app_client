@@ -538,7 +538,7 @@ this.changeShirtColorHere(item) }} >
   <>  
    <div className = 'row s12 m12 l12'>
   
-              <div className = 'col s6 m6 l6' onClick = {this.props.logoTextFrontActivate1} style={{backgroundColor: this.props.logoTextBackgroundColorFront1}}>FontSizeFront1:</div> 
+              <div className = 'col s6 m6 l6 activeLogoText' onClick = {this.props.logoTextFrontActivate1} style={{backgroundColor: this.props.logoTextBackgroundColorFront1}}>FontSizeFront1:</div> 
               
               <div className = 'col s2 m2 l2'>
                 <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront1} >arrow_upwards</i>
@@ -569,7 +569,7 @@ this.changeShirtColorHere(item) }} >
   <>  
    <div className = 'row s12 m12 l12'>
 
-  <div className = 'col s6 m6 l6' onClick = {this.props.logoTextFrontActivate2} style={{backgroundColor: this.props.logoTextBackgroundColorFront2}}>FontSizeFront2:</div>
+  <div className = 'col s6 m6 l6 activeLogoText' onClick = {this.props.logoTextFrontActivate2} style={{backgroundColor: this.props.logoTextBackgroundColorFront2}}>FontSizeFront2:</div>
   
             <div className = 'col s2 m2 l2'>
               <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront2} >arrow_upwards</i>
@@ -600,7 +600,7 @@ this.changeShirtColorHere(item) }} >
   <>  
    <div className = 'row s12 m12 l12'>
 
-  <div className = 'col s6 m6 l6' onClick = {this.props.logoTextFrontActivate3} style={{backgroundColor: this.props.logoTextBackgroundColorFront3}}>FontSizeFront3:</div>
+  <div className = 'col s6 m6 l6 activeLogoText' onClick = {this.props.logoTextFrontActivate3} style={{backgroundColor: this.props.logoTextBackgroundColorFront3}}>FontSizeFront3:</div>
   
             <div className = 'col s2 m2 l2'>
               <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeFront3} >arrow_upwards</i>
@@ -629,7 +629,7 @@ this.changeShirtColorHere(item) }} >
   <>  
    <div className = 'row s12 m12 l12'>
 
-  <div className = 'col s6 m6 l6' onClick = {this.props.logoTextBackActivate1} style={{backgroundColor: this.props.logoTextBackgroundColorBack1}}>FontSizeBack1:</div>
+  <div className = 'col s6 m6 l6 activeLogoText' onClick = {this.props.logoTextBackActivate1} style={{backgroundColor: this.props.logoTextBackgroundColorBack1}}>FontSizeBack1:</div>
   
   <div className = 'col s2 m2 l2'>
               <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeBack1} >arrow_upwards</i>
@@ -658,7 +658,7 @@ this.changeShirtColorHere(item) }} >
   <>  
    <div className = 'row s12 m12 l12'>
 
-  <div className = 'col s6 m6 l6' onClick = {this.props.logoTextBackActivate2} style={{backgroundColor: this.props.logoTextBackgroundColorBack2}}>FontSizeBack2:</div>
+  <div className = 'col s6 m6 l6 activeLogoText' onClick = {this.props.logoTextBackActivate2} style={{backgroundColor: this.props.logoTextBackgroundColorBack2}}>FontSizeBack2:</div>
   
   <div className = 'col s2 m2 l2'>
               <i className="material-icons arrowUp"  onClick = {this.props.increaseTextSizeBack2} >arrow_upwards</i>
@@ -688,7 +688,7 @@ this.changeShirtColorHere(item) }} >
   <>  
    <div className = 'row s12 m12 l12'>
 
-  <div className = 'col s6 m6 l6' onClick = {this.props.logoTextBackActivate3} style={{backgroundColor: this.props.logoTextBackgroundColorBack3}}>FontSizeBack3:</div> 
+  <div className = 'col s6 m6 l6 activeLogoText' onClick = {this.props.logoTextBackActivate3} style={{backgroundColor: this.props.logoTextBackgroundColorBack3}}>FontSizeBack3:</div> 
 
 
             <div className = 'col s2 m2 l2'>

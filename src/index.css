@@ -286,10 +286,6 @@ border-radius: 5px;
   font-size: 20px;
 }
 
-.material-icons {
+.material-icons, .activeLogoText {
   cursor: grab;
-}
-
-.delete {
-  
 }

@@ -30,6 +30,7 @@ class URLImageFront1 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -126,6 +127,7 @@ class URLImageFront2 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -220,6 +222,7 @@ class URLImageFront3 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -315,6 +318,7 @@ class URLImageBack1 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -410,6 +414,7 @@ class URLImageBack2 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -505,6 +510,7 @@ class URLImageBack3 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -588,11 +594,9 @@ class Shirt extends React.Component {
     shirtWidth: '',
   }
   componentDidMount() {
-    this.loadImage();
-    
-
-    
+    this.loadImage();    
   }
+
   componentDidUpdate(oldProps) {
     if (oldProps.src !== this.props.src) {
       this.loadImage();
@@ -604,6 +608,7 @@ class Shirt extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -646,21 +651,22 @@ class Canvas extends React.Component {
 
     }
 
+    this.handleExportClick = this.handleExportClick.bind(this)
+
   };
 
-
- 
- 
-  componentDidMount() {
-    
+  handleExportClick(){
+    console.log(this.stageRef.getStage().toDataURL());
   }
+  
+
  
   render() {
     return (
 
 <div className = 'canvas-border row'>
-  
-    <Stage width={this.props.canvasWidth} height={this.props.canvasHeight}>
+
+    <Stage width={this.props.canvasWidth} height={this.props.canvasHeight} ref={node => { this.stageRef = node}}>
       <Layer>
 
 {this.props.front ? (
@@ -768,7 +774,8 @@ class Canvas extends React.Component {
 )}       
       </Layer>
     </Stage>
-    
+  
+    <button style={{ position: 'absolute', top: '0'}} onClick={this.handleExportClick}>Export stage</button>
 
     
   </div>
@@ -778,7 +785,5 @@ class Canvas extends React.Component {
 
   }
 }
-
-
 
 export default Canvas
