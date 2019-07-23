@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
+
+
 const emailjs = require('emailjs-com');
-
+const aws = require('aws-sdk');
 let baseURL = process.env.REACT_APP_BASEURL
-
-
 
 
 if (process.env.NODE_ENV === 'development') {
@@ -31,6 +31,10 @@ class ToolBar extends React.Component {
       nameOfProject: '',
       email: '',
       message: '',
+        file_text:"",
+      file_upload: null,
+      link:'',
+      errors: false
     }
 
  this.changeShirtColorHere = this.changeShirtColorHere.bind(this)
@@ -79,8 +83,6 @@ sendEmail(name,email,message) {
          alert('There was a technical issue with your submisson.  We will look into this, thank you!')
       });
 }
-
- 
 
   componentDidMount(){
     this.props.getColors()
