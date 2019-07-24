@@ -62,15 +62,45 @@ console.log(params)
 try {
     let uploadPromise = new AWS.S3().putObject(params).promise();
     console.log("Successfully uploaded data to bucket");
+    
+
+    fetch(baseURL + '/logos', {
+      method: 'POST',
+      body: JSON.stringify({
+          name: 'https://' + process.env.REACT_APP_S3_BUCKET + '.s3.amazonaws.com/' + params.Key,
+          user_id: 1,
+      }),
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  }).then(res => res.json()).then(resJSON => {
+      
+      this.props.handleAddLogo(resJSON)
+      this.setState({
+        name: '',
+        user_id: '',
+      })
+  }).catch(error => console.error({ 'Error': error }))
+
+    
 } catch (e) {
     console.log("Error uploading data: ", e);
 }
-    }
+
+
+}
+
+
+
+  
+  
+  
+
     
     render() {
         return (
     <div>
-        <input type="file" onChange={this.upload} />
+        <input className = 'uploadFile' type="file" onChange={this.upload} />
      </div>
        )
     }

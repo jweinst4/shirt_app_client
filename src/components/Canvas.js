@@ -777,7 +777,7 @@ class Canvas extends React.Component {
   
   <div className = 'row'>
   <p></p>
-    <button onClick={this.handleExportClick}>Export stage</button>
+    <button className = 'exportStage' onClick={this.handleExportClick}>Export stage</button>
     </div>
 
   </div>

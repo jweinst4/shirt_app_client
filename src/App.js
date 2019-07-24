@@ -1383,6 +1383,8 @@ class App extends React.Component {
               </div>
               <div className = 'toolbarCol col s12 m12 l4'>
                 <Route exact path ='/' exact render={() => <ToolBar 
+                handleAddLogo = {this.handleAddLogo}
+
                   increaseLogoSize1Front = {this.increaseLogoSize1Front}
                   increaseLogoSize2Front = {this.increaseLogoSize2Front}
                   increaseLogoSize3Front = {this.increaseLogoSize3Front}
@@ -1476,10 +1478,7 @@ class App extends React.Component {
                   logoTextFillToggle={this.state.logoTextFillToggle} logoTextStrokeToggle={this.state.logoTextStrokeToggle} toggleLogoTextStroke={this.toggleLogoTextStroke} toggleLogoTextFill={this.toggleLogoTextFill} logoFillToggleBackgroundColor = {this.state.logoFillToggleBackgroundColor} logoStrokeToggleBackgroundColor = {this.state.logoStrokeToggleBackgroundColor} clearLogoTextStroke = {this.clearLogoTextStroke} deleteCurrentLogoFrontOne={this.deleteCurrentLogoFrontOne}  deleteCurrentLogoFrontTwo={this.deleteCurrentLogoFrontTwo}  deleteCurrentLogoFrontThree={this.deleteCurrentLogoFrontThree}  deleteTextFrontOne={this.deleteTextFrontOne}  deleteTextFrontTwo={this.deleteTextFrontTwo}  deleteTextFrontThree={this.deleteTextFrontThree} deleteTextBackone={this.deleteTextBackOne} deleteTextBackTwo={this.deleteTextBackTwo} deleteTextBackThree={this.deleteTextBackThree}  deleteCurrentLogoBackOne={this.deleteCurrentLogoBackOne}  deleteCurrentLogoBackTwo={this.deleteCurrentLogoBackTwo}  deleteCurrentLogoBackThree={this.deleteCurrentLogoBackThree}/>}/>   
               </div>
             </div>
-              <Route exact path ='/' exact render={() => 
-                <UploadFile uploadTestAtAppLevel={this.uploadTestAtAppLevel}/>}
-              />
-
+           
                 <Route exact path ='/newShirt' exact render={() => 
                   <NewColor handleAddColor={this.handleAddColor} getColors={this.getColors}/>}
                 />

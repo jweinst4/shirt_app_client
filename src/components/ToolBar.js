@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import UploadFile from '../components/UploadFile.js'
 
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
@@ -87,7 +88,7 @@ sendEmail(name,email,message) {
   componentDidMount(){
     this.props.getColors()
     this.props.getLogos()
-    }
+  }
 
 showShirtColorsToggle() {
   this.setState({showShirtColors: !this.state.showShirtColors})
@@ -318,6 +319,9 @@ this.changeShirtColorHere(item) }} >
 
 {this.state.showLogos ? (
   <> 
+
+  <UploadFile handleAddLogo={this.props.handleAddLogo}/>
+  
  <div className='row choice-row'>
       {this.props.logos.map((item, index) => {
   return (

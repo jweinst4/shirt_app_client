@@ -289,3 +289,11 @@ border-radius: 5px;
 .material-icons, .activeLogoText {
   cursor: grab;
 }
+
+.exportStage {
+  opacity: 0.5;
+}
+
+.uploadFile {
+  margin-bottom: 10px;
+}
