@@ -99,8 +99,9 @@ try {
     
     render() {
         return (
-    <div>
-        <input className = 'uploadFile' type="file" onChange={this.upload} />
+    <div className = 'uploadFileDiv'>
+       <label for="files" className="uploadFileButton">Upload Logo</label>
+        <input id = 'files' style={{visibility:'hidden'}} className = 'uploadFileButton' type="file" onChange={this.upload} />
      </div>
        )
     }

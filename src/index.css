@@ -297,3 +297,15 @@ border-radius: 5px;
 .uploadFile {
   margin-bottom: 10px;
 }
+
+.uploadFileButton {
+  font-size: 20px;
+  background: lightpink;
+  color: black;
+  cursor: grab;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+
