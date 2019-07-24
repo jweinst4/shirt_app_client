@@ -13,6 +13,7 @@
     "dotenv": "^8.0.0",
     "emailjs-com": "^2.3.2",
     "file-system": "^2.2.2",
+    "filepond": "^4.4.11",
     "konva": "^3.3.3",
     "materialize": "^1.0.0",
     "materialize-css": "^1.0.0-rc.2",

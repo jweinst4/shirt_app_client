@@ -776,9 +776,11 @@ class Canvas extends React.Component {
       </Layer>
     </Stage>
   
-    <button style={{ position: 'absolute', top: '0'}} onClick={this.handleExportClick}>Export stage</button>
+  <div className = 'row'>
+  <p></p>
+    <button onClick={this.handleExportClick}>Export stage</button>
+    </div>
 
-    <a href = {this.props.stageExportLink}>Shirt Image Link</a>
   </div>
 
 

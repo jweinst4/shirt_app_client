@@ -1,29 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
-
-import 'materialize-css'; // It installs the JS asset only
-import 'materialize-css/dist/css/materialize.min.css';
-
 import NewColor from './components/NewColor.js'
 import NewUser from './components/NewUser.js'
 import NewLogo from './components/NewLogo.js'
 import ToolBar from './components/ToolBar.js'
 import Canvas from './components/Canvas.js'
 import PricingFormula from './components/PricingFormula.js'
+import UploadFile from './components/UploadFile.js'
 
+import 'materialize-css'; // It installs the JS asset only
+import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
+
 require('dotenv').config()
-const aws = require('aws-sdk');
-
-
-let amazonObject = [];
-let amazonObjectURL = [];
-let allImages=[];
-
-
-//test
-
-
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
@@ -31,8 +20,6 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   baseURL = 'https://shirt-api.herokuapp.com'
 }
-
-console.log('current base URL:', baseURL)
 
 class App extends React.Component {
 
@@ -396,6 +383,11 @@ class App extends React.Component {
           this.dragEndBack3=this.dragEndBack3.bind(this)
 
           this.stageExportLinkChange = this.stageExportLinkChange.bind(this)
+          this.uploadTestAtAppLevel = this.uploadTestAtAppLevel.bind(this)
+  }
+
+  uploadTestAtAppLevel(){
+    
   }
 
   stageExportLinkChange(stage){
@@ -440,36 +432,36 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    (async function() {
-      try { 
-        aws.config.setPromisesDependency();
-        aws.config.update({
-        accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
-        region: 'us-east-1',
-      });
+    // (async function() {
+    //   try { 
+    //     aws.config.setPromisesDependency();
+    //     aws.config.update({
+    //     accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+    //     secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+    //     region: 'us-east-1',
+    //   });
     
-      const s3= new aws.S3();
+    //   const s3= new aws.S3();
     
-      const response = await s3.listObjectsV2({
-        Bucket: process.env.REACT_APP_S3_BUCKET
-      }).promise();
+    //   const response = await s3.listObjectsV2({
+    //     Bucket: process.env.REACT_APP_S3_BUCKET
+    //   }).promise();
     
-        amazonObject.push(response)
-        for (let i = 0; i < amazonObject[0].Contents.length; i++) {
-          if (amazonObject[0].Contents[i].Size > 0) {
-            amazonObjectURL.push(amazonObject[0].Contents[i].Key)
-          }
-        }
+    //     amazonObject.push(response)
+    //     for (let i = 0; i < amazonObject[0].Contents.length; i++) {
+    //       if (amazonObject[0].Contents[i].Size > 0) {
+    //         amazonObjectURL.push(amazonObject[0].Contents[i].Key)
+    //       }
+    //     }
     
-        allImages = amazonObjectURL.map(el => 'https://' + process.env.REACT_APP_S3_BUCKET + '.s3.amazonaws.com/' + el)
-        console.log(allImages)
+    //     allImages = amazonObjectURL.map(el => 'https://' + process.env.REACT_APP_S3_BUCKET + '.s3.amazonaws.com/' + el)
+    //     console.log(allImages)
     
-      } catch(e) {
-        console.log('error');
-      }
+    //   } catch(e) {
+    //     console.log('error');
+    //   }
     
-    })();
+    // })();
           
           }
 
@@ -1665,6 +1657,8 @@ updateLogo1FrontStartingY={this.updateLogo1FrontStartingY}
  </div>
 
           </div>
+
+          <Route exact path ='/' exact render={() => <UploadFile uploadTestAtAppLevel={this.uploadTestAtAppLevel}/>}/>
 
             <Route exact path ='/newShirt' exact render={() => <NewColor handleAddColor={this.handleAddColor} getColors={this.getColors}/>}/>
 
