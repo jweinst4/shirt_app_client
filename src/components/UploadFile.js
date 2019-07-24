@@ -55,6 +55,8 @@ let params = {
     Key: 'Test/' + e.target.files[0].name,
     Body: e.target.files[0],
     ACL: 'public-read',
+    ContentType: e.target.files[0].type,
+    ContentDisposition: 'inline;filename="' + e.target.files[0].name + '"'
 };
 console.log(params)
 try {
