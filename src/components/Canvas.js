@@ -55,7 +55,6 @@ class URLImageFront1 extends React.Component {
         draggable
 
       dragBoundFunc= {(pos) => {  
-        // var newY = pos.y < boundaryYBottom ? boundaryYBottom : pos.y;
 
         if (pos.y < boundaryYTop) {
           var newY = boundaryYTop

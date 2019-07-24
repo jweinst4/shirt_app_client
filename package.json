@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.494.0",
+    "base64-img": "^1.0.4",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "emailjs-com": "^2.3.2",
