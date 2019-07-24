@@ -656,7 +656,8 @@ class Canvas extends React.Component {
   };
 
   handleExportClick(){
-    console.log(this.stageRef.getStage().toDataURL());
+    this.props.stageExportLinkChange(this.stageRef.getStage().toDataURL());
+    // console.log(this.stageRef.getStage().toDataURL());
   }
   
 
@@ -777,7 +778,7 @@ class Canvas extends React.Component {
   
     <button style={{ position: 'absolute', top: '0'}} onClick={this.handleExportClick}>Export stage</button>
 
-    
+    <a href = {this.props.stageExportLink}>Shirt Image Link</a>
   </div>
 
 

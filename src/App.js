@@ -279,7 +279,7 @@ class App extends React.Component {
               dragEndBack3X:150,
               dragEndBack3Y:225,
 
-
+              stageExportLink: '',
     }
 
       this.lightShirtPricing = this.lightShirtPricing.bind(this)
@@ -394,6 +394,13 @@ class App extends React.Component {
           this.dragEndBack1=this.dragEndBack1.bind(this)
           this.dragEndBack2=this.dragEndBack2.bind(this)
           this.dragEndBack3=this.dragEndBack3.bind(this)
+
+          this.stageExportLinkChange = this.stageExportLinkChange.bind(this)
+  }
+
+  stageExportLinkChange(stage){
+    console.log(stage)
+    this.setState({stageExportLink: stage})
   }
 
   dragEndFront1(x,y) {
@@ -1505,6 +1512,9 @@ this.setState ({currentLogoTextStrokeBack: ''})
 
             <div className = 'canvasCol col s12 m12 l8' id='canvasContainer'>
               <Route exact path ='/' exact render={() => <Canvas 
+
+stageExportLinkChange = {this.stageExportLinkChange}
+stageExportLink = {this.state.stageExportLink}
 
 dragEndFront1X = {this.state.dragEndFront1X}
 dragEndFront1Y = {this.state.dragEndFront1Y}
