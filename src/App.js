@@ -12,8 +12,6 @@ import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
 var base64ToImage = require('base64-to-image');
-
-
 require('dotenv').config()
 
 let baseURL = process.env.REACT_APP_BASEURL
@@ -263,6 +261,8 @@ class App extends React.Component {
         dragEndBack3Y:225,
 
       stageExportLink: '',
+      shirtURL: '',
+      paramKey: '',
 }
 
       this.lightShirtPricing = this.lightShirtPricing.bind(this)
@@ -377,68 +377,8 @@ class App extends React.Component {
         this.dragEndBack1=this.dragEndBack1.bind(this)
         this.dragEndBack2=this.dragEndBack2.bind(this)
         this.dragEndBack3=this.dragEndBack3.bind(this)
-
-      this.stageExportLinkChange = this.stageExportLinkChange.bind(this)
-  }
-
-  stageExportLinkChange(str){
-console.log(str)
-this.setState({stageExportLink: str})
-
-fetch(str)
-.then(res => res.blob())
-.then(blob => {
-  var fd = new FormData()
-  fd.append('image', blob, 'filename')
   
-  console.log(blob)
-
-  const AWS = require('aws-sdk');
-  AWS.config.update({
-  accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
-  region: 'us-east-1',
-});
-
-let params = {
-    Bucket: process.env.REACT_APP_S3_BUCKET,
-    Key: 'Test/blob',
-    Body: blob,
-    ACL: 'public-read',
-    ContentType: 'image/png',
-    ContentDisposition: 'inline;filename="blob"'
-};
-console.log(params)
-try {
-    let uploadPromise = new AWS.S3().putObject(params).promise();
-    console.log("Successfully uploaded data to bucket");
-    
-
-    fetch(baseURL + '/logos', {
-      method: 'POST',
-      body: JSON.stringify({
-          name: 'https://' + process.env.REACT_APP_S3_BUCKET + '.s3.amazonaws.com/' + params.Key,
-          user_id: 1,
-      }),
-      headers: {
-          'Content-Type': 'application/json'
-      }
-  }).then(res => res.json()).then(resJSON => {
-      
-      
-    
-  }).catch(error => console.error({ 'Error': error }))
-
-    
-} catch (e) {
-    console.log("Error uploading data: ", e);
-}
-
-})
-
   }
-    
-  
 
     dragEndFront1(x,y) {
       this.setState({dragEndFront1X: x})
@@ -1388,9 +1328,7 @@ try {
             <div className = 'canvasToolbarRow row'>
               <div className = 'canvasCol col s12 m12 l8' id='canvasContainer'>
                 <Route exact path ='/' exact render={() => <Canvas 
-                  stageExportLinkChange = {this.stageExportLinkChange}
-                  stageExportLink = {this.state.stageExportLink}
-
+                  
                     dragEndFront1X = {this.state.dragEndFront1X}
                     dragEndFront1Y = {this.state.dragEndFront1Y}
                     dragEndFront1 = {this.dragEndFront1}

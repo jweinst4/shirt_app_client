@@ -10,6 +10,17 @@ let boundaryXRight = 300;
 let boundaryYTop = 125;
 let boundaryYBottom = 350;
 
+const emailjs = require('emailjs-com');
+const aws = require('aws-sdk');
+var base64ToImage = require('base64-to-image');
+let baseURL = process.env.REACT_APP_BASEURL
+
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:3000'
+} else {
+  baseURL = 'https://shirt-api.herokuapp.com'
+}
+
 class URLImageFront1 extends React.Component {
   state = {
     image: null,
@@ -647,15 +658,124 @@ class Canvas extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      showSaveAsForm: false,
+      name: '',
+      nameOfProject: '',
+      email: '',
+      message: '',
+        file_text:"",
+      file_upload: null,
+      link:'',
+      errors: false,
+      stageExportLink: '',
+      shirtURL: [],
     }
+    this.showSaveAsFormToggle = this.showSaveAsFormToggle.bind(this)
+
+    this.handleContactChange = this.handleContactChange.bind(this)
+    this.handleContactSubmit = this.handleContactSubmit.bind(this)
+    this.sendEmail = this.sendEmail.bind(this)
 
     this.handleExportClick = this.handleExportClick.bind(this)
+    this.stageExportLinkChange = this.stageExportLinkChange.bind(this)
 
   };
 
+handleContactChange(event) {
+  this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
+}
+
+handleContactSubmit(event) {
+  event.preventDefault()
+
+  this.handleExportClick();
+
+ 
+  this.setState({shirtURL: this.props.shirtParams})
+  this.sendEmail(this.state.name,this.state.email,this.state.message,this.props.shirtParams)
+
+}
+
+sendEmail(name,email,message,shirtURL) {
+
+
+  var templateParams = {
+    name: name,
+    email: email,
+    message: message,
+    shirtURL: shirtURL,
+  };
+   
+  emailjs.send('gmail', 'contact_form', templateParams,'user_9Z15AiUlH6qGAT2Ro6H3m')
+      .then(function(response) {
+         console.log('SUCCESS!', response.status, response.text);
+         alert('Thank you for your submission!')
+      }, function(error) {
+         console.log('FAILED...', error);
+         alert('There was a technical issue with your submisson.  We will look into this, thank you!')
+      });
+}
+
+showSaveAsFormToggle() {
+  this.setState({showSaveAsForm: !this.state.showSaveAsForm})
+}
+
+stageExportLinkChange(str){
+  // console.log(str)
+  
+  fetch(str)
+  .then(res => res.blob())
+  .then(blob => {
+    var fd = new FormData()
+    fd.append('image', blob, 'filename')
+    
+    // console.log(blob)
+  
+    const AWS = require('aws-sdk');
+    AWS.config.update({
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+    region: 'us-east-1',
+  });
+  
+  let params = {
+      Bucket: process.env.REACT_APP_S3_BUCKET,
+      Key: 'Test/blob',
+      Body: blob,
+      ACL: 'public-read',
+      ContentType: 'image/png',
+      ContentDisposition: 'inline;filename="blob"'
+  };
+  
+  
+  try {
+      let uploadPromise = new AWS.S3().putObject(params).promise();
+      console.log("Successfully uploaded data to bucket");
+  
+      fetch(baseURL + '/shirts', {
+        method: 'POST',
+        body: JSON.stringify({
+            blob: 'https://' + process.env.REACT_APP_S3_BUCKET + '.s3.amazonaws.com/' + params.Key,
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => res.json()).then(resJSON => {
+      
+           
+    }).catch(error => console.error({ 'Error': error }))
+    
+  } catch (e) {
+      console.log("Error uploading data: ", e);
+  }
+  
+  })
+  
+    }
+
+
   handleExportClick(){
-    this.props.stageExportLinkChange(this.stageRef.getStage().toDataURL());
+    this.stageExportLinkChange(this.stageRef.getStage().toDataURL());
     // console.log(this.stageRef.getStage().toDataURL());
   }
   
@@ -777,9 +897,46 @@ class Canvas extends React.Component {
   
   <div className = 'row'>
   <p></p>
-    <button className = 'exportStage' onClick={this.handleExportClick}>
-      Export stage
-    </button>
+    <h6 className = 'saveAndSendButton'><div onClick = {this.showSaveAsFormToggle} className = 'headerText saveAsFormHeaderText'>Save and Email Your Shirt!</div></h6>
+
+         {this.state.showSaveAsForm ? (
+  <> 
+ <form className = 'contactForm' onSubmit={this.handleContactSubmit}>
+         
+         <div className = 'form-inline'>
+         <div className = 'form-group'>
+         <label htmlFor="name"><span className = 'contactLabel'>Your Name: </span></label>
+             <input className = 'contactInput' type="text" id="name" name="name" onChange={this.handleContactChange} value={this.state.name}  />  
+             </div>   
+             </div>
+
+             <div className = 'form-inline'>
+         <div className = 'form-group'>
+         <label htmlFor="nameOfProject"><span className = 'contactLabel'>Name of Project: </span></label>
+             <input className = 'contactInput' type="text" id="nameOfProject" name="nameOfProject" onChange={this.handleContactChange} value={this.state.nameOfProject}  />  
+             </div>   
+             </div>
+
+             
+
+             <div className = 'form-inline'>
+         <div className = 'form-group'>
+         <label htmlFor="email"><span className = 'contactLabel'>Email: </span></label>
+             <input className = 'contactInput' type="text" id="email" name="email" onChange={this.handleContactChange} value={this.state.email}  />  
+             </div>   
+             </div>
+
+             <div className = 'form-row'>
+               <input className = 'contactSubmit' type="submit" value="Save and email your shirt!"/>
+             </div>
+           
+         </form>
+  </>
+):(
+<>
+
+</>
+)}
    
   </div>
 

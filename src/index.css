@@ -308,4 +308,13 @@ border-radius: 5px;
   margin-left: 5px;
 }
 
+.saveAndSendButton {
+  border: 1px solid black;
+  background: #e3f2fd;
+  width: 350px;
+  border-radius: 5px;
+  cursor: grab;
+  margin-left: 80px;
+}
+
 

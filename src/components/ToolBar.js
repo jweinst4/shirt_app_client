@@ -792,7 +792,7 @@ this.changeShirtColorHere(item) }} >
 </>
 )}
 
-         <div><h6 className = 'toggleSaveAsFormHeader'><div onClick = {this.showSaveAsFormToggle} className = 'headerText saveAsFormHeaderText'>Save and Email Your Shirt!</div></h6></div>
+         {/* <div><h6 className = 'toggleSaveAsFormHeader'><div onClick = {this.showSaveAsFormToggle} className = 'headerText saveAsFormHeaderText'>Save and Email Your Shirt!</div></h6></div> */}
 
          {this.state.showSaveAsForm ? (
   <> 
