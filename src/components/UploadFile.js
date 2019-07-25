@@ -9,14 +9,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 require('dotenv').config()
 const aws = require('aws-sdk');
 
-
-let amazonObject = [];
-let amazonObjectURL = [];
-let allImages=[];
-
 let baseURL = process.env.REACT_APP_BASEURL
-
-
 
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3000'
@@ -29,9 +22,8 @@ const config= {
       accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
       region: 'us-east-1',
-    }
+  }
    
-
 class UploadFile extends React.Component {
     constructor(props) {
         super(props)
@@ -44,7 +36,7 @@ class UploadFile extends React.Component {
     upload(e){
       console.log(e.target.files[0])
       const AWS = require('aws-sdk');
-AWS.config.update({
+  AWS.config.update({
   accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
   region: 'us-east-1',
@@ -63,7 +55,6 @@ try {
     let uploadPromise = new AWS.S3().putObject(params).promise();
     console.log("Successfully uploaded data to bucket");
     
-
     fetch(baseURL + '/logos', {
       method: 'POST',
       body: JSON.stringify({
@@ -86,21 +77,12 @@ try {
 } catch (e) {
     console.log("Error uploading data: ", e);
 }
-
-
 }
 
-
-
-  
-  
-  
-
-    
     render() {
         return (
     <div className = 'uploadFileDiv'>
-       <label for="files" className="uploadFileButton">Upload PNG or JPEG</label>
+       <label htmlFor="files" className="uploadFileButton">Upload PNG or JPEG</label>
         <input id = 'files' style={{visibility:'hidden'}} className = 'uploadFileButton' type="file" onChange={this.upload} />
      </div>
        )

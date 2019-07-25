@@ -8,6 +8,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 
 const emailjs = require('emailjs-com');
 const aws = require('aws-sdk');
+var base64ToImage = require('base64-to-image');
 let baseURL = process.env.REACT_APP_BASEURL
 
 
@@ -35,7 +36,8 @@ class ToolBar extends React.Component {
         file_text:"",
       file_upload: null,
       link:'',
-      errors: false
+      errors: false,
+      stageExportLink: '',
     }
 
  this.changeShirtColorHere = this.changeShirtColorHere.bind(this)
@@ -64,15 +66,19 @@ handleContactChange(event) {
 
 handleContactSubmit(event) {
   event.preventDefault()
-  console.log(this.state.name,this.state.email,this.state.message)
-  this.sendEmail(this.state.name,this.state.email,this.state.message)
+  this.setState({stageExportLink: this.props.stageExportLink})
+
+  console.log(this.props.stageExportLink)
+  // console.log(this.state.name,this.state.email,this.state.message)
+  this.sendEmail(this.state.name,this.state.email,this.state.message,this.props.stageExportLink)
 }
 
-sendEmail(name,email,message) {
+sendEmail(name,email,message,stageExportLink) {
   var templateParams = {
     name: name,
     email: email,
     message: message,
+    stageExportLink: stageExportLink,
   };
    
   emailjs.send('gmail', 'contact_form', templateParams,'user_9Z15AiUlH6qGAT2Ro6H3m')
@@ -315,7 +321,7 @@ this.changeShirtColorHere(item) }} >
 
 
 
-<div><h6 onClick = {this.showLogosToggle} className = 'toggleHeader'><div className = 'headerText'>Logos</div></h6></div>
+<div><h6 onClick = {this.showLogosToggle} className = 'toggleHeader'><div className = 'headerText'>Choose/Upload Logo</div></h6></div>
 
 {this.state.showLogos ? (
   <> 

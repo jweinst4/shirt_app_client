@@ -11,6 +11,7 @@ import UploadFile from './components/UploadFile.js'
 import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
+var base64ToImage = require('base64-to-image');
 
 
 require('dotenv').config()
@@ -381,9 +382,59 @@ class App extends React.Component {
   }
 
   stageExportLinkChange(str){
-
 console.log(str)
+this.setState({stageExportLink: str})
 
+fetch(str)
+.then(res => res.blob())
+.then(blob => {
+  var fd = new FormData()
+  fd.append('image', blob, 'filename')
+  
+  console.log(blob)
+
+  const AWS = require('aws-sdk');
+  AWS.config.update({
+  accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+  region: 'us-east-1',
+});
+
+let params = {
+    Bucket: process.env.REACT_APP_S3_BUCKET,
+    Key: 'Test/blob',
+    Body: blob,
+    ACL: 'public-read',
+    ContentType: 'image/png',
+    ContentDisposition: 'inline;filename="blob"'
+};
+console.log(params)
+try {
+    let uploadPromise = new AWS.S3().putObject(params).promise();
+    console.log("Successfully uploaded data to bucket");
+    
+
+    fetch(baseURL + '/logos', {
+      method: 'POST',
+      body: JSON.stringify({
+          name: 'https://' + process.env.REACT_APP_S3_BUCKET + '.s3.amazonaws.com/' + params.Key,
+          user_id: 1,
+      }),
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  }).then(res => res.json()).then(resJSON => {
+      
+      
+    
+  }).catch(error => console.error({ 'Error': error }))
+
+    
+} catch (e) {
+    console.log("Error uploading data: ", e);
+}
+
+})
 
   }
     
@@ -1321,7 +1372,7 @@ console.log(str)
       <Router>
         <div className = 'appContainer row'>
             <div className = 'navBar row s12 m12 l12'>
-            <div className = 'topCol col s4 m4 l4'>
+              <div className = 'topCol col s4 m4 l4'>
                
               </div>
               <div className = 'topCol col s2 m2 l2'>
@@ -1387,6 +1438,7 @@ console.log(str)
               <div className = 'toolbarCol col s12 m12 l4'>
                 <Route exact path ='/' exact render={() => <ToolBar 
                 handleAddLogo = {this.handleAddLogo}
+                stageExportLink={this.state.stageExportLink}
 
                   increaseLogoSize1Front = {this.increaseLogoSize1Front}
                   increaseLogoSize2Front = {this.increaseLogoSize2Front}
