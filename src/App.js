@@ -644,6 +644,7 @@ class App extends React.Component {
     }
 
   changeCurrentLogoFront(item) {
+    console.log(item)
     if (!this.state.currentLogoFront1) {    
       this.setState ({currentLogoFront1: item.name})
     }
@@ -936,8 +937,10 @@ class App extends React.Component {
         .then(data => {
           return data.json()},
           err => console.log(err))
-        .then(parsedData => this.setState({logos: parsedData}),  
+        .then(parsedData => this.setState({logos: parsedData}), 
+        
         err=> console.log(err))    
+        console.log(this.state.logos) 
     }
 
   getPrices() {
