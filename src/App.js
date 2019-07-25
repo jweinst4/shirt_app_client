@@ -12,7 +12,9 @@ import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
 
+
 require('dotenv').config()
+
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
@@ -378,10 +380,14 @@ class App extends React.Component {
       this.stageExportLinkChange = this.stageExportLinkChange.bind(this)
   }
 
-  stageExportLinkChange(stage){
-    console.log(stage)
-    this.setState({stageExportLink: stage})
+  stageExportLinkChange(str){
+
+console.log(str)
+
+
   }
+    
+  
 
     dragEndFront1(x,y) {
       this.setState({dragEndFront1X: x})
