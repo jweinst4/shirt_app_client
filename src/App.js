@@ -1321,20 +1321,17 @@ console.log(str)
       <Router>
         <div className = 'appContainer row'>
             <div className = 'navBar row s12 m12 l12'>
-              <div className = 'topCol col s12 m5 l2'>
+            <div className = 'topCol col s4 m4 l4'>
+               
+              </div>
+              <div className = 'topCol col s2 m2 l2'>
                 <Link to={'/'}>Home</Link>
               </div>
-              <div className = 'topCol col s12 m5 l2'>
-                <Link to={'/newShirt'}>NewShirt</Link>
-              </div>
-              <div className = 'topCol col s12 m5 l2'>
-                <Link to={'/newUser'}>NewUser</Link>
-              </div>
-              <div className = 'topCol col s12 m5 l2'>
-                <Link to={'/newLogo'}>NewLogo</Link>
-              </div>
-              <div className = 'topCol col s12 m5 l2'>
+              <div className = 'topCol col s2 m2 l2'>
                 <Link to={'/pricingFormula'}>PricingFormula</Link>
+              </div>
+              <div className = 'topCol col s4 m4 l4'>
+                
               </div>
             </div>
             <div className = 'canvasToolbarRow row'>
