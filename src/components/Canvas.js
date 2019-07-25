@@ -9,6 +9,7 @@ let boundaryXLeft = 150;
 let boundaryXRight = 300;
 let boundaryYTop = 125;
 let boundaryYBottom = 350;
+let shirtURL;
 
 const emailjs = require('emailjs-com');
 const aws = require('aws-sdk');
@@ -663,12 +664,13 @@ class Canvas extends React.Component {
       nameOfProject: '',
       email: '',
       message: '',
-        file_text:"",
+      file_text:"",
       file_upload: null,
       link:'',
       errors: false,
       stageExportLink: '',
-      shirtURL: [],
+      shirtParams: [],
+
     }
     this.showSaveAsFormToggle = this.showSaveAsFormToggle.bind(this)
 
@@ -689,11 +691,6 @@ handleContactSubmit(event) {
   event.preventDefault()
 
   this.handleExportClick();
-
- 
-  this.setState({shirtURL: this.props.shirtParams})
-  this.sendEmail(this.state.name,this.state.email,this.state.message,this.props.shirtParams)
-
 }
 
 sendEmail(name,email,message,shirtURL) {
@@ -703,7 +700,7 @@ sendEmail(name,email,message,shirtURL) {
     name: name,
     email: email,
     message: message,
-    shirtURL: shirtURL,
+   shirtURL: shirtURL,
   };
    
   emailjs.send('gmail', 'contact_form', templateParams,'user_9Z15AiUlH6qGAT2Ro6H3m')
@@ -747,7 +744,7 @@ stageExportLinkChange(str){
       ContentDisposition: 'inline;filename="blob"'
   };
   
-  
+ 
   try {
       let uploadPromise = new AWS.S3().putObject(params).promise();
       console.log("Successfully uploaded data to bucket");
@@ -761,6 +758,7 @@ stageExportLinkChange(str){
             'Content-Type': 'application/json'
         }
     }).then(res => res.json()).then(resJSON => {
+      this.sendEmail(this.state.name,this.state.email,this.state.message,'https://' + process.env.REACT_APP_S3_BUCKET + '.s3.amazonaws.com/' + params.Key)
       
            
     }).catch(error => console.error({ 'Error': error }))
@@ -770,13 +768,15 @@ stageExportLinkChange(str){
   }
   
   })
-  
+  console.log(this.state.params)
+  this.sendEmail()
     }
 
 
   handleExportClick(){
-    this.stageExportLinkChange(this.stageRef.getStage().toDataURL());
-    // console.log(this.stageRef.getStage().toDataURL());
+    this.stageExportLinkChange(this.stageRef.getStage().toDataURL()); 
+    
+    
   }
   
 
