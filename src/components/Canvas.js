@@ -28,9 +28,8 @@ class URLImageFront1 extends React.Component {
   };
   componentDidMount() {
     this.loadImage();
-    
-    
   }
+  
   componentDidUpdate(oldProps) {
     if (oldProps.src !== this.props.src) {
       this.loadImage();
