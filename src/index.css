@@ -50,12 +50,33 @@
 
     }
 
+.modal {
+  z-index: 5;
+  position: absolute;
+  top: 100px;
+  left: 200px;
+}
+
+.modalButton {
+position: absolute;
+z-index: 10 !important;
+margin-left: 150px;
+background: #e3f2fd !important;
+color: black !important;
+border: 1px solid black !important;
+border-radius: 5px solid black !important;
+}
     .canvasCol {
       
       margin-top: -40px;
     }
     .logo-choice:hover {
       transform: scale(1.5);
+     }
+
+     .canvasToolbarRow {
+       
+       margin-top: 40px;
      }
 
 

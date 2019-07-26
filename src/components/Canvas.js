@@ -11,6 +11,7 @@ let boundaryYTop = 125;
 let boundaryYBottom = 350;
 let shirtURL;
 
+
 const emailjs = require('emailjs-com');
 const aws = require('aws-sdk');
 var base64ToImage = require('base64-to-image');
@@ -652,6 +653,14 @@ class Shirt extends React.Component {
   }
 }
 
+const display = {
+  display: 'block'
+};
+const hide = {
+  display: 'none'
+};
+
+
 // https://github.com/konvajs/react-konva/issues/256
 class Canvas extends React.Component {
 
@@ -669,8 +678,11 @@ class Canvas extends React.Component {
       errors: false,
       stageExportLink: '',
       shirtParams: [],
+      toggle: false,
 
     }
+
+    this.toggle = this.toggle.bind(this);
     this.showSaveAsFormToggle = this.showSaveAsFormToggle.bind(this)
 
     this.handleContactChange = this.handleContactChange.bind(this)
@@ -681,6 +693,14 @@ class Canvas extends React.Component {
     this.stageExportLinkChange = this.stageExportLinkChange.bind(this)
 
   };
+
+  toggle(event) {
+    this.setState((prevState) => ({
+      toggle: !prevState.toggle
+    }));
+  }
+
+
 
 handleContactChange(event) {
   this.setState({ [event.currentTarget.id]: event.currentTarget.value }) 
@@ -780,9 +800,62 @@ stageExportLinkChange(str){
 
  
   render() {
+
+    var modal = [];
+    modal.push(
+      <div className="modal" style={this.state.toggle ? display : hide}>
+      <div className="modal-content">
+
+      <form className = 'contactForm' onSubmit={this.handleContactSubmit}>
+         
+         <div className = 'form-inline'>
+         <div className = 'form-group'>
+         <label htmlFor="name"><span className = 'contactLabel'>Your Name: </span></label>
+             <input className = 'contactInput' type="text" id="name" name="name" onChange={this.handleContactChange} value={this.state.name}  />  
+             </div>   
+             </div>
+
+             <div className = 'form-inline'>
+         <div className = 'form-group'>
+         <label htmlFor="nameOfProject"><span className = 'contactLabel'>Shirt Name: </span></label>
+             <input className = 'contactInput' type="text" id="nameOfProject" name="nameOfProject" onChange={this.handleContactChange} value={this.state.nameOfProject}  />  
+             </div>   
+             </div>
+
+             <div className = 'form-inline'>
+         <div className = 'form-group'>
+         <label htmlFor="message"><span className = 'contactLabel'>Message: </span></label>
+             <textarea className = 'contactInput' type="text" id="message" name="message" onChange={this.handleContactChange} value={this.state.message}  />  
+             </div>   
+             </div>
+
+             
+
+             <div className = 'form-inline'>
+         <div className = 'form-group'>
+         <label htmlFor="email"><span className = 'contactLabel'>Email: </span></label>
+             <input className = 'contactInput' type="text" id="email" name="email" onChange={this.handleContactChange} value={this.state.email}  />  
+             </div>   
+             </div>
+
+             <div className = 'form-row'>
+               <input className = 'contactSubmit' type="submit" value="Save and email your shirt!"/>
+             </div>
+           
+         </form>
+    
+      </div>
+    </div>
+    );
+
+
     return (
 
+      
+
 <div className = 'canvas-border row'>
+
+
 
     <Stage width={this.props.canvasWidth} height={this.props.canvasHeight} ref={node => { this.stageRef = node}}>
       <Layer>
@@ -833,7 +906,7 @@ stageExportLinkChange(str){
   <Text x={this.props.text3FrontStartingX} y={this.props.text3FrontStartingY} allProps = {this.props}  fontFamily={this.props.currentFontFront3} fontSize={this.props.logoTextFontSizeFront3} fill={this.props.currentLogoTextColorFront3} text={this.props.currentLogoTextFront3} stroke = {this.props.currentLogoTextStrokeFront3} draggable />
 
   
-  <Text x={70} y={650} allProps = {this.props}  fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
+  <Text x={170} y={650} allProps = {this.props}  fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
 
 </>
 ) : (
@@ -879,8 +952,7 @@ stageExportLinkChange(str){
 
   <Text x={this.props.text3BackStartingX} y={this.props.text3BackStartingY} allProps = {this.props}  fontFamily={this.props.currentFontBack3} fontSize={this.props.logoTextFontSizeBack3} fill={this.props.currentLogoTextColorBack3} text={this.props.currentLogoTextBack3} stroke = {this.props.currentLogoTextStrokeBack3} draggable />
 
-
-  <Text allProps = {this.props}  x={70} y={650} fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
+  <Text allProps = {this.props}  x={170} y={650} fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
 
 </>
 )}       
@@ -889,11 +961,17 @@ stageExportLinkChange(str){
   
   <div className = 'row'>
   <p></p>
-    <h6 className = 'saveAndSendButton'><div onClick = {this.showSaveAsFormToggle} className = 'headerText saveAsFormHeaderText'>Save and Email Your Shirt!</div></h6>
 
+  <div>
+        <a className="btn modalButton" onClick={this.toggle}>{this.state.toggle ? 'Close modal' : 'Save and Email Your Shirt!'}</a>
+        {modal}
+        <a href="http://www.automationfuel.com/reactjs-modal/"></a>
+      </div>
+  
          {this.state.showSaveAsForm ? (
   <> 
- <form className = 'contactForm' onSubmit={this.handleContactSubmit}>
+
+ {/* <form className = 'contactForm' onSubmit={this.handleContactSubmit}>
          
          <div className = 'form-inline'>
          <div className = 'form-group'>
@@ -904,8 +982,15 @@ stageExportLinkChange(str){
 
              <div className = 'form-inline'>
          <div className = 'form-group'>
-         <label htmlFor="nameOfProject"><span className = 'contactLabel'>Name of Project: </span></label>
+         <label htmlFor="nameOfProject"><span className = 'contactLabel'>Shirt Name: </span></label>
              <input className = 'contactInput' type="text" id="nameOfProject" name="nameOfProject" onChange={this.handleContactChange} value={this.state.nameOfProject}  />  
+             </div>   
+             </div>
+
+             <div className = 'form-inline'>
+         <div className = 'form-group'>
+         <label htmlFor="message"><span className = 'contactLabel'>Message: </span></label>
+             <textarea className = 'contactInput' type="text" id="message" name="message" onChange={this.handleContactChange} value={this.state.message}  />  
              </div>   
              </div>
 
@@ -922,7 +1007,7 @@ stageExportLinkChange(str){
                <input className = 'contactSubmit' type="submit" value="Save and email your shirt!"/>
              </div>
            
-         </form>
+         </form> */}
   </>
 ):(
 <>
