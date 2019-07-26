@@ -50,6 +50,10 @@
 
     }
 
+    .canvasCol {
+      
+      margin-top: -40px;
+    }
     .logo-choice:hover {
       transform: scale(1.5);
      }

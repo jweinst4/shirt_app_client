@@ -833,11 +833,8 @@ stageExportLinkChange(str){
   <Text x={this.props.text3FrontStartingX} y={this.props.text3FrontStartingY} allProps = {this.props}  fontFamily={this.props.currentFontFront3} fontSize={this.props.logoTextFontSizeFront3} fill={this.props.currentLogoTextColorFront3} text={this.props.currentLogoTextFront3} stroke = {this.props.currentLogoTextStrokeFront3} draggable />
 
   
-  <Text x={70} y={590} allProps = {this.props}  fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
+  <Text x={70} y={650} allProps = {this.props}  fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
 
-  <Text x={70} y={620} allProps = {this.props}  fontSize={20} text={'Logo Text Color Front: ' + this.props.currentLogoTextColorFront}/>
-
-  <Text x={70} y={650} allProps = {this.props}  fontSize={20} text={'Logo Font Front: ' + this.props.currentFontFront}/>
 </>
 ) : (
   <>
@@ -883,11 +880,8 @@ stageExportLinkChange(str){
   <Text x={this.props.text3BackStartingX} y={this.props.text3BackStartingY} allProps = {this.props}  fontFamily={this.props.currentFontBack3} fontSize={this.props.logoTextFontSizeBack3} fill={this.props.currentLogoTextColorBack3} text={this.props.currentLogoTextBack3} stroke = {this.props.currentLogoTextStrokeBack3} draggable />
 
 
-  <Text allProps = {this.props}  x={70} y={590} fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
+  <Text allProps = {this.props}  x={70} y={650} fontSize={20} text={'Shirt Color: ' + this.props.currentShirtColor.name}/>
 
-  <Text allProps = {this.props}  x={70} y={620} fontSize={20} text={'Logo Text Color Back: ' + this.props.currentLogoTextColorBack}/>
-
-  <Text allProps = {this.props}  x={70} y={650} fontSize={20} text={'Logo Font Back: ' + this.props.currentFontBack}/>
 </>
 )}       
       </Layer>

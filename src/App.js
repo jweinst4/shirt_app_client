@@ -1329,7 +1329,7 @@ class App extends React.Component {
               </div>
             </div>
             <div className = 'canvasToolbarRow row'>
-              <div className = 'canvasCol col s12 m12 l8' id='canvasContainer'>
+              <div className = 'canvasCol col s7 m7 l7' id='canvasContainer'>
                 <Route exact path ='/' exact render={() => <Canvas 
                   
                     dragEndFront1X = {this.state.dragEndFront1X}
@@ -1376,7 +1376,7 @@ class App extends React.Component {
                   logo3BackStartingX = {this.state.logo3BackStartingX} logo3BackStartingY = {this.state.logo3BackStartingY} logo3BackWidth = {this.state.logo3BackWidth} logo3BackHeight = {this.state.logo3BackHeight} currentLogoBack3={this.state.currentLogoBack3}  currentFontBack3={this.state.currentFontBack3} currentLogoTextBack3={this.state.currentLogoTextBack3} currentLogoTextColorBack3={this.state.currentLogoTextColorBack3} currentLogoTextStrokeBack3={this.state.currentLogoTextStrokeBack3} text3BackStartingX = {this.state.text3BackStartingX} text3BackStartingY = {this.state.text3BackStartingY}  logoTextFontSizeBack3 = {this.state.logoTextFontSizeBack3}
                 /> }/>
               </div>
-              <div className = 'toolbarCol col s12 m12 l4'>
+              <div className = 'toolbarCol col s5 m5 l5'>
                 <Route exact path ='/' exact render={() => <ToolBar 
                 handleAddLogo = {this.handleAddLogo}
                 stageExportLink={this.state.stageExportLink}
