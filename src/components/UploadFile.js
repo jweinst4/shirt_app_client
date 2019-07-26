@@ -58,7 +58,7 @@ try {
     fetch(baseURL + '/logos', {
       method: 'POST',
       body: JSON.stringify({
-          name: 'https://' + process.env.REACT_APP_S3_BUCKET + '.s3.amazonaws.com/' + params.Key,
+          name: 'http://' + process.env.REACT_APP_S3_BUCKET + '.s3.amazonaws.com/' + params.Key,
           user_id: 1,
       }),
       headers: {
