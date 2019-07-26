@@ -712,14 +712,60 @@ handleContactSubmit(event) {
   this.handleExportClick();
 }
 
-sendEmail(name,email,message,shirtURL) {
+sendEmail(name,email,message,shirtURL,dragEndFront1X,dragEndFront1Y,dragEndFront2X,dragEndFront2Y,dragEndFront3X,dragEndFront3Y,dragEndBack1X,dragEndBack1Y,dragEndBack2X,dragEndBack2Y,dragEndBack3X,dragEndBack3Y,shirtWidth,shirtHeight,canvasWidth,canvasHeight,currentShirtColorURL,currentLogoFront1,currentLogoFront2,currentLogoFront3,logo1FrontWidth,logo1FrontHeight,logo2FrontWidth,logo2FrontHeight,logo3FrontWidth,logo3FrontHeight,text1FrontStartingX,text1FrontStartingY,currentFontFront1,logoTextFontSizeFront1,currentLogoTextColorFront1,currentLogoTextFront1,currentLogoTextStrokeFront1,text2FrontStartingX,text2FrontStartingY,currentFontFront2,logoTextFontSizeFront2,currentLogoTextColorFront2,currentLogoTextFront2,currentLogoTextStrokeFront2,text3FrontStartingX,text3FrontStartingY,currentFontFront3,logoTextFontSizeFront3,currentLogoTextColorFront3,currentLogoTextFront3,currentLogoTextStrokeFront3,text1BackStartingX,text1BackStartingY,currentFontBack1,logoTextFontSizeBack1,currentLogoTextColorBack1,currentLogoTextBack1,currentLogoTextStrokeBack1,text2BackStartingX,text2BackStartingY,currentFontBack2,logoTextFontSizeBack2,currentLogoTextColorBack2,currentLogoTextBack2,currentLogoTextStrokeBack2,text3BackStartingX,text3BackStartingY,curretFontBack3,logoTextFontSizeBack3,currentLogoTextColorBack3,currentLogoTextBack3,currentLogoTextStrokeBack3,currentShirtColorName)
 
-
+{
   var templateParams = {
     name: name,
     email: email,
     message: message,
    shirtURL: shirtURL,
+   dragEndFront1X: dragEndFront1X,
+   dragEndFront1Y: dragEndFront1Y,
+   dragEndFront2X: dragEndFront2X,
+   dragEndFront2Y: dragEndFront2Y,
+   dragEndFront3X: dragEndFront3X,
+   dragEndFront3Y: dragEndFront3Y,
+   dragEndBack1X: dragEndBack1X,
+   dragEndBack1Y: dragEndBack1Y,
+   dragEndBack2X: dragEndBack2X,
+   dragEndBack2Y: dragEndBack2Y,
+   dragEndBack3X: dragEndBack3X,
+   dragEndBack3Y: dragEndBack3Y,
+   shirtWidth: shirtWidth,
+   shirtHeight: shirtHeight,
+   canvasWidth: canvasWidth,
+   canvasHeight: canvasHeight,
+   currentShirtColorURL:currentShirtColorURL,
+   currentLogoFront1:currentLogoFront1,
+   currentLogoFront2:currentLogoFront2,
+   currentLogoFront3:currentLogoFront3,
+   logo1FrontWidth:logo1FrontWidth,
+   logo1FrontHeight: logo1FrontHeight,
+   logo2FrontWidth:logo2FrontWidth,
+   logo2FrontHeight: logo2FrontHeight,
+   logo3FrontWidth:logo3FrontWidth,
+   logo3FrontHeight: logo3FrontHeight,
+   text1FrontStartingX:text1FrontStartingX,
+   text1FrontStartingY:text1FrontStartingY,
+   currentFontFront1:currentFontFront1,
+   logoTextFontSizeFront1:logoTextFontSizeFront1,
+   currentLogoTextColorFront1:currentLogoTextColorFront1,currentLogoTextFront1:currentLogoTextFront1,currentLogoTextStrokeFront1:currentLogoTextStrokeFront1,text2FrontStartingX:text2FrontStartingX,
+   text2FrontStartingY:text2FrontStartingY,
+   currentFontFront2:currentFontFront2,
+   logoTextFontSizeFront2:logoTextFontSizeFront2,currentLogoTextColorFront2:currentLogoTextColorFront2,currentLogoTextFront2:currentLogoTextFront2,currentLogoTextStrokeFront2:currentLogoTextStrokeFront2,text3FrontStartingX:text3FrontStartingX,
+   text3FrontStartingY:text3FrontStartingY,
+   currentFontFront3:currentFontFront3,
+   logoTextFontSizeFront3:logoTextFontSizeFront3,currentLogoTextColorFront3:currentLogoTextColorFront3,currentLogoTextFront3:currentLogoTextFront3,currentLogoTextStrokeFront3:currentLogoTextStrokeFront3,text1BackStartingX:text1BackStartingX,
+   text1BackStartingY:text1BackStartingY,
+   currentFontBack1:currentFontBack1,
+   logoTextFontSizeBack1:logoTextFontSizeBack1,currentLogoTextColorBack1:currentLogoTextColorBack1,currentLogoTextBack1:currentLogoTextBack1,currentLogoTextStrokeBack1:currentLogoTextStrokeBack1,text2BackStartingX:text2BackStartingX,
+   text2BackStartingY:text2BackStartingY,
+   currentFontBack2:currentFontBack2,
+   logoTextFontSizeBack2:logoTextFontSizeBack2,currentLogoTextColorBack2:currentLogoTextColorBack2,currentLogoTextBack2:currentLogoTextBack2,currentLogoTextStrokeBack2:currentLogoTextStrokeBack2,text3BackStartingX:text3BackStartingX,
+   text3BackStartingY:text3BackStartingY,
+   curretFontBack3:curretFontBack3,
+   logoTextFontSizeBack3:logoTextFontSizeBack3,currentLogoTextColorBack3:currentLogoTextColorBack3,currentLogoTextBack3:currentLogoTextBack3,currentLogoTextStrokeBack3:currentLogoTextStrokeBack3,currentShirtColorName:currentShirtColorName,  
   };
    
   emailjs.send('gmail', 'contact_form', templateParams,'user_9Z15AiUlH6qGAT2Ro6H3m')
@@ -777,9 +823,8 @@ stageExportLinkChange(str){
             'Content-Type': 'application/json'
         }
     }).then(res => res.json()).then(resJSON => {
-      this.sendEmail(this.state.name,this.state.email,this.state.message,'https://' + process.env.REACT_APP_S3_BUCKET + '.s3.amazonaws.com/' + params.Key)
-      
-           
+
+      this.sendEmail(this.state.name,this.state.email,this.state.message,'https://' + process.env.REACT_APP_S3_BUCKET + '.s3.amazonaws.com/' + params.Key,this.props.dragEndFront1X,this.props.dragEndFront1Y,this.props.dragEndFront2X,this.props.dragEndFront2Y,this.props.dragEndFront3X,this.props.dragEndFront3Y,this.props.dragEndBack1X,this.props.dragEndBack1Y,this.props.dragEndBack2X,this.props.dragEndBack2Y,this.props.dragEndBack3X,this.props.dragEndBack3Y,this.props.shirtWidth,this.props.shirtHeight,this.props.canvasWidth,this.props.canvasHeight,this.props.currentShirtColor.url,this.props.currentLogoFront1,this.props.currentLogoFront2,this.props.currentLogoFront3,this.props.logo1FrontWidth,this.props.logo1FrontHeight,this.props.logo2FrontWidth,this.props.logo2FrontHeight,this.props.logo3FrontWidth,this.props.logo3FrontHeight,this.props.text1FrontStartingX,this.props.text1FrontStartingY,this.props.currentFontFront1,this.props.logoTextFontSizeFront1,this.props.currentLogoTextColorFront1,this.props.currentLogoTextFront1,this.props.currentLogoTextStrokeFront1,this.props.text2FrontStartingX,this.props.text2FrontStartingY,this.props.currentFontFront2,this.props.logoTextFontSizeFront2,this.props.currentLogoTextColorFront2,this.props.currentLogoTextFront2,this.props.currentLogoTextStrokeFront2,this.props.text3FrontStartingX,this.props.text3FrontStartingY,this.props.currentFontFront3,this.props.logoTextFontSizeFront3,this.props.currentLogoTextColorFront3,this.props.currentLogoTextFront3,this.props.currentLogoTextStrokeFront3,this.props.text1BackStartingX,this.props.text1BackStartingY,this.props.currentFontBack1,this.props.logoTextFontSizeBack1,this.props.currentLogoTextColorBack1,this.props.currentLogoTextBack1,this.props.currentLogoTextStrokeBack1,this.props.text2BackStartingX,this.props.text2BackStartingY,this.props.currentFontBack2,this.props.logoTextFontSizeBack2,this.props.currentLogoTextColorBack2,this.props.currentLogoTextBack2,this.props.currentLogoTextStrokeBack2,this.props.text3BackStartingX,this.props.text3BackStartingY,this.props.curretFontBack3,this.props.logoTextFontSizeBack3,this.props.currentLogoTextColorBack3,this.props.currentLogoTextBack3,this.props.currentLogoTextStrokeBack3,this.props.currentShirtColor.name,this.props.currentShirtColor.backURL)
     }).catch(error => console.error({ 'Error': error }))
     
   } catch (e) {
@@ -967,54 +1012,6 @@ stageExportLinkChange(str){
         {modal}
         <a href="http://www.automationfuel.com/reactjs-modal/"></a>
       </div>
-  
-         {this.state.showSaveAsForm ? (
-  <> 
-
- {/* <form className = 'contactForm' onSubmit={this.handleContactSubmit}>
-         
-         <div className = 'form-inline'>
-         <div className = 'form-group'>
-         <label htmlFor="name"><span className = 'contactLabel'>Your Name: </span></label>
-             <input className = 'contactInput' type="text" id="name" name="name" onChange={this.handleContactChange} value={this.state.name}  />  
-             </div>   
-             </div>
-
-             <div className = 'form-inline'>
-         <div className = 'form-group'>
-         <label htmlFor="nameOfProject"><span className = 'contactLabel'>Shirt Name: </span></label>
-             <input className = 'contactInput' type="text" id="nameOfProject" name="nameOfProject" onChange={this.handleContactChange} value={this.state.nameOfProject}  />  
-             </div>   
-             </div>
-
-             <div className = 'form-inline'>
-         <div className = 'form-group'>
-         <label htmlFor="message"><span className = 'contactLabel'>Message: </span></label>
-             <textarea className = 'contactInput' type="text" id="message" name="message" onChange={this.handleContactChange} value={this.state.message}  />  
-             </div>   
-             </div>
-
-             
-
-             <div className = 'form-inline'>
-         <div className = 'form-group'>
-         <label htmlFor="email"><span className = 'contactLabel'>Email: </span></label>
-             <input className = 'contactInput' type="text" id="email" name="email" onChange={this.handleContactChange} value={this.state.email}  />  
-             </div>   
-             </div>
-
-             <div className = 'form-row'>
-               <input className = 'contactSubmit' type="submit" value="Save and email your shirt!"/>
-             </div>
-           
-         </form> */}
-  </>
-):(
-<>
-
-</>
-)}
-   
   </div>
 
   </div>
