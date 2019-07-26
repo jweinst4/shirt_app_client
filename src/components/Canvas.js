@@ -768,7 +768,6 @@ stageExportLinkChange(str){
   
   })
   console.log(this.state.params)
-  this.sendEmail()
     }
 
 
