@@ -8,6 +8,10 @@
   border-bottom: 10px double #e3f2fd;
 }
 
+body {
+  font-family: 'Bio Rhyme bold';
+}
+
 
 .topCol {
   height: 50px;
@@ -60,9 +64,11 @@
 .modalButton {
 position: absolute;
 z-index: 10 !important;
-margin-left: 150px;
+margin-left: 100px;
 background: #e3f2fd !important;
 color: black !important;
+font-weight: 800 !important;
+font-size: 20px !important;
 border: 1px solid black !important;
 border-radius: 5px solid black !important;
 }
