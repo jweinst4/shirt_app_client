@@ -42,6 +42,7 @@ class URLImageFront1 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -137,6 +138,7 @@ class URLImageFront2 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -231,6 +233,7 @@ class URLImageFront3 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -326,6 +329,7 @@ class URLImageBack1 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -421,6 +425,7 @@ class URLImageBack2 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -516,6 +521,7 @@ class URLImageBack3 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
+    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -613,8 +619,10 @@ class Shirt extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();   
+    this.image.setAttribute('crossOrigin','anonymous'); 
     this.image.src = this.props.src;
-    this.image.addEventListener('load', this.handleLoad); 
+    this.image.addEventListener('load', this.handleLoad);
+      
   }
   handleLoad = () => {
     // after setState react-konva will update canvas and redraw the layer
