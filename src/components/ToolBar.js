@@ -131,6 +131,7 @@ handleLogoTextChange(event) {
     else {
 
     }
+
     this.setState({logoText: ''})    
 }
 
