@@ -42,7 +42,6 @@ class URLImageFront1 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
-    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -138,7 +137,6 @@ class URLImageFront2 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
-    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -233,7 +231,6 @@ class URLImageFront3 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
-    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -329,7 +326,6 @@ class URLImageBack1 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
-    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -425,7 +421,6 @@ class URLImageBack2 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
-    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -521,7 +516,6 @@ class URLImageBack3 extends React.Component {
   loadImage() {
     // save to "this" to remove "load" handler on unmount
     this.image = new window.Image();
-    this.image.setAttribute('crossOrigin','anonymous')
     this.image.src = this.props.src;
     this.image.addEventListener('load', this.handleLoad);
   }
@@ -618,10 +612,9 @@ class Shirt extends React.Component {
   }
   loadImage() {
     // save to "this" to remove "load" handler on unmount
-    this.image = new window.Image();
-    this.image.setAttribute('crossOrigin','anonymous')
+    this.image = new window.Image();   
     this.image.src = this.props.src;
-    this.image.addEventListener('load', this.handleLoad);
+    this.image.addEventListener('load', this.handleLoad); 
   }
   handleLoad = () => {
     // after setState react-konva will update canvas and redraw the layer
@@ -908,11 +901,11 @@ stageExportLinkChange(str){
 {this.props.front ? (
  <>
 
-      <Shirt crossOrigin = 'Anonymous' allProps = {this.props}  src= {this.props.currentShirtColor.url}/>
+      <Shirt allProps = {this.props}  src= {this.props.currentShirtColor.url}/>
 
     {this.props.currentLogoFront1 !== '' ? (
         <>
-          <URLImageFront1 crossOrigin = 'Anonymous' allProps = {this.props} src={this.props.currentLogoFront1} x = {this.props.dragEndFront1X} y = {this.props.dragEndFront1Y}/>
+          <URLImageFront1 allProps = {this.props} src={this.props.currentLogoFront1} x = {this.props.dragEndFront1X} y = {this.props.dragEndFront1Y}/>
         </>
       ):(
         <>
@@ -923,7 +916,7 @@ stageExportLinkChange(str){
   
   {this.props.currentLogoFront2 !== '' ? (
         <>
-          <URLImageFront2 crossOrigin = 'Anonymous' allProps = {this.props} src={this.props.currentLogoFront2}   x = {this.props.dragEndFront2X} y = {this.props.dragEndFront2Y}/>
+          <URLImageFront2 allProps = {this.props} src={this.props.currentLogoFront2}   x = {this.props.dragEndFront2X} y = {this.props.dragEndFront2Y}/>
         </>
       ):(
         <>
@@ -934,7 +927,7 @@ stageExportLinkChange(str){
 
 {this.props.currentLogoFront3 !== '' ? (
         <>
-          <URLImageFront3 crossOrigin = 'Anonymous' allProps = {this.props} src={this.props.currentLogoFront3}  x = {this.props.dragEndFront3X} y = {this.props.dragEndFront3Y}/>
+          <URLImageFront3 allProps = {this.props} src={this.props.currentLogoFront3}  x = {this.props.dragEndFront3X} y = {this.props.dragEndFront3Y}/>
         </>
       ):(
         <>
@@ -956,11 +949,11 @@ stageExportLinkChange(str){
 </>
 ) : (
   <>
-  <Shirt crossOrigin = 'Anonymous' allProps = {this.props}  src= {this.props.currentShirtColor.backURL}/>
+  <Shirt allProps = {this.props}  src= {this.props.currentShirtColor.backURL}/>
 
   {this.props.currentLogoBack1 !== '' ? (
         <>
-          <URLImageBack1 crossOrigin = 'Anonymous' allProps = {this.props} src={this.props.currentLogoBack1}  x = {this.props.dragEndBack1X} y = {this.props.dragEndBack1Y}/>
+          <URLImageBack1 allProps = {this.props} src={this.props.currentLogoBack1}  x = {this.props.dragEndBack1X} y = {this.props.dragEndBack1Y}/>
         </>
       ):(
         <>
@@ -971,7 +964,7 @@ stageExportLinkChange(str){
   
   {this.props.currentLogoBack2 !== '' ? (
         <>
-          <URLImageBack2 crossOrigin = 'Anonymous' allProps = {this.props} src={this.props.currentLogoBack2}  x = {this.props.dragEndBack2X} y = {this.props.dragEndBack2Y}/>
+          <URLImageBack2 allProps = {this.props} src={this.props.currentLogoBack2}  x = {this.props.dragEndBack2X} y = {this.props.dragEndBack2Y}/>
         </>
       ):(
         <>
@@ -982,7 +975,7 @@ stageExportLinkChange(str){
 
 {this.props.currentLogoBack3 !== '' ? (
         <>
-          <URLImageBack3 crossOrigin = 'Anonymous' allProps = {this.props} src={this.props.currentLogoBack3}  x = {this.props.dragEndBack3X} y = {this.props.dragEndBack3Y}/>
+          <URLImageBack3 allProps = {this.props} src={this.props.currentLogoBack3}  x = {this.props.dragEndBack3X} y = {this.props.dragEndBack3Y}/>
         </>
       ):(
         <>
